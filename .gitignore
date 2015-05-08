@@ -1,0 +1,12 @@
+#   Se ignora     #
+###################
+
+#Para LTSpice
+*.raw
+*.log
+
+
+
+#General
+*.*~
+
