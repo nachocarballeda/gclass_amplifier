@@ -1,0 +1,96 @@
+\documentclass[a4paper,12pt,twoside]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} %para insertar graficos/imagenes
+\usepackage{amsmath} %para escribir matrices
+\usepackage{amsfonts} %para poner \mathbb
+\usepackage{float} %me deja usar la H de 'here' en los graficos para ponerlos donde yo quiera
+\usepackage{anysize} %me permite definir los margenes como quiera
+\usepackage{multirow} %para tablas con multicolumna
+\usepackage{fancyhdr} % activamos el paquete
+\usepackage{dcolumn}
+\usepackage{multirow}
+
+\usepackage{fixme}
+\fxsetup{
+    status=draft,
+    author=,
+    layout=inline, % also try footnote or pdfnote
+}
+
+\newcommand{\grad}{$^\circ$}
+
+\newcommand{\codigoMateria}{66.10}
+\newcommand{\nombreMateria}{Circuitos Electronicos II}
+\newcommand{\nroTP}{1}
+\newcommand{\descripcionTP}{Informe de Laboratorio}
+\newcommand{\tituloTP}{Trabajo}
+\newcommand{\facultad}{Facultad de Ingeniería}
+\newcommand{\universidad}{Universidad de Buenos Aires}
+\newcommand{\docentes}{Alberto Bertuccio\\Federico DAngiolo}
+
+\pagestyle{fancy} % seleccionamos un estilo
+\fancyhead{}
+\fancyfoot{}
+\lhead{\nombreMateria \, (\codigoMateria)} % texto izquierda de la cabecera
+\rhead{\facultad} % texto centro de la cabecera
+\cfoot{\thepage}
+
+\marginsize{2cm}{2cm}{1cm}{1.5cm} %izquierda, derecha, arriba, abajo
+
+\newcommand{\Direcrotio}{./}
+\newcommand{\HRule}{\rule{\linewidth}{1mm}}
+
+
+\newenvironment{items}{
+\begin{itemize}
+  \renewcommand{\labelitemi}{$\bullet$}
+  \setlength{\itemsep}{3pt}
+  \setlength{\parskip}{1pt}
+  \setlength{\parsep}{1pt}
+}{
+\end{itemize}}
+
+
+
+\begin{document}
+
+\include{caratula}
+
+\newpage
+\vfill
+\tableofcontents
+\vfill
+
+\newpage
+
+\section{Desarrollo}
+
+La arquitectura de los amplificadores esta compuesta generalmente de tres etapas principales, una primer etapa donde entra la señal, se realimenta negativamente la señal de salida y ademas cuenta con un factor de ganancia pequeño; la segunda etapa es de amplificación de tensión y por último la etapa de salida que corresponde a un buffer de corriente.
+
+A partir de la lectura del libro de Douglas-Self sobre el diceño del amplificador clase G pudimos identificar las partes principales que componen el circuito. Como se observa en el siguiente diagrama en bloques.
+
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[scale=0.3]{img/bloques1}
+%	\caption{Diagrama en bloques del amplificador clase G}
+%	\label{fig.1}
+%\end{figure}
+
+Proponemos diseñar un circuito que cumpla con las partes principales que se pudieron identificar como así también las especificaciones que decidimos y esperamos llegar a un circuito semejante al que sepuede ver a continuación aunque desde un desarrollo propio.
+
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[scale=0.75]{img/claseg}
+%	\caption{Diagrama en bloques del amplificador clase G}
+%	\label{fig.1}
+%\end{figure}
+
+
+
+
+
+
+
+
+\end{document}
