@@ -1,0 +1,714 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:special
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:amplificador_gclass-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 2 2
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Q_PNP_EBC Q?
+U 1 1 555E6966
+P 3300 1350
+AR Path="/555E676F/555E6966" Ref="Q?"  Part="1" 
+AR Path="/555EA7C6/555E6966" Ref="Q13"  Part="1" 
+F 0 "Q13" H 3600 1400 50  0000 R CNN
+F 1 "Q_PNP_EBC" H 3900 1300 50  0000 R CNN
+F 2 "Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal" H 3500 1450 29  0001 C CNN
+F 3 "" H 3300 1350 60  0000 C CNN
+	1    3300 1350
+	-1   0    0    1   
+$EndComp
+$Comp
+L Q_PNP_EBC Q?
+U 1 1 555E6967
+P 3900 1350
+AR Path="/555E676F/555E6967" Ref="Q?"  Part="1" 
+AR Path="/555EA7C6/555E6967" Ref="Q15"  Part="1" 
+F 0 "Q15" H 4200 1400 50  0000 R CNN
+F 1 "Q_PNP_EBC" H 4500 1300 50  0000 R CNN
+F 2 "Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal" H 4100 1450 29  0001 C CNN
+F 3 "" H 3900 1350 60  0000 C CNN
+	1    3900 1350
+	1    0    0    1   
+$EndComp
+$Comp
+L R R?
+U 1 1 555E6968
+P 3200 1900
+AR Path="/555E676F/555E6968" Ref="R?"  Part="1" 
+AR Path="/555EA7C6/555E6968" Ref="R15"  Part="1" 
+F 0 "R15" V 3280 1900 50  0000 C CNN
+F 1 "R" V 3200 1900 50  0000 C CNN
+F 2 "Resistors_SMD:R_0201" V 3130 1900 30  0001 C CNN
+F 3 "" H 3200 1900 30  0000 C CNN
+	1    3200 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L D D?
+U 1 1 555E6969
+P 4550 1850
+AR Path="/555E676F/555E6969" Ref="D?"  Part="1" 
+AR Path="/555EA7C6/555E6969" Ref="D3"  Part="1" 
+F 0 "D3" H 4550 1950 50  0000 C CNN
+F 1 "D" H 4550 1750 50  0000 C CNN
+F 2 "Diodes_ThroughHole:Diode_DO-35_SOD27_Horizontal_RM10" H 4550 1850 60  0001 C CNN
+F 3 "" H 4550 1850 60  0000 C CNN
+	1    4550 1850
+	-1   0    0    1   
+$EndComp
+$Comp
+L D_Schottky D?
+U 1 1 555E696A
+P 4000 2350
+AR Path="/555E676F/555E696A" Ref="D?"  Part="1" 
+AR Path="/555EA7C6/555E696A" Ref="D1"  Part="1" 
+F 0 "D1" H 4000 2450 50  0000 C CNN
+F 1 "D_Schottky" H 4000 2250 50  0000 C CNN
+F 2 "Diodes_ThroughHole:Diode_DO-35_SOD27_Horizontal_RM10" H 4000 2350 60  0001 C CNN
+F 3 "" H 4000 2350 60  0000 C CNN
+	1    4000 2350
+	0    1    1    0   
+$EndComp
+$Comp
+L R R?
+U 1 1 555E696B
+P 4300 2550
+AR Path="/555E676F/555E696B" Ref="R?"  Part="1" 
+AR Path="/555EA7C6/555E696B" Ref="R17"  Part="1" 
+F 0 "R17" V 4380 2550 50  0000 C CNN
+F 1 "R" V 4300 2550 50  0000 C CNN
+F 2 "Resistors_SMD:R_0201" V 4230 2550 30  0001 C CNN
+F 3 "" H 4300 2550 30  0000 C CNN
+	1    4300 2550
+	0    1    1    0   
+$EndComp
+$Comp
+L Q_NPN_ECB Q?
+U 1 1 555E696C
+P 5250 1850
+AR Path="/555E676F/555E696C" Ref="Q?"  Part="1" 
+AR Path="/555EA7C6/555E696C" Ref="Q21"  Part="1" 
+F 0 "Q21" H 5550 1900 50  0000 R CNN
+F 1 "Q_NPN_ECB" H 5850 1800 50  0000 R CNN
+F 2 "Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal" H 5450 1950 29  0001 C CNN
+F 3 "" H 5250 1850 60  0000 C CNN
+	1    5250 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Q_NPN_ECB Q?
+U 1 1 555E696D
+P 5850 2050
+AR Path="/555E676F/555E696D" Ref="Q?"  Part="1" 
+AR Path="/555EA7C6/555E696D" Ref="Q23"  Part="1" 
+F 0 "Q23" H 6150 2100 50  0000 R CNN
+F 1 "Q_NPN_ECB" H 6450 2000 50  0000 R CNN
+F 2 "Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal" H 6050 2150 29  0001 C CNN
+F 3 "" H 5850 2050 60  0000 C CNN
+	1    5850 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 555E696E
+P 5350 2200
+AR Path="/555E676F/555E696E" Ref="R?"  Part="1" 
+AR Path="/555EA7C6/555E696E" Ref="R24"  Part="1" 
+F 0 "R24" V 5430 2200 50  0000 C CNN
+F 1 "R" V 5350 2200 50  0000 C CNN
+F 2 "Resistors_SMD:R_0201" V 5280 2200 30  0001 C CNN
+F 3 "" H 5350 2200 30  0000 C CNN
+	1    5350 2200
+	-1   0    0    1   
+$EndComp
+$Comp
+L D D?
+U 1 1 555E696F
+P 6300 2500
+AR Path="/555E676F/555E696F" Ref="D?"  Part="1" 
+AR Path="/555EA7C6/555E696F" Ref="D5"  Part="1" 
+F 0 "D5" H 6300 2600 50  0000 C CNN
+F 1 "D" H 6300 2400 50  0000 C CNN
+F 2 "Diodes_ThroughHole:Diode_DO-35_SOD27_Horizontal_RM10" H 6300 2500 60  0001 C CNN
+F 3 "" H 6300 2500 60  0000 C CNN
+	1    6300 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Q_NPN_ECB Q?
+U 1 1 555E6970
+P 4100 3200
+AR Path="/555E676F/555E6970" Ref="Q?"  Part="1" 
+AR Path="/555EA7C6/555E6970" Ref="Q17"  Part="1" 
+F 0 "Q17" H 4400 3250 50  0000 R CNN
+F 1 "Q_NPN_ECB" H 4700 3150 50  0000 R CNN
+F 2 "Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal" H 4300 3300 29  0001 C CNN
+F 3 "" H 4100 3200 60  0000 C CNN
+	1    4100 3200
+	-1   0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 555E6971
+P 4450 3000
+AR Path="/555E676F/555E6971" Ref="R?"  Part="1" 
+AR Path="/555EA7C6/555E6971" Ref="R19"  Part="1" 
+F 0 "R19" V 4530 3000 50  0000 C CNN
+F 1 "R" V 4450 3000 50  0000 C CNN
+F 2 "Resistors_SMD:R_0201" V 4380 3000 30  0001 C CNN
+F 3 "" H 4450 3000 30  0000 C CNN
+	1    4450 3000
+	-1   0    0    1   
+$EndComp
+$Comp
+L C C?
+U 1 1 555E6972
+P 3650 2900
+AR Path="/555E676F/555E6972" Ref="C?"  Part="1" 
+AR Path="/555EA7C6/555E6972" Ref="C5"  Part="1" 
+F 0 "C5" H 3675 3000 50  0000 L CNN
+F 1 "C" H 3675 2800 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0201" H 3688 2750 30  0001 C CNN
+F 3 "" H 3650 2900 60  0000 C CNN
+	1    3650 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Q_NPN_ECB Q?
+U 1 1 555E6973
+P 4850 2550
+AR Path="/555E676F/555E6973" Ref="Q?"  Part="1" 
+AR Path="/555EA7C6/555E6973" Ref="Q19"  Part="1" 
+F 0 "Q19" H 5150 2600 50  0000 R CNN
+F 1 "Q_NPN_ECB" H 5450 2500 50  0000 R CNN
+F 2 "Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal" H 5050 2650 29  0001 C CNN
+F 3 "" H 4850 2550 60  0000 C CNN
+	1    4850 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 555E6974
+P 4450 3550
+AR Path="/555E676F/555E6974" Ref="R?"  Part="1" 
+AR Path="/555EA7C6/555E6974" Ref="R20"  Part="1" 
+F 0 "R20" V 4530 3550 50  0000 C CNN
+F 1 "R" V 4450 3550 50  0000 C CNN
+F 2 "Resistors_SMD:R_0201" V 4380 3550 30  0001 C CNN
+F 3 "" H 4450 3550 30  0000 C CNN
+	1    4450 3550
+	-1   0    0    1   
+$EndComp
+Text GLabel 6300 900  2    60   Input ~ 0
++VA
+$Comp
+L R R?
+U 1 1 555E6975
+P 4950 3250
+AR Path="/555E676F/555E6975" Ref="R?"  Part="1" 
+AR Path="/555EA7C6/555E6975" Ref="R22"  Part="1" 
+F 0 "R22" V 5030 3250 50  0000 C CNN
+F 1 "R" V 4950 3250 50  0000 C CNN
+F 2 "Resistors_SMD:R_0201" V 4880 3250 30  0001 C CNN
+F 3 "" H 4950 3250 30  0000 C CNN
+	1    4950 3250
+	-1   0    0    1   
+$EndComp
+$Comp
+L Q_NPN_ECB Q?
+U 1 1 555E6976
+P 5850 2950
+AR Path="/555E676F/555E6976" Ref="Q?"  Part="1" 
+AR Path="/555EA7C6/555E6976" Ref="Q24"  Part="1" 
+F 0 "Q24" H 6150 3000 50  0000 R CNN
+F 1 "Q_NPN_ECB" H 6450 2900 50  0000 R CNN
+F 2 "Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal" H 6050 3050 29  0001 C CNN
+F 3 "" H 5850 2950 60  0000 C CNN
+	1    5850 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 555E6977
+P 5950 3300
+AR Path="/555E676F/555E6977" Ref="R?"  Part="1" 
+AR Path="/555EA7C6/555E6977" Ref="R26"  Part="1" 
+F 0 "R26" V 6030 3300 50  0000 C CNN
+F 1 "R" V 5950 3300 50  0000 C CNN
+F 2 "Resistors_SMD:R_0201" V 5880 3300 30  0001 C CNN
+F 3 "" H 5950 3300 30  0000 C CNN
+	1    5950 3300
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R?
+U 1 1 555E6978
+P 3200 5200
+AR Path="/555E676F/555E6978" Ref="R?"  Part="1" 
+AR Path="/555EA7C6/555E6978" Ref="R16"  Part="1" 
+F 0 "R16" V 3280 5200 50  0000 C CNN
+F 1 "R" V 3200 5200 50  0000 C CNN
+F 2 "Resistors_SMD:R_0201" V 3130 5200 30  0001 C CNN
+F 3 "" H 3200 5200 30  0000 C CNN
+	1    3200 5200
+	1    0    0    1   
+$EndComp
+$Comp
+L D D?
+U 1 1 555E6979
+P 4550 5250
+AR Path="/555E676F/555E6979" Ref="D?"  Part="1" 
+AR Path="/555EA7C6/555E6979" Ref="D4"  Part="1" 
+F 0 "D4" H 4550 5350 50  0000 C CNN
+F 1 "D" H 4550 5150 50  0000 C CNN
+F 2 "Diodes_ThroughHole:Diode_DO-35_SOD27_Horizontal_RM10" H 4550 5250 60  0001 C CNN
+F 3 "" H 4550 5250 60  0000 C CNN
+	1    4550 5250
+	1    0    0    1   
+$EndComp
+$Comp
+L D_Schottky D?
+U 1 1 555E697A
+P 4000 4750
+AR Path="/555E676F/555E697A" Ref="D?"  Part="1" 
+AR Path="/555EA7C6/555E697A" Ref="D2"  Part="1" 
+F 0 "D2" H 4000 4850 50  0000 C CNN
+F 1 "D_Schottky" H 4000 4650 50  0000 C CNN
+F 2 "Diodes_ThroughHole:Diode_DO-35_SOD27_Horizontal_RM10" H 4000 4750 60  0001 C CNN
+F 3 "" H 4000 4750 60  0000 C CNN
+	1    4000 4750
+	0    -1   1    0   
+$EndComp
+$Comp
+L R R?
+U 1 1 555E697B
+P 4300 4550
+AR Path="/555E676F/555E697B" Ref="R?"  Part="1" 
+AR Path="/555EA7C6/555E697B" Ref="R18"  Part="1" 
+F 0 "R18" V 4380 4550 50  0000 C CNN
+F 1 "R" V 4300 4550 50  0000 C CNN
+F 2 "Resistors_SMD:R_0201" V 4230 4550 30  0001 C CNN
+F 3 "" H 4300 4550 30  0000 C CNN
+	1    4300 4550
+	0    1    -1   0   
+$EndComp
+$Comp
+L R R?
+U 1 1 555E697C
+P 5350 4900
+AR Path="/555E676F/555E697C" Ref="R?"  Part="1" 
+AR Path="/555EA7C6/555E697C" Ref="R25"  Part="1" 
+F 0 "R25" V 5430 4900 50  0000 C CNN
+F 1 "R" V 5350 4900 50  0000 C CNN
+F 2 "Resistors_SMD:R_0201" V 5280 4900 30  0001 C CNN
+F 3 "" H 5350 4900 30  0000 C CNN
+	1    5350 4900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L D D?
+U 1 1 555E697D
+P 6300 4600
+AR Path="/555E676F/555E697D" Ref="D?"  Part="1" 
+AR Path="/555EA7C6/555E697D" Ref="D6"  Part="1" 
+F 0 "D6" H 6300 4700 50  0000 C CNN
+F 1 "D" H 6300 4500 50  0000 C CNN
+F 2 "Diodes_ThroughHole:Diode_DO-35_SOD27_Horizontal_RM10" H 6300 4600 60  0001 C CNN
+F 3 "" H 6300 4600 60  0000 C CNN
+	1    6300 4600
+	-1   0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 555E697E
+P 4450 4100
+AR Path="/555E676F/555E697E" Ref="R?"  Part="1" 
+AR Path="/555EA7C6/555E697E" Ref="R21"  Part="1" 
+F 0 "R21" V 4530 4100 50  0000 C CNN
+F 1 "R" V 4450 4100 50  0000 C CNN
+F 2 "Resistors_SMD:R_0201" V 4380 4100 30  0001 C CNN
+F 3 "" H 4450 4100 30  0000 C CNN
+	1    4450 4100
+	-1   0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 555E697F
+P 3650 4200
+AR Path="/555E676F/555E697F" Ref="C?"  Part="1" 
+AR Path="/555EA7C6/555E697F" Ref="C6"  Part="1" 
+F 0 "C6" H 3675 4300 50  0000 L CNN
+F 1 "C" H 3675 4100 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0201" H 3688 4050 30  0001 C CNN
+F 3 "" H 3650 4200 60  0000 C CNN
+	1    3650 4200
+	1    0    0    1   
+$EndComp
+Text GLabel 6300 6200 2    60   Input ~ 0
+-VA
+$Comp
+L R R?
+U 1 1 555E6980
+P 4950 3850
+AR Path="/555E676F/555E6980" Ref="R?"  Part="1" 
+AR Path="/555EA7C6/555E6980" Ref="R23"  Part="1" 
+F 0 "R23" V 5030 3850 50  0000 C CNN
+F 1 "R" V 4950 3850 50  0000 C CNN
+F 2 "Resistors_SMD:R_0201" V 4880 3850 30  0001 C CNN
+F 3 "" H 4950 3850 30  0000 C CNN
+	1    4950 3850
+	-1   0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 555E6981
+P 5950 3800
+AR Path="/555E676F/555E6981" Ref="R?"  Part="1" 
+AR Path="/555EA7C6/555E6981" Ref="R27"  Part="1" 
+F 0 "R27" V 6030 3800 50  0000 C CNN
+F 1 "R" V 5950 3800 50  0000 C CNN
+F 2 "Resistors_SMD:R_0201" V 5880 3800 30  0001 C CNN
+F 3 "" H 5950 3800 30  0000 C CNN
+	1    5950 3800
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Q_NPN_ECB Q?
+U 1 1 555E6982
+P 3300 5750
+AR Path="/555E676F/555E6982" Ref="Q?"  Part="1" 
+AR Path="/555EA7C6/555E6982" Ref="Q14"  Part="1" 
+F 0 "Q14" H 3600 5800 50  0000 R CNN
+F 1 "Q_NPN_ECB" H 3900 5700 50  0000 R CNN
+F 2 "Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal" H 3500 5850 29  0001 C CNN
+F 3 "" H 3300 5750 60  0000 C CNN
+	1    3300 5750
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Q_PNP_EBC Q?
+U 1 1 555E6983
+P 4100 3900
+AR Path="/555E676F/555E6983" Ref="Q?"  Part="1" 
+AR Path="/555EA7C6/555E6983" Ref="Q18"  Part="1" 
+F 0 "Q18" H 4400 3950 50  0000 R CNN
+F 1 "Q_PNP_EBC" H 4700 3850 50  0000 R CNN
+F 2 "Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal" H 4300 4000 29  0001 C CNN
+F 3 "" H 4100 3900 60  0000 C CNN
+	1    4100 3900
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3200 1550 3200 1750
+Wire Wire Line
+	3200 1550 3500 1550
+Wire Wire Line
+	3500 1550 3500 1350
+Wire Wire Line
+	3500 1350 3700 1350
+Wire Wire Line
+	3200 1150 3200 900 
+Wire Wire Line
+	3200 900  6300 900 
+Wire Wire Line
+	4000 900  4000 1150
+Connection ~ 4000 900 
+Wire Wire Line
+	4450 2700 4450 2850
+Wire Wire Line
+	3650 2700 4450 2700
+Wire Wire Line
+	3650 2700 3650 2750
+Wire Wire Line
+	4000 2500 4000 3000
+Connection ~ 4000 2700
+Wire Wire Line
+	4000 1550 4000 2200
+Connection ~ 4000 1850
+Wire Wire Line
+	4450 3200 4300 3200
+Wire Wire Line
+	4150 2550 4000 2550
+Connection ~ 4000 2550
+Wire Wire Line
+	4450 2550 4650 2550
+Wire Wire Line
+	3450 3550 4000 3550
+Connection ~ 4000 3550
+Wire Wire Line
+	3650 3050 3650 4050
+Connection ~ 3650 3550
+Wire Wire Line
+	4400 1850 4000 1850
+Wire Wire Line
+	4700 1850 5050 1850
+Wire Wire Line
+	5650 2050 5350 2050
+Wire Wire Line
+	5350 2350 5350 2500
+Wire Wire Line
+	5350 2500 6150 2500
+Wire Wire Line
+	5950 2250 5950 2750
+Connection ~ 5950 2500
+Wire Wire Line
+	5350 900  5350 1650
+Wire Wire Line
+	5950 900  5950 1850
+Connection ~ 5350 900 
+Connection ~ 5950 900 
+Wire Wire Line
+	4950 2350 4950 900 
+Connection ~ 4950 900 
+Wire Wire Line
+	4950 2750 4950 3100
+Wire Wire Line
+	5650 2950 4950 2950
+Connection ~ 4950 2950
+Wire Wire Line
+	4950 3400 4950 3700
+Wire Wire Line
+	5950 3450 5950 3650
+Wire Wire Line
+	3200 5550 3200 5350
+Wire Wire Line
+	3200 5550 3500 5550
+Wire Wire Line
+	3500 5550 3500 5750
+Wire Wire Line
+	3500 5750 3700 5750
+Wire Wire Line
+	3200 5950 3200 6200
+Wire Wire Line
+	3200 6200 6300 6200
+Wire Wire Line
+	4000 6200 4000 5950
+Connection ~ 4000 6200
+Wire Wire Line
+	4450 4400 4450 4250
+Wire Wire Line
+	3650 4400 4450 4400
+Wire Wire Line
+	3650 4400 3650 4350
+Wire Wire Line
+	4000 4600 4000 4100
+Connection ~ 4000 4400
+Wire Wire Line
+	4000 5550 4000 4900
+Connection ~ 4000 5250
+Wire Wire Line
+	4450 3900 4300 3900
+Wire Wire Line
+	4150 4550 4000 4550
+Connection ~ 4000 4550
+Wire Wire Line
+	4450 4550 4650 4550
+Wire Wire Line
+	4400 5250 4000 5250
+Wire Wire Line
+	4700 5250 5050 5250
+Wire Wire Line
+	5650 5050 5350 5050
+Wire Wire Line
+	5350 4750 5350 4600
+Wire Wire Line
+	5350 4600 6150 4600
+Wire Wire Line
+	5950 4850 5950 4350
+Connection ~ 5950 4600
+Wire Wire Line
+	5350 6200 5350 5450
+Wire Wire Line
+	5950 6200 5950 5250
+Connection ~ 5350 6200
+Connection ~ 5950 6200
+Wire Wire Line
+	4950 4750 4950 6200
+Connection ~ 4950 6200
+Wire Wire Line
+	4950 4350 4950 4000
+Wire Wire Line
+	5650 4150 4950 4150
+Connection ~ 4950 4150
+Wire Wire Line
+	4450 3150 4450 3400
+Connection ~ 4450 3200
+Wire Wire Line
+	4450 3700 4450 3950
+Connection ~ 4450 3900
+Wire Wire Line
+	4000 3400 4000 3700
+$Comp
+L Q_NPN_ECB Q?
+U 1 1 555E6984
+P 3900 5750
+AR Path="/555E676F/555E6984" Ref="Q?"  Part="1" 
+AR Path="/555EA7C6/555E6984" Ref="Q16"  Part="1" 
+F 0 "Q16" H 4200 5800 50  0000 R CNN
+F 1 "Q_NPN_ECB" H 4500 5700 50  0000 R CNN
+F 2 "Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal" H 4100 5850 29  0001 C CNN
+F 3 "" H 3900 5750 60  0000 C CNN
+	1    3900 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Q_PNP_EBC Q?
+U 1 1 555E6985
+P 4850 4550
+AR Path="/555E676F/555E6985" Ref="Q?"  Part="1" 
+AR Path="/555EA7C6/555E6985" Ref="Q20"  Part="1" 
+F 0 "Q20" H 5150 4600 50  0000 R CNN
+F 1 "Q_PNP_EBC" H 5450 4500 50  0000 R CNN
+F 2 "Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal" H 5050 4650 29  0001 C CNN
+F 3 "" H 4850 4550 60  0000 C CNN
+	1    4850 4550
+	1    0    0    1   
+$EndComp
+$Comp
+L Q_PNP_EBC Q?
+U 1 1 555E6986
+P 5250 5250
+AR Path="/555E676F/555E6986" Ref="Q?"  Part="1" 
+AR Path="/555EA7C6/555E6986" Ref="Q22"  Part="1" 
+F 0 "Q22" H 5550 5300 50  0000 R CNN
+F 1 "Q_PNP_EBC" H 5850 5200 50  0000 R CNN
+F 2 "Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal" H 5450 5350 29  0001 C CNN
+F 3 "" H 5250 5250 60  0000 C CNN
+	1    5250 5250
+	1    0    0    1   
+$EndComp
+$Comp
+L Q_PNP_EBC Q?
+U 1 1 555E6987
+P 5850 5050
+AR Path="/555E676F/555E6987" Ref="Q?"  Part="1" 
+AR Path="/555EA7C6/555E6987" Ref="Q26"  Part="1" 
+F 0 "Q26" H 6150 5100 50  0000 R CNN
+F 1 "Q_PNP_EBC" H 6450 5000 50  0000 R CNN
+F 2 "Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal" H 6050 5150 29  0001 C CNN
+F 3 "" H 5850 5050 60  0000 C CNN
+	1    5850 5050
+	1    0    0    1   
+$EndComp
+$Comp
+L Q_PNP_EBC Q?
+U 1 1 555E6988
+P 5850 4150
+AR Path="/555E676F/555E6988" Ref="Q?"  Part="1" 
+AR Path="/555EA7C6/555E6988" Ref="Q25"  Part="1" 
+F 0 "Q25" H 6150 4200 50  0000 R CNN
+F 1 "Q_PNP_EBC" H 6450 4300 50  0000 R CNN
+F 2 "Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal" H 6050 4250 29  0001 C CNN
+F 3 "" H 5850 4150 60  0000 C CNN
+	1    5850 4150
+	1    0    0    1   
+$EndComp
+Text GLabel 3450 3550 0    60   Input ~ 0
+TO_OPS
+$Comp
+L GND #PWR08
+U 1 1 555E698A
+P 3200 2100
+AR Path="/555E676F/555E698A" Ref="#PWR08"  Part="1" 
+AR Path="/555EA7C6/555E698A" Ref="#PWR013"  Part="1" 
+F 0 "#PWR013" H 3200 1850 50  0001 C CNN
+F 1 "GND" H 3200 1950 50  0000 C CNN
+F 2 "" H 3200 2100 60  0000 C CNN
+F 3 "" H 3200 2100 60  0000 C CNN
+	1    3200 2100
+	1    0    0    -1  
+$EndComp
+Text GLabel 6450 4600 2    60   Input ~ 0
+-VB
+Text GLabel 6450 2500 2    60   Input ~ 0
++VB
+Wire Wire Line
+	5950 3550 6750 3550
+Connection ~ 5950 3550
+$Comp
+L R R?
+U 1 1 555E676F
+P 6400 3800
+AR Path="/555E676F/555E676F" Ref="R?"  Part="1" 
+AR Path="/555EA7C6/555E676F" Ref="R28"  Part="1" 
+F 0 "R28" V 6480 3800 50  0000 C CNN
+F 1 "R" V 6400 3800 50  0000 C CNN
+F 2 "Resistors_SMD:R_0201" V 6330 3800 30  0001 C CNN
+F 3 "" H 6400 3800 30  0000 C CNN
+	1    6400 3800
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 3550 6400 3650
+$Comp
+L GND #PWR09
+U 1 1 555E69E7
+P 6400 4000
+AR Path="/555E676F/555E69E7" Ref="#PWR09"  Part="1" 
+AR Path="/555EA7C6/555E69E7" Ref="#PWR014"  Part="1" 
+F 0 "#PWR014" H 6400 3750 50  0001 C CNN
+F 1 "GND" H 6400 3850 50  0000 C CNN
+F 2 "" H 6400 4000 60  0000 C CNN
+F 3 "" H 6400 4000 60  0000 C CNN
+	1    6400 4000
+	1    0    0    -1  
+$EndComp
+Connection ~ 6400 3550
+Text GLabel 6750 3550 2    60   Input ~ 0
+OUT
+Wire Wire Line
+	3200 2100 3200 2050
+Wire Wire Line
+	6400 3950 6400 4000
+$Comp
+L GND #PWR015
+U 1 1 555F209B
+P 3200 5050
+F 0 "#PWR015" H 3200 4800 50  0001 C CNN
+F 1 "GND" H 3200 4900 50  0000 C CNN
+F 2 "" H 3200 5050 60  0000 C CNN
+F 3 "" H 3200 5050 60  0000 C CNN
+	1    3200 5050
+	-1   0    0    1   
+$EndComp
+$EndSCHEMATC
