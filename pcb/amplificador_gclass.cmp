@@ -1,45 +1,45 @@
-Cmp-Mod V01 Created by Cvpcb 0.201504261001+5623~23~ubuntu15.04.1-product   date = jue 21 may 2015 20:11:41 ART
+Cmp-Mod V01 Created by Cvpcb 0.201504261001+5623~23~ubuntu15.04.1-product   date = vie 22 may 2015 02:10:56 ART
 
 BeginCmp
 TimeStamp = /555E66AA;
 Reference = C1;
 ValeurCmp = C;
-IdModule  = Capacitors_SMD:C_0201;
+IdModule  = Capacitors_SMD:C_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E6C49;
 Reference = C2;
 ValeurCmp = C;
-IdModule  = Capacitors_SMD:C_0201;
+IdModule  = Capacitors_SMD:C_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E6729;
 Reference = C3;
 ValeurCmp = C;
-IdModule  = Capacitors_SMD:C_0201;
+IdModule  = Capacitors_SMD:C_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EB033;
 Reference = C4;
 ValeurCmp = C;
-IdModule  = Capacitors_SMD:C_0201;
+IdModule  = Capacitors_SMD:C_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6972;
 Reference = C5;
 ValeurCmp = C;
-IdModule  = Capacitors_SMD:C_0201;
+IdModule  = Capacitors_SMD:C_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E697F;
 Reference = C6;
 ValeurCmp = C;
-IdModule  = Capacitors_SMD:C_0201;
+IdModule  = Capacitors_SMD:C_0603_HandSoldering;
 EndCmp
 
 BeginCmp
@@ -113,14 +113,14 @@ IdModule  = Socket_Strips:Socket_Strip_Angled_1x02;
 EndCmp
 
 BeginCmp
-TimeStamp = /555E9171;
+TimeStamp = /555F9949;
 Reference = P5;
 ValeurCmp = BNC;
 IdModule  = Sockets_BNC:BNC_Socket_TYCO-AMP;
 EndCmp
 
 BeginCmp
-TimeStamp = /555E8AC8;
+TimeStamp = /555E9171;
 Reference = P6;
 ValeurCmp = BNC;
 IdModule  = Sockets_BNC:BNC_Socket_TYCO-AMP;
@@ -130,154 +130,154 @@ BeginCmp
 TimeStamp = /555E57F7;
 Reference = Q1;
 ValeurCmp = Q_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E586E;
 Reference = Q2;
 ValeurCmp = Q_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E5E5A;
 Reference = Q3;
 ValeurCmp = Q_NPN_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E5D61;
 Reference = Q4;
 ValeurCmp = Q_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E5F05;
 Reference = Q5;
 ValeurCmp = Q_NPN_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E5D8F;
 Reference = Q6;
 ValeurCmp = Q_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E58EC;
 Reference = Q7;
 ValeurCmp = Q_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E597A;
 Reference = Q8;
 ValeurCmp = Q_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA45F;
 Reference = Q9;
 ValeurCmp = Q_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA80B;
 Reference = Q10;
 ValeurCmp = Q_NPN_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA459;
 Reference = Q11;
 ValeurCmp = Q_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA8E5;
 Reference = Q12;
 ValeurCmp = Q_NPN_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6966;
 Reference = Q13;
 ValeurCmp = Q_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6982;
 Reference = Q14;
 ValeurCmp = Q_NPN_ECB;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6967;
 Reference = Q15;
 ValeurCmp = Q_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6984;
 Reference = Q16;
 ValeurCmp = Q_NPN_ECB;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6970;
 Reference = Q17;
 ValeurCmp = Q_NPN_ECB;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6983;
 Reference = Q18;
 ValeurCmp = Q_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6973;
 Reference = Q19;
 ValeurCmp = Q_NPN_ECB;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6985;
 Reference = Q20;
 ValeurCmp = Q_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E696C;
 Reference = Q21;
 ValeurCmp = Q_NPN_ECB;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6986;
 Reference = Q22;
 ValeurCmp = Q_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
+IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
@@ -312,196 +312,196 @@ BeginCmp
 TimeStamp = /555E607D;
 Reference = R1;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E6112;
 Reference = R2;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E6175;
 Reference = R3;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E61BD;
 Reference = R4;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E647E;
 Reference = R5;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E62C7;
 Reference = R6;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E6255;
 Reference = R7;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E64EE;
 Reference = R8;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E8468;
 Reference = R9;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E6363;
 Reference = R10;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E63AF;
 Reference = R11;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA465;
 Reference = R12;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EAE87;
 Reference = R13;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EAF3B;
 Reference = R14;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6968;
 Reference = R15;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6978;
 Reference = R16;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E696B;
 Reference = R17;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E697B;
 Reference = R18;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6971;
 Reference = R19;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6974;
 Reference = R20;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E697E;
 Reference = R21;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6975;
 Reference = R22;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6980;
 Reference = R23;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E696E;
 Reference = R24;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E697C;
 Reference = R25;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6977;
 Reference = R26;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6981;
 Reference = R27;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0603_HandSoldering;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E676F;
 Reference = R28;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0201;
+IdModule  = Resistors_SMD:R_0805_HandSoldering;
 EndCmp
 
 EndListe

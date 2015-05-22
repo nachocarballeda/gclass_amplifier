@@ -2,7 +2,7 @@
 <export version="D">
   <design>
     <source>/home/ignatius/Documentos/repos/gclass_amplifier/pcb/amplificador_gclass.sch</source>
-    <date>jue 21 may 2015 20:07:19 ART</date>
+    <date>vie 22 may 2015 01:53:15 ART</date>
     <tool>Eeschema 0.201504261001+5623~23~ubuntu15.04.1-product</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -34,432 +34,504 @@
   <components>
     <comp ref="Q1">
       <value>Q_PNP_EBC</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_PNP_EBC"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E57F7</tstamp>
     </comp>
     <comp ref="Q2">
       <value>Q_PNP_EBC</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_PNP_EBC"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E586E</tstamp>
     </comp>
     <comp ref="Q7">
       <value>Q_PNP_EBC</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_PNP_EBC"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E58EC</tstamp>
     </comp>
     <comp ref="Q8">
       <value>Q_PNP_EBC</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_PNP_EBC"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E597A</tstamp>
     </comp>
     <comp ref="Q4">
       <value>Q_PNP_EBC</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_PNP_EBC"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E5D61</tstamp>
     </comp>
     <comp ref="Q6">
       <value>Q_PNP_EBC</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_PNP_EBC"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E5D8F</tstamp>
     </comp>
     <comp ref="Q3">
       <value>Q_NPN_EBC</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_NPN_EBC"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E5E5A</tstamp>
     </comp>
     <comp ref="Q5">
       <value>Q_NPN_EBC</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_NPN_EBC"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E5F05</tstamp>
     </comp>
     <comp ref="R1">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E607D</tstamp>
     </comp>
     <comp ref="R2">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E6112</tstamp>
     </comp>
     <comp ref="R3">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E6175</tstamp>
     </comp>
     <comp ref="R4">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E61BD</tstamp>
     </comp>
     <comp ref="R7">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E6255</tstamp>
     </comp>
     <comp ref="R6">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E62C7</tstamp>
     </comp>
     <comp ref="R10">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E6363</tstamp>
     </comp>
     <comp ref="R11">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E63AF</tstamp>
     </comp>
     <comp ref="R5">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E647E</tstamp>
     </comp>
     <comp ref="R8">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E64EE</tstamp>
     </comp>
     <comp ref="C1">
       <value>C</value>
+      <footprint>Capacitors_SMD:C_0201</footprint>
       <libsource lib="device" part="C"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E66AA</tstamp>
     </comp>
     <comp ref="C3">
       <value>C</value>
+      <footprint>Capacitors_SMD:C_0201</footprint>
       <libsource lib="device" part="C"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E6729</tstamp>
     </comp>
     <comp ref="C2">
       <value>C</value>
+      <footprint>Capacitors_SMD:C_0201</footprint>
       <libsource lib="device" part="C"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E6C49</tstamp>
     </comp>
     <comp ref="R9">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E8468</tstamp>
     </comp>
     <comp ref="Q11">
       <value>Q_PNP_EBC</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_PNP_EBC"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555EA459</tstamp>
     </comp>
     <comp ref="Q9">
       <value>Q_PNP_EBC</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_PNP_EBC"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555EA45F</tstamp>
     </comp>
     <comp ref="R12">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555EA465</tstamp>
     </comp>
     <comp ref="Q10">
       <value>Q_NPN_EBC</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_NPN_EBC"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555EA80B</tstamp>
     </comp>
     <comp ref="Q12">
       <value>Q_NPN_EBC</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_NPN_EBC"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555EA8E5</tstamp>
     </comp>
     <comp ref="R13">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555EAE87</tstamp>
     </comp>
     <comp ref="R14">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555EAF3B</tstamp>
     </comp>
     <comp ref="C4">
       <value>C</value>
+      <footprint>Capacitors_SMD:C_0201</footprint>
       <libsource lib="device" part="C"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555EB033</tstamp>
     </comp>
     <comp ref="P6">
       <value>BNC</value>
-      <libsource lib="conn" part="BNC"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>555E8AC8</tstamp>
-    </comp>
-    <comp ref="P5">
-      <value>BNC</value>
+      <footprint>Sockets_BNC:BNC_Socket_TYCO-AMP</footprint>
       <libsource lib="conn" part="BNC"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E9171</tstamp>
     </comp>
     <comp ref="P4">
       <value>CONN_01X02</value>
+      <footprint>Socket_Strips:Socket_Strip_Angled_1x02</footprint>
       <libsource lib="conn" part="CONN_01X02"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555EA185</tstamp>
     </comp>
     <comp ref="P2">
       <value>CONN_01X02</value>
+      <footprint>Socket_Strips:Socket_Strip_Angled_1x02</footprint>
       <libsource lib="conn" part="CONN_01X02"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555EA18B</tstamp>
     </comp>
     <comp ref="P1">
       <value>CONN_01X02</value>
+      <footprint>Socket_Strips:Socket_Strip_Angled_1x02</footprint>
       <libsource lib="conn" part="CONN_01X02"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E9A30</tstamp>
     </comp>
     <comp ref="P3">
       <value>CONN_01X02</value>
+      <footprint>Socket_Strips:Socket_Strip_Angled_1x02</footprint>
       <libsource lib="conn" part="CONN_01X02"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>555E9943</tstamp>
     </comp>
+    <comp ref="P5">
+      <value>BNC</value>
+      <footprint>Sockets_BNC:BNC_Socket_TYCO-AMP</footprint>
+      <libsource lib="conn" part="BNC"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>555F9949</tstamp>
+    </comp>
     <comp ref="Q13">
       <value>Q_PNP_EBC</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_PNP_EBC"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6966</tstamp>
     </comp>
     <comp ref="Q15">
       <value>Q_PNP_EBC</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_PNP_EBC"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6967</tstamp>
     </comp>
     <comp ref="R15">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6968</tstamp>
     </comp>
     <comp ref="D3">
       <value>D</value>
+      <footprint>Diodes_ThroughHole:Diode_DO-35_SOD27_Horizontal_RM10</footprint>
       <libsource lib="device" part="D"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6969</tstamp>
     </comp>
     <comp ref="D1">
       <value>D_Schottky</value>
+      <footprint>Diodes_ThroughHole:Diode_DO-35_SOD27_Horizontal_RM10</footprint>
       <libsource lib="device" part="D_Schottky"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E696A</tstamp>
     </comp>
     <comp ref="R17">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E696B</tstamp>
     </comp>
     <comp ref="Q21">
       <value>Q_NPN_ECB</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_NPN_ECB"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E696C</tstamp>
     </comp>
     <comp ref="Q23">
       <value>Q_NPN_ECB</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_NPN_ECB"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E696D</tstamp>
     </comp>
     <comp ref="R24">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E696E</tstamp>
     </comp>
     <comp ref="D5">
       <value>D</value>
+      <footprint>Diodes_ThroughHole:Diode_DO-35_SOD27_Horizontal_RM10</footprint>
       <libsource lib="device" part="D"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E696F</tstamp>
     </comp>
     <comp ref="Q17">
       <value>Q_NPN_ECB</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_NPN_ECB"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6970</tstamp>
     </comp>
     <comp ref="R19">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6971</tstamp>
     </comp>
     <comp ref="C5">
       <value>C</value>
+      <footprint>Capacitors_SMD:C_0201</footprint>
       <libsource lib="device" part="C"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6972</tstamp>
     </comp>
     <comp ref="Q19">
       <value>Q_NPN_ECB</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_NPN_ECB"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6973</tstamp>
     </comp>
     <comp ref="R20">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6974</tstamp>
     </comp>
     <comp ref="R22">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6975</tstamp>
     </comp>
     <comp ref="Q24">
       <value>Q_NPN_ECB</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_NPN_ECB"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6976</tstamp>
     </comp>
     <comp ref="R26">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6977</tstamp>
     </comp>
     <comp ref="R16">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6978</tstamp>
     </comp>
     <comp ref="D4">
       <value>D</value>
+      <footprint>Diodes_ThroughHole:Diode_DO-35_SOD27_Horizontal_RM10</footprint>
       <libsource lib="device" part="D"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6979</tstamp>
     </comp>
     <comp ref="D2">
       <value>D_Schottky</value>
+      <footprint>Diodes_ThroughHole:Diode_DO-35_SOD27_Horizontal_RM10</footprint>
       <libsource lib="device" part="D_Schottky"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E697A</tstamp>
     </comp>
     <comp ref="R18">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E697B</tstamp>
     </comp>
     <comp ref="R25">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E697C</tstamp>
     </comp>
     <comp ref="D6">
       <value>D</value>
+      <footprint>Diodes_ThroughHole:Diode_DO-35_SOD27_Horizontal_RM10</footprint>
       <libsource lib="device" part="D"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E697D</tstamp>
     </comp>
     <comp ref="R21">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E697E</tstamp>
     </comp>
     <comp ref="C6">
       <value>C</value>
+      <footprint>Capacitors_SMD:C_0201</footprint>
       <libsource lib="device" part="C"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E697F</tstamp>
     </comp>
     <comp ref="R23">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6980</tstamp>
     </comp>
     <comp ref="R27">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6981</tstamp>
     </comp>
     <comp ref="Q14">
       <value>Q_NPN_ECB</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_NPN_ECB"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6982</tstamp>
     </comp>
     <comp ref="Q18">
       <value>Q_PNP_EBC</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_PNP_EBC"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6983</tstamp>
     </comp>
     <comp ref="Q16">
       <value>Q_NPN_ECB</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_NPN_ECB"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6984</tstamp>
     </comp>
     <comp ref="Q20">
       <value>Q_PNP_EBC</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_PNP_EBC"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6985</tstamp>
     </comp>
     <comp ref="Q22">
       <value>Q_PNP_EBC</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_PNP_EBC"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6986</tstamp>
     </comp>
     <comp ref="Q26">
       <value>Q_PNP_EBC</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_PNP_EBC"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6987</tstamp>
     </comp>
     <comp ref="Q25">
       <value>Q_PNP_EBC</value>
+      <footprint>Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal</footprint>
       <libsource lib="device" part="Q_PNP_EBC"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E6988</tstamp>
     </comp>
     <comp ref="R28">
       <value>R</value>
+      <footprint>Resistors_SMD:R_0201</footprint>
       <libsource lib="device" part="R"/>
       <sheetpath names="/output stage/" tstamps="/555EA7C6/"/>
       <tstamp>555E676F</tstamp>
@@ -484,22 +556,35 @@
         <pin num="2" name="~" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="device" part="D">
-      <description>Diode</description>
+    <libpart lib="device" part="R">
+      <description>Resistor</description>
       <footprints>
-        <fp>Diode_*</fp>
-        <fp>D-Pak_TO252AA</fp>
-        <fp>*SingleDiode</fp>
-        <fp>*_Diode_*</fp>
-        <fp>*SingleDiode*</fp>
+        <fp>R_*</fp>
+        <fp>Resistor_*</fp>
       </footprints>
       <fields>
-        <field name="Reference">D</field>
-        <field name="Value">D</field>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
       </fields>
       <pins>
-        <pin num="1" name="K" type="passive"/>
-        <pin num="2" name="A" type="passive"/>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="CONN_01X02">
+      <footprints>
+        <fp>Pin_Header_Straight_1X02</fp>
+        <fp>Pin_Header_Angled_1X02</fp>
+        <fp>Socket_Strip_Straight_1X02</fp>
+        <fp>Socket_Strip_Angled_1X02</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONN_01X02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
       </pins>
     </libpart>
     <libpart lib="device" part="D_Schottky">
@@ -514,6 +599,39 @@
       <fields>
         <field name="Reference">D</field>
         <field name="Value">D_Schottky</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="BNC">
+      <footprints>
+        <fp>BNC_*</fp>
+        <fp>bnc</fp>
+        <fp>bnc-*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">BNC</field>
+      </fields>
+      <pins>
+        <pin num="1" name="In" type="passive"/>
+        <pin num="2" name="Ext" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="D">
+      <description>Diode</description>
+      <footprints>
+        <fp>Diode_*</fp>
+        <fp>D-Pak_TO252AA</fp>
+        <fp>*SingleDiode</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D</field>
       </fields>
       <pins>
         <pin num="1" name="K" type="passive"/>
@@ -556,321 +674,275 @@
         <pin num="3" name="C" type="openCol"/>
       </pins>
     </libpart>
-    <libpart lib="device" part="R">
-      <description>Resistor</description>
-      <footprints>
-        <fp>R_*</fp>
-        <fp>Resistor_*</fp>
-      </footprints>
-      <fields>
-        <field name="Reference">R</field>
-        <field name="Value">R</field>
-      </fields>
-      <pins>
-        <pin num="1" name="~" type="passive"/>
-        <pin num="2" name="~" type="passive"/>
-      </pins>
-    </libpart>
-    <libpart lib="conn" part="BNC">
-      <footprints>
-        <fp>BNC_*</fp>
-        <fp>bnc</fp>
-        <fp>bnc-*</fp>
-      </footprints>
-      <fields>
-        <field name="Reference">P</field>
-        <field name="Value">BNC</field>
-      </fields>
-      <pins>
-        <pin num="1" name="In" type="passive"/>
-        <pin num="2" name="Ext" type="passive"/>
-      </pins>
-    </libpart>
-    <libpart lib="conn" part="CONN_01X02">
-      <footprints>
-        <fp>Pin_Header_Straight_1X02</fp>
-        <fp>Pin_Header_Angled_1X02</fp>
-        <fp>Socket_Strip_Straight_1X02</fp>
-        <fp>Socket_Strip_Angled_1X02</fp>
-      </footprints>
-      <fields>
-        <field name="Reference">P</field>
-        <field name="Value">CONN_01X02</field>
-      </fields>
-      <pins>
-        <pin num="1" name="P1" type="passive"/>
-        <pin num="2" name="P2" type="passive"/>
-      </pins>
-    </libpart>
   </libparts>
   <libraries>
-    <library logical="device">
-      <uri>/usr/share/kicad/library/device.lib</uri>
-    </library>
     <library logical="conn">
       <uri>/usr/share/kicad/library/conn.lib</uri>
     </library>
+    <library logical="device">
+      <uri>/usr/share/kicad/library/device.lib</uri>
+    </library>
   </libraries>
   <nets>
-    <net code="1" name="Net-(Q7-Pad1)">
-      <node ref="Q8" pin="1"/>
-      <node ref="Q7" pin="1"/>
-      <node ref="R7" pin="2"/>
-    </net>
-    <net code="2" name="Net-(C2-Pad1)">
-      <node ref="C2" pin="1"/>
-      <node ref="R6" pin="2"/>
-    </net>
-    <net code="3" name="Net-(C2-Pad2)">
-      <node ref="C2" pin="2"/>
-      <node ref="R3" pin="1"/>
-      <node ref="R2" pin="2"/>
-    </net>
-    <net code="4" name="Net-(Q3-Pad2)">
-      <node ref="Q7" pin="3"/>
-      <node ref="Q8" pin="3"/>
-      <node ref="Q3" pin="2"/>
-      <node ref="Q5" pin="2"/>
-      <node ref="Q5" pin="3"/>
-    </net>
-    <net code="5" name="Net-(Q1-Pad1)">
-      <node ref="Q2" pin="1"/>
-      <node ref="Q1" pin="1"/>
-      <node ref="R4" pin="2"/>
-    </net>
-    <net code="6" name="Net-(C3-Pad2)">
-      <node ref="C3" pin="2"/>
-      <node ref="R10" pin="1"/>
-    </net>
-    <net code="7" name="Net-(Q4-Pad3)">
-      <node ref="Q4" pin="3"/>
-      <node ref="R4" pin="1"/>
-      <node ref="R7" pin="1"/>
-    </net>
-    <net code="8" name="+VA">
-      <node ref="Q23" pin="2"/>
-      <node ref="Q19" pin="2"/>
-      <node ref="P1" pin="1"/>
-      <node ref="Q6" pin="1"/>
-      <node ref="Q13" pin="1"/>
-      <node ref="Q4" pin="1"/>
-      <node ref="Q21" pin="2"/>
-      <node ref="Q11" pin="1"/>
-      <node ref="Q15" pin="1"/>
-      <node ref="Q9" pin="1"/>
-    </net>
-    <net code="9" name="-VA">
-      <node ref="Q26" pin="3"/>
-      <node ref="R8" pin="2"/>
-      <node ref="Q14" pin="1"/>
-      <node ref="R5" pin="2"/>
-      <node ref="P3" pin="1"/>
-      <node ref="R14" pin="2"/>
-      <node ref="Q22" pin="3"/>
-      <node ref="Q20" pin="3"/>
-      <node ref="Q16" pin="1"/>
-      <node ref="R13" pin="2"/>
-    </net>
-    <net code="10" name="GND">
-      <node ref="P2" pin="2"/>
-      <node ref="C3" pin="1"/>
-      <node ref="R12" pin="2"/>
-      <node ref="Q10" pin="3"/>
-      <node ref="P6" pin="2"/>
-      <node ref="P5" pin="2"/>
-      <node ref="R9" pin="2"/>
-      <node ref="P4" pin="2"/>
-      <node ref="R16" pin="2"/>
-      <node ref="P1" pin="2"/>
-      <node ref="R15" pin="2"/>
-      <node ref="R3" pin="2"/>
-      <node ref="P3" pin="2"/>
-      <node ref="R1" pin="2"/>
-      <node ref="R28" pin="2"/>
-    </net>
-    <net code="11" name="Net-(C1-Pad2)">
-      <node ref="P6" pin="1"/>
-      <node ref="R1" pin="1"/>
-      <node ref="C1" pin="2"/>
-    </net>
-    <net code="12" name="Net-(C1-Pad1)">
-      <node ref="C1" pin="1"/>
-      <node ref="Q1" pin="2"/>
-      <node ref="Q2" pin="2"/>
-      <node ref="R2" pin="1"/>
-    </net>
-    <net code="13" name="Net-(Q3-Pad1)">
-      <node ref="Q3" pin="1"/>
-      <node ref="R5" pin="1"/>
-    </net>
-    <net code="14" name="Net-(Q5-Pad1)">
-      <node ref="Q5" pin="1"/>
-      <node ref="R8" pin="1"/>
-    </net>
-    <net code="15" name="Net-(C4-Pad2)">
-      <node ref="Q10" pin="2"/>
-      <node ref="Q2" pin="3"/>
-      <node ref="Q1" pin="3"/>
-      <node ref="Q3" pin="3"/>
-      <node ref="C4" pin="2"/>
-    </net>
-    <net code="16" name="TO_OPS">
-      <node ref="Q17" pin="1"/>
-      <node ref="C5" pin="2"/>
-      <node ref="Q11" pin="3"/>
-      <node ref="C4" pin="1"/>
-      <node ref="C6" pin="2"/>
-      <node ref="Q18" pin="1"/>
-      <node ref="Q12" pin="3"/>
-    </net>
-    <net code="17" name="Net-(Q10-Pad1)">
+    <net code="1" name="Net-(Q10-Pad1)">
       <node ref="R13" pin="1"/>
       <node ref="Q12" pin="2"/>
       <node ref="Q10" pin="1"/>
     </net>
-    <net code="18" name="Net-(Q12-Pad1)">
-      <node ref="Q12" pin="1"/>
-      <node ref="R14" pin="1"/>
-    </net>
-    <net code="19" name="Net-(Q4-Pad2)">
-      <node ref="Q6" pin="3"/>
-      <node ref="R9" pin="1"/>
-      <node ref="Q6" pin="2"/>
-      <node ref="Q4" pin="2"/>
-    </net>
-    <net code="20" name="Net-(Q11-Pad2)">
-      <node ref="R12" pin="1"/>
+    <net code="2" name="Net-(Q11-Pad2)">
       <node ref="Q11" pin="2"/>
+      <node ref="R12" pin="1"/>
       <node ref="Q9" pin="3"/>
       <node ref="Q9" pin="2"/>
     </net>
-    <net code="21" name="Net-(Q7-Pad2)">
+    <net code="3" name="TO_OPS">
+      <node ref="Q17" pin="1"/>
+      <node ref="C5" pin="2"/>
+      <node ref="Q12" pin="3"/>
+      <node ref="Q18" pin="1"/>
+      <node ref="C4" pin="1"/>
+      <node ref="Q11" pin="3"/>
+      <node ref="C6" pin="2"/>
+    </net>
+    <net code="4" name="Net-(Q12-Pad1)">
+      <node ref="R14" pin="1"/>
+      <node ref="Q12" pin="1"/>
+    </net>
+    <net code="5" name="Net-(C2-Pad1)">
+      <node ref="C2" pin="1"/>
+      <node ref="R6" pin="2"/>
+    </net>
+    <net code="6" name="Net-(C2-Pad2)">
+      <node ref="R2" pin="2"/>
+      <node ref="R3" pin="1"/>
+      <node ref="C2" pin="2"/>
+    </net>
+    <net code="7" name="Net-(C3-Pad2)">
+      <node ref="C3" pin="2"/>
+      <node ref="R10" pin="1"/>
+    </net>
+    <net code="8" name="Net-(Q4-Pad3)">
+      <node ref="Q4" pin="3"/>
+      <node ref="R7" pin="1"/>
+      <node ref="R4" pin="1"/>
+    </net>
+    <net code="9" name="Net-(Q4-Pad2)">
+      <node ref="Q6" pin="2"/>
+      <node ref="Q6" pin="3"/>
+      <node ref="R9" pin="1"/>
+      <node ref="Q4" pin="2"/>
+    </net>
+    <net code="10" name="+VA">
+      <node ref="Q11" pin="1"/>
+      <node ref="P1" pin="1"/>
+      <node ref="Q9" pin="1"/>
+      <node ref="Q4" pin="1"/>
+      <node ref="Q6" pin="1"/>
+      <node ref="Q13" pin="1"/>
+      <node ref="Q19" pin="2"/>
+      <node ref="Q15" pin="1"/>
+      <node ref="Q21" pin="2"/>
+      <node ref="Q23" pin="2"/>
+    </net>
+    <net code="11" name="-VA">
+      <node ref="R8" pin="2"/>
+      <node ref="R5" pin="2"/>
+      <node ref="Q14" pin="1"/>
+      <node ref="R14" pin="2"/>
+      <node ref="R13" pin="2"/>
+      <node ref="Q26" pin="3"/>
+      <node ref="Q22" pin="3"/>
+      <node ref="Q20" pin="3"/>
+      <node ref="Q16" pin="1"/>
+      <node ref="P3" pin="1"/>
+    </net>
+    <net code="12" name="+VB">
+      <node ref="D5" pin="2"/>
+      <node ref="P2" pin="1"/>
+    </net>
+    <net code="13" name="-VB">
+      <node ref="P4" pin="1"/>
+      <node ref="D6" pin="1"/>
+    </net>
+    <net code="14" name="GND">
+      <node ref="P1" pin="2"/>
+      <node ref="Q10" pin="3"/>
+      <node ref="R12" pin="2"/>
+      <node ref="P2" pin="2"/>
+      <node ref="R16" pin="2"/>
+      <node ref="P5" pin="2"/>
+      <node ref="R15" pin="2"/>
+      <node ref="P6" pin="2"/>
+      <node ref="P4" pin="2"/>
+      <node ref="R1" pin="2"/>
+      <node ref="C3" pin="1"/>
+      <node ref="R9" pin="2"/>
+      <node ref="P3" pin="2"/>
+      <node ref="R3" pin="2"/>
+      <node ref="R28" pin="2"/>
+    </net>
+    <net code="15" name="IN">
+      <node ref="P5" pin="1"/>
+      <node ref="R1" pin="1"/>
+      <node ref="C1" pin="2"/>
+    </net>
+    <net code="16" name="Net-(C1-Pad1)">
+      <node ref="Q2" pin="2"/>
+      <node ref="C1" pin="1"/>
+      <node ref="R2" pin="1"/>
+      <node ref="Q1" pin="2"/>
+    </net>
+    <net code="17" name="Net-(Q7-Pad2)">
+      <node ref="R6" pin="1"/>
+      <node ref="R10" pin="2"/>
       <node ref="R11" pin="1"/>
       <node ref="Q8" pin="2"/>
       <node ref="Q7" pin="2"/>
-      <node ref="R6" pin="1"/>
-      <node ref="R10" pin="2"/>
     </net>
-    <net code="22" name="OUT">
+    <net code="18" name="OUT">
+      <node ref="R28" pin="1"/>
+      <node ref="P6" pin="1"/>
       <node ref="R27" pin="1"/>
       <node ref="R11" pin="2"/>
-      <node ref="P5" pin="1"/>
-      <node ref="R28" pin="1"/>
       <node ref="R26" pin="1"/>
     </net>
-    <net code="23" name="-VB">
-      <node ref="D6" pin="1"/>
-      <node ref="P4" pin="1"/>
+    <net code="19" name="Net-(Q1-Pad1)">
+      <node ref="R4" pin="2"/>
+      <node ref="Q1" pin="1"/>
+      <node ref="Q2" pin="1"/>
     </net>
-    <net code="24" name="+VB">
-      <node ref="P2" pin="1"/>
-      <node ref="D5" pin="2"/>
+    <net code="20" name="Net-(Q7-Pad1)">
+      <node ref="Q7" pin="1"/>
+      <node ref="R7" pin="2"/>
+      <node ref="Q8" pin="1"/>
+    </net>
+    <net code="21" name="Net-(Q3-Pad2)">
+      <node ref="Q8" pin="3"/>
+      <node ref="Q7" pin="3"/>
+      <node ref="Q3" pin="2"/>
+      <node ref="Q5" pin="2"/>
+      <node ref="Q5" pin="3"/>
+    </net>
+    <net code="22" name="Net-(Q3-Pad1)">
+      <node ref="Q3" pin="1"/>
+      <node ref="R5" pin="1"/>
+    </net>
+    <net code="23" name="Net-(C4-Pad2)">
+      <node ref="Q2" pin="3"/>
+      <node ref="Q1" pin="3"/>
+      <node ref="Q3" pin="3"/>
+      <node ref="Q10" pin="2"/>
+      <node ref="C4" pin="2"/>
+    </net>
+    <net code="24" name="Net-(Q5-Pad1)">
+      <node ref="Q5" pin="1"/>
+      <node ref="R8" pin="1"/>
     </net>
     <net code="25" name="Net-(D2-Pad2)">
-      <node ref="Q16" pin="2"/>
       <node ref="D4" pin="1"/>
       <node ref="D2" pin="2"/>
+      <node ref="Q16" pin="2"/>
     </net>
-    <net code="26" name="Net-(Q18-Pad2)">
-      <node ref="R20" pin="1"/>
+    <net code="26" name="Net-(Q20-Pad2)">
+      <node ref="R18" pin="1"/>
+      <node ref="Q20" pin="2"/>
+    </net>
+    <net code="27" name="Net-(Q18-Pad2)">
       <node ref="Q18" pin="2"/>
+      <node ref="R20" pin="1"/>
       <node ref="R21" pin="1"/>
     </net>
-    <net code="27" name="Net-(C6-Pad1)">
-      <node ref="Q18" pin="3"/>
-      <node ref="C6" pin="1"/>
+    <net code="28" name="Net-(C6-Pad1)">
       <node ref="D2" pin="1"/>
-      <node ref="R18" pin="2"/>
+      <node ref="Q18" pin="3"/>
       <node ref="R21" pin="2"/>
-    </net>
-    <net code="28" name="Net-(Q20-Pad2)">
-      <node ref="Q20" pin="2"/>
-      <node ref="R18" pin="1"/>
+      <node ref="R18" pin="2"/>
+      <node ref="C6" pin="1"/>
     </net>
     <net code="29" name="Net-(D4-Pad2)">
       <node ref="Q22" pin="2"/>
       <node ref="D4" pin="2"/>
     </net>
     <net code="30" name="Net-(Q22-Pad1)">
+      <node ref="Q22" pin="1"/>
       <node ref="R25" pin="2"/>
       <node ref="Q26" pin="2"/>
-      <node ref="Q22" pin="1"/>
     </net>
     <net code="31" name="Net-(D6-Pad2)">
-      <node ref="R25" pin="1"/>
+      <node ref="Q26" pin="1"/>
       <node ref="D6" pin="2"/>
       <node ref="Q25" pin="3"/>
-      <node ref="Q26" pin="1"/>
+      <node ref="R25" pin="1"/>
     </net>
-    <net code="32" name="Net-(D1-Pad1)">
-      <node ref="Q15" pin="3"/>
-      <node ref="D3" pin="2"/>
-      <node ref="D1" pin="1"/>
-    </net>
-    <net code="33" name="Net-(D3-Pad1)">
-      <node ref="Q21" pin="3"/>
-      <node ref="D3" pin="1"/>
-    </net>
-    <net code="34" name="Net-(Q21-Pad1)">
-      <node ref="R24" pin="2"/>
-      <node ref="Q23" pin="3"/>
-      <node ref="Q21" pin="1"/>
-    </net>
-    <net code="35" name="Net-(D5-Pad1)">
-      <node ref="D5" pin="1"/>
-      <node ref="Q24" pin="2"/>
-      <node ref="R24" pin="1"/>
-      <node ref="Q23" pin="1"/>
-    </net>
-    <net code="36" name="Net-(Q19-Pad1)">
+    <net code="32" name="Net-(Q19-Pad1)">
       <node ref="R22" pin="2"/>
       <node ref="Q19" pin="1"/>
       <node ref="Q24" pin="3"/>
     </net>
-    <net code="37" name="Net-(R22-Pad1)">
-      <node ref="R22" pin="1"/>
-      <node ref="R23" pin="1"/>
+    <net code="33" name="Net-(D5-Pad1)">
+      <node ref="Q24" pin="2"/>
+      <node ref="R24" pin="1"/>
+      <node ref="Q23" pin="1"/>
+      <node ref="D5" pin="1"/>
     </net>
-    <net code="38" name="Net-(Q14-Pad2)">
-      <node ref="Q16" pin="3"/>
+    <net code="34" name="Net-(R22-Pad1)">
+      <node ref="R23" pin="1"/>
+      <node ref="R22" pin="1"/>
+    </net>
+    <net code="35" name="Net-(Q14-Pad2)">
       <node ref="Q14" pin="3"/>
       <node ref="Q14" pin="2"/>
+      <node ref="Q16" pin="3"/>
       <node ref="R16" pin="1"/>
     </net>
-    <net code="39" name="Net-(Q25-Pad1)">
+    <net code="36" name="Net-(Q20-Pad1)">
+      <node ref="Q20" pin="1"/>
+      <node ref="R23" pin="2"/>
+      <node ref="Q25" pin="2"/>
+    </net>
+    <net code="37" name="Net-(Q25-Pad1)">
       <node ref="Q25" pin="1"/>
       <node ref="R27" pin="2"/>
     </net>
-    <net code="40" name="Net-(Q20-Pad1)">
-      <node ref="R23" pin="2"/>
-      <node ref="Q25" pin="2"/>
-      <node ref="Q20" pin="1"/>
-    </net>
-    <net code="41" name="Net-(Q17-Pad3)">
-      <node ref="R19" pin="1"/>
+    <net code="38" name="Net-(Q17-Pad3)">
       <node ref="Q17" pin="3"/>
       <node ref="R20" pin="2"/>
+      <node ref="R19" pin="1"/>
     </net>
-    <net code="42" name="Net-(Q24-Pad1)">
-      <node ref="Q24" pin="1"/>
+    <net code="39" name="Net-(Q24-Pad1)">
       <node ref="R26" pin="2"/>
+      <node ref="Q24" pin="1"/>
     </net>
-    <net code="43" name="Net-(Q13-Pad2)">
+    <net code="40" name="Net-(Q13-Pad2)">
+      <node ref="Q13" pin="2"/>
+      <node ref="Q13" pin="3"/>
       <node ref="Q15" pin="2"/>
       <node ref="R15" pin="1"/>
-      <node ref="Q13" pin="3"/>
-      <node ref="Q13" pin="2"/>
     </net>
-    <net code="44" name="Net-(Q19-Pad3)">
+    <net code="41" name="Net-(Q19-Pad3)">
       <node ref="R17" pin="1"/>
       <node ref="Q19" pin="3"/>
     </net>
-    <net code="45" name="Net-(C5-Pad1)">
+    <net code="42" name="Net-(C5-Pad1)">
       <node ref="Q17" pin="2"/>
+      <node ref="D1" pin="2"/>
       <node ref="R19" pin="2"/>
       <node ref="C5" pin="1"/>
-      <node ref="D1" pin="2"/>
       <node ref="R17" pin="2"/>
+    </net>
+    <net code="43" name="Net-(D3-Pad1)">
+      <node ref="Q21" pin="3"/>
+      <node ref="D3" pin="1"/>
+    </net>
+    <net code="44" name="Net-(Q21-Pad1)">
+      <node ref="Q21" pin="1"/>
+      <node ref="Q23" pin="3"/>
+      <node ref="R24" pin="2"/>
+    </net>
+    <net code="45" name="Net-(D1-Pad1)">
+      <node ref="Q15" pin="3"/>
+      <node ref="D3" pin="2"/>
+      <node ref="D1" pin="1"/>
     </net>
   </nets>
 </export>
