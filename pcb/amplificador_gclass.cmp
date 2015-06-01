@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by Cvpcb 0.201504261001+5623~23~ubuntu15.04.1-product   date = vie 22 may 2015 02:10:56 ART
+Cmp-Mod V01 Created by Cvpcb 0.201504261001+5623~23~ubuntu15.04.1-product   date = Mon 01 Jun 2015 01:48:47 AM ART
 
 BeginCmp
 TimeStamp = /555E66AA;
@@ -127,6 +127,48 @@ IdModule  = Sockets_BNC:BNC_Socket_TYCO-AMP;
 EndCmp
 
 BeginCmp
+TimeStamp = /555EA7C6/556BD9C4;
+Reference = P7;
+ValeurCmp = NPN;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
+EndCmp
+
+BeginCmp
+TimeStamp = /555EA7C6/556C038A;
+Reference = P8;
+ValeurCmp = PNP;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
+EndCmp
+
+BeginCmp
+TimeStamp = /555EA7C6/556C0DFA;
+Reference = P9;
+ValeurCmp = PNP;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
+EndCmp
+
+BeginCmp
+TimeStamp = /555EA7C6/556C0D5A;
+Reference = P10;
+ValeurCmp = NPN;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
+EndCmp
+
+BeginCmp
+TimeStamp = /555EA7C6/556C60DA;
+Reference = P11;
+ValeurCmp = NPN;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
+EndCmp
+
+BeginCmp
+TimeStamp = /555EA7C6/556C82C3;
+Reference = P12;
+ValeurCmp = PNP;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
+EndCmp
+
+BeginCmp
 TimeStamp = /555E57F7;
 Reference = Q1;
 ValeurCmp = Q_PNP_EBC;
@@ -218,9 +260,9 @@ IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/555E6982;
+TimeStamp = /555EA7C6/556C4C7C;
 Reference = Q14;
-ValeurCmp = Q_NPN_ECB;
+ValeurCmp = Q_NPN_EBC;
 IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
@@ -232,80 +274,38 @@ IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/555E6984;
+TimeStamp = /555EA7C6/556C5042;
 Reference = Q16;
-ValeurCmp = Q_NPN_ECB;
+ValeurCmp = Q_NPN_EBC;
 IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/555E6970;
+TimeStamp = /555EA7C6/555E6973;
 Reference = Q17;
 ValeurCmp = Q_NPN_ECB;
 IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/555E6983;
+TimeStamp = /555EA7C6/555E6985;
 Reference = Q18;
 ValeurCmp = Q_PNP_EBC;
 IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/555E6973;
+TimeStamp = /555EA7C6/555E696C;
 Reference = Q19;
 ValeurCmp = Q_NPN_ECB;
 IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/555E6985;
+TimeStamp = /555EA7C6/555E6986;
 Reference = Q20;
 ValeurCmp = Q_PNP_EBC;
 IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
-EndCmp
-
-BeginCmp
-TimeStamp = /555EA7C6/555E696C;
-Reference = Q21;
-ValeurCmp = Q_NPN_ECB;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
-EndCmp
-
-BeginCmp
-TimeStamp = /555EA7C6/555E6986;
-Reference = Q22;
-ValeurCmp = Q_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Vertical_LargePads;
-EndCmp
-
-BeginCmp
-TimeStamp = /555EA7C6/555E696D;
-Reference = Q23;
-ValeurCmp = Q_NPN_ECB;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
-EndCmp
-
-BeginCmp
-TimeStamp = /555EA7C6/555E6976;
-Reference = Q24;
-ValeurCmp = Q_NPN_ECB;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
-EndCmp
-
-BeginCmp
-TimeStamp = /555EA7C6/555E6988;
-Reference = Q25;
-ValeurCmp = Q_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
-EndCmp
-
-BeginCmp
-TimeStamp = /555EA7C6/555E6987;
-Reference = Q26;
-ValeurCmp = Q_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Bipolar-BCE_Horizontal;
 EndCmp
 
 BeginCmp
