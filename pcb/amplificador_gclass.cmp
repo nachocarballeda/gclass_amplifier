@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by Cvpcb 0.201504261001+5623~23~ubuntu15.04.1-product   date = Mon 01 Jun 2015 04:38:35 PM ART
+Cmp-Mod V01 Created by Cvpcb 0.201504261001+5623~23~ubuntu15.04.1-product   date = Thu 04 Jun 2015 06:37:39 PM ART
 
 BeginCmp
 TimeStamp = /555E66AA;
@@ -22,65 +22,100 @@ IdModule  = Capacitors_Elko_ThroughHole:Elko_vert_11.5x8mm_RM3.5;
 EndCmp
 
 BeginCmp
-TimeStamp = /556CD2E7;
+TimeStamp = /556DE93E;
 Reference = C4;
 ValeurCmp = C;
-IdModule  = Capacitors_Elko_ThroughHole:Elko_vert_11.5x8mm_RM3.5;
+IdModule  = Capacitors_Elko_ThroughHole:Elko_vert_11.2x6.3mm_RM2.5_CopperClear;
 EndCmp
 
 BeginCmp
-TimeStamp = /555E6729;
+TimeStamp = /556DEA32;
 Reference = C5;
 ValeurCmp = C;
-IdModule  = Capacitors_Elko_ThroughHole:Elko_vert_11.5x8mm_RM3.5;
+IdModule  = Capacitors_Elko_ThroughHole:Elko_vert_11.2x6.3mm_RM2.5_CopperClear;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EB033;
+TimeStamp = /556CD2E7;
 Reference = C6;
 ValeurCmp = C;
 IdModule  = Capacitors_Elko_ThroughHole:Elko_vert_11.5x8mm_RM3.5;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/555E6972;
+TimeStamp = /555E6729;
 Reference = C7;
 ValeurCmp = C;
 IdModule  = Capacitors_Elko_ThroughHole:Elko_vert_11.5x8mm_RM3.5;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/556CC767;
+TimeStamp = /555EB033;
 Reference = C8;
 ValeurCmp = C;
 IdModule  = Capacitors_Elko_ThroughHole:Elko_vert_11.5x8mm_RM3.5;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/556CCB19;
+TimeStamp = /555EA7C6/555E6972;
 Reference = C9;
 ValeurCmp = C;
 IdModule  = Capacitors_Elko_ThroughHole:Elko_vert_11.5x8mm_RM3.5;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/556CF112;
+TimeStamp = /555EA7C6/556DE2B0;
 Reference = C10;
 ValeurCmp = C;
 IdModule  = Capacitors_Elko_ThroughHole:Elko_vert_11.5x8mm_RM3.5;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/556CECAA;
+TimeStamp = /555EA7C6/556CC767;
 Reference = C11;
 ValeurCmp = C;
 IdModule  = Capacitors_Elko_ThroughHole:Elko_vert_11.5x8mm_RM3.5;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/555E696A;
+TimeStamp = /555EA7C6/556CCB19;
+Reference = C12;
+ValeurCmp = C;
+IdModule  = Capacitors_Elko_ThroughHole:Elko_vert_11.5x8mm_RM3.5;
+EndCmp
+
+BeginCmp
+TimeStamp = /555EA7C6/556CF112;
+Reference = C13;
+ValeurCmp = C;
+IdModule  = Capacitors_Elko_ThroughHole:Elko_vert_11.5x8mm_RM3.5;
+EndCmp
+
+BeginCmp
+TimeStamp = /555EA7C6/556CECAA;
+Reference = C14;
+ValeurCmp = C;
+IdModule  = Capacitors_Elko_ThroughHole:Elko_vert_11.5x8mm_RM3.5;
+EndCmp
+
+BeginCmp
+TimeStamp = /555EA7C6/556E032C;
+Reference = C15;
+ValeurCmp = C;
+IdModule  = Capacitors_Elko_ThroughHole:Elko_vert_11.5x8mm_RM3.5;
+EndCmp
+
+BeginCmp
+TimeStamp = /556D4923;
+Reference = CON1;
+ValeurCmp = AUDIO_IN;
+IdModule  = Connect:BARREL_JACK;
+EndCmp
+
+BeginCmp
+TimeStamp = /555EA7C6/556DB725;
 Reference = D1;
-ValeurCmp = D_Schottky;
+ValeurCmp = ZENER;
 IdModule  = Diodes_ThroughHole:Diode_DO-35_SOD27_Horizontal_RM10;
 EndCmp
 
@@ -123,89 +158,89 @@ BeginCmp
 TimeStamp = /556CD613;
 Reference = JP1;
 ValeurCmp = JUMPER;
-IdModule  = Socket_Strips:Socket_Strip_Angled_1x02;
+IdModule  = Socket_Strips:Socket_Strip_Straight_1x02;
+EndCmp
+
+BeginCmp
+TimeStamp = /555EA7C6/556E06DA;
+Reference = L1;
+ValeurCmp = INDUCTOR;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E9A30;
 Reference = P1;
-ValeurCmp = CONN_01X02;
-IdModule  = Socket_Strips:Socket_Strip_Angled_1x02;
+ValeurCmp = +VA_GND;
+IdModule  = Socket_Strips:Socket_Strip_Straight_1x02;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA18B;
 Reference = P2;
-ValeurCmp = CONN_01X02;
-IdModule  = Socket_Strips:Socket_Strip_Angled_1x02;
+ValeurCmp = +VB_GND;
+IdModule  = Socket_Strips:Socket_Strip_Straight_1x02;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E9943;
 Reference = P3;
-ValeurCmp = CONN_01X02;
-IdModule  = Socket_Strips:Socket_Strip_Angled_1x02;
+ValeurCmp = -VA_GND;
+IdModule  = Socket_Strips:Socket_Strip_Straight_1x02;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA185;
 Reference = P4;
-ValeurCmp = CONN_01X02;
-IdModule  = Socket_Strips:Socket_Strip_Angled_1x02;
+ValeurCmp = -VB_GND;
+IdModule  = Socket_Strips:Socket_Strip_Straight_1x02;
 EndCmp
 
 BeginCmp
-TimeStamp = /555F9949;
+TimeStamp = /556D3736;
 Reference = P5;
-ValeurCmp = BNC;
-IdModule  = Sockets_BNC:BNC_Socket_TYCO-AMP;
-EndCmp
-
-BeginCmp
-TimeStamp = /555E9171;
-Reference = P6;
-ValeurCmp = BNC;
-IdModule  = Sockets_BNC:BNC_Socket_TYCO-AMP;
+ValeurCmp = OUT;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x02;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/556BD9C4;
-Reference = P7;
+Reference = P6;
 ValeurCmp = MJE350;
 IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/556C038A;
-Reference = P8;
+Reference = P7;
 ValeurCmp = MJE340;
 IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/556C0DFA;
-Reference = P9;
+Reference = P8;
 ValeurCmp = 2SA1302;
 IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/556C0D5A;
-Reference = P10;
+Reference = P9;
 ValeurCmp = 2SC3281;
 IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/556C60DA;
-Reference = P11;
+Reference = P10;
 ValeurCmp = 2SC3281;
 IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/556C82C3;
-Reference = P12;
+Reference = P11;
 ValeurCmp = 2SA1302;
 IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
 EndCmp
@@ -354,196 +389,231 @@ BeginCmp
 TimeStamp = /555E607D;
 Reference = R1;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E6112;
 Reference = R2;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E6175;
 Reference = R3;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E61BD;
 Reference = R4;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E647E;
 Reference = R5;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E62C7;
 Reference = R6;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E6255;
 Reference = R7;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E64EE;
 Reference = R8;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E8468;
 Reference = R9;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /556DE8A0;
+Reference = R10;
+ValeurCmp = R;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E6363;
-Reference = R10;
+Reference = R11;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E63AF;
-Reference = R11;
+Reference = R12;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA465;
-Reference = R12;
+Reference = R13;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EAE87;
-Reference = R13;
+Reference = R14;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EAF3B;
-Reference = R14;
+TimeStamp = /556DD40B;
+Reference = R15;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6968;
-Reference = R15;
+Reference = R16;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6978;
-Reference = R16;
+Reference = R17;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E696B;
-Reference = R17;
+Reference = R18;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E697B;
-Reference = R18;
+Reference = R19;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6971;
-Reference = R19;
+Reference = R20;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/555E6974;
-Reference = R20;
+TimeStamp = /555EA7C6/556DCB7C;
+Reference = R21;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E697E;
-Reference = R21;
+Reference = R22;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6975;
-Reference = R22;
+Reference = R23;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6980;
-Reference = R23;
+Reference = R24;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E696E;
-Reference = R24;
+Reference = R25;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E697C;
-Reference = R25;
+Reference = R26;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6977;
-Reference = R26;
+Reference = R27;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6981;
-Reference = R27;
+Reference = R28;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0603_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E676F;
-Reference = R28;
+Reference = R29;
 ValeurCmp = R;
-IdModule  = Resistors_SMD:R_0805_HandSoldering;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /555EA7C6/556E028A;
+Reference = R30;
+ValeurCmp = R;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /555EA7C6/556E05E0;
+Reference = R31;
+ValeurCmp = R;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /556D30A9;
+Reference = RV1;
+ValeurCmp = POT;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
+EndCmp
+
+BeginCmp
+TimeStamp = /555EA7C6/556D2472;
+Reference = RV2;
+ValeurCmp = POT;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
 EndCmp
 
 EndListe
