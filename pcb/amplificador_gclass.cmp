@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by Cvpcb 0.201504261001+5623~23~ubuntu15.04.1-product   date = Thu 04 Jun 2015 06:37:39 PM ART
+Cmp-Mod V01 Created by Cvpcb 0.201504261001+5623~23~ubuntu15.04.1-product   date = Mon 08 Jun 2015 04:01:42 AM ART
 
 BeginCmp
 TimeStamp = /555E66AA;
@@ -249,7 +249,7 @@ BeginCmp
 TimeStamp = /556D7B31;
 Reference = Q1;
 ValeurCmp = MPSA56_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+IdModule  = pcb:TRANSISTOR_PARA_GCLASS;
 EndCmp
 
 BeginCmp
@@ -571,14 +571,14 @@ BeginCmp
 TimeStamp = /555EA7C6/555E6977;
 Reference = R27;
 ValeurCmp = R;
-IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
+IdModule  = Resistors_ThroughHole:Resistor_Ceramic_Horizontal_L23mm-W9mm-H9mm-p30mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6981;
 Reference = R28;
 ValeurCmp = R;
-IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
+IdModule  = Resistors_ThroughHole:Resistor_Ceramic_Horizontal_L23mm-W9mm-H9mm-p30mm;
 EndCmp
 
 BeginCmp

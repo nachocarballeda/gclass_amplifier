@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:lib_ampli
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -171,7 +172,7 @@ U 1 1 555E6977
 P 5950 3300
 F 0 "R27" V 6030 3300 50  0000 C CNN
 F 1 "R" V 5950 3300 50  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 5880 3300 30  0001 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Ceramic_Horizontal_L23mm-W9mm-H9mm-p30mm" V 5880 3300 30  0001 C CNN
 F 3 "" H 5950 3300 30  0000 C CNN
 	1    5950 3300
 	-1   0    0    1   
@@ -270,7 +271,7 @@ U 1 1 555E6981
 P 5950 3800
 F 0 "R28" V 6030 3800 50  0000 C CNN
 F 1 "R" V 5950 3800 50  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 5880 3800 30  0001 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Ceramic_Horizontal_L23mm-W9mm-H9mm-p30mm" V 5880 3800 30  0001 C CNN
 F 3 "" H 5950 3800 30  0000 C CNN
 	1    5950 3800
 	-1   0    0    -1  
@@ -855,7 +856,7 @@ Wire Wire Line
 Wire Wire Line
 	4000 2450 4000 3000
 Wire Wire Line
-	4050 3150 4150 3150
+	4150 3150 4050 3150
 Wire Wire Line
 	4050 3400 4050 3250
 Wire Wire Line
@@ -889,7 +890,7 @@ Wire Wire Line
 Wire Wire Line
 	5350 4750 5350 4600
 Wire Wire Line
-	5350 5050 5700 5050
+	5700 5050 5350 5050
 Wire Wire Line
 	4700 5250 5050 5250
 Wire Wire Line

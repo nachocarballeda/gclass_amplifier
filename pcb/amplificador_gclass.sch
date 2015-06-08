@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:lib_ampli
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -847,7 +848,7 @@ U 1 1 556D7B31
 P 2950 4150
 F 0 "Q1" H 3250 4200 50  0000 R CNN
 F 1 "MPSA56_PNP_EBC" H 3300 3900 50  0000 R CNN
-F 2 "Transistors_TO-220:TO-220_Neutral123_Vertical" H 3150 4250 29  0001 C CNN
+F 2 "pcb:TRANSISTOR_PARA_GCLASS" H 3150 4250 29  0001 C CNN
 F 3 "" H 2950 4150 60  0000 C CNN
 	1    2950 4150
 	1    0    0    1   
