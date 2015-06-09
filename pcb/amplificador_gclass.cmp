@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by Cvpcb 0.201504261001+5623~23~ubuntu15.04.1-product   date = Mon 08 Jun 2015 07:11:12 PM ART
+Cmp-Mod V01 Created by Cvpcb (after 2015-mar-04 BZR unknown)-product   date = 09/06/2015 03:24:10 p.m.
 
 BeginCmp
 TimeStamp = /555E66AA;
@@ -200,21 +200,21 @@ BeginCmp
 TimeStamp = /55768354;
 Reference = P6;
 ValeurCmp = CONN_01X01;
-IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/556BD9C4;
 Reference = P7;
 ValeurCmp = MJE350;
-IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
+IdModule  = pcb:bornera_chica;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/556C038A;
 Reference = P8;
 ValeurCmp = MJE340;
-IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
+IdModule  = pcb:bornera_chica;
 EndCmp
 
 BeginCmp
