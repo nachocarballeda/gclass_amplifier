@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by Cvpcb 0.201504261001+5623~23~ubuntu15.04.1-product   date = Mon 08 Jun 2015 04:01:42 AM ART
+Cmp-Mod V01 Created by Cvpcb 0.201504261001+5623~23~ubuntu15.04.1-product   date = Mon 08 Jun 2015 07:11:12 PM ART
 
 BeginCmp
 TimeStamp = /555E66AA;
@@ -155,13 +155,6 @@ IdModule  = Diodes_ThroughHole:Diode_DO-35_SOD27_Horizontal_RM10;
 EndCmp
 
 BeginCmp
-TimeStamp = /556CD613;
-Reference = JP1;
-ValeurCmp = JUMPER;
-IdModule  = Socket_Strips:Socket_Strip_Straight_1x02;
-EndCmp
-
-BeginCmp
 TimeStamp = /555EA7C6/556E06DA;
 Reference = L1;
 ValeurCmp = INDUCTOR;
@@ -204,157 +197,164 @@ IdModule  = Pin_Headers:Pin_Header_Straight_1x02;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/556BD9C4;
+TimeStamp = /55768354;
 Reference = P6;
+ValeurCmp = CONN_01X01;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
+EndCmp
+
+BeginCmp
+TimeStamp = /555EA7C6/556BD9C4;
+Reference = P7;
 ValeurCmp = MJE350;
 IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/556C038A;
-Reference = P7;
+Reference = P8;
 ValeurCmp = MJE340;
 IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/556C0DFA;
-Reference = P8;
+Reference = P9;
 ValeurCmp = 2SA1302;
-IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
+IdModule  = pcb:bornera_grande;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/556C0D5A;
-Reference = P9;
+Reference = P10;
 ValeurCmp = 2SC3281;
-IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
+IdModule  = pcb:bornera_grande;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/556C60DA;
-Reference = P10;
+Reference = P11;
 ValeurCmp = 2SC3281;
-IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
+IdModule  = pcb:bornera_grande;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/556C82C3;
-Reference = P11;
+Reference = P12;
 ValeurCmp = 2SA1302;
-IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
+IdModule  = pcb:bornera_grande;
 EndCmp
 
 BeginCmp
 TimeStamp = /556D7B31;
 Reference = Q1;
 ValeurCmp = MPSA56_PNP_EBC;
-IdModule  = pcb:TRANSISTOR_PARA_GCLASS;
+IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
 TimeStamp = /556D7A6B;
 Reference = Q2;
 ValeurCmp = MPSA56_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E5E5A;
 Reference = Q3;
 ValeurCmp = MPSA06_NPN_EBC;
-IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
 TimeStamp = /556D7105;
 Reference = Q4;
 ValeurCmp = MPSA56_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E5F05;
 Reference = Q5;
 ValeurCmp = MPSA06_NPN_EBC;
-IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E5D8F;
 Reference = Q6;
 ValeurCmp = MPSA56_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
 TimeStamp = /556D735C;
 Reference = Q7;
 ValeurCmp = MPSA56_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
 TimeStamp = /556D7418;
 Reference = Q8;
 ValeurCmp = MPSA56_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA45F;
 Reference = Q9;
 ValeurCmp = MPSA56_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
 TimeStamp = /556D81CA;
 Reference = Q10;
 ValeurCmp = MPSA06_NPN_EBC;
-IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
 TimeStamp = /556D7C97;
 Reference = Q11;
 ValeurCmp = MPSA56_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
 TimeStamp = /556D8298;
 Reference = Q12;
 ValeurCmp = MPSA06_NPN_EBC;
-IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6966;
 Reference = Q13;
 ValeurCmp = MPSA56_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/556C4C7C;
 Reference = Q14;
 ValeurCmp = MPSA06_NPN_EBC;
-IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6967;
 Reference = Q15;
 ValeurCmp = MPSA56_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/556C5042;
 Reference = Q16;
 ValeurCmp = MPSA06_NPN_EBC;
-IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
@@ -375,14 +375,14 @@ BeginCmp
 TimeStamp = /555EA7C6/555E696C;
 Reference = Q19;
 ValeurCmp = MJE340_NPN_ECB;
-IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+IdModule  = pcb:MJE340_gclass;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6986;
 Reference = Q20;
 ValeurCmp = MJE350_PNP_EBC;
-IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical;
+IdModule  = pcb:MJE_350_gclass;
 EndCmp
 
 BeginCmp
@@ -571,14 +571,14 @@ BeginCmp
 TimeStamp = /555EA7C6/555E6977;
 Reference = R27;
 ValeurCmp = R;
-IdModule  = Resistors_ThroughHole:Resistor_Ceramic_Horizontal_L23mm-W9mm-H9mm-p30mm;
+IdModule  = pcb:RESIST_35MMX10MM;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/555E6981;
 Reference = R28;
 ValeurCmp = R;
-IdModule  = Resistors_ThroughHole:Resistor_Ceramic_Horizontal_L23mm-W9mm-H9mm-p30mm;
+IdModule  = pcb:RESIST_35MMX10MM;
 EndCmp
 
 BeginCmp
