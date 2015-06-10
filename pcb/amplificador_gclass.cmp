@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by Cvpcb (after 2015-mar-04 BZR unknown)-product   date = 09/06/2015 07:01:41 p.m.
+Cmp-Mod V01 Created by Cvpcb (after 2015-mar-04 BZR unknown)-product   date = 09/06/2015 10:18:51 p.m.
 
 BeginCmp
 TimeStamp = /555E66AA;
@@ -243,6 +243,48 @@ TimeStamp = /555EA7C6/556C82C3;
 Reference = P12;
 ValeurCmp = 2SA1302;
 IdModule  = pcb:bornera_grande;
+EndCmp
+
+BeginCmp
+TimeStamp = /55779C41;
+Reference = P13;
+ValeurCmp = CONN_01X01;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
+EndCmp
+
+BeginCmp
+TimeStamp = /5577A4C3;
+Reference = P14;
+ValeurCmp = CONN_01X01;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
+EndCmp
+
+BeginCmp
+TimeStamp = /5577CF3C;
+Reference = P15;
+ValeurCmp = CONN_01X01;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
+EndCmp
+
+BeginCmp
+TimeStamp = /5577D35E;
+Reference = P16;
+ValeurCmp = CONN_01X01;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
+EndCmp
+
+BeginCmp
+TimeStamp = /5577D3D8;
+Reference = P17;
+ValeurCmp = CONN_01X01;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
+EndCmp
+
+BeginCmp
+TimeStamp = /5577E7A1;
+Reference = P18;
+ValeurCmp = CONN_01X01;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
 EndCmp
 
 BeginCmp
@@ -582,22 +624,15 @@ IdModule  = pcb:RESIST_35MMX10MM;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/555E676F;
+TimeStamp = /555EA7C6/556E028A;
 Reference = R29;
 ValeurCmp = R;
 IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/556E028A;
-Reference = R30;
-ValeurCmp = R;
-IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
-EndCmp
-
-BeginCmp
 TimeStamp = /555EA7C6/556E05E0;
-Reference = R31;
+Reference = R30;
 ValeurCmp = R;
 IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
