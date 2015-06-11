@@ -1,4 +1,4 @@
-update=10/06/2015 06:29:38 p.m.
+update=11/06/2015 07:19:01 p.m.
 version=1
 last_client=kicad
 [cvpcb]
@@ -38,7 +38,7 @@ BoardOutlineThickness=0.09999999999999999
 ModuleOutlineThickness=0.15
 [eeschema]
 version=1
-LibDir=../pcb;../pcb;../pcb.pretty
+LibDir=../pcb;../pcb;../pcb.pretty;../pcb.pretty
 [eeschema/libraries]
 LibName1=lib_ampli
 LibName2=power
@@ -71,3 +71,4 @@ LibName28=opto
 LibName29=atmel
 LibName30=contrib
 LibName31=valves
+LibName32=w_connectors

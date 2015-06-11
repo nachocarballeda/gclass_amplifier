@@ -30,6 +30,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:w_connectors
 LIBS:amplificador_gclass-cache
 EELAYER 25 0
 EELAYER END
@@ -380,7 +381,7 @@ U 1 1 556BD9C4
 P 3850 3150
 F 0 "P14" H 3850 3350 50  0000 C CNN
 F 1 "MJE350" V 3950 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x01" H 3850 3150 60  0001 C CNN
+F 2 "pcb:bornera_chica" H 3850 3150 60  0001 C CNN
 F 3 "" H 3850 3150 60  0000 C CNN
 	1    3850 3150
 	-1   0    0    1   
@@ -397,7 +398,7 @@ U 1 1 556C038A
 P 3850 3850
 F 0 "P15" H 3850 4050 50  0000 C CNN
 F 1 "MJE340" V 3950 3850 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x01" H 3850 3850 60  0001 C CNN
+F 2 "pcb:bornera_chica" H 3850 3850 60  0001 C CNN
 F 3 "" H 3850 3850 60  0000 C CNN
 	1    3850 3850
 	-1   0    0    1   
@@ -408,7 +409,7 @@ U 1 1 556C0D5A
 P 5550 2750
 F 0 "P17" H 5550 2950 50  0000 C CNN
 F 1 "2SC3281" V 5650 2750 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x01" H 5550 2750 60  0001 C CNN
+F 2 "pcb:bornera_grande" H 5550 2750 60  0001 C CNN
 F 3 "" H 5550 2750 60  0000 C CNN
 	1    5550 2750
 	0    -1   -1   0   
@@ -419,7 +420,7 @@ U 1 1 556C0DFA
 P 5450 3850
 F 0 "P16" H 5450 4050 50  0000 C CNN
 F 1 "2SA1302" V 5550 3850 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x01" H 5450 3850 60  0001 C CNN
+F 2 "pcb:bornera_grande" H 5450 3850 60  0001 C CNN
 F 3 "" H 5450 3850 60  0000 C CNN
 	1    5450 3850
 	0    -1   -1   0   
@@ -466,7 +467,7 @@ U 1 1 556C60DA
 P 6300 1950
 F 0 "P18" H 6300 2150 50  0000 C CNN
 F 1 "2SC3281" V 6400 1950 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x01" H 6300 1950 60  0001 C CNN
+F 2 "pcb:bornera_grande" H 6300 1950 60  0001 C CNN
 F 3 "" H 6300 1950 60  0000 C CNN
 	1    6300 1950
 	1    0    0    -1  

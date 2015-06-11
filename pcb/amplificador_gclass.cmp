@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by Cvpcb (after 2015-mar-04 BZR unknown)-product   date = 11/06/2015 02:03:12 p.m.
+Cmp-Mod V01 Created by Cvpcb (after 2015-mar-04 BZR unknown)-product   date = 11/06/2015 08:02:41 p.m.
 
 BeginCmp
 TimeStamp = /555E66AA;
@@ -106,13 +106,6 @@ IdModule  = Capacitors_Elko_ThroughHole:Elko_vert_11.5x8mm_RM3.5;
 EndCmp
 
 BeginCmp
-TimeStamp = /556D4923;
-Reference = CON1;
-ValeurCmp = AUDIO_IN;
-IdModule  = Connect:BARREL_JACK;
-EndCmp
-
-BeginCmp
 TimeStamp = /555EA7C6/556DB725;
 Reference = D1;
 ValeurCmp = ZENER;
@@ -155,6 +148,13 @@ IdModule  = Diodes_ThroughHole:Diode_DO-35_SOD27_Horizontal_RM10;
 EndCmp
 
 BeginCmp
+TimeStamp = /557AAF8F;
+Reference = J1;
+ValeurCmp = Jack_3.5mm_5pin;
+IdModule  = pcb:jack_puto;
+EndCmp
+
+BeginCmp
 TimeStamp = /555EA7C6/556E06DA;
 Reference = L1;
 ValeurCmp = INDUCTOR;
@@ -165,28 +165,28 @@ BeginCmp
 TimeStamp = /55779C41;
 Reference = P1;
 ValeurCmp = CONN_01X01;
-IdModule  = Socket_Strips:Socket_Strip_Straight_1x02;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
 EndCmp
 
 BeginCmp
 TimeStamp = /5577A4C3;
 Reference = P2;
 ValeurCmp = CONN_01X01;
-IdModule  = Socket_Strips:Socket_Strip_Straight_1x02;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
 EndCmp
 
 BeginCmp
 TimeStamp = /5577CF3C;
 Reference = P3;
 ValeurCmp = CONN_01X01;
-IdModule  = Socket_Strips:Socket_Strip_Straight_1x02;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
 EndCmp
 
 BeginCmp
 TimeStamp = /5577D35E;
 Reference = P4;
 ValeurCmp = CONN_01X01;
-IdModule  = Socket_Strips:Socket_Strip_Straight_1x02;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
 EndCmp
 
 BeginCmp
@@ -200,49 +200,42 @@ BeginCmp
 TimeStamp = /555EA18B;
 Reference = P6;
 ValeurCmp = +VB_GND;
-IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x02;
 EndCmp
 
 BeginCmp
 TimeStamp = /555E9943;
 Reference = P7;
 ValeurCmp = -VA_GND;
-IdModule  = pcb:bornera_chica;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x02;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA185;
 Reference = P8;
 ValeurCmp = -VB_GND;
-IdModule  = pcb:bornera_chica;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x02;
 EndCmp
 
 BeginCmp
 TimeStamp = /5579C4A9;
 Reference = P9;
 ValeurCmp = CONN_01X01;
-IdModule  = pcb:bornera_grande;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
 EndCmp
 
 BeginCmp
 TimeStamp = /5577E7A1;
 Reference = P10;
 ValeurCmp = CONN_01X01;
-IdModule  = pcb:bornera_grande;
-EndCmp
-
-BeginCmp
-TimeStamp = /5577D3D8;
-Reference = P11;
-ValeurCmp = CONN_01X01;
-IdModule  = pcb:bornera_grande;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
 EndCmp
 
 BeginCmp
 TimeStamp = /556D3736;
 Reference = P12;
 ValeurCmp = OUT;
-IdModule  = pcb:bornera_grande;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x02;
 EndCmp
 
 BeginCmp
@@ -256,35 +249,35 @@ BeginCmp
 TimeStamp = /555EA7C6/556BD9C4;
 Reference = P14;
 ValeurCmp = MJE350;
-IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
+IdModule  = pcb:bornera_chica;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/556C038A;
 Reference = P15;
 ValeurCmp = MJE340;
-IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
+IdModule  = pcb:bornera_chica;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/556C0DFA;
 Reference = P16;
 ValeurCmp = 2SA1302;
-IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
+IdModule  = pcb:bornera_grande;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/556C0D5A;
 Reference = P17;
 ValeurCmp = 2SC3281;
-IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
+IdModule  = pcb:bornera_grande;
 EndCmp
 
 BeginCmp
 TimeStamp = /555EA7C6/556C60DA;
 Reference = P18;
 ValeurCmp = 2SC3281;
-IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
+IdModule  = pcb:bornera_grande;
 EndCmp
 
 BeginCmp
