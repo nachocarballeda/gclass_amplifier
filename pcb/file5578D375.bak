@@ -30,6 +30,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:w_connectors
 LIBS:amplificador_gclass-cache
 EELAYER 25 0
 EELAYER END

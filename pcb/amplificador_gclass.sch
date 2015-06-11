@@ -312,7 +312,7 @@ U 1 1 555EA185
 P 2000 3250
 F 0 "P8" H 2000 3400 50  0000 C CNN
 F 1 "-VB_GND" V 2100 3250 50  0000 C CNN
-F 2 "pcb:bornera_chica" H 2000 3250 60  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02" H 2000 3250 60  0001 C CNN
 F 3 "" H 2000 3250 60  0000 C CNN
 	1    2000 3250
 	0    -1   -1   0   
@@ -323,7 +323,7 @@ U 1 1 555EA18B
 P 1450 3250
 F 0 "P6" H 1450 3400 50  0000 C CNN
 F 1 "+VB_GND" V 1550 3250 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x01" H 1450 3250 60  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02" H 1450 3250 60  0001 C CNN
 F 3 "" H 1450 3250 60  0000 C CNN
 	1    1450 3250
 	0    -1   -1   0   
@@ -345,7 +345,7 @@ U 1 1 555E9943
 P 2000 2350
 F 0 "P7" H 2000 2500 50  0000 C CNN
 F 1 "-VA_GND" V 2100 2350 50  0000 C CNN
-F 2 "pcb:bornera_chica" H 2000 2350 60  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02" H 2000 2350 60  0001 C CNN
 F 3 "" H 2000 2350 60  0000 C CNN
 	1    2000 2350
 	0    -1   -1   0   
@@ -776,7 +776,7 @@ Wire Notes Line
 	1050 1800 2800 1800
 Wire Notes Line
 	2800 1800 2800 1000
-Text GLabel 2600 2550 0    60   Input ~ 0
+Text GLabel 2750 2650 0    60   Input ~ 0
 IN
 $Comp
 L GND #PWR027
@@ -956,7 +956,7 @@ U 1 1 556D3736
 P 2600 3200
 F 0 "P12" H 2600 3350 50  0000 C CNN
 F 1 "OUT" V 2700 3200 50  0000 C CNN
-F 2 "pcb:bornera_grande" H 2600 3200 60  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02" H 2600 3200 60  0001 C CNN
 F 3 "" H 2600 3200 60  0000 C CNN
 	1    2600 3200
 	0    -1   -1   0   
@@ -967,8 +967,6 @@ Wire Wire Line
 	2500 2250 2500 2350
 Wire Wire Line
 	2500 2350 2850 2350
-Wire Wire Line
-	2600 2350 2600 2450
 Wire Notes Line
 	3400 3700 3400 2100
 Text Notes 1050 2050 0    60   ~ 0
@@ -1082,7 +1080,7 @@ U 1 1 55779C41
 P 1250 6100
 F 0 "P1" H 1250 6200 50  0000 C CNN
 F 1 "CONN_01X01" H 1250 5950 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x02" H 1250 6100 60  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01" H 1250 6100 60  0001 C CNN
 F 3 "" H 1250 6100 60  0000 C CNN
 	1    1250 6100
 	-1   0    0    1   
@@ -1093,7 +1091,7 @@ U 1 1 5577A4C3
 P 1250 6500
 F 0 "P2" H 1250 6600 50  0000 C CNN
 F 1 "CONN_01X01" H 1250 6350 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x02" H 1250 6500 60  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01" H 1250 6500 60  0001 C CNN
 F 3 "" H 1250 6500 60  0000 C CNN
 	1    1250 6500
 	-1   0    0    1   
@@ -1134,7 +1132,7 @@ U 1 1 5577CF3C
 P 1250 6950
 F 0 "P3" H 1250 7050 50  0000 C CNN
 F 1 "CONN_01X01" H 1250 6800 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x02" H 1250 6950 60  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01" H 1250 6950 60  0001 C CNN
 F 3 "" H 1250 6950 60  0000 C CNN
 	1    1250 6950
 	-1   0    0    1   
@@ -1160,7 +1158,7 @@ U 1 1 5577D35E
 P 1250 7400
 F 0 "P4" H 1250 7500 50  0000 C CNN
 F 1 "CONN_01X01" H 1250 7250 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x02" H 1250 7400 60  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01" H 1250 7400 60  0001 C CNN
 F 3 "" H 1250 7400 60  0000 C CNN
 	1    1250 7400
 	-1   0    0    1   
@@ -1186,7 +1184,7 @@ U 1 1 5577E7A1
 P 2100 6800
 F 0 "P10" H 2100 6900 50  0000 C CNN
 F 1 "CONN_01X01" H 2100 6650 50  0000 C CNN
-F 2 "pcb:bornera_grande" H 2100 6800 60  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01" H 2100 6800 60  0001 C CNN
 F 3 "" H 2100 6800 60  0000 C CNN
 	1    2100 6800
 	-1   0    0    1   
@@ -1212,7 +1210,7 @@ U 1 1 5579C4A9
 P 2100 6100
 F 0 "P9" H 2100 6200 50  0000 C CNN
 F 1 "CONN_01X01" H 2100 5950 50  0000 C CNN
-F 2 "pcb:bornera_grande" H 2100 6100 60  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01" H 2100 6100 60  0001 C CNN
 F 3 "" H 2100 6100 60  0000 C CNN
 	1    2100 6100
 	-1   0    0    1   
@@ -1233,33 +1231,38 @@ Wire Wire Line
 Wire Wire Line
 	2400 6100 2400 6150
 $Comp
-L Jack_3.5mm_5pin J?
+L Jack_3.5mm_5pin J1
 U 1 1 557AAF8F
 P 3000 2550
-F 0 "J?" H 3000 2800 60  0000 C CNN
+F 0 "J1" H 3000 2800 60  0000 C CNN
 F 1 "Jack_3.5mm_5pin" H 3000 2250 60  0000 C CNN
-F 2 "" H 3000 2600 60  0000 C CNN
+F 2 "pcb:jack_puto" H 3000 2600 60  0001 C CNN
 F 3 "" H 3000 2600 60  0000 C CNN
 	1    3000 2550
 	1    0    0    -1  
 $EndComp
 Connection ~ 2600 2350
 Wire Wire Line
-	2600 2450 2400 2450
-Wire Wire Line
-	2400 2450 2400 2750
-Wire Wire Line
-	2400 2750 2850 2750
-Wire Wire Line
-	2750 2750 2750 2650
-Wire Wire Line
 	2750 2650 2850 2650
-Connection ~ 2750 2750
+NoConn ~ 2850 2450
+$Comp
+L GND #PWR037
+U 1 1 557AC041
+P 2800 2900
+F 0 "#PWR037" H 2800 2650 50  0001 C CNN
+F 1 "GND" H 2800 2750 50  0000 C CNN
+F 2 "" H 2800 2900 60  0000 C CNN
+F 3 "" H 2800 2900 60  0000 C CNN
+	1    2800 2900
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	2850 2550 2600 2550
+	2800 2900 2800 2750
 Wire Wire Line
-	2850 2450 2800 2450
+	2500 2750 2850 2750
 Wire Wire Line
-	2800 2450 2800 2550
-Connection ~ 2800 2550
+	2850 2550 2500 2550
+Wire Wire Line
+	2500 2550 2500 2750
+Connection ~ 2800 2750
 $EndSCHEMATC
