@@ -1,4 +1,4 @@
-update=11/06/2015 07:19:01 p.m.
+update=Mon 22 Jun 2015 12:42:08 AM ART
 version=1
 last_client=kicad
 [cvpcb]
@@ -14,8 +14,6 @@ NetFmtName=Pcbnew
 SpiceForceRefPrefix=0
 SpiceUseNetNumbers=0
 LabSize=60
-[general]
-version=1
 [pcbnew]
 version=1
 PageLayoutDescrFile=
@@ -72,3 +70,5 @@ LibName29=atmel
 LibName30=contrib
 LibName31=valves
 LibName32=w_connectors
+[general]
+version=1

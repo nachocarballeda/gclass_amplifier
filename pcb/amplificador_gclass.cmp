@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by Cvpcb (after 2015-mar-04 BZR unknown)-product   date = 11/06/2015 08:02:41 p.m.
+Cmp-Mod V01 Created by Cvpcb 0.201504261001+5623~23~ubuntu15.04.1-product   date = Tue 16 Jun 2015 07:09:19 PM ART
 
 BeginCmp
 TimeStamp = /555E66AA;
@@ -666,6 +666,13 @@ IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
+TimeStamp = /5580A3E6;
+Reference = R31;
+ValeurCmp = R;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
+EndCmp
+
+BeginCmp
 TimeStamp = /556D30A9;
 Reference = RV1;
 ValeurCmp = POT;
@@ -675,6 +682,13 @@ EndCmp
 BeginCmp
 TimeStamp = /555EA7C6/556D2472;
 Reference = RV2;
+ValeurCmp = POT;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
+EndCmp
+
+BeginCmp
+TimeStamp = /5580C23A;
+Reference = RV3;
 ValeurCmp = POT;
 IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
 EndCmp
