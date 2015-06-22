@@ -1,0 +1,31 @@
+Cmp-Mod V01 Created by Cvpcb (after 2015-mar-04 BZR unknown)-product   date = 20/06/2015 08:55:55 p.m.
+
+BeginCmp
+TimeStamp = /558600D6;
+Reference = P1;
+ValeurCmp = CONN_01X03;
+IdModule  = pcb:bornera_grande;
+EndCmp
+
+BeginCmp
+TimeStamp = /55860197;
+Reference = P2;
+ValeurCmp = CONN_01X03;
+IdModule  = pcb:bornera_grande;
+EndCmp
+
+BeginCmp
+TimeStamp = /5585FFC3;
+Reference = Q1;
+ValeurCmp = Q_NPN_BCE;
+IdModule  = pcb:transistor_salida;
+EndCmp
+
+BeginCmp
+TimeStamp = /5586008E;
+Reference = Q2;
+ValeurCmp = Q_NPN_BCE;
+IdModule  = pcb:transistor_salida;
+EndCmp
+
+EndListe
