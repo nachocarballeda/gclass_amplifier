@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by Cvpcb 0.201504261001+5623~23~ubuntu15.04.1-product   date = Tue 16 Jun 2015 07:09:19 PM ART
+Cmp-Mod V01 Created by Cvpcb 0.201504261001+5623~23~ubuntu15.04.1-product   date = Mon 22 Jun 2015 05:22:08 PM ART
 
 BeginCmp
 TimeStamp = /555E66AA;
@@ -190,31 +190,31 @@ IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
 EndCmp
 
 BeginCmp
-TimeStamp = /555E9A30;
+TimeStamp = /55887991;
 Reference = P5;
-ValeurCmp = +VA_GND;
-IdModule  = Pin_Headers:Pin_Header_Straight_1x02;
+ValeurCmp = CONN_01X01;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA18B;
+TimeStamp = /55887FBC;
 Reference = P6;
-ValeurCmp = +VB_GND;
-IdModule  = Pin_Headers:Pin_Header_Straight_1x02;
+ValeurCmp = CONN_01X01;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
 EndCmp
 
 BeginCmp
-TimeStamp = /555E9943;
+TimeStamp = /55887B3A;
 Reference = P7;
-ValeurCmp = -VA_GND;
-IdModule  = Pin_Headers:Pin_Header_Straight_1x02;
+ValeurCmp = CONN_01X01;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA185;
+TimeStamp = /5588804C;
 Reference = P8;
-ValeurCmp = -VB_GND;
-IdModule  = Pin_Headers:Pin_Header_Straight_1x02;
+ValeurCmp = CONN_01X01;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x01;
 EndCmp
 
 BeginCmp
@@ -288,20 +288,6 @@ IdModule  = pcb:bornera_grande;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/5578D376/55790804;
-Reference = P21;
-ValeurCmp = CONN_01X03;
-IdModule  = pcb:bornera_grande;
-EndCmp
-
-BeginCmp
-TimeStamp = /555EA7C6/5578D376/55790832;
-Reference = P22;
-ValeurCmp = CONN_01X03;
-IdModule  = pcb:bornera_grande;
-EndCmp
-
-BeginCmp
 TimeStamp = /556D7B31;
 Reference = Q1;
 ValeurCmp = MPSA56_PNP_EBC;
@@ -358,7 +344,7 @@ IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA45F;
+TimeStamp = /55878525;
 Reference = Q9;
 ValeurCmp = MPSA56_PNP_EBC;
 IdModule  = pcb:MPSA06-56_TO92_EBC;
@@ -372,7 +358,7 @@ IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
-TimeStamp = /556D7C97;
+TimeStamp = /5587853A;
 Reference = Q11;
 ValeurCmp = MPSA56_PNP_EBC;
 IdModule  = pcb:MPSA06-56_TO92_EBC;
@@ -386,16 +372,16 @@ IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/555E6966;
+TimeStamp = /555EA7C6/5587E793;
 Reference = Q13;
-ValeurCmp = MPSA56_PNP_EBC;
+ValeurCmp = MPSA06_NPN_EBC;
 IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/556C4C7C;
+TimeStamp = /555EA7C6/5587C528;
 Reference = Q14;
-ValeurCmp = MPSA06_NPN_EBC;
+ValeurCmp = MPSA56_PNP_EBC;
 IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
@@ -407,7 +393,7 @@ IdModule  = pcb:MPSA06-56_TO92_EBC;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/556C5042;
+TimeStamp = /555EA7C6/5587E835;
 Reference = Q16;
 ValeurCmp = MPSA06_NPN_EBC;
 IdModule  = pcb:MPSA06-56_TO92_EBC;
@@ -439,20 +425,6 @@ TimeStamp = /555EA7C6/555E6986;
 Reference = Q20;
 ValeurCmp = MJE350_PNP_EBC;
 IdModule  = pcb:MJE_350_gclass;
-EndCmp
-
-BeginCmp
-TimeStamp = /555EA7C6/5578D376/5578F2AF;
-Reference = Q23;
-ValeurCmp = Q_NPN_BCE;
-IdModule  = pcb:transistor_salida;
-EndCmp
-
-BeginCmp
-TimeStamp = /555EA7C6/5578D376/55790773;
-Reference = Q24;
-ValeurCmp = Q_PNP_BCE;
-IdModule  = pcb:transistor_salida;
 EndCmp
 
 BeginCmp
@@ -540,7 +512,7 @@ IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA465;
+TimeStamp = /558772BE;
 Reference = R13;
 ValeurCmp = R;
 IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
@@ -568,7 +540,7 @@ IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
-TimeStamp = /555EA7C6/555E6978;
+TimeStamp = /555EA7C6/5587DC07;
 Reference = R17;
 ValeurCmp = R;
 IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
@@ -666,8 +638,29 @@ IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
 
 BeginCmp
-TimeStamp = /5580A3E6;
+TimeStamp = /5587852B;
 Reference = R31;
+ValeurCmp = R;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /55878540;
+Reference = R32;
+ValeurCmp = R;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /555EA7C6/5587C061;
+Reference = R33;
+ValeurCmp = R;
+IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /555EA7C6/5587DC20;
+Reference = R34;
 ValeurCmp = R;
 IdModule  = Resistors_ThroughHole:Resistor_Horizontal_RM10mm;
 EndCmp
@@ -682,13 +675,6 @@ EndCmp
 BeginCmp
 TimeStamp = /555EA7C6/556D2472;
 Reference = RV2;
-ValeurCmp = POT;
-IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
-EndCmp
-
-BeginCmp
-TimeStamp = /5580C23A;
-Reference = RV3;
 ValeurCmp = POT;
 IdModule  = Pin_Headers:Pin_Header_Straight_1x03;
 EndCmp
