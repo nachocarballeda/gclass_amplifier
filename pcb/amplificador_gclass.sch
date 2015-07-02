@@ -1100,20 +1100,16 @@ Connection ~ 2800 2750
 $Comp
 L R R13
 U 1 1 558772BE
-P 4350 1750
-F 0 "R13" V 4430 1750 50  0000 C CNN
-F 1 "R" V 4350 1750 50  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 4280 1750 30  0001 C CNN
-F 3 "" H 4350 1750 30  0000 C CNN
-	1    4350 1750
+P 4350 1700
+F 0 "R13" V 4430 1700 50  0000 C CNN
+F 1 "R" V 4350 1700 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 4280 1700 30  0001 C CNN
+F 3 "" H 4350 1700 30  0000 C CNN
+	1    4350 1700
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4350 1850 4350 2050
-Wire Wire Line
 	4350 1600 4350 1500
-Wire Wire Line
-	4350 1900 4900 1900
 Wire Wire Line
 	4650 2250 5200 2250
 Connection ~ 5200 2250
@@ -1182,11 +1178,7 @@ F 3 "" H 8400 1750 30  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	8400 1850 8400 2050
-Wire Wire Line
 	8400 1600 8400 1500
-Wire Wire Line
-	8400 1900 7850 1900
 Wire Wire Line
 	8100 2250 7550 2250
 Connection ~ 7550 2250
@@ -1241,4 +1233,18 @@ F 3 "" H 1950 3250 60  0000 C CNN
 	1    1950 3250
 	0    -1   -1   0   
 $EndComp
+Wire Wire Line
+	4350 1850 4350 2050
+Wire Wire Line
+	4900 1900 4350 1900
+Connection ~ 4350 1900
+Wire Wire Line
+	8400 1900 8400 2050
+Wire Wire Line
+	7850 1900 8150 1900
+Wire Wire Line
+	8150 1900 8150 1950
+Wire Wire Line
+	8150 1950 8400 1950
+Connection ~ 8400 1950
 $EndSCHEMATC
