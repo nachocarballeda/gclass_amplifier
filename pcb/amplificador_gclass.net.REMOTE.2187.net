@@ -1,14 +1,8 @@
 (export (version D)
   (design
-<<<<<<< HEAD
-    (source /home/ignatius/Documents/repos/gclass_amplifier/pcb/amplificador_gclass.sch)
-    (date "Thu 02 Jul 2015 02:13:06 AM ART")
-    (tool "Eeschema 0.201504261001+5623~23~ubuntu15.04.1-product")
-=======
     (source C:/Users/crisgvenezia/Desktop/repo/pcb/amplificador_gclass.sch)
     (date "24/06/2015 08:37:57 p.m.")
     (tool "Eeschema (after 2015-mar-04 BZR unknown)-product")
->>>>>>> refs/remotes/origin/master
     (sheet (number 1) (name /) (tstamps /)
       (title_block
         (title "Amplificador Clase G ")
