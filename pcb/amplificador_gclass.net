@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/ignatius/Documents/repos/gclass_amplifier/pcb/amplificador_gclass.sch)
-    (date "Mon 22 Jun 2015 05:22:15 PM ART")
+    (date "Thu 02 Jul 2015 02:13:06 AM ART")
     (tool "Eeschema 0.201504261001+5623~23~ubuntu15.04.1-product")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
