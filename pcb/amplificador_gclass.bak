@@ -1178,11 +1178,7 @@ F 3 "" H 8400 1750 30  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	8400 1850 8400 2050
-Wire Wire Line
 	8400 1600 8400 1500
-Wire Wire Line
-	8400 1900 7850 1900
 Wire Wire Line
 	8100 2250 7550 2250
 Connection ~ 7550 2250
@@ -1242,4 +1238,13 @@ Wire Wire Line
 Wire Wire Line
 	4900 1900 4350 1900
 Connection ~ 4350 1900
+Wire Wire Line
+	8400 1900 8400 2050
+Wire Wire Line
+	7850 1900 8150 1900
+Wire Wire Line
+	8150 1900 8150 1950
+Wire Wire Line
+	8150 1950 8400 1950
+Connection ~ 8400 1950
 $EndSCHEMATC

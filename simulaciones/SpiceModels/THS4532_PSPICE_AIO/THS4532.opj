@@ -1,0 +1,56 @@
+(ExpressProject "THS4532"
+  (ProjectVersion "19981106")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File ".\ths4532.olb"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File ".\ths4532.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (PSPICE_Regenerate_Netlist_Flag "FALSE"))
+  (Folder "Outputs"
+    (File ".\ths4532-pspicefiles\ths4532_tran\ths4532_tran.net"
+      (Type "Report")))
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles"
+      (ActiveProfile ".\ths4532-pspicefiles\ths4532_tran\tr.sim")
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\ths4532-pspicefiles\ths4532_tran\tr.sim"
+        (DisplayName "THS4532_TRAN-TR")
+        (Type "PSpice Profile")))
+    (Folder "Model Libraries"
+      (Sort User)
+      (File ".\ths4532.lib"
+        (Type "PSpiceLibrary")
+        (DisplayName ".\ths4532.lib")))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User)))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (PartMRUSelector
+    (THS4532
+      (FullPartName "THS4532.Normal")
+      (LibraryName
+         "C:\ELAB_MODEL_WS\ELAB_MODEL_DS\PART_NUMBERS\THS4532\RELEASE_TI\PSPICE\THS4532_PSPICE_AIO\THS4532.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "C:\ELAB_MODEL_WS\ELAB_MODEL_DS\PART_NUMBERS\THS4532\Release_TI\PSPICE\THS4532_PSPICE_AIO\ths4532.dsn")
+      (Path "Design Resources"
+         "C:\ELAB_MODEL_WS\ELAB_MODEL_DS\PART_NUMBERS\THS4532\Release_TI\PSPICE\THS4532_PSPICE_AIO\ths4532.dsn"
+         "THS4532_TRAN")
+      (Path "Design Resources" "Library")
+      (Path "Outputs"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -30 0 255 0 565"))
+      (Tab 0)))
+  (MPSSessionName "a0199733"))
