@@ -188,7 +188,7 @@ VF_F10         1 2 0V
 .subckt THS4531_S1 1 2 3 4  
 S_S1         3 4 1 2 _S1
 RS_S1         1 2 1G
-.MODEL         _S1 VSWITCH Roff=10e9 Ron=1.0m VH=0.3V VT=1.0V TD=0
+.MODEL         _S1 VSWITCH Roff=10e9 Ron=1.0m VH=0.3V VT=1.0V 
 .ends THS4531_S1
 
 .subckt THS4531_S6 1 2 3 4  
@@ -215,13 +215,13 @@ VF_F13         1 2 0V
 .subckt THS4531_S9 1 2 3 4  
 S_S9         3 4 1 2 _S9
 RS_S9         1 2 1G
-.MODEL         _S9 VSWITCH Roff=10e6 Ron=1.0e-3 VH=0.3V VT=1.0V TD=0
+.MODEL         _S9 VSWITCH Roff=10e6 Ron=1.0e-3 VH=0.3V VT=1.0V 
 .ends THS4531_S9
 
 .subckt THS4531_S4 1 2 3 4  
 S_S4         3 4 1 2 _S4
 RS_S4         1 2 1G
-.MODEL         _S4 VSWITCH Roff=10e6 Ron=1.0e-3 VH=0.3V VT=1.0V TD=0
+.MODEL         _S4 VSWITCH Roff=10e6 Ron=1.0e-3 VH=0.3V VT=1.0V 
 .ends THS4531_S4
 
 .subckt THS4531_F2 1 2 3 4  
@@ -232,19 +232,19 @@ VF_F2         1 2 0V
 .subckt THS4531_S11 1 2 3 4  
 S_S11         3 4 1 2 _S11
 RS_S11         1 2 1G
-.MODEL         _S11 VSWITCH Roff=10e6 Ron=1.0e-3 VH=0.3V VT=1.0V TD=0
+.MODEL         _S11 VSWITCH Roff=10e6 Ron=1.0e-3 VH=0.3V VT=1.0V 
 .ends THS4531_S11
 
 .subckt THS4531_S12 1 2 3 4  
 S_S12         3 4 1 2 _S12
 RS_S12         1 2 1G
-.MODEL         _S12 VSWITCH Roff=10e6 Ron=1.0e-3 VH=0.3V VT=1.0V TD=0
+.MODEL         _S12 VSWITCH Roff=10e6 Ron=1.0e-3 VH=0.3V VT=1.0V 
 .ends THS4531_S12
 
 .subckt THS4531_S10 1 2 3 4  
 S_S10         3 4 1 2 _S10
 RS_S10         1 2 1G
-.MODEL         _S10 VSWITCH Roff=10e6 Ron=1.0e-3 VH=0.3V VT=1.0V TD=0
+.MODEL         _S10 VSWITCH Roff=10e6 Ron=1.0e-3 VH=0.3V VT=1.0V 
 .ends THS4531_S10
 
 .subckt THS4531_F5 1 2 3 4  
