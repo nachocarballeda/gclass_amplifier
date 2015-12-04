@@ -183,22 +183,22 @@
 
 \section{Actividades desarrolladas}
 
-\subsection{Diseño Conceptual}
+\subsection{Diseño conceptual}
 
-Un amplificador consta, basicamente, de 3 etapas: Una de entrada, diferencial, una intermedia, de ganancia de tensión, y una de salida, de ganancia de corriente.
+Un amplificador consta, basicamente, de 3 etapas: una de entrada, diferencial, una intermedia, de ganancia de tensión, y una de salida, de ganancia de corriente.
 
-Para la tapa de entrada, inicialmente consideramos una típica topografía diferencial, de colectores acoplados. Como los transistores no son componentes lineales, propusimos agregar otro par diferencial, en paralelo, con componentes complementarios, es decir, donde originalmente usamos transistores NPN, colocamos PNP, y viceversa.
+Para la etapa de entrada, inicialmente consideramos una típica topografía diferencial, de colectores acoplados. Como los transistores no son componentes lineales, propusimos agregar otro par diferencial, en paralelo, con componentes complementarios; es decir, donde originalmente usamos transistores NPN, colocamos PNP, y viceversa.
 
 
 Luego, conseguimos un circuito integrado, especialmente diseñado para audio, que presenta una distorsión considerablemente baja, por lo que decidimos usar este último.
 
-Para la etapa intermedia, en primera instancia, decidimos utilizar un amplificador de 2 etapas, colector común - emisor común, con la diferencia del diseño convencional, de que la salida del VAS está conectada al centro del multiplicador de Vbe, para obtener una mayor simetría en la última etapa.
+Para la etapa intermedia, en primera instancia, decidimos utilizar un amplificador de 2 etapas, colector común - emisor común, con la diferencia del diseño convencional, de que la salida del VAS está conectada al centro del multiplicador de $V_{be}$, para obtener una mayor simetría en la última etapa.
 
-Con el cambio a 2 pares diferenciales, la etapa intermedia también se duplica, complementariamente, y se conectan a la etapa de salida, por arriba y por abajo del multiplicador de Vbe.
+Con el cambio a 2 pares diferenciales, la etapa intermedia también se duplica, complementariamente, y se conectan a la etapa de salida, por arriba y por abajo del multiplicador de $V_{be}$.
 
 La etapa de salida es clase G, con transistores en configuración Darlington, para tener una ganancia de corriente elevada, y con transistores en paralelo, en la parte de mayor potencia, para repartir la corriente y disminuir la disipación de potencia en cada uno.
 
-\subsection{Diseño Circuital}
+\subsection{Diseño circuital}
 
 \begin{figure}[H]
 \centering
@@ -207,31 +207,35 @@ La etapa de salida es clase G, con transistores en configuración Darlington, pa
 \label{circuito} 
 \end{figure}
 
-\subsection{Análisis de los condicionantes de integracion}
+\subsection{Análisis de los condicionantes de integración}
 
 
 
 \subsection{Diseño PCB}
 
-\section{Grado de Avance}
+
+\section{Grado de avance}
 
 Hasta el momento, hemos elegido las configuraciones de las distintas etapas, buscando aquellas que nos provean una menor distorsión; realizamos los cálculos para hallar los valores de realimentación, resistencias para el embalamiento térmico y los disipadores para los transistores; realizamos la simulación del circuito, y estamos en proceso de diseño de la fuente para reducir la tensión de alimentación a un valor apropiado para los integrados que utilizaremos en la primera etapa. 
 
 \section{Dificultades encontradas}
 
-Para el desarrollo del proyecto, nos encontramos con varios obstáculos, en el primer diseño que realizamos, nos encontramos con una disparidad en las corrientes del par diferencial, que resolvimos comprando transistores de más, midiendo sus betas, y agrupandolos, para poder trabajar con valores apareados. Otra solución que encontramos, que aplicaremos en esta versión del circuito, es utilizar transistores integrados, que asegura que todos los transistores tengan las mismas propiedades, y estén apareados.
+Para el desarrollo del proyecto, nos encontramos con varios obstáculos. En el primer diseño que realizamos, nos encontramos con una disparidad en las corrientes del par diferencial, que resolvimos comprando transistores de más, midiendo sus parámetros $\beta$, y agrupándolos para poder trabajar con valores apareados. Otra solución que encontramos, y que aplicaremos en esta versión del circuito, es utilizar transistores integrados, que asegura que todos los transistores tengan las mismas propiedades, y estén apareados.
 
 
 \section{Resumen de actividades a desarrollar}
 
-Habiendo establecido todo lo anterior, procederemos con la simulación del circuito con las fuentes switching en la parte diferencial, el diseño del PCB comparte parte con la versión que realizamos el cuatrimestre pasado, por lo que sólo será necesario rediseñar la primera parte. Luego procederemos con el armado del circuito, verificando el correcto funcionamiento de las etapas, durante el armado de la placa, y luego tendremos que revisar que esté andando en correcto funcionamiento, y en los parámetros que propusimos. Finalizado esto, procederemos a realizar las mediciones pertinentes.
+Habiendo establecido todo lo anterior, procederemos con la simulación del circuito con las fuentes switching en la parte diferencial, el diseño del PCB comparte parte con la versión que realizamos el cuatrimestre pasado, por lo que sólo será necesario rediseñar la primera parte. Luego procederemos con el armado del circuito, verificando el correcto funcionamiento de las etapas, durante el armado de la placa, y luego tendremos que revisar que esté andando correctamente, y que cumpla con las parámetros que propusimos. Finalizado esto, procederemos a realizar las mediciones pertinentes.
 
 
+\section{Dudas, cosas pendientes, blabla (ESTO NO VA)}
 
+\begin{itemize}
+\item No más de 10 páginas. Eso nos da excusas para no poner mucho, pero no nos da excusa para poner menos de 8. Jaja. Si nos nquedamos cortos, rellenemos hasta 10 y pongamos de excusa que no queríamos pasarnos para justificar lo que no hagamos
+\item Cuentas en la sección de diseño circuital que nos hayan permitido elegir valores de componentes (??)
+\item Pasar todo lo pasable del informe anterior a este. X ej, en diseño de PCB
+\item Condicionantes de integración: preguntar mejor. Parece ser el asunto de disipación, acoplamiente térmico, masas locas en loop, ruteo, o lo que tenga que ver con pasar de la simulación con componentes ideales a la real. Capaz se pueden chupar un poco las medias de Fede chamullando algo sobre la clase que dio de ruido, y la importancia de la primera etapa.
 
-
-
-
-
+\end{itemize}
 
 \end{document}
