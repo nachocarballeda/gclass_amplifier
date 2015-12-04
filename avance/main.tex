@@ -299,9 +299,40 @@ Total Harmonic Distortion: 0.038514%
 
 La distorsión armónica simulada es de $0.038\%$. % Habría que mejorarla, ¿no?
 
-\paragraph{Slew Rate} Simulando una entrada escalón en el amplificador, 
+\paragraph{Slew Rate} Simulando una entrada escalón en el amplificador, se observa la salida de la figura~\ref{fig:slew} en la carga.
+
+La pendiente es de $33 \frac{V}{\mu s}$.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/sim/slew}
+	\caption{Salida simulada frente a una entrada escalón.}
+	\label{fig:slew}
+\end{figure}
+
+
 \paragraph{Resistencia de salida}  
+
+Para la simulación de la resistencia de salida, se obtuvo la tensión pico para una entrada de $0.5V$, con carga de $4\Omega$ ($V_{4\Omega}$)y sin carga ($V_{\infty}$). Se obtiene con la fórmula de divisor de tensión:
+
+\[V_{4\Omega}=V_o \frac{R_L}{R_L+R_{out}}\]
+\[R_{out}=R_L \left(\frac{V_{\infty}}{V_{4\Omega}}-1 \right)\]
+
+Se obtuvo:
+
+\[R_{out}\cong 0.01\Omega]\]
+
+La realimentación logra que la resistencia de salida sea muy baja.
+
 \paragraph{Resistencia de entrada}
+
+Se simuló en $1kHz$ el cociente entre la tensión de entrada y la corriente entregadas por el generador.
+
+\[R_{in}=5k\Omega\]
+
+% Parece baja?
+
 \paragraph{Respuesta en frecuencia} 
 
 Se realizó un barrido de $0.1Hz$ a $100MHz$.
