@@ -1,0 +1,9 @@
+No más de 10 páginas. Eso nos da excusas para no poner mucho, pero no nos da excusa para poner menos de 8. Jaja. Si nos nquedamos cortos, rellenemos hasta 10 y pongamos de excusa que no queríamos pasarnos para justificar lo que no hagamos
+
+¿Especificaciones?
+
+Cuentas en la sección de diseño circuital que nos hayan permitido elegir valores de componentes (??)
+
+Pasar todo lo pasable del informe anterior a este. X ej, en diseño de PCB
+
+Condicionantes de integración: preguntar mejor. Parece ser el asunto de disipación, acoplamiente térmico, masas locas en loop, ruteo, o lo que tenga que ver con pasar de la simulación con componentes ideales a la real. Capaz se pueden chupar un poco las medias de Fede chamullando algo sobre la clase que dio de ruido, y la importancia de la primera etapa.
