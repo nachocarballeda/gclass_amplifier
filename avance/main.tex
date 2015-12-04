@@ -1,6 +1,6 @@
 \documentclass[a4paper,12pt,twoside]{article}
 \usepackage[spanish]{babel}
-\usepackage[utf8]{inputenc}
+\usepackage[utf8x]{inputenc}
 \usepackage{graphicx} %para insertar graficos/imagenes
 \usepackage{amsmath} %para escribir matrices
 \usepackage{amsfonts} %para poner \mathbb
@@ -10,6 +10,9 @@
 \usepackage{fancyhdr} % activamos el paquete
 \usepackage{dcolumn}
 \usepackage{multirow}
+
+
+
 
 \usepackage{fixme}
 \fxsetup{
@@ -185,20 +188,57 @@
 
 \subsection{Diseño conceptual}
 
-Un amplificador consta, basicamente, de 3 etapas: una de entrada, diferencial, una intermedia, de ganancia de tensión, y una de salida, de ganancia de corriente.
-
-Para la etapa de entrada, inicialmente consideramos una típica topografía diferencial, de colectores acoplados. Como los transistores no son componentes lineales, propusimos agregar otro par diferencial, en paralelo, con componentes complementarios; es decir, donde originalmente usamos transistores NPN, colocamos PNP, y viceversa.
 
 
-Luego, conseguimos un circuito integrado, especialmente diseñado para audio, que presenta una distorsión considerablemente baja, por lo que decidimos usar este último.
+El objetivo es amplificar una señal de audio que será erproducida en un parlante.  Debe proveer al usuario con una buena calidad de sonido con volumen alto sin consumir mucha más energía de la necesaria ni ser muy grande y pesado. Es decir, debe tener baja distorsión, alta relación señal-ruido (SNR), alta eficiencia y buena ganancia y potencia máxima de salida.
 
+Un amplificador consta, basicamente, de 3 etapas: una de entrada, diferencial, una intermedia, de ganancia de tensión, y una de salida, de ganancia de corriente. Esta última etapa es la responsable de proveer la potencia y la que determina la eficiencia, tamaño y peso del amplificador. 
+
+\subsubsection{Especificaciones}
+Funcionales y de diseño?
+
+
+\subsubsection{Etapa de entrada}
+Para la etapa de entrada, inicialmente consideramos una típica topografía diferencial, de colectores acoplados. Como los transistores no son componentes lineales, propusimos agregar otro par diferencial, en paralelo, con componentes complementarios; es decir, donde originalmente usamos transistores NPN, colocamos PNP, y viceversa. De esta forma, la simetría cancela alinealidades y se reduce la distorsión. 
+
+\subsubsection{Etapa intermedia}
 Para la etapa intermedia, en primera instancia, decidimos utilizar un amplificador de 2 etapas, colector común - emisor común, con la diferencia del diseño convencional, de que la salida del VAS está conectada al centro del multiplicador de $V_{be}$, para obtener una mayor simetría en la última etapa.
 
 Con el cambio a 2 pares diferenciales, la etapa intermedia también se duplica, complementariamente, y se conectan a la etapa de salida, por arriba y por abajo del multiplicador de $V_{be}$.
 
-La etapa de salida es clase G, con transistores en configuración Darlington, para tener una ganancia de corriente elevada, y con transistores en paralelo, en la parte de mayor potencia, para repartir la corriente y disminuir la disipación de potencia en cada uno.
+\subsubsection{Etapa de salida}
+Para la etapa de salida se consideraron diferentes opciones de diseño. Esta etapa es responsable de amplificar la potencia de la señal. Es decir, debe tener \textbf{alta eficiencia}, y \textbf{bajos niveles de distorsión}. Además, se busca \textbf{minimizar la impedancia de salida} para mantener un \textbf{alto factor de amortiguamiento} y evitar que el rebote acústico afecte el comportamiento del amplificador. 
+
+Los amplificadores clase D son de muy alta eficiencia, pues operan a los transistores de salida en modo de conmutación. Sin embargo, son de diseño difícil, la distorsión puede ser alta si la frecuencia de los pulsos no es muy superior a la de la máxima frecuencia y generan interferencia electromagnética. Se optó entonces por un diseño clase G, que son de eficiencia superior a los AB sin las dificultades del D. 
+
+Un amplificador clase G está compuesto por dos o más niveles de alimentación que permiten incrementar la eficiencia del amplificador con respecto al clase B. Esto se logra ya que con tensiones bajas, se utilizará una fuente de tensión menor, preservando la máxima excursión posible sobre la carga que ofrece un clase B alimentado con la fuente de tensión mayor. Para señales con picos de baja amplitud en relación al valor medio, la mejora en la eficiencia es modesta. Sin embargo, en el caso en que la señal tenga picos considerables con respecto a su valor medio, la mejora es notable.
+
+
+A la salida se usarán transistores en configuración Darlington, para tener una ganancia de corriente elevada, y con transistores en paralelo en la parte de mayor potencia para repartir la corriente y disminuir la disipación en cada uno.
+
+La lectura del libro de Douglas-Self nos permitió aprender los conceptos básicos y la topología de un amplificador clase G. Nuestro diseño se inspiró en el propuesto en dicho libro.
+
+
+
+\subsubsection{Diagrama en bloques}
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{img/ampli_bloques}
+	\caption{Diagrama en bloques del amplificador clase G}
+	\label{fig:ampli_bloques}
+\end{figure}
+
+
+
 
 \subsection{Diseño circuital}
+
+Conseguimos un circuito integrado, especialmente diseñado para audio, que presenta una distorsión considerablemente baja, por lo que decidimos usar este último.
+% blablabla
+
 
 \begin{figure}[H]
 \centering
@@ -207,8 +247,115 @@ La etapa de salida es clase G, con transistores en configuración Darlington, pa
 \label{circuito} 
 \end{figure}
 
+%Dice en la consigna que acá toca:
+%1.Explora distintos circuitos y analiza CORRECTAMENTE su funcionamiento*
+%2.Calcula CORRECTAMENTE TODOS los componentes de circuitos individuales y las
+%condiciones de funcionamiento*
+%3.Investiga y selecciona los componentes
+%4.Valida y optimiza el diseño mediante simulaciones y mediciones, y determina todos los
+%parámetros de funcionamiento de los circuitos
+%5.Determina si las especificaciones del circuito son alcanzables*
+%6.Realiza las simulaciones, indica y explica los circuitos simulados, los puntos de medición,
+%los parámetros utilizados y los resultados obtenidos
+%7.Realiza mediciones, indica y explica los circuitos implementados, las mediciones
+%realizadas, los instrumentos utilizados y los resultados obtenidos*
+%8.Realiza los diagramas esquemáticos con las referencias de todos sus componentes
+%9.Realiza el listado de componentes indicando referencia, descripción, valor, parámetros, fabricantes y posibles proveedores para cada componente.
+
+\subsubsection{Simulaciones}
+
+\paragraph{THD para entrada de 1V @ 1kHz} A continuación se muestra una tabla con los resultados del análisis de Fourier realizados con el LTSpice. Se mantuvieron los mismos parámetros de simulación que en la simulación en tiempo.
+
+
+
+
+\begin{verbatim}
+Harmonic	Frequency	 Fourier 	Normalized	 Phase  	Normalized
+
+ Number 	  [Hz]   	Component	 Component	[degree]	Phase [deg]
+
+    1   	1.000e+03	2.826e+01	1.000e+00	   -0.03°	    0.00°
+
+    2   	2.000e+03	6.288e-03	2.225e-04	   90.53°	   90.56°
+
+    3   	3.000e+03	7.973e-03	2.821e-04	   -1.25°	   -1.22°
+
+    4   	4.000e+03	9.202e-04	3.256e-05	 -106.33°	 -106.30°
+
+    5   	5.000e+03	3.372e-03	1.193e-04	   -7.83°	   -7.81°
+
+    6   	6.000e+03	7.476e-04	2.645e-05	 -130.81°	 -130.78°
+
+    7   	7.000e+03	9.363e-04	3.313e-05	   20.01°	   20.04°
+
+    8   	8.000e+03	5.653e-04	2.000e-05	   71.66°	   71.69°
+
+    9   	9.000e+03	7.071e-04	2.502e-05	  123.98°	  124.01°
+
+   10   	1.000e+04	9.466e-04	3.349e-05	   45.78°	   45.81°
+
+Total Harmonic Distortion: 0.038514%
+\end{verbatim}
+
+La distorsión armónica simulada es de $0.038\%$. % Habría que mejorarla, ¿no?
+
+\paragraph{Slew Rate} Simulando una entrada escalón en el amplificador, 
+\paragraph{Resistencia de salida}  
+\paragraph{Resistencia de entrada}
+\paragraph{Respuesta en frecuencia} 
+
+Se realizó un barrido de $0.1Hz$ a $100MHz$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/sim/bode}
+	\caption{Diagrama de Bode del amplificador a lazo cerrado simulado. El módulo, en línea llena y la fase en línea punteada.}
+	\label{fig:bode}
+\end{figure}
+
+
+
+
+\paragraph{Ancho de banda de potencia}
+
 \subsection{Análisis de los condicionantes de integración}
 
+%     Requerimientos Eléctricos ( Seguridad eléctrica y 
+%Compatibilidad electromagnética), 
+%Mecánicos (Vibraciones y Rigidez) y Térmicos (Disip
+%ación de los componentes) 
+
+ %    Definición de módulos 
+
+%     Diseño de los Circuitos impresos 
+
+%    Guía de localización de los componentes 
+
+%     Diagrama de conexionado 
+
+%     Dimensionamiento del conexionado 
+
+%     Dimensionamiento y forma de la estructura o gabinete 
+
+%     Dimensionamiento y posición de los puntos de fijación 
+
+%    Diseño de los mecanismos de disipación 
+
+%     Detalles de ensamblado y montaje 
+
+%     Diagramas esquemáticos 
+
+%     Listado de partes  
+
+%     Listado de proveedores 
+
+%     Pruebas funcionales y ambientales 
+
+%     Análisis de modo y efecto de falla de los componentes 
+
+%     Análisis de confiabilidad de los componentes 
+
+%     Optimización 
 
 
 \subsection{Diseño PCB}
