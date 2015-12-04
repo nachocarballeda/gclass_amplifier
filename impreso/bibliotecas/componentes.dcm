@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP 2SC3281
+D 2SC3281
+K NPN Power Transistor
+$ENDCMP
+#
+#End Doc Library
