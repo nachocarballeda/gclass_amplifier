@@ -25,3 +25,20 @@
 Vayan teniendo en cuenta todo esto porque el 14/12 es la última fecha para entregar el Informe (y debe estar todo bien justificado y aclarado). El 11/12 es la entrega previa y ya debería estar el 99,99% del proyecto para luego pulirlo en los días restantes. 
 
 Algo importante: vayan analizando por qué está cada componente en el circuito. Ayer cuando charlábamos, observé que hay cosas que no saben por qué están y por qué tienen esos valores. No les va a servir de nada iterar con valores de resistencias y capacitores porque si tienen algún problema con el circuito armado no van a saber por dónde empezar ni qué valor tocar. Es una recomendación en base a lo que noté el martes, ayer y hoy con el Informe. 
+
+------------- Fin mail Fede
+
+
+Corregir diagrama en bloques en diseño conceptual. Agregar sub-bloques. Doble multiplicador, doble par a la entrada, etc. Y poner algo de cómo funcionan los bloques.
+
+
+Algo de "qué mediciones deberán realizarse, cómo se realizarán y los recursos necesarios"
+
+En la parte de integración, al menos el listado de partes. Tablita con en label del LTSpice del component, valor (tipo, tolerancia, potencia, blabla), + disipadores, etc
+Listado de proveedores parece también algo bastante fácil de agregar, ¿no? Texas, GM, Microelectrónica
+
+
+Margen de fase y ganancia en simulación de bode.
+
+
+Cuentas en la sección de diseño circuital que nos hayan permitido elegir valores de componentes (??)
