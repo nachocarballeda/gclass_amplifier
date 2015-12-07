@@ -17,7 +17,7 @@
 \usepackage{fixme}
 \fxsetup{
     status=draft,
-    author= carballeda ignacio,
+    author= ,
     layout=inline, % also try footnote or pdfnote
 }
 
@@ -182,6 +182,8 @@
 \tableofcontents
 \vfill
 
+\listoffixmes
+
 \newpage
 
 \section{Actividades desarrolladas}
@@ -205,6 +207,9 @@ Un amplificador consta, basicamente, de 3 etapas: una de entrada, diferencial, u
 	\item Slew Rate: $>5V / \uS$
 	\item Impedancia de entrada: $10\kohm$
 	\item Sensibilidad: $1\volt$ RMS
+	\item Ancho de banda: $10 Hz-30kHz$
+	\item Factor de amortiguamiento: $>200$
+	\item Ancho de banda de potencia: $>30kHz$
 	\item Alimentación: 
 	\begin{itemize}
 		\item Baja tensión: Apróx $ +/-20\volt$ 
@@ -239,6 +244,7 @@ La lectura del libro de Douglas-Self nos permitió aprender los conceptos básic
 \subsubsection{Diagrama en bloques}
 
 
+\fxnote{Mejorar diagramas en bloques}
 
 \begin{figure}[H]
 	\centering
@@ -255,6 +261,8 @@ La lectura del libro de Douglas-Self nos permitió aprender los conceptos básic
 Conseguimos un circuito integrado, especialmente diseñado para audio, que presenta una distorsión considerablemente baja, por lo que decidimos usar este último.
 % blablabla
 
+
+\fxnote{Remplazar por la última versión a la fecha del circuito.}
 
 \begin{figure}[H]
 \centering
@@ -341,22 +349,47 @@ La pendiente es de $33 \frac{V}{\mu s}$.
 
 \paragraph{Resistencia de salida}  
 
-Para la simulación de la resistencia de salida, se obtuvo la tensión pico para una entrada de $0.5V$, con carga de $4\Omega$ ($V_{4\Omega}$)y sin carga ($V_{\infty}$). Se obtiene con la fórmula de divisor de tensión:
+Para la simulación de la resistencia de salida, se obtuvo la tensión pico para una entrada de $0.5V$, con carga de $2\Omega$ ($V_{2\Omega}$)y sin carga ($V_{\infty}$, aunque en realidad se utilizó carga de $1G\Omega$). Se obtiene con la fórmula de divisor de tensión:
 
-\[V_{4\Omega}=V_o \frac{R_L}{R_L+R_{out}}\]
-\[R_{out}=R_L \left(\frac{V_{\infty}}{V_{4\Omega}}-1 \right)\]
+\[V_{2\Omega}=V_o \frac{R_L}{R_L+R_{out}}\]
+\[R_{out}=R_L \left(\frac{V_{\infty}}{V_{2\Omega}}-1 \right)\]
 
-Se obtuvo:
+El circuito simulado, con una caja representando el amplificador, se observa en la figura~\ref{fig:circuito-r_out}.
 
-\[R_{out}\cong 0.01\Omega]\]
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/sim/circuito-r_out}
+	\caption{Circuito usado para simular la resistencia de salida. Barrido para valores se carga de $2\Omega$ y $1G\Omega$. La caja representa al amplificador.}
+	\label{fig:circuito_r-out}
+\end{figure}
+
+
+Se obtuvo, promediando el módulo de la impedancia de salida para las frecuencias entre $1Hz-30kHz$.
+
+\[R_{out}\cong 0.0038\Omega]\]
 
 La realimentación logra que la resistencia de salida sea muy baja.
+
+A frecuencia $330kHz$ la impedancia ya es inductiva, llegando a $72^\circ$ en $30kHz$.
+
 
 \paragraph{Resistencia de entrada}
 
 Se simuló en $1kHz$ el cociente entre la tensión de entrada y la corriente entregadas por el generador.
 
-\[R_{in}=5k\Omega\]
+\[R_{in}=9.8k\Omega\]
+
+En la figura~\ref{fig:R_i} se puede ver un barrido en frecuencias de la resistencia de entrada para pequeña señal.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/sim/R_i}
+	\caption{Resistencia de entrada. Cociente entre tensión y corriente de entrada simuladas para pequeña señal de distintas frecuencias.}
+	\label{fig:R_i}
+\end{figure}
+
 
 % Parece baja?
 
