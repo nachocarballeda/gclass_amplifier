@@ -192,9 +192,9 @@
 
 
 
-El objetivo es amplificar una señal de audio que será reproducida en un parlante.  Debe proveer al usuario con una buena calidad de sonido con volumen alto sin consumir mucha más energía de la necesaria ni ser muy grande y pesado. Es decir, debe tener baja distorsión, alta relación señal-ruido (SNR), alta eficiencia y buena ganancia y potencia máxima de salida.
+El objetivo es amplificar una señal de audio que será reproducida en un parlante.  Debe proveer al usuario con una buena calidad de sonido con volumen alto sin consumir mucha más energía de la necesaria ni ser muy grande y pesado. Es decir, debe tener baja distorsión, alta relación señal-ruido (SNR), eficiencia razonable y buena ganancia y potencia máxima de salida.
 
-Un amplificador consta, basicamente, de 3 etapas: una de entrada, diferencial, una intermedia, de ganancia de tensión, y una de salida, de ganancia de corriente. Esta última etapa es la responsable de proveer la potencia y la que determina la eficiencia, tamaño y peso del amplificador. 
+Un amplificador típico consta, basicamente, de 3 etapas: una de entrada, diferencial,  una intermedia, de ganancia de tensión, y una de salida, de ganancia de corriente. Esta última etapa es la responsable de proveer la potencia y la que determina la eficiencia, tamaño y peso del amplificador. 
 
 \subsubsection{Especificaciones}
 
@@ -203,7 +203,7 @@ Un amplificador consta, basicamente, de 3 etapas: una de entrada, diferencial, u
 \begin{itemize}
 	\item Máxima Potencia de Salida:  $100\watt$ RMS @ $8\ohm$
 	\item Clase: G
-	\item THD: $<0.01 \%$  % decía 0.001 %
+	\item THD: $\le 0.01 \%$  % decía 0.001 %
 	\item Slew Rate: $>5V / \uS$
 	\item Impedancia de entrada: $10\kohm$
 	\item Sensibilidad: $1\volt$ RMS
@@ -212,8 +212,8 @@ Un amplificador consta, basicamente, de 3 etapas: una de entrada, diferencial, u
 	\item Ancho de banda de potencia: $>30kHz$
 	\item Alimentación: 
 	\begin{itemize}
-		\item Baja tensión: Apróx $ +/-20\volt$ 
-		\item Alta tensión: Apróx $ +/-50\volt$
+		\item Baja tensión: $ +/-15\volt$ al $5\%$
+		\item Alta tensión: $ +/-50\volt$ al $5\%$
 	\end{itemize}
 \end{itemize}
 
@@ -223,7 +223,7 @@ Un amplificador consta, basicamente, de 3 etapas: una de entrada, diferencial, u
 Para la etapa de entrada, inicialmente consideramos una típica topografía diferencial, de colectores acoplados. Como los transistores no son componentes lineales, propusimos agregar otro par diferencial, en paralelo, con componentes complementarios; es decir, donde originalmente usamos transistores NPN, colocamos PNP, y viceversa. De esta forma, la simetría cancela alinealidades y se reduce la distorsión. 
 
 \subsubsection{Etapa intermedia}
-Para la etapa intermedia, en primera instancia, decidimos utilizar un amplificador de 2 etapas, colector común - emisor común, con la diferencia del diseño convencional, de que la salida del VAS está conectada al centro del multiplicador de $V_{be}$, para obtener una mayor simetría en la última etapa.
+Para la etapa intermedia decidimos utilizar un amplificador de 2 etapas, colector común - emisor común, con la diferencia del diseño convencional, de que la salida del VAS está conectada al centro del multiplicador de $V_{be}$, para obtener una mayor simetría en la última etapa.
 
 Con el cambio a 2 pares diferenciales, la etapa intermedia también se duplica, complementariamente, y se conectan a la etapa de salida, por arriba y por abajo del multiplicador de $V_{be}$.
 
@@ -237,29 +237,24 @@ Un amplificador clase G está compuesto por dos o más niveles de alimentación 
 
 A la salida se usarán transistores en configuración Darlington, para tener una ganancia de corriente elevada, y con transistores en paralelo en la parte de mayor potencia para repartir la corriente y disminuir la disipación en cada uno.
 
-La lectura del libro de Douglas-Self nos permitió aprender los conceptos básicos y la topología de un amplificador clase G. Nuestro diseño se inspiró en el propuesto en dicho libro.
-
 
 
 \subsubsection{Diagrama en bloques}
 
 
-\fxnote{Mejorar diagramas en bloques}
+\fxnote{CORREGIR DIAGRAMA}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.75]{img/ampli_bloques}
-	\caption{Diagrama en bloques del amplificador clase G}
-	\label{fig:ampli_bloques}
-\end{figure}
-
-
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[scale=0.75]{img/ampli_bloques}
+%	\caption{Diagrama en bloques del amplificador clase G}
+%	\label{fig:ampli_bloques}
+%\end{figure}
 
 
-\subsection{Diseño circuital}
 
-Conseguimos un circuito integrado, especialmente diseñado para audio, que presenta una distorsión considerablemente baja, por lo que decidimos usar este último.
-% blablabla
+
+\subsection{Circuito diseñado}
 
 
 \fxnote{Remplazar por la última versión a la fecha del circuito.}
@@ -295,45 +290,37 @@ Conseguimos un circuito integrado, especialmente diseñado para audio, que prese
 
 \begin{verbatim}
 Harmonic	Frequency	 Fourier 	Normalized	 Phase  	Normalized
+Number 	  [Hz]   	Component	 Component	[degree]	Phase [deg]
+1   	1.000e+03	3.993e+01	1.000e+00	    0.01°	    0.00°
+2   	2.000e+03	1.376e-03	3.447e-05	   90.50°	   90.49°
+3   	3.000e+03	5.171e-03	1.295e-04	    4.39°	    4.38°
+4   	4.000e+03	9.570e-04	2.397e-05	  105.61°	  105.60°
+5   	5.000e+03	8.249e-04	2.066e-05	 -157.74°	 -157.75°
+6   	6.000e+03	8.747e-04	2.190e-05	  -77.34°	  -77.35°
+7   	7.000e+03	4.732e-04	1.185e-05	   72.02°	   72.01°
+8   	8.000e+03	3.945e-04	9.880e-06	  118.93°	  118.92°
+9   	9.000e+03	2.213e-04	5.541e-06	 -108.36°	 -108.37°
+10   	1.000e+04	1.269e-04	3.178e-06	   65.93°	   65.92°
+...
 
- Number 	  [Hz]   	Component	 Component	[degree]	Phase [deg]
-
-    1   	1.000e+03	9.886e-01	1.000e+00	    0.09°	    0.00°
-
-    2   	2.000e+03	1.021e-03	1.033e-03	    4.60°	    4.51°
-
-    3   	3.000e+03	2.722e-03	2.754e-03	  -62.80°	  -62.89°
-
-    4   	4.000e+03	8.439e-04	8.536e-04	  171.39°	  171.29°
-
-    5   	5.000e+03	3.281e-03	3.319e-03	   -3.53°	   -3.62°
-
-    6   	6.000e+03	3.651e-04	3.693e-04	 -122.20°	 -122.30°
-
-    7   	7.000e+03	2.001e-03	2.024e-03	  164.51°	  164.42°
-
-    8   	8.000e+03	5.390e-04	5.452e-04	   12.33°	   12.24°
-
-    9   	9.000e+03	9.981e-04	1.010e-03	   48.13°	   48.04°
-
-   10   	1.000e+04	1.401e-04	1.417e-04	   76.58°	   76.48°
-
-Total Harmonic Distortion: 0.509554%
+Total Harmonic Distortion: 0.014
+%
 \end{verbatim}
 
-La distorsión armónica simulada es de $0.5\%$ en la máxima potencia. % Habría que mejorarla
+La distorsión armónica simulada es de $0.014\%$ en la máxima excursión. 
 
+\fxnote{REHACER ESTA PARTE SI HAY TIEMPO. Demora en simular}
 En la figura~\ref{fig:distorsion-barrido} se muestra la distorsión en función de la tensión pico de salida.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{img/sim/distorsion-barrido}
-	\caption{Barrido en amplitud de distorsión a $1kHz$.}
-	\label{fig:distorsion-barrido}
-\end{figure}
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.8\textwidth]{img/sim/distorsion-barrido}
+%	\caption{Barrido en amplitud de distorsión a $1kHz$.}
+%	\label{fig:distorsion-barrido}
+%\end{figure}
 
-Hay que mejorar considerablemente el diseño para bajar la distorsión.
-
+%Hay que mejorar considerablemente el diseño para bajar la distorsión.
+\fxnote{Rehacer}
 \paragraph{Slew Rate} Simulando una entrada escalón en el amplificador, se observa la salida de la figura~\ref{fig:slew} en la carga.
 
 La pendiente es de $33 \frac{V}{\mu s}$.
@@ -346,9 +333,39 @@ La pendiente es de $33 \frac{V}{\mu s}$.
 	\label{fig:slew}
 \end{figure}
 
+\paragraph{CMRR - factor de rechazo de modo común}
+
+Se simuló la primera etapa frente una entrada común de $100mA$ con el circuito de la figura~\ref{fig:ac} y se obtuvo la ganancia de modo común como $A_c=\frac{V_o}{V_i}=2m$ para ambas salidas del par.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.2\textwidth]{img/sim/ac}
+	\caption{Circuito usado para simular la amplificación de modo común.}
+	\label{fig:ac}
+\end{figure}
+
+
+La amplificación de modo diferencial se obtuve de forma análoga, con las fuentes de la figura~\ref{fig:ac} conectadas a contrafase. Las señales de entradas usadas fueron de sólo $1mV$ porque se esperaba una amplificación mucho mayor que para el caso de modo común. Los resultados obtenidos fueron $A_d=600$ para el par hecho con transistores NPN y $A_d=725$ para el hecho por PNPs.
+
+\[CMRR:=20 log_{10} |\frac{A_d}{A_c}|\cong 110dB \]
+
+
+\paragraph{PSRR - factor de rechazo a la fuente}
+
+El PSRR se define como la relación entre el cambio en la tensión de alimentación y el cambie equivalente en la tensión de entrada. Idealemente este valor sería infinito.
+
+\[ PSRR := {\Delta V_\mathrm{supply} \over {\Delta V_\mathrm{out}}} \cdot A_d \]
+
+Simulando para valores de la fuente de $+50V$ entre $40V$ y $60V$ se obtuvo.
+
+\[PSRR=87.4dB\]
+
+Es decir, con la ganancia de $29dB$ de este circuito, por cada $1V$ de riple en la fuente de $+50V$ se superponen aproximadamente $1.2mV$ en la salida ($87.4dB-29dB=58.4dB$ y $10^\frac{-58.4}{20} \conv 1.2mV $)
+
 
 \paragraph{Resistencia de salida}  
-
+\fxnote{Falta después de compensar? Así como está subió a tipo $100m\Omega$}
 Para la simulación de la resistencia de salida, se colocó una fuente de corriente alterna de $1A$ a la salida, con la entrada pasivada, y se midió la tensión de salida.
 
 
@@ -492,6 +509,9 @@ R_{th_{d-amb}} = \frac{120°C-35°C}{30 W}-(6.25 \frac{°C}{W}- 1.4\frac{°C}{W}
 Hasta el momento, hemos elegido las configuraciones de las distintas etapas, buscando aquellas que nos provean una menor distorsión; realizamos los cálculos para hallar los valores de realimentación, resistencias para el embalamiento térmico y los disipadores para los transistores; realizamos la simulación del circuito, y estamos en proceso de diseño de la fuente para reducir la tensión de alimentación a un valor apropiado para los integrados que utilizaremos en la primera etapa. 
 
 \section{Dificultades encontradas}
+
+Banacear las amplificaciones en modo diferencial del comparador.
+
 
 Para el desarrollo del proyecto, nos encontramos con varios obstáculos. En el primer diseño que realizamos, nos encontramos con una disparidad en las corrientes del par diferencial, que resolvimos comprando transistores de más, midiendo sus parámetros $\beta$, y agrupándolos para poder trabajar con valores apareados. Otra solución que encontramos, y que aplicaremos en esta versión del circuito, es utilizar transistores integrados, que asegura que todos los transistores tengan las mismas propiedades, y estén apareados.
 
