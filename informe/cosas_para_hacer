@@ -1,26 +1,48 @@
+Estamos en eso
+
+11) Los diodos zener, D1 y D2 ¿qué funciones cumplen?. ¿Probaron el amplificador a plena carga?.
+
+
+
+Ya estarían
+
+7) Faltan los cálculo de los disipadores.
+
 1) En las especificaciones, no se aclara el ancho de banda de potencia, ni el factor de amortiguamiento. ¿Se trabaja sobre algún ancho de banda en particular?.
+
 
 2) La impedancia de entrada especificada no concuerda con el cálculo que se hace en la página 7, en donde la misma da 5 Kohms.
 
 3) En base al punto anterior, no queda claro por qué están las resistencias R3 y R4. Supongo que debe ser por lo que charlamos ayer.
 
+
+Falta regenerar
+
 4) En cuanto a la Ri y a la Ro, habría que mostrar el circuito utilizado como así también una simulación de las mismas en función de la frecuencia.
+
+12) La THD según las especificaciones, lo que charlamos ayer y el punto 3).
+
+
+Falta
+
+
 
 5) Falta el cálculo de compensación. En el circuito se ve un capacitor de 50 pF en el VAS pero no se muestra de dónde sale.
 
 6) Faltan los cálculos de ganancia de cada etapa, como así también los de polarización de cada una de ellas. La simulación también debería estar.
 
-7) Faltan los cálculo de los disipadores.
 
 8) Falta el cálculo y la justificación de cada uno de los componentes que utilizaron. Ejemplo: realimentación, fuente de corriente del Mult. de VBE, Pares Diferenciales, etc. Con esto se debería confeccionar una lista de componentes.
 
 9) Falta el PCB.
 
+
+
+
 10) Algo importante: Faltan circuitos y/o antecedentes de amplificadores similares con carga activa. Es probable que ande en la simulación pero en la realidad es posible que sea inestable la polarización. Esto último tal vez sea mejor charlarlo.
 
-11) Los diodos zener, D1 y D2 ¿qué funciones cumplen?. ¿Probaron el amplificador a plena carga?.
 
-12) La THD según las especificaciones, lo que charlamos ayer y el punto 3).
+
 
 Vayan teniendo en cuenta todo esto porque el 14/12 es la última fecha para entregar el Informe (y debe estar todo bien justificado y aclarado). El 11/12 es la entrega previa y ya debería estar el 99,99% del proyecto para luego pulirlo en los días restantes. 
 
