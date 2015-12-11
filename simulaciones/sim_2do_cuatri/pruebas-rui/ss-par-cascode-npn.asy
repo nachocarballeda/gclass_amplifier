@@ -19,6 +19,7 @@ TEXT 47 -34 Left 2 o
 TEXT 26 51 VLeft 2 ParCasc
 TEXT -57 12 Left 2 +9
 TEXT 46 33 VLeft 2 NPN
+SYMATTR SpiceLine rcs=40k
 PIN -96 64 NONE 8
 PINATTR PinName i-
 PINATTR SpiceOrder 1

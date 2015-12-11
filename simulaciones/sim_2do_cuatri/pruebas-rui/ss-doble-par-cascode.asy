@@ -23,6 +23,7 @@ TEXT -49 19 Left 2 DoblePar
 TEXT -54 -50 Left 2 +9
 TEXT -40 72 Left 2 -9
 TEXT -43 38 Left 2 cascode
+SYMATTR SpiceLine rcs=40k
 PIN -96 64 NONE 8
 PINATTR PinName i-
 PINATTR SpiceOrder 1
