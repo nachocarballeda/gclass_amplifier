@@ -349,19 +349,17 @@ La pendiente es de $33 \frac{V}{\mu s}$.
 
 \paragraph{Resistencia de salida}  
 
-Para la simulación de la resistencia de salida, se obtuvo la tensión pico para una entrada de $0.5V$, con carga de $2\Omega$ ($V_{2\Omega}$)y sin carga ($V_{\infty}$, aunque en realidad se utilizó carga de $1G\Omega$). Se obtiene con la fórmula de divisor de tensión:
+Para la simulación de la resistencia de salida, se colocó una fuente de corriente alterna de $1A$ a la salida, con la entrada pasivada, y se midió la tensión de salida.
 
-\[V_{2\Omega}=V_o \frac{R_L}{R_L+R_{out}}\]
-\[R_{out}=R_L \left(\frac{V_{\infty}}{V_{2\Omega}}-1 \right)\]
 
-El circuito simulado, con una caja representando el amplificador, se observa en la figura~\ref{fig:circuito-r_out}.
+El circuito simulado, con una caja representando el amplificador, se observa en la figura~\ref{fig:circuito-r_out-current}.
 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{img/sim/circuito-r_out}
-	\caption{Circuito usado para simular la resistencia de salida. Barrido para valores se carga de $2\Omega$ y $1G\Omega$. La caja representa al amplificador.}
-	\label{fig:circuito_r-out}
+	\includegraphics[width=0.8\textwidth]{img/sim/circuito-r_out-current}
+	\caption{Circuito usado para simular la resistencia de salida. La caja representa al amplificador.}
+	\label{fig:circuito_r-out-current}
 \end{figure}
 
 Los resultados del barrido se muestran en la figura~\ref{fig:R_out}, y un zoom en las frecuencias de trabajo especificadas en la figura~\ref{fig:R_out-zoom}.
@@ -382,7 +380,7 @@ Los resultados del barrido se muestran en la figura~\ref{fig:R_out}, y un zoom e
 
 Se obtuvo, promediando el módulo de la impedancia de salida para las frecuencias entre $1Hz-30kHz$.
 
-\[R_{out}\cong 0.0038\Omega\]
+\[R_{out}\cong 4.3m\Omega\]
 
 La realimentación logra que la resistencia de salida sea muy baja.
 
