@@ -1,3 +1,17 @@
 Compensar el Circuito (esto modifica el slew-rate así que va primero)
 
 Hacer simulación para medir slew rate
+
+Chamullo sobre el beta del buffer del vas
+
+compenzar con cero en realimentacion
+
+bajar resistencia para permitir pasar mayor ddp a la salida.
+
+red zobel
+
+protecciones, aclarar si se pone o no.
+
+ojo con el LED, si se cambia cambiar tambien la resistencia.
+
+PCB
