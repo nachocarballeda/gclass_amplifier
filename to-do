@@ -1,26 +1,23 @@
-Compensar el Circuito (esto modifica el slew-rate así que va primero)
+* Compensar el Circuito (esto modifica el slew-rate así que va primero)
 
-Hacer simulación para medir slew rate
+* Hacer simulación para medir slew rate
 
-Chamullo sobre el beta del buffer del vas
+* Chamullo sobre el beta del buffer del vas.
 
-compenzar con cero en realimentacion
+* Compenzar agregando un cero en realimentacion
 
-bajar resistencia para permitir pasar mayor ddp a la salida.
+* Bajar resistencia para permitir pasar mayor ddp a la salida. (resistencia que estaba en vas)
 
-red zobel
+* Agregar una red zobel
 
-protecciones, aclarar si se pone o no.
+* Agregar o no protecciones, aclarar si se pone o no.
 
-ojo con el LED, si se cambia cambiar tambien la resistencia.
+* Ojo con el LED, si se cambia cambiar tambien la resistencia.
 
-PCB
-/home/ignatius/cosas_para_hacer
+-----------------------de aqui en mas cosas posiblemente deprecadas ---------------------------------------
 Estamos en eso
 
 11) Los diodos zener, D1 y D2 ¿qué funciones cumplen?. ¿Probaron el amplificador a plena carga?.
-
-
 
 Ya estarían
 
