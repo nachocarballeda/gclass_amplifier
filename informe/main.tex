@@ -118,6 +118,9 @@
 \ensuremath{~i_{\mathrm{#1}}}%
 }
 
+\usepackage[font=footnotesize, labelfont=bf,margin=2.2cm]{caption}
+
+
 % ctes
 \newcommand{\VA}{\ensuremath{~\mathrm{V}_{\mathrm{A}}}}
 \newcommand{\VT}{\ensuremath{~\mathrm{V}_{\mathrm{T}}}}
@@ -203,7 +206,7 @@ Un amplificador típico consta, basicamente, de 3 etapas: una de entrada, difere
 \begin{itemize}
 	\item Máxima Potencia de Salida:  $100\watt$ RMS @ $8\ohm$
 	\item Clase: G
-	\item THD: $\le 0.01 \%$  % decía 0.001 %
+	\item THD: $< 0.01 \%$  % decía 0.001 %
 	\item Slew Rate: $>5V / \uS$
 	\item Impedancia de entrada: $10\kohm$
 	\item Sensibilidad: $1\volt$ RMS
@@ -223,9 +226,9 @@ Un amplificador típico consta, basicamente, de 3 etapas: una de entrada, difere
 Para la etapa de entrada, inicialmente consideramos una típica topografía diferencial, de colectores acoplados. Como los transistores no son componentes lineales, propusimos agregar otro par diferencial, en paralelo, con componentes complementarios; es decir, donde originalmente usamos transistores NPN, colocamos PNP, y viceversa. De esta forma, la simetría cancela alinealidades y se reduce la distorsión. 
 
 \subsubsection{Etapa intermedia}
-Para la etapa intermedia decidimos utilizar un amplificador de 2 etapas, colector común - emisor común, con la diferencia del diseño convencional, de que la salida del VAS está conectada al centro del multiplicador de $V_{be}$, para obtener una mayor simetría en la última etapa.
+Para la etapa intermedia decidimos utilizar un amplificador de 2 etapas, colector común - emisor común, con la diferencia del diseño convencional de que la salida del VAS está conectada al centro del multiplicador de $V_{be}$, para obtener una mayor simetría en la última etapa.
 
-Con el cambio a 2 pares diferenciales, la etapa intermedia también se duplica, complementariamente, y se conectan a la etapa de salida, por arriba y por abajo del multiplicador de $V_{be}$.
+Con el cambio a 2 pares diferenciales, la etapa intermedia también se duplica, complementariamente, y se conectan a la etapa de salida, por arriba y por abajo del multiplicador de $V_{be}$. Es la primera etapa la que la polariza y no una fuente de corriente como muchas veces sucede. Cada uno de los dos emisores comunes hace de carga del otro.
 
 \subsubsection{Etapa de salida}
 Para la etapa de salida se consideraron diferentes opciones de diseño. Esta etapa es responsable de amplificar la potencia de la señal. Es decir, debe tener \textbf{alta eficiencia}, y \textbf{bajos niveles de distorsión}. Además, se busca \textbf{minimizar la impedancia de salida} para mantener un \textbf{alto factor de amortiguamiento} y evitar que el rebote acústico afecte el comportamiento del amplificador. 
@@ -256,12 +259,14 @@ A la salida se usarán transistores en configuración Darlington, para tener una
 
 \subsection{Circuito diseñado}
 
+\fxnote{Algo sobre cómo fue diseñado, valores, etc?}
 
-\fxnote{Remplazar por la última versión a la fecha del circuito.}
+
+\subsubsection{title}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.3]{img/circuito.pdf}
+\includegraphics[width=0.75\paperheight,angle=90,origin=c]{img/circuito}
 \caption{Circuito Diseñado}
 \label{circuito} 
 \end{figure}
@@ -283,47 +288,46 @@ A la salida se usarán transistores en configuración Darlington, para tener una
 
 \subsubsection{Simulaciones}
 
-\paragraph{THD para entrada de 1V @ 1kHz} A continuación se muestra una tabla con los resultados del análisis de Fourier realizados con el LTSpice. 
+\paragraph{THD para entrada de 1V pico @ 1kHz} A continuación se muestra una tabla con los resultados del análisis de Fourier realizados con el LTSpice. 
 
 
 
 
 \begin{verbatim}
 Harmonic	Frequency	 Fourier 	Normalized	 Phase  	Normalized
-Number 	  [Hz]   	Component	 Component	[degree]	Phase [deg]
-1   	1.000e+03	3.993e+01	1.000e+00	    0.01°	    0.00°
-2   	2.000e+03	1.376e-03	3.447e-05	   90.50°	   90.49°
-3   	3.000e+03	5.171e-03	1.295e-04	    4.39°	    4.38°
-4   	4.000e+03	9.570e-04	2.397e-05	  105.61°	  105.60°
-5   	5.000e+03	8.249e-04	2.066e-05	 -157.74°	 -157.75°
-6   	6.000e+03	8.747e-04	2.190e-05	  -77.34°	  -77.35°
-7   	7.000e+03	4.732e-04	1.185e-05	   72.02°	   72.01°
-8   	8.000e+03	3.945e-04	9.880e-06	  118.93°	  118.92°
-9   	9.000e+03	2.213e-04	5.541e-06	 -108.36°	 -108.37°
-10   	1.000e+04	1.269e-04	3.178e-06	   65.93°	   65.92°
+ Number 	  [Hz]   	Component	 Component	[degree]	Phase [deg]
+    1   	1.000e+03	3.985e+01	1.000e+00	    0.00°	    0.00°
+    2   	2.000e+03	3.599e-03	9.032e-05	   91.57°	   91.57°
+    3   	3.000e+03	1.515e-02	3.803e-04	    1.50°	    1.50°
+    4   	4.000e+03	1.144e-03	2.871e-05	   94.01°	   94.01°
+    5   	5.000e+03	1.920e-03	4.817e-05	 -177.23°	 -177.23°
+    6   	6.000e+03	5.374e-04	1.348e-05	  -74.65°	  -74.65°
+    7   	7.000e+03	6.560e-04	1.646e-05	   14.67°	   14.67°
+    8   	8.000e+03	3.168e-04	7.950e-06	  129.84°	  129.84°
+    9   	9.000e+03	3.698e-04	9.279e-06	   -5.66°	   -5.66°
+   10   	1.000e+04	3.239e-04	8.127e-06	   61.19°	   61.19°
 ...
+Total Harmonic Distortion: 0.0396%
 
-Total Harmonic Distortion: 0.014
-%
+
 \end{verbatim}
 
-La distorsión armónica simulada es de $0.014\%$ en la máxima excursión. 
+La distorsión armónica simulada es de $0.04\%$ en la máxima excursión a $1kHz$. Aún no cumple con el $0.01\%$ especificado.
 
-\fxnote{REHACER ESTA PARTE SI HAY TIEMPO. Demora en simular}
+
 En la figura~\ref{fig:distorsion-barrido} se muestra la distorsión en función de la tensión pico de salida.
 
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[width=0.8\textwidth]{img/sim/distorsion-barrido}
-%	\caption{Barrido en amplitud de distorsión a $1kHz$.}
-%	\label{fig:distorsion-barrido}
-%\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/sim/distorsion-barrido}
+	\caption{Barrido en amplitud de distorsión a $1kHz$.}
+	\label{fig:distorsion-barrido}
+\end{figure}
 
-%Hay que mejorar considerablemente el diseño para bajar la distorsión.
-\fxnote{Rehacer}
+
 \paragraph{Slew Rate} Simulando una entrada escalón en el amplificador, se observa la salida de la figura~\ref{fig:slew} en la carga.
 
-La pendiente es de $33 \frac{V}{\mu s}$.
+La pendiente es de $20 \frac{V}{\mu s}$. Esto es mayor a la máxima pendiende de la salida en máxima potencia a la máxima frecuencia especificada de $30kHz$, por lo que el ancho de banda de potencia cumplirá lo especificado ($2 \pi \times30kHz \times40V\cong 7.5V \frac{V}{\mu s}<20 \frac{V}{\mu s}$).
 
 
 \begin{figure}[H]
@@ -335,7 +339,7 @@ La pendiente es de $33 \frac{V}{\mu s}$.
 
 \paragraph{CMRR - factor de rechazo de modo común}
 
-Se simuló la primera etapa frente una entrada común de $100mA$ con el circuito de la figura~\ref{fig:ac} y se obtuvo la ganancia de modo común como $A_c=\frac{V_o}{V_i}=2m$ para ambas salidas del par.
+Se simuló la primera etapa frente una entrada común de $100mA$ con el circuito de la figura~\ref{fig:ac} y se obtuvo la ganancia de modo común.
 
 
 \begin{figure}[H]
@@ -346,67 +350,72 @@ Se simuló la primera etapa frente una entrada común de $100mA$ con el circuito
 \end{figure}
 
 
-La amplificación de modo diferencial se obtuve de forma análoga, con las fuentes de la figura~\ref{fig:ac} conectadas a contrafase. Las señales de entradas usadas fueron de sólo $1mV$ porque se esperaba una amplificación mucho mayor que para el caso de modo común. Los resultados obtenidos fueron $A_d=600$ para el par hecho con transistores NPN y $A_d=725$ para el hecho por PNPs.
+La amplificación de modo diferencial se obtuve de forma análoga, con las fuentes de la figura~\ref{fig:ac} conectadas a contrafase. Las señales de entradas usadas fueron de sólo $1mV$ porque se esperaba una amplificación mucho mayor que para el caso de modo común. 
 
-\[CMRR:=20 log_{10} |\frac{A_d}{A_c}|\cong 110dB \]
-
+\begin{table}[H]
+\centering
+\begin{tabular}{l|ll}
+ & NPN & PNP \\ \hline
+$A_c$ & $-33dB$ & $-36dB$  \\
+$A_d$ & $61dB$ & $63dB$  \\
+RRMC & $94dB$ & $99dB$  
+\end{tabular}
+\end{table}
 
 \paragraph{PSRR - factor de rechazo a la fuente}
 
 El PSRR se define como la relación entre el cambio en la tensión de alimentación y el cambie equivalente en la tensión de entrada. Idealemente este valor sería infinito.
 
-\[ PSRR := {\Delta V_\mathrm{supply} \over {\Delta V_\mathrm{out}}} \cdot A_d \]
+Simulando para valores de la fuente de $+50V$ entre $40V$ y $60V$ se obtuvo:
 
-Simulando para valores de la fuente de $+50V$ entre $40V$ y $60V$ se obtuvo.
+\[ PSRR := {\Delta V_\mathrm{fuente} \over {\Delta V_\mathrm{o}}} \cdot A_d = 86dB \]
 
-\[PSRR=87.4dB\]
 
-Es decir, con la ganancia de $29dB$ de este circuito, por cada $1V$ de riple en la fuente de $+50V$ se superponen aproximadamente $1.2mV$ en la salida ($87.4dB-29dB=58.4dB$ y $10^\frac{-58.4}{20} \conv 1.2mV $)
+
+Es decir, con la ganancia de $29dB$ de este circuito, por cada $1V$ de riple en la fuente de $+50V$ se superponen aproximadamente $1.4mV$ en la salida ($86dB-29dB=57dB$ y $10^\frac{-57}{20} \cong 1.4mV $)
 
 
 \paragraph{Resistencia de salida}  
-\fxnote{Falta después de compensar? Así como está subió a tipo $100m\Omega$}
-Para la simulación de la resistencia de salida, se colocó una fuente de corriente alterna de $1A$ a la salida, con la entrada pasivada, y se midió la tensión de salida.
+
+Para la simulación de la resistencia de salida, se colocó una fuente de corriente alterna de $1A$ a la salida, con la entrada pasivada, y se capturó la tensión de salida en un barrido de frecuencias.
 
 
 El circuito simulado, con una caja representando el amplificador, se observa en la figura~\ref{fig:circuito-r_out-current}.
 
 
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
-	\includegraphics[width=0.8\textwidth]{img/sim/circuito-r_out-current}
+	\includegraphics[width=0.6\textwidth]{img/sim/circuito-r_out-current}
 	\caption{Circuito usado para simular la resistencia de salida. La caja representa al amplificador.}
 	\label{fig:circuito_r-out-current}
 \end{figure}
 
 Los resultados del barrido se muestran en la figura~\ref{fig:R_out}, y un zoom en las frecuencias de trabajo especificadas en la figura~\ref{fig:R_out-zoom}.
 
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
-	\includegraphics[width=0.8\textwidth]{img/sim/R_out}
+	\includegraphics[width=0.6\textwidth]{img/sim/R_out}
 	\caption{Barrido en frecuencias de la impedancia de salida simulada.}
 	\label{fig:R_out}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{img/sim/R_out-zoom}
+	\includegraphics[width=0.6\textwidth]{img/sim/R_out-zoom}
 	\caption{Barrido en frecuencias de la impedancia de salida simulada para frecuencias hasta $30kHz$.}
 	\label{fig:R_out-zoom}
 \end{figure}
 
-Se obtuvo, promediando el módulo de la impedancia de salida para las frecuencias entre $1Hz-30kHz$.
+El módulo de la media geométrica de la impedancia de salida para las frecuencias entre $1Hz-30kHz$ es $11m\Omega$.
 
-\[R_{out}\cong 4.3m\Omega\]
+\[R_{out}\cong 11m\Omega\]
 
 La realimentación logra que la resistencia de salida sea muy baja.
-
-A frecuencia $330kHz$ la impedancia ya es inductiva, llegando a $72^\circ$ en $30kHz$.
 
 
 \paragraph{Resistencia de entrada}
 
-Se simuló en $1kHz$ el cociente entre la tensión de entrada y la corriente entregadas por el generador.
+Se simuló en el cociente entre la tensión de entrada y la corriente entregadas por el generador, para un barrido de frecuencias. El módulo de la media geométrica de la impedancia para las frecuencias entre $1Hz-30kHz$ es $9.8k\Omega$.
 
 \[R_{in}=9.8k\Omega\]
 
@@ -415,7 +424,7 @@ En la figura~\ref{fig:R_i} se puede ver un barrido en frecuencias de la resisten
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{img/sim/R_i}
+	\includegraphics[width=0.6\textwidth]{img/sim/R_i}
 	\caption{Resistencia de entrada. Cociente entre tensión y corriente de entrada simuladas para pequeña señal de distintas frecuencias.}
 	\label{fig:R_i}
 \end{figure}
@@ -425,22 +434,30 @@ En la figura~\ref{fig:R_i} se puede ver un barrido en frecuencias de la resisten
 
 \paragraph{Respuesta en frecuencia} 
 
-Se realizó un barrido de $0.1Hz$ a $100MHz$.
+Se realizó un barrido de $0.1Hz$ a $100MHz$. Se puede apreciar en la figura~\ref{fig:bode} un ancho de banda de $1.57MHz@1dB$ o $2.16MHz@3dB$.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{img/sim/bode}
+	\includegraphics[width=0.6\textwidth]{img/sim/bode}
 	\caption{Diagrama de Bode del amplificador a lazo cerrado simulado. El módulo, en línea llena y la fase en línea punteada.}
 	\label{fig:bode}
 \end{figure}
 
 
 
-
 \paragraph{Ancho de banda de potencia}
 
-Se simulará cuando se logre mejorar la distorsión.
+Considerando el slew rate simulado de $20\frac{V}{\mu s}$, la distorsión por slew rate comenzaría a afectar a frecuencia $\frac{20\frac{V}{\mu s}}{40V \times 2\pi}\cong 80kHz$. Se puede ver en la figura~\ref{fig:distorsion-frec} cómo varía la distorsión simulada de máxima excursión con la frecuencia.
 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{img/sim/distorsion-frec}
+	\caption{Distorsión a máxima excursión en función de la frecuencia. La línea verde marca la frecuencia a la cual comienza a afectar el slew rate ($80kHz$)}
+	\label{fig:distorsion-frec}
+\end{figure}
+
+Tal como se preveía, en los alrededores de la frecuencia $80kHz$ la distorsión comienza a aumentar, sobrepasando valores perceptibles a simple vista mirando la forma de onda, para rápidamente estabilizarse en torno a un valor del $12\%$, que es la distorsión de una onda triangular. Esto es efecto del slew-rate.
 
 \subsection{Análisis de los condicionantes de integración}
 
@@ -510,7 +527,7 @@ Hasta el momento, hemos elegido las configuraciones de las distintas etapas, bus
 
 \section{Dificultades encontradas}
 
-Banacear las amplificaciones en modo diferencial del comparador.
+Balancear las amplificaciones en modo diferencial del comparador.
 
 
 Para el desarrollo del proyecto, nos encontramos con varios obstáculos. En el primer diseño que realizamos, nos encontramos con una disparidad en las corrientes del par diferencial, que resolvimos comprando transistores de más, midiendo sus parámetros $\beta$, y agrupándolos para poder trabajar con valores apareados. Otra solución que encontramos, y que aplicaremos en esta versión del circuito, es utilizar transistores integrados, que asegura que todos los transistores tengan las mismas propiedades, y estén apareados.
