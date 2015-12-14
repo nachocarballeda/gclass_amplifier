@@ -262,13 +262,41 @@ A la salida se usarán transistores en configuración Darlington, para tener una
 \fxnote{Algo sobre cómo fue diseñado, valores, etc?}
 
 
-\subsubsection{title}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.75\paperheight,angle=90,origin=c]{img/circuito}
 \caption{Circuito Diseñado}
-\label{circuito} 
+\label{fig:circuito} 
+\end{figure}
+
+Se intentó conservar la simertía del circuito en su diseño. Esto motivó, entre otras cosas, al uso de un doble par diferencial a la entrada, o el de un multiplicador de $V_{be}$ simétrico.
+
+\paragraph{Etapa de entrada}
+
+Se usó doble par diferencial para mantener la simetría total y reducir la distorsión por armónicos pares. Cada par se diseñó teniendo en cuenta que la tensión de salida de polarización debía ser estable, pues la segunda etapa no estará polarizada por una fuente de corriente. Por esto, la resistencia de carga del par diferencial (\texttt{RC1} y \texttt{RC2}) es de sólo $2.4k\Omega$, mucho menor que la resistencia dinámica de pequeña señal que le ofrece la segunda etapa ($\cong 100k\Omega$), dominando el paralelo.
+Por la misma razón, se consideró de particular importancia garantizar que las corrientes de polarización por las ramas del par se independicen de posibles variaciones en la segunda etapa o del riel. Los transistores \texttt{Q19} y \texttt{Q21}, en configuración cascode con \texttt{Q17} y \texttt{Q20} cumplen justamente la función de generar esta independencia.
+
+Se polarizó cada rama con una corriente de $\cong 1mA$. Mayor corriente no generaría una mucho mayor amplificación de la etapa, pues, para mantener una tensión de salida fija habría sido necesario reducir la resistencia de carga en igual proporción. Esta corriente se generó con una fuente hecha por un LED de $2.3V$. Este LED permitirá visualizar rápidamente posibles errores de polarización en el amplificador armado.
+
+
+\paragraph{Etapa de amplificación de tensión}
+
+Se optó por una configuración CC-EC. El colector común cumple la función de ofrecer una resistencia alta a la primera etapa, independizando la polarización de los parámetros variables de los transistores de la segunda etapa. Además, aumenta la diferencia de tensión de polarización requerida entre el riel y la entrada de la etapa, lo que permite el uso de una resistencia de carga mayor en la primera etapa, mejorando su ganancia. Esta configuración, además, ofrece un alto grado de independencia de las variaciones de tensión del riel, pues todas las tensiones involucradas varían en conjunto (la única que no lo hace es masa, pero está conectada al colector de \texttt{Q13} y \texttt{Q10}, nodos de alta impedancia). 
+
+Las resistencias de emisor del EC (\texttt{R8} y \texttt{R13}) implementan realimentaciones locales que estabilizan la corriente de polarización y ganancia de la etapa. Son de valor reducido pues al estabilizar la ganancia, la reducen. Además, la caída de tensión en estas resistencias reduce la máxima excursión de la etapa antes de que saturen los transistores. Se eligieron los valores exactos (junto con los de las cargas de la primera etapa) para que la corriente de polarización sea $\cong 25mA$.
+
+\paragraph{Multiplicador de $V_{be}$}
+
+Se diseñó simétrico (figura~\ref{fig:mvbe}). La corriente de polarización de los transistores del VAS es $\cong 25mA$, y esta puede tener una excursión máxima de aproximadamente $4mA$ pico-a-pico. Es decir, el multiplicador debe lograr polarizarse con corrientes de $\cong 20mA$. Las simulaciones muestran que se logra una mayor estabilidad en la tensión si los transistores están polarizados con corrientes bajas. Por lo tanto, se eligió \texttt{Rmvbe} tal que consuma una corriente $<20mA$, pero del orden de los $mA$. Se podría haber elegido un valor más cercano a $20mA$, pero una simulación remplazando al multiplicador por un generador de tensión ideal mostró que el funcionamiento y la distorsión del circuito no se veían afectados. Es por esta misma razón que no se agregaron resistencias adicionales en los colectores, que usualmente se usan para generar una caída que compense el incremento de tensión con la corriente.
+
+Las resistencias \texttt{R18} y \texttt{R19} se eligieron iguales por simetría, y de valor tal que la tensión generada sea levemente superior a $2.8V$. Esto permite colocar a los transistores de salida en modo levemente A-B, reduciendo la distorsión de su etapa.
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.3\textwidth]{img/sim/mvbe}
+\caption{Circuito Diseñado}
+\label{fig:mvbe} 
 \end{figure}
 
 %Dice en la consigna que acá toca:
@@ -286,7 +314,10 @@ A la salida se usarán transistores en configuración Darlington, para tener una
 %8.Realiza los diagramas esquemáticos con las referencias de todos sus componentes
 %9.Realiza el listado de componentes indicando referencia, descripción, valor, parámetros, fabricantes y posibles proveedores para cada componente.
 
+
+
 \subsubsection{Simulaciones}
+
 
 \paragraph{THD para entrada de 1V pico @ 1kHz} A continuación se muestra una tabla con los resultados del análisis de Fourier realizados con el LTSpice. 
 
@@ -356,9 +387,9 @@ La amplificación de modo diferencial se obtuve de forma análoga, con las fuent
 \centering
 \begin{tabular}{l|ll}
  & NPN & PNP \\ \hline
-$A_c$ & $-33dB$ & $-36dB$  \\
-$A_d$ & $61dB$ & $63dB$  \\
-RRMC & $94dB$ & $99dB$  
+$A_c$ & $-56dB$ & $-59dB$  \\
+$A_d$ & $37dB$ & $39dB$  \\
+RRMC & $93dB$ & $98dB$  
 \end{tabular}
 \end{table}
 
@@ -410,7 +441,7 @@ El módulo de la media geométrica de la impedancia de salida para las frecuenci
 
 \[R_{out}\cong 11m\Omega\]
 
-La realimentación logra que la resistencia de salida sea muy baja.
+La realimentación logra que la resistencia de salida sea muy baja, tanto que las resistencias parásitas pueden terminar siendo un factor no despreciable. Si se desprecian, el factor de amortiguamiento es de
 
 
 \paragraph{Resistencia de entrada}
@@ -458,6 +489,42 @@ Considerando el slew rate simulado de $20\frac{V}{\mu s}$, la distorsión por sl
 \end{figure}
 
 Tal como se preveía, en los alrededores de la frecuencia $80kHz$ la distorsión comienza a aumentar, sobrepasando valores perceptibles a simple vista mirando la forma de onda, para rápidamente estabilizarse en torno a un valor del $12\%$, que es la distorsión de una onda triangular. Esto es efecto del slew-rate.
+
+
+\paragraph{Primera etapa}
+
+En la sección de CMRR se simuló la amplificación de modo común y diferencial para la primera etapa sin carga externa. Esto es similar a la primera etapa cargada pues las resistencias de los pares diferenciales son bastante menores a las cargas que le proporciona la segunda etapa. Esto fue intencional, pues es esa resistencia la que fija la polarización de todo el circuito, y de este modo se independiza de parámetros como el $\beta$ de los transistores que puden variar con la temperatura y humedad.
+
+Se vuelve a simular la ganancia diferencial de la primera etapa, ahora con la carga del circuito, a lazo abierto. Para esto, se coloca una capacidad de valor alto ($1F$) en la entrada realimentada del comparador. De este modo, no se cambiará la realimentación en polarización pero se evitará que entre señal (fijando $f_{alterna}=0$). Se obtuve una ganancia aproximada de $31dB$, como se ve en la figura~\ref{fig:1era-etapa-bode}.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.4\textwidth]{img/sim/1era-etapa-bode}
+	\caption{Simulación de ganancia de la primera etapa.}
+	\label{fig:1era-etapa-bode}
+\end{figure}
+
+\paragraph{Segunda etapa}
+
+El resto de la ganancia está provista por la segunda etapa, y se puede ver en la figura~\ref{fig:2da-etapa-bode}. Vale aproximadamente $55dB$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.4\textwidth]{img/sim/2da-etapa-bode}
+	\caption{Simulación de ganancia de la segunda etapa.}
+	\label{fig:2da-etapa-bode}
+\end{figure}
+
+
+\subsubsection{Compensación}
+
+Se observó que el polo dominante correspondía a los nodos entre la primera y segunda etapa. Se colocaron capacitores de compensación entre dichos nodos y las salidas del VAS (\texttt{C\_comp\_1} y \texttt{C\_comp\_2}) para aprovechar el efecto Miller y usar capacitores de menor valor ($40pF$). Esto desplaza el polo, que inicialmente se encontraba en aproximadamente $200kHz$ a aproximadamente $2kHz$, estabilizando y dando un margen de fase de $85^{\circ}$ y un ancho de banda de $2.4MHz$. Estos capacitores limitan el slew rate, pero se observó que para valores menores a $100pF$ el slew rate se encontraba claramente por arriba de los $7.5\frac{V}{\mu s}$ necesarios para el ancho de banda de potencia especificado. Incrementar este capacitor en exceso sin embargo, reduce la ganancia de lazo en frecuencias altas y, por lo tanto, los beneficios que esto trae a la distorsión, resistencias de entrada y salida, etc. Se optó por un valor de capacidades, con margen, que podría eventualmente reducirse.
+
+Luego, se agregó un capacitor en paralelo al realimentador (\texttt{C\_comp\_3}) para mejorar levemente estas especificaciones. Esto agrega un cero seguido de un polo. Por ejemplo, para la frecuencia del cero, la fase se incrementó en $45^{\circ}$ y la ganancia aumentó sólo en $3dB$, por lo que el ancho de banda se verá incrementado levemente y el margen de fase significativamente. Se comprobó simulando que ubicar el cero en $4MHz$ es un buen valor. Esto se obtiene con una capacidad de $4pF$ pues $\frac{1}{2 \pi 10k\Omega 4pF}\cong 4MHz$.
+
+El margen de fase resultante ese de $105^{\circ}$ y el ancho de banda de $3MHz$, con un margen de ganancia de $3dB$. Se puede ver en la figura~\ref{fig:slew} que la respuesta al escalón no oscila.
+
 
 \subsection{Análisis de los condicionantes de integración}
 
