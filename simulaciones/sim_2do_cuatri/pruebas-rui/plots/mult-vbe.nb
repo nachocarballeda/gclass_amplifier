@@ -1,0 +1,522 @@
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Multiplicador de VBE", "Title",
+ CellChangeTimes->{{3.65896942077887*^9, 3.658969423738576*^9}}],
+
+Cell["\<\
+La simulaci\[OAcute]n da como que se hace menos slopey si est\[AAcute] \
+polarizado con menos corriente, pero, para \[Beta]->\[Infinity] al menos mi l\
+\[OAcute]gica me dice lo contrario. A ver\
+\>", "Text",
+ CellChangeTimes->{{3.658969431943646*^9, 3.658969459627885*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"r\[Pi]1", "+", "r\[Pi]2"}], 
+  RowBox[{"\[Beta]1", " ", "\[Beta]2"}]]], "Input",
+ CellChangeTimes->{{3.658972814940477*^9, 3.658972870887443*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Beta]", " ", 
+   RowBox[{"re", "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"\[Beta]", " ", "re"}], "+", 
+      FractionBox["1", 
+       RowBox[{"40", " ", 
+        FractionBox["25.*^-3", "\[Beta]"]}]]}], ")"}]}]}], "//", 
+  "Simplify"}]], "Input",
+ CellChangeTimes->{{3.658975610872674*^9, 3.658975696437305*^9}}],
+
+Cell[BoxData[
+ FractionBox["re", 
+  RowBox[{"1.`", "\[VeryThinSpace]", "+", "re"}]]], "Output",
+ CellChangeTimes->{3.6589756971925497`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"1.91", " ", 
+  FractionBox["3", "1*^-3"]}]], "Input",
+ CellChangeTimes->{{3.65897789373417*^9, 3.6589779303650017`*^9}, {
+  3.658978139247922*^9, 3.6589781397665663`*^9}, {3.658978173201931*^9, 
+  3.6589781735173388`*^9}}],
+
+Cell[BoxData["5730.`"], "Output",
+ CellChangeTimes->{{3.6589779158198957`*^9, 3.658977931152917*^9}, 
+   3.65897814082263*^9, 3.658978173842203*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"8*^-3", " ", "2"}]], "Input",
+ CellChangeTimes->{{3.6589786036268272`*^9, 3.6589786115986547`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"20", " ", 
+  RowBox[{"Log10", "[", 
+   RowBox[{"8*^-3", " ", 
+    RowBox[{"40", "/", "2"}], " ", "3.3*^3"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.658980216517922*^9, 3.65898025949363*^9}}],
+
+Cell[BoxData["54.452678450676245`"], "Output",
+ CellChangeTimes->{{3.658980248230075*^9, 3.658980260339323*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"20", " ", 
+   RowBox[{"Log10", "[", 
+    RowBox[{"ic", " ", 
+     RowBox[{"40", "/", "2"}], " ", "rc"}], "]"}]}], "/.", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"ic", "\[Rule]", "8`*^-3"}], ",", " "}]}]}]], "Input",
+ CellChangeTimes->{{3.658980216517922*^9, 3.65898025949363*^9}, {
+  3.6589802975565443`*^9, 3.658980324434361*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"20", 
+   RowBox[{"Log10", "[", "20", "]"}]}], "//", "N"}]], "Input",
+ CellChangeTimes->{{3.6589803312066803`*^9, 3.658980336475518*^9}}],
+
+Cell[BoxData["26.020599913279618`"], "Output",
+ CellChangeTimes->{{3.658980334828147*^9, 3.658980336823853*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FractionBox["40", 
+  RowBox[{"8", "^", 
+   RowBox[{"-", "3"}]}]]], "Input",
+ CellChangeTimes->{{3.658980411375708*^9, 3.658980414850307*^9}}],
+
+Cell[BoxData["20480"], "Output",
+ CellChangeTimes->{3.658980415637559*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"20", " ", 
+  RowBox[{"Log10", "[", "40.", "]"}]}]], "Input",
+ CellChangeTimes->{{3.65898034096815*^9, 3.658980354058302*^9}}],
+
+Cell[BoxData["32.04119982655925`"], "Output",
+ CellChangeTimes->{3.658980354434273*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"40", "/", "2.5"}]], "Input",
+ CellChangeTimes->{{3.658980434900927*^9, 3.658980460090996*^9}}],
+
+Cell[BoxData["16.`"], "Output",
+ CellChangeTimes->{3.658980460389377*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"4.7", " ", "15"}]], "Input",
+ CellChangeTimes->{{3.658980463728834*^9, 3.658980468611225*^9}}],
+
+Cell[BoxData["70.5`"], "Output",
+ CellChangeTimes->{3.658980468939438*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"5.6", " ", "15"}]], "Input",
+ CellChangeTimes->{{3.658980463728834*^9, 3.658980485224473*^9}}],
+
+Cell[BoxData["84.`"], "Output",
+ CellChangeTimes->{3.658980485575508*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"/", "v"}], 
+  RowBox[{"(", 
+   RowBox[{"20.", "*", 
+    RowBox[{"^", "3"}], " ", 
+    RowBox[{"8", "^", 
+     RowBox[{"-", "3"}]}]}]}]}]], "Input",
+ CellChangeTimes->{{3.6589807345950203`*^9, 3.6589807421498117`*^9}, {
+  3.658982485237254*^9, 3.658982485619355*^9}}],
+
+Cell[BoxData["39.0625`"], "Output",
+ CellChangeTimes->{{3.658980740217011*^9, 3.6589807424575577`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"38", "/", "2.5"}]], "Input",
+ CellChangeTimes->{{3.658982840611582*^9, 3.658982856674655*^9}}],
+
+Cell[BoxData["15.200000000000001`"], "Output",
+ CellChangeTimes->{{3.6589828536410913`*^9, 3.658982857020728*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Con 200f, los miller est\[AAcute]n en 20k.
+af son 80dB. O 4 d\[EAcute]cadas a un polo. 20kHz a 200MHz. Pero, mejor si \
+otro polo ayuda cerca del final, tipo por 20MHz.
+Los del par dif, son dobles parece, crap, y est\[AAcute]n por 100kHz. Me van \
+a complicar la vida. No los puedo volar. Puedo capaz poner un cero para robar \
+20dB, e nel mejeor de los casos. Igual no llego. Pero con el otro polo s\
+\[IAcute]. A ver si es el de 8MHz el de miller.\
+\>", "Text",
+ CellChangeTimes->{{3.658984278491119*^9, 3.65898436011167*^9}, 
+   3.658984392592431*^9, {3.6589844305371723`*^9, 3.658984480409998*^9}, {
+   3.658984642837166*^9, 3.6589847156068573`*^9}}],
+
+Cell["\<\
+El de miller es 1 s\[OAcute]lo polo, pero, si lo pongo en 20kHz, \
+ten\[EAcute]s 40dB hasta polo doble. En 200kHz quedan 40 por bajar, que se \
+bajan en menos de 1 d\[EAcute]cada. Pero hay m\[AAcute]s. Un cero puede ayudar\
+\>", "Text",
+ CellChangeTimes->{{3.658985147167604*^9, 3.658985152038595*^9}, {
+  3.658985329238608*^9, 3.658985425980164*^9}}],
+
+Cell[BoxData["a"], "Input",
+ CellChangeTimes->{3.658984303890427*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"180", "-", "163"}]], "Input",
+ CellChangeTimes->{{3.6589892678230333`*^9, 3.658989271099691*^9}}],
+
+Cell[BoxData["17"], "Output",
+ CellChangeTimes->{3.658989271574594*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"200", "/", "1200"}], "//", "N"}]], "Input",
+ CellChangeTimes->{{3.658989885603785*^9, 3.6589898974399357`*^9}}],
+
+Cell[BoxData["0.16666666666666666`"], "Output",
+ CellChangeTimes->{{3.658989895580887*^9, 3.658989897578146*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"180", "-", "164"}]], "Input",
+ CellChangeTimes->{{3.658990016083305*^9, 3.6589900173937273`*^9}}],
+
+Cell[BoxData["16"], "Output",
+ CellChangeTimes->{3.658990018067009*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"N", "@", 
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{"2", "\[Pi]", " ", "10000", " ", "c"}]], "\[Equal]", "1*^6"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.6589973434677477`*^9, 3.658997366896147*^9}, {
+  3.658997441941349*^9, 3.658997442230698*^9}, {3.658997744943953*^9, 
+  3.658997774928059*^9}, {3.659001073350588*^9, 3.6590010784736137`*^9}, {
+  3.65900121867476*^9, 3.65900122170617*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"c", "\[Rule]", "1.5915494309189536`*^-11"}], "}"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.658997367252694*^9, 3.658997445334853*^9, {3.658997760938984*^9, 
+   3.658997775844363*^9}, 3.659001078982904*^9, {3.6590012188418617`*^9, 
+   3.65900122217726*^9}}]
+}, Open  ]],
+
+Cell["No m\[AAcute]s que 14nF para esos capitores.", "Text",
+ CellChangeTimes->{{3.658999259298909*^9, 3.658999266227026*^9}}],
+
+Cell["MARGEN DE FASE 53", "Text",
+ CellChangeTimes->{{3.658999484599394*^9, 3.6589994916994743`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"180", "-", "127"}]], "Input",
+ CellChangeTimes->{{3.6589994879373493`*^9, 3.6589994888402977`*^9}}],
+
+Cell[BoxData["53"], "Output",
+ CellChangeTimes->{3.658999489382934*^9}]
+}, Open  ]],
+
+Cell["Slew rate 8.3V/us", "Text",
+ CellChangeTimes->{{3.658999508726077*^9, 3.658999517303968*^9}}],
+
+Cell["\<\
+Ancho de banda a 1 db de 127kHz. Oscila un cachito el escal\[OAcute]n  aunque \
+tenga 53 de margen de fase. Distorsi\[OAcute]n 0.02% a 1k
+\
+\>", "Text",
+ CellChangeTimes->{{3.6589995461121387`*^9, 3.6589995829611273`*^9}, {
+  3.658999962264394*^9, 3.658999967539015*^9}}],
+
+Cell["\<\
+En el circuito posta, el slew rate zafa si los cap de miller don de hasta 100p.
+Slew rate de 20 pico.
+Distorsion 0.038%. Es predecible con un af de 60dB. Har\[IAcute]an falta 12dB \
+m\[AAcute]s. Algunos se sacan de mayor early\
+\>", "Text",
+ CellChangeTimes->{{3.659000926346826*^9, 3.659000950195353*^9}, {
+  3.6590017522481127`*^9, 3.659001755763814*^9}, {3.6590032045516167`*^9, 
+  3.65900325954069*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"2", " ", "\[Pi]", " ", "30*^-3", " ", "40"}], "//", "N"}]], "Input",
+ CellChangeTimes->{{3.659037811184173*^9, 3.659037819670086*^9}}],
+
+Cell[BoxData["7.5398223686155035`"], "Output",
+ CellChangeTimes->{{3.659037816894703*^9, 3.659037819946005*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ac", "=", 
+  RowBox[{"20", " ", 
+   RowBox[{"Log10", "[", 
+    RowBox[{
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"\"\<NPN\>\"", "\[Rule]", "156.75*^-6"}], ",", 
+       RowBox[{"\"\<PNP\>\"", "->", " ", "109.43*^-6"}]}], "|>"}], "/", 
+     "100*^-3"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.659038220757576*^9, 3.659038228822009*^9}, {
+  3.659038814826083*^9, 3.659038828482129*^9}, {3.659038876251498*^9, 
+  3.659038920001989*^9}, {3.6590400191460333`*^9, 3.65904002037059*^9}, {
+  3.659092684475134*^9, 3.659092715956336*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"NPN\"\>", "\[Rule]", 
+    RowBox[{"-", "56.09584900994492`"}]}], ",", 
+   RowBox[{"\<\"PNP\"\>", "\[Rule]", 
+    RowBox[{"-", "59.217272015558095`"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.659092717533759*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ad", "=", 
+  RowBox[{"20", " ", 
+   RowBox[{"Log10", "[", 
+    RowBox[{
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"\"\<NPN\>\"", "\[Rule]", "70.135*^-3"}], ",", 
+       RowBox[{"\"\<PNP\>\"", "->", " ", "87.4*^-3"}]}], "|>"}], "/", 
+     "1*^-3"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6590389231512537`*^9, 3.659038923356365*^9}, {
+  3.659039942272283*^9, 3.659039959488536*^9}, {3.6590400140747957`*^9, 
+  3.659040016145763*^9}, {3.659040335952197*^9, 3.659040336679976*^9}, {
+  3.659092586985005*^9, 3.659092618778462*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"NPN\"\>", "\[Rule]", "36.91869602651533`"}], ",", 
+   RowBox[{"\<\"PNP\"\>", "\[Rule]", "38.830228652688064`"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.659092621316991*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"59", "+", "39"}]], "Input",
+ CellChangeTimes->{{3.6590927983996553`*^9, 3.659092799893314*^9}}],
+
+Cell[BoxData["98"], "Output",
+ CellChangeTimes->{3.6590928000554523`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TeXForm", "[", "\"\<\[PlusMinus]\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.6591202590515013`*^9, 3.6591202659791822`*^9}}],
+
+Cell["\\pm", "Output",
+ CellChangeTimes->{3.659120267213675*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ad", "-", "ac"}]], "Input",
+ CellChangeTimes->{{3.659039963933805*^9, 3.659039981233184*^9}, {
+  3.659040024401677*^9, 3.65904002566572*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"NPN\"\>", "\[Rule]", "93.01454503646025`"}], ",", 
+   RowBox[{"\<\"PNP\"\>", "\[Rule]", "98.04750066824616`"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.6590399655933733`*^9, 3.659040025955042*^9, 
+  3.659040338035211*^9, 3.659092726837813*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"<|", 
+  RowBox[{
+   RowBox[{"60", "\[Rule]", "28.2661"}], ",", " ", 
+   RowBox[{"40", "\[Rule]", "28.2385"}]}], "|>"}]], "Input",
+ CellChangeTimes->{{3.659040956745886*^9, 3.659040968579836*^9}, {
+  3.65904101896497*^9, 3.659041049446422*^9}, {3.65904121846502*^9, 
+  3.659041221905031*^9}, {3.659041304594637*^9, 3.659041314610965*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"28.2661", "-", "28.2385"}]], "Input",
+ CellChangeTimes->{{3.659041320338863*^9, 3.659041322434952*^9}}],
+
+Cell[BoxData["0.027600000000003178`"], "Output",
+ CellChangeTimes->{3.659041322958683*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"20", " ", 
+  RowBox[{"Log10", "[", 
+   FractionBox["0.0276", 
+    RowBox[{"20", 
+     FractionBox["40", 
+      SqrtBox["2"]]}]], "]"}]}]], "Input",
+ CellChangeTimes->{{3.659041329394828*^9, 3.659041376844346*^9}}],
+
+Cell[BoxData[
+ RowBox[{"-", "86.2333181418947`"}]], "Output",
+ CellChangeTimes->{{3.6590413509154577`*^9, 3.65904137725173*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["40", 
+   SqrtBox["2"]], "//", "N"}]], "Input",
+ CellChangeTimes->{{3.65904133618414*^9, 3.659041341003105*^9}}],
+
+Cell[BoxData["28.284271247461902`"], "Output",
+ CellChangeTimes->{3.659041341232533*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"86", "-", "29"}]], "Input",
+ CellChangeTimes->{{3.659041405303973*^9, 3.659041405996633*^9}}],
+
+Cell[BoxData["57"], "Output",
+ CellChangeTimes->{3.659041406335281*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"10", "^", 
+   RowBox[{"-", 
+    FractionBox["57", "20"]}]}], "//", "N"}]], "Input",
+ CellChangeTimes->{{3.6590414171749353`*^9, 3.659041433262025*^9}}],
+
+Cell[BoxData["0.0014125375446227546`"], "Output",
+ CellChangeTimes->{{3.659041426690584*^9, 3.659041433779915*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell["Protecciones? Zobel?", "Title",
+ CellChangeTimes->{{3.659003269527918*^9, 3.65900327376882*^9}}]
+},
+NotebookAutoSave->False,
+ClosingAutoSave->False,
+ClosingSaveDialog->True,
+CloseOnClickOutside->False,
+IncludeFileExtension->True,
+FileChangeProtection->Automatic,
+TransitionEffect->Automatic,
+TransitionDirection->Horizontal,
+TransitionDuration->Short,
+RasterExploreViewRange->17,
+MarkerLineThickness->1.,
+MarkerAspectRatio->0.,
+AutoGeneratedPackage->None,
+Editable->True,
+Saveable->True,
+StyleEnvironment->Automatic,
+ScreenStyleEnvironment->"Working",
+PrintingStyleEnvironment->"Printout",
+ShowPageBreaks->False,
+WindowToolbars->{},
+RulerUnits->"Inches",
+BlinkingCellInsertionPoint->True,
+GhostCellInEmptyNotebook->False,
+CellInsertionPointColor->GrayLevel[0.7500114442664225],
+CellInsertionPointCell->FEPrivate`FrontEndResource[
+ "FEExpressions", "CellInsertionMenu"],
+WindowSize->{1596, 861},
+WindowMargins->{{Automatic, 0}, {Automatic, 18}},
+BackgroundAppearance->None,
+BackgroundAppearanceOptions->"Fill",
+PrivateNotebookOptions->{"DockedCellAnimation"->False,
+"DockedCellTransition"->False,
+"DocumentType"->Automatic,
+"DoubleBuffer"->True,
+"ExcludeFromShutdown"->False,
+"FileContents"->{
+ "FileLeader", "StandardFileLeader", "NotebookData", "StandardFileTrailer", 
+  "FileTrailer"},
+"FileLeader"->"",
+"FileOutlineCache"->False,
+"FileTrailer"->"",
+"FinalWindowPrompt"->False,
+"JournalStyle"->"Automatic",
+"NoteStyle"->"Automatic",
+"PluginToolbarEnabled"->True,
+"PluginUpdateNotificationsEnabled"->True,
+"SafeFileOpen"->"None",
+"SafeFileSave"->"Prescan",
+"VersionedStylesheet"->{}},
+Magnification->1.,
+Background->None,
+FrontEndVersion->"10.3 for Linux x86 (64-bit) (October 9, 2015)",
+StyleDefinitions->"Default.nb"
+]
