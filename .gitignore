@@ -1,15 +1,5 @@
-#   Se ignora     #
-###################
-
-#Para LTSpice
-*.raw
-*.log
-
-
-
-#General
-*.*~
-
-#Latex
-*.toc
-*.aux
+**/*.swp
+**/*.toc
+**/*.raw
+**/*.log
+**/*.aux
