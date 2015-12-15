@@ -205,7 +205,7 @@ Un amplificador típico consta, basicamente, de 3 etapas: una de entrada, difere
 
 \begin{itemize}
 	\item Máxima Potencia de Salida:  $100\watt$ RMS @ $8\ohm$
-	\item Clase: G
+	\item Salida clase G
 	\item THD: $< 0.01 \%$  % decía 0.001 %
 	\item Slew Rate: $>5V / \uS$
 	\item Impedancia de entrada: $10\kohm$
@@ -535,22 +535,46 @@ El multiplicador de $V_{be}$, en altas frecuencias, tiene un comportamiento indu
 \subsection{Análisis de los condicionantes de integración}
 
 \subsubsection{Disipación de Calor}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.4\textwidth]{img/calculo_disipador}
+    \caption{Modelo termico estacionario.}
+    \label{fig:disipadores}
+\end{figure}
 
-En el peor caso, los transistores de potencia 2SC3281 de la etapa de salida y su par complementario 2SA1302.
-Disipan cada uno 35 W, los mismos se utilizan en paralelo. 
+En el peor caso, los transistores de potencia 2SC3281 de la etapa de salida y su par complementario 2SA1302
+disipan cada uno 18 W, ya que los mismos se utilizan en paralelo.
 
 \begin{equation*}
-R_{th_{d-amb}} = \frac{T_j-T_a}{P_{max}}-(R_{th_{j-c}}-R_{th_{c-d}})
+T_r = R_{thra} * (P_{dis1}+P_{dis2}) + T_a
 \end{equation*}
 
 \begin{equation*}
-R_{th_{d-amb}} = \frac{120°C-35°C}{35 W}-(0.83 \frac{°C}{W}- 1.4\frac{°C}{W}) = 0.2 \frac{°C}{W}
+T_r = T_{juntura_{N}} - (R_{t_{j-case}}+R_{t_{c-heat}})*P_{disN}
 \end{equation*}
 
-En la  parte interna de la etapa de salida, tenemos que en el peor caso se disipan 30 W.
+\begin{equation*}
+T_r = 110°C - (0.85 °C/W + 0.1 °C/W)*(18*2 W) = 75.8 °C
+\end{equation*}
 
 \begin{equation*}
-R_{th_{d-amb}} = \frac{120°C-35°C}{30 W}-(6.25 \frac{°C}{W}- 1.4\frac{°C}{W}) = ??  \frac{°C}{W}
+75.8°C = R_{thra}*(18*2*2 W) + 40°C
+\end{equation*}
+
+\begin{equation*}
+R_{tha} = 0.5 °C/W
+\end{equation*}
+
+En la  parte interna de la etapa de salida, tenemos que en el peor caso se disipan 10 W por cada transistor.
+Haciendo las mismas cuentas con otros valores.
+
+
+\begin{equation*}
+T_r = 120°C - (6.25°C/W + 0.1°C/W)*(10W) = 57.5 °C
+\end{equation*}
+
+\begin{equation*}
+R_{tha} = 0.87 °C/W
 \end{equation*}
 
 %     Requerimientos Eléctricos ( Seguridad eléctrica y 
