@@ -207,7 +207,7 @@ El objetivo es amplificar una señal de audio que será reproducida en un parlan
 	\item Máxima Potencia de Salida:  $100\watt$ RMS @ $8\ohm$
 	\item Salida clase G
 	\item THD: $< 0.01 \%$  % decía 0.001 %
-	\item Slew Rate: $>5V / \uS$
+	\item Slew Rate: $>7.5\frac{V}{\mu S}$
 	\item Impedancia de entrada: $10\kohm$
 	\item Sensibilidad: $1\volt$ RMS
 	\item Ancho de banda: $10 Hz-30kHz$
@@ -226,12 +226,11 @@ Un amplificador típico consta, basicamente, de 3 etapas: una de entrada, difere
 
 
 \paragraph{Etapa de entrada}
-Inicialmente consideramos una típica topografía diferencial, de colectores acoplados. Como los transistores no son componentes lineales, propusimos agregar otro par diferencial, en paralelo, con componentes complementarios; es decir, donde originalmente usamos transistores NPN, colocamos PNP, y viceversa. De esta forma, la simetría cancela alinealidades y se reduce la distorsión. Esto llevó a luego intentar mantener una simetría total en todo el circuito.
+Inicialmente consideramos una típica topología diferencial, de colectores acoplados. Como los transistores no son componentes lineales, propusimos agregar otro par diferencial, en paralelo, con componentes complementarios; es decir, donde originalmente usamos transistores NPN, colocamos PNP, y viceversa. De esta forma, la simetría cancela alinealidades y se reduce la distorsión. Esto llevó a luego intentar mantener una simetría total en todo el circuito.
 
 \paragraph{Etapa intermedia}
-Decidimos utilizar un amplificador de 2 etapas, colector común - emisor común, con la diferencia del diseño convencional de que la salida del VAS está conectada al centro del multiplicador de $V_{be}$, para obtener una mayor simetría en la última etapa.
 
-Con el cambio a 2 pares diferenciales, la etapa intermedia también se duplica, complementariamente, y se conectan a la etapa de salida, por arriba y por abajo del multiplicador de $V_{be}$. Es la primera etapa la que la polariza y no una fuente de corriente como muchas veces sucede. Cada uno de los dos emisores comunes hace de carga del otro.
+Con el cambio a 2 pares diferenciales, la etapa intermedia también se duplica, complementariamente, y se conectan a la etapa de salida, por arriba y por abajo del multiplicador de $V_{be}$. Es la primera etapa la que la polariza y no una fuente de corriente como muchas veces sucede. Cada uno de los dos VAS hace de carga del otro.
 
 \paragraph{Etapa de salida}
 Se consideraron diferentes opciones de diseño. Esta etapa es responsable de amplificar la potencia de la señal. Es decir, debe tener \textbf{alta eficiencia}, y \textbf{bajos niveles de distorsión}. Además, se busca \textbf{minimizar la impedancia de salida} para mantener un \textbf{alto factor de amortiguamiento} y evitar que el rebote acústico afecte el comportamiento del amplificador. 
@@ -242,17 +241,17 @@ Un amplificador clase G está compuesto por dos o más niveles de alimentación 
 
 \paragraph{Realimentador global}
 
-La relación de resistencias queda definida por las especificaciones de sensibilidad y potencia RMS para una carga de $8\Omega$. La ganancia del amplificador debe ser de $29dB$.
+El uso de realimentación global permite mejorar notablemente casi todas las especificaciones del amplificador y simplificar su diseño. El factor de realimentación queda definida por las especificaciones de sensibilidad y potencia RMS para una carga de $8\Omega$. La ganancia del amplificador debe ser de $29dB$ y por lo tanto el realimentador debe atenuar $-29dB$.
 
 
-\newpage
+
 \subsubsection{Diagrama en bloques}
 
 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.4]{img/bloques}
+	\includegraphics[width=0.9\textwidth]{img/bloques}
 	\caption{Diagrama en bloques del amplificador clase G}
 	\label{fig:ampli_bloques}
 \end{figure}
@@ -270,8 +269,7 @@ La relación de resistencias queda definida por las especificaciones de sensibil
 \label{fig:circuito} 
 \end{figure}
 
-\paragraph{Cuestiones generales}
-Se intentó conservar la simertía del circuito en su diseño. Esto motivó, entre otras cosas, al uso de un doble par diferencial a la entrada, o el de un multiplicador de $V_{be}$ simétrico.
+\paragraph{Alimentación}
 
 Se colocaron capacitores (\texttt{C4},\texttt{C5},\texttt{C6} y \texttt{C7}) en los 4 rieles de alimentación ($\pm 50V$ y $\pm 15V$) para filtrar ruidos a la entrada.
 
@@ -291,11 +289,15 @@ Las resistencias de emisor del EC (\texttt{R8} y \texttt{R13}) implementan reali
 
 \paragraph{Etapa de salida}
 
-A la salida se usarán transistores en configuración Darlington, para tener una ganancia de corriente elevada, y con transistores en paralelo en la parte de mayor potencia para repartir la corriente y disminuir la disipación en cada uno.
+Se usan transistores en configuración Darlington, para tener una ganancia de corriente elevada, y con transistores en paralelo en la parte de mayor potencia para repartir la corriente y disminuir la disipación en cada uno. Se colocaron las resistencias \texttt{R14}, \texttt{R15}, \texttt{R16} y \texttt{R17} de valor $0.1\Omega$ para evitar el embalamiento térmico de los transistores de salida.
+
+
+
 
 \paragraph{Multiplicador de $V_{be}$}
 
-Se diseñó simétrico (figura~\ref{fig:mvbe}). La corriente de polarización de los transistores del VAS es $\cong 25mA$, y esta puede tener una excursión máxima de aproximadamente $4mA$ pico-a-pico. Es decir, el multiplicador debe lograr polarizarse con corrientes de $\cong 20mA$. Las simulaciones muestran que se logra una mayor estabilidad en la tensión si los transistores están polarizados con corrientes bajas. Por lo tanto, se eligió \texttt{Rmvbe} tal que consuma una corriente $<20mA$, pero del orden de los $mA$. Se podría haber elegido un valor más cercano a $20mA$, pero una simulación remplazando al multiplicador por un generador de tensión ideal mostró que el funcionamiento y la distorsión del circuito no se veían afectados. Es por esta misma razón que no se agregaron resistencias adicionales en los colectores, que usualmente se usan para generar una caída que compense el incremento de tensión con la corriente.
+
+Se diseñó (figura~\ref{fig:mvbe}) con dos transistores para mantener la simetría total del circuito. La corriente de polarización de los transistores del VAS es $\cong 25mA$, y esta puede tener una excursión máxima de aproximadamente $4mA$ pico-a-pico. Es decir, el multiplicador debe lograr polarizarse con corrientes de $\cong 20mA$. Las simulaciones muestran que se logra una mayor estabilidad en la tensión si los transistores están polarizados con corrientes bajas. Por lo tanto, se eligió \texttt{Rmvbe} tal que consuma una corriente $<20mA$, pero del orden de los $mA$. Se podría haber elegido un valor más cercano a $20mA$, pero una simulación remplazando al multiplicador por un generador de tensión ideal mostró que el funcionamiento y la distorsión del circuito no se veían afectados. Por esta misma razón, no se agregaron resistencias adicionales en los colectores, que usualmente se usan para generar una caída que compense el incremento de tensión con la corriente. Puede hacerse como posible optimización.
 
 Las resistencias \texttt{R18} y \texttt{R19} se eligieron iguales por simetría, y de valor tal que la tensión generada sea levemente superior a $2.8V$. Esto permite colocar a los transistores de salida en modo levemente A-B, reduciendo la distorsión de su etapa.
 
@@ -327,7 +329,7 @@ Las resistencias \texttt{R18} y \texttt{R19} se eligieron iguales por simetría,
 \subsubsection{Simulaciones}
 
 
-\paragraph{THD para entrada de 1V pico @ 1kHz} A continuación se muestra una tabla con los resultados del análisis de Fourier realizados con el LTSpice. 
+\paragraph{THD} A continuación se muestra una tabla con los resultados del análisis de Fourier realizados con el LTSpice para entrada de $1.41V$ pico (máxima excursión) a $1kHz$. 
 
 
 
@@ -420,10 +422,10 @@ También, se simuló y verificó el comportamiento correcto del amplificador par
 Para la simulación de la resistencia de salida, se colocó una fuente de corriente alterna de $1A$ a la salida, con la entrada pasivada, y se capturó la tensión de salida en un barrido de frecuencias.
 
 
-El circuito simulado, con una caja representando el amplificador, se observa en la figura~\ref{fig:circuito-r_out-current}.
+El circuito simulado, con una caja representando el amplificador, se observa en la figura~\ref{fig:circuito_r-out-current}.
 
 
-\begin{figure}[]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{img/sim/circuito-r_out-current}
 	\caption{Circuito usado para simular la resistencia de salida. La caja representa al amplificador.}
@@ -432,7 +434,7 @@ El circuito simulado, con una caja representando el amplificador, se observa en 
 
 Los resultados del barrido se muestran en la figura~\ref{fig:R_out}, y un zoom en las frecuencias de trabajo especificadas en la figura~\ref{fig:R_out-zoom}.
 
-\begin{figure}[]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{img/sim/R_out}
 	\caption{Barrido en frecuencias de la impedancia de salida simulada.}
@@ -450,7 +452,7 @@ El módulo de la media geométrica de la impedancia de salida para las frecuenci
 
 \[R_{out}\cong 11m\Omega\]
 
-La realimentación logra que la resistencia de salida sea muy baja, tanto que las resistencias parásitas pueden terminar siendo un factor no despreciable. Si se desprecian, el factor de amortiguamiento es de
+La realimentación logra que la resistencia de salida sea muy baja, tanto que las resistencias parásitas pueden terminar siendo un factor no despreciable. Si se desprecian, el factor de amortiguamiento es de $\cong 730$, cumpliendo cómodamente con lo especificado.
 
 
 \paragraph{Resistencia de entrada}
@@ -582,7 +584,7 @@ T_r = 120°C - (6.25°C/W + 0.1°C/W)*(10W) = 57.5 °C
 R_{tha} = 0.87 °C/W
 \end{equation*}
 
-Disipadores elegidos:
+\paragraph{Disipadores elegidos:}
 
 Para la parte externa de la salida ZD-23 0.65°C/W
 
@@ -670,19 +672,20 @@ Para parte interna ZD-55 0.8°C/W:
 
 \section{Grado de avance}
 
-Hasta el momento, hemos elegido las configuraciones de las distintas etapas, buscando aquellas que nos provean una menor distorsión; realizamos los cálculos para hallar los valores de realimentación, resistencias para el embalamiento térmico y los disipadores para los transistores; realizamos la simulación del circuito.
+Hasta el momento, hemos elegido las configuraciones de las distintas etapas, realizamos los cálculos para hallar los valores de realimentación, resistencias para el embalamiento térmico y los disipadores para los transistores; realizamos simulaciones del circuito.
 
 \section{Dificultades encontradas}
 
-Balancear las amplificaciones en modo diferencial del comparador.
 
+Para el desarrollo del proyecto, nos encontramos con varios obstáculos. En el primer diseño que realizamos, nos encontramos con una disparidad en las corrientes del par diferencial, que resolvimos comprando transistores de más, midiendo sus parámetros $\beta$, y agrupándolos para poder trabajar con valores apareados. Otra solución que encontramos, y que aplicaremos en esta versión del circuito, es utilizar transistores integrados, que asegura que todos los transistores tengan las mismas propiedades, y estén apareados. Esto también equilibraría más las amplificaciones en modo diferencial de los comparadores NPN y PNP.
 
-Para el desarrollo del proyecto, nos encontramos con varios obstáculos. En el primer diseño que realizamos, nos encontramos con una disparidad en las corrientes del par diferencial, que resolvimos comprando transistores de más, midiendo sus parámetros $\beta$, y agrupándolos para poder trabajar con valores apareados. Otra solución que encontramos, y que aplicaremos en esta versión del circuito, es utilizar transistores integrados, que asegura que todos los transistores tengan las mismas propiedades, y estén apareados.
+La simulación de distorsión se hacía con pocos períodos en el LTSpice y, por cuestiones numéricas, eso parece resultar en valores de distorsión mucho menores a los que devuelve simulando con más períodos. Por otra parte, para valores de distorsión pequeños, se requiere un parámetro de paso máximo bastante reducido o el LTSpice sobreestima la distorsión. Se pasó mucho tiempo creyendo que el diseño resultaba en valores satisfactorios o insatisfactorios de distorsión hasta que se descubrió esto.
 
-La simulación de distorsión se hacía con pocos períodos en el LTSpice y, por cuestiones numéricas, eso parece resultar en valores de distorsión mucho menores a los que devuelve simulando con más períodos. Se pasó mucho tiempo creyendo que el diseño reultaba en valores satisfactorios de distorsión, hasta que recientemente se descubrió esto.
+En un principio, la primera etapa estaba diseñada con cargas activas. Esto simulaba a veces correctamente, pero la polarización de todo el circuito resultaba poco estable e implicó el rediseño de la etapa con resistores.
+
 
 \section{Resumen de actividades a desarrollar}
 
-Habiendo establecido todo lo anterior,queda evaluar qué cosas habría que rediseñar en el PCB para lograr buenos valores de distorsión. Luego procederemos con el armado del circuito, verificando el correcto funcionamiento de las etapas, durante el armado de la placa, y luego tendremos que revisar que esté andando correctamente, y que cumpla con las parámetros que propusimos. Finalizado esto, procederemos a realizar las mediciones pertinentes.
+Habiendo establecido todo lo anterior, queda ver cómo mejorar el circuito para lograr mejores valores de distorsión. Luego procederemos con el armado del circuito, verificando el correcto funcionamiento de las etapas, durante el armado de la placa, y luego tendremos que revisar que esté andando correctamente, y que cumpla con las parámetros que propusimos. Finalizado esto, procederemos a realizar las mediciones pertinentes.
 
 \end{document}
