@@ -554,15 +554,15 @@ T_r = T_{juntura_{N}} - (R_{t_{j-case}}+R_{t_{c-heat}})*P_{disN}
 \end{equation*}
 
 \begin{equation*}
-T_r = 110°C - (0.85 °C/W + 0.1 °C/W)*(18*2 W) = 75.8 °C
+T_r = 130°C - (0.85 °C/W + 0.1 °C/W)*(18*2 W) = 95.8 °C
 \end{equation*}
 
 \begin{equation*}
-75.8°C = R_{thra}*(18*2*2 W) + 40°C
+95.8°C = R_{thra}*(18*2*2 W) + 40°C
 \end{equation*}
 
 \begin{equation*}
-R_{tha} = 0.5 °C/W
+R_{tha} = 0.77 °C/W
 \end{equation*}
 
 En la  parte interna de la etapa de salida, tenemos que en el peor caso se disipan 10 W por cada transistor.
@@ -576,6 +576,30 @@ T_r = 120°C - (6.25°C/W + 0.1°C/W)*(10W) = 57.5 °C
 \begin{equation*}
 R_{tha} = 0.87 °C/W
 \end{equation*}
+
+Disipadores elegidos:
+
+Para la parte externa de la salida ZD-23 0.65°C/W
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.4\textwidth]{img/zd23.jpg}
+    \caption{Disipador ZD-23}
+    \label{fig:diszd23}
+\end{figure}
+
+
+Para parte interna ZD-55 0.8°C/W:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.4\textwidth]{img/zd55.jpg}
+    \caption{Disipador ZD-55}
+    \label{fig:diszd55}
+\end{figure}
+
+
+
 
 %     Requerimientos Eléctricos ( Seguridad eléctrica y 
 %Compatibilidad electromagnética), 
