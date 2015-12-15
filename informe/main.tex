@@ -240,6 +240,9 @@ Un amplificador clase G está compuesto por dos o más niveles de alimentación 
 
 A la salida se usarán transistores en configuración Darlington, para tener una ganancia de corriente elevada, y con transistores en paralelo en la parte de mayor potencia para repartir la corriente y disminuir la disipación en cada uno.
 
+\subsubsection{Realimentador global}
+
+La relación de resistencias queda definida por las especificaciones de sensibilidad y potencia RMS para una carga de $8\Omega$. La ganancia del amplificador debe ser de $29dB$.
 
 
 \subsubsection{Diagrama en bloques}
@@ -259,9 +262,6 @@ A la salida se usarán transistores en configuración Darlington, para tener una
 
 \subsection{Circuito diseñado}
 
-\fxnote{Algo sobre cómo fue diseñado, valores, etc?}
-
-
 
 \begin{figure}[H]
 \centering
@@ -270,7 +270,10 @@ A la salida se usarán transistores en configuración Darlington, para tener una
 \label{fig:circuito} 
 \end{figure}
 
+\paragraph{Cuestiones generales}
 Se intentó conservar la simertía del circuito en su diseño. Esto motivó, entre otras cosas, al uso de un doble par diferencial a la entrada, o el de un multiplicador de $V_{be}$ simétrico.
+
+Se colocaron capacitores (\texttt{C4},\texttt{C5},\texttt{C6} y \texttt{C7}) en los 4 rieles de alimentación ($\pm 50V$ y $\pm 15V$) para filtrar ruidos a la entrada.
 
 \paragraph{Etapa de entrada}
 
@@ -295,7 +298,7 @@ Las resistencias \texttt{R18} y \texttt{R19} se eligieron iguales por simetría,
 \begin{figure}[H]
 \centering
 \includegraphics[height=0.3\textwidth]{img/sim/mvbe}
-\caption{Circuito Diseñado}
+\caption{Multiplicador de $V_{be}$ simétrico utilizado.}
 \label{fig:mvbe} 
 \end{figure}
 
@@ -350,8 +353,8 @@ En la figura~\ref{fig:distorsion-barrido} se muestra la distorsión en función 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{img/sim/distorsion-barrido}
-	\caption{Barrido en amplitud de distorsión a $1kHz$.}
+	\includegraphics[width=0.6\textwidth]{img/sim/distorsion-barrido}
+	\caption{Distorsión a $1kHz$ a distintos valores de tensión pico de salida.}
 	\label{fig:distorsion-barrido}
 \end{figure}
 
@@ -363,7 +366,7 @@ La pendiente es de $20 \frac{V}{\mu s}$. Esto es mayor a la máxima pendiende de
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{img/sim/slew}
+	\includegraphics[width=0.6\textwidth]{img/sim/slew}
 	\caption{Salida simulada frente a una entrada escalón.}
 	\label{fig:slew}
 \end{figure}
@@ -405,6 +408,7 @@ Simulando para valores de la fuente de $+50V$ entre $40V$ y $60V$ se obtuvo:
 
 Es decir, con la ganancia de $29dB$ de este circuito, por cada $1V$ de riple en la fuente de $+50V$ se superponen aproximadamente $1.4mV$ en la salida ($86dB-29dB=57dB$ y $10^\frac{-57}{20} \cong 1.4mV $)
 
+También, se simuló y verificó el comportamiento correcto del amplificador para una posible caída de tensión en los rieles del $10\%$: sólo se reduce la máxima excursión.
 
 \paragraph{Resistencia de salida}  
 
@@ -524,6 +528,8 @@ Se observó que el polo dominante correspondía a los nodos entre la primera y s
 Luego, se agregó un capacitor en paralelo al realimentador (\texttt{C\_comp\_3}) para mejorar levemente estas especificaciones. Esto agrega un cero seguido de un polo. Por ejemplo, para la frecuencia del cero, la fase se incrementó en $45^{\circ}$ y la ganancia aumentó sólo en $3dB$, por lo que el ancho de banda se verá incrementado levemente y el margen de fase significativamente. Se comprobó simulando que ubicar el cero en $4MHz$ es un buen valor. Esto se obtiene con una capacidad de $4pF$ pues $\frac{1}{2 \pi 10k\Omega 4pF}\cong 4MHz$.
 
 El margen de fase resultante ese de $105^{\circ}$ y el ancho de banda de $3MHz$, con un margen de ganancia de $3dB$. Se puede ver en la figura~\ref{fig:slew} que la respuesta al escalón no oscila.
+
+El multiplicador de $V_{be}$, en altas frecuencias, tiene un comportamiento inductivo que fue compensado con el capacitor \texttt{C\_mvbe\_comp} de $20nF$.
 
 
 \subsection{Análisis de los condicionantes de integración}
