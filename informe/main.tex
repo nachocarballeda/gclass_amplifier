@@ -539,6 +539,9 @@ El margen de fase resultante ese de $105^{\circ}$ y el ancho de banda de $3MHz$,
 
 El multiplicador de $V_{be}$, en altas frecuencias, tiene un comportamiento inductivo que fue compensado con el capacitor \texttt{C\_mvbe\_comp} de $20nF$.
 
+\subsection{Red de Zobel}
+
+Otro circuito de compensación que usamos, es el denominado Red de Zobel, consiste en un circuito RC serie, colocado en paralelo a la salida, para compensar la variación de impedancia del parlante, respecto de la frecuencia. Para definir sus valores, idealmente, se debe estudiar la respuesta en frecuencia del parlante, pero, debido a que estamos armando un circuito amplificador para un parlante genérico, tomamos los valores recomendados por el libro de Douglas Self. 
 
 \subsection{Análisis de los condicionantes de integración}
 
