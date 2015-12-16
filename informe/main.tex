@@ -576,21 +576,21 @@ T_r = 130°C - (0.85 °C/W + 0.1 °C/W)*(18*2 W) = 95.8 °C
 R_{tha} = 0.77 °C/W
 \end{equation*}
 
-En la  parte interna de la etapa de salida, tenemos que en el peor caso se disipan 10 W por cada transistor.
+En la  parte interna de la etapa de salida, tenemos que en el peor caso se disipan 3.25  W por cada transistor.
 Haciendo las mismas cuentas con otros valores.
 
 
 \begin{equation*}
-T_r = 120°C - (6.25°C/W + 0.1°C/W)*(10W) = 57.5 °C
+T_r = 120°C - (6.25°C/W + 0.1°C/W)*(3.25W) = 99.36 °C
 \end{equation*}
 
 \begin{equation*}
-R_{tha} = 0.87 °C/W
+R_{tha} = 9.13 °C/W
 \end{equation*}
 
 \paragraph{Disipadores elegidos:}
 
-Para la parte externa de la salida ZD-23 0.65°C/W
+Para la parte externa de la salida ZD-23 0.65°C/W , elegimos este modelo porque nos da un poco de margen.
 
 \begin{figure}[H]
     \centering
@@ -600,13 +600,13 @@ Para la parte externa de la salida ZD-23 0.65°C/W
 \end{figure}
 
 
-Para parte interna ZD-55 0.8°C/W:
+Para parte interna ZD-3 5°C/W, si bien solo necesitamos 9°C/W , elegimos este modelo porque nos da mas margen:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[height=0.4\textwidth]{img/zd55.jpg}
-    \caption{Disipador ZD-55}
-    \label{fig:diszd55}
+    \includegraphics[height=0.4\textwidth]{img/zd3.jpg}
+    \caption{Disipador ZD-3}
+    \label{fig:diszd3}
 \end{figure}
 
 
@@ -741,7 +741,7 @@ U3                    & 1        & LM7809CT  \\
 Rzobel1               & 1        & 10R       \\
 Czobel1               & 1        & 100n      \\ 
 Disipador ZD23        & 1        & 0.65°C/W  \\  
-Disipador IVAN        & 1        & IVAN      \\ \bottomrule
+Disipador ZD3         & 1        & 5°C/W     \\ \bottomrule
 \end{tabular}
 
 \end{table}
