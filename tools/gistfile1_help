@@ -1,0 +1,3 @@
+Primero exportar desde Kicad la BOM  .xml con script BOMtocsv
+luego correr este escript asi  "python gistfile1.py nombrebom.xml nombre_salida"
+finalmente usar esta gloriosa webpage para transformarlo a una tabla latex http://www.tablesgenerator.com/
