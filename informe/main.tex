@@ -10,7 +10,8 @@
 \usepackage{fancyhdr} % activamos el paquete
 \usepackage{dcolumn}
 \usepackage{multirow}
-
+\usepackage{booktabs}
+\usepackage{varioref}
 
 
 
@@ -235,7 +236,6 @@ Con el cambio a 2 pares diferenciales, la etapa intermedia también se duplica, 
 \paragraph{Etapa de salida}
 Se consideraron diferentes opciones de diseño. Esta etapa es responsable de amplificar la potencia de la señal. Es decir, debe tener \textbf{alta eficiencia}, y \textbf{bajos niveles de distorsión}. Además, se busca \textbf{minimizar la impedancia de salida} para mantener un \textbf{alto factor de amortiguamiento} y evitar que el rebote acústico afecte el comportamiento del amplificador. 
 
-Los amplificadores clase D son de muy alta eficiencia, pues operan a los transistores de salida en modo de conmutación. Sin embargo, son de diseño difícil, la distorsión puede ser alta si la frecuencia de los pulsos no es muy superior a la de la máxima frecuencia y generan interferencia electromagnética. Se optó entonces por un diseño clase G, que son de eficiencia superior a los AB sin las dificultades del D. 
 
 Un amplificador clase G está compuesto por dos o más niveles de alimentación que permiten incrementar la eficiencia del amplificador con respecto al clase B. Esto se logra ya que con tensiones bajas, se utilizará una fuente de tensión menor, preservando la máxima excursión posible sobre la carga que ofrece un clase B alimentado con la fuente de tensión mayor. Para señales con picos de baja amplitud en relación al valor medio, la mejora en la eficiencia es modesta. Sin embargo, en el caso en que la señal tenga picos considerables con respecto a su valor medio, la mejora es notable.
 
@@ -538,6 +538,9 @@ El margen de fase resultante ese de $105^{\circ}$ y el ancho de banda de $3MHz$,
 
 El multiplicador de $V_{be}$, en altas frecuencias, tiene un comportamiento inductivo que fue compensado con el capacitor \texttt{C\_mvbe\_comp} de $20nF$.
 
+\subsection{Red de Zobel}
+
+Otro circuito de compensación que usamos, es el denominado Red de Zobel, consiste en un circuito RC serie, colocado en paralelo a la salida, para compensar la variación de impedancia del parlante, respecto de la frecuencia. Para definir sus valores, idealmente, se debe estudiar la respuesta en frecuencia del parlante, pero, debido a que estamos armando un circuito amplificador para un parlante genérico, tomamos los valores recomendados por el libro de Douglas Self. 
 
 \subsection{Análisis de los condicionantes de integración}
 
@@ -572,21 +575,21 @@ T_r = 130°C - (0.85 °C/W + 0.1 °C/W)*(18*2 W) = 95.8 °C
 R_{tha} = 0.77 °C/W
 \end{equation*}
 
-En la  parte interna de la etapa de salida, tenemos que en el peor caso se disipan 10 W por cada transistor.
+En la  parte interna de la etapa de salida, tenemos que en el peor caso se disipan 3.25  W por cada transistor.
 Haciendo las mismas cuentas con otros valores.
 
 
 \begin{equation*}
-T_r = 120°C - (6.25°C/W + 0.1°C/W)*(10W) = 57.5 °C
+T_r = 120°C - (6.25°C/W + 0.1°C/W)*(3.25W) = 99.36 °C
 \end{equation*}
 
 \begin{equation*}
-R_{tha} = 0.87 °C/W
+R_{tha} = 9.13 °C/W
 \end{equation*}
 
 \paragraph{Disipadores elegidos:}
 
-Para la parte externa de la salida ZD-23 0.65°C/W
+Para la parte externa de la salida ZD-23 0.65°C/W , elegimos este modelo porque nos da un poco de margen.
 
 \begin{figure}[H]
     \centering
@@ -596,13 +599,13 @@ Para la parte externa de la salida ZD-23 0.65°C/W
 \end{figure}
 
 
-Para parte interna ZD-55 0.8°C/W:
+Para parte interna ZD-14 2°C/W, si bien solo necesitamos 9°C/W , elegimos este modelo porque nos da mas margen:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[height=0.4\textwidth]{img/zd55.jpg}
-    \caption{Disipador ZD-55}
-    \label{fig:diszd55}
+    \includegraphics[height=0.4\textwidth]{img/zd14.jpg}
+    \caption{Disipador ZD-14}
+    \label{fig:diszd14}
 \end{figure}
 
 
@@ -650,25 +653,24 @@ Para parte interna ZD-55 0.8°C/W:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[height=0.4\textwidth]{img/PCB_kicad}
+    \includegraphics[height=0.4\textwidth]{img/PCB/PCB_kicad}
     \caption{Diseñando en programa Kicad}
     \label{fig:ac}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[height=0.7\textwidth]{img/amplificador-F.pdf}
+    \includegraphics[height=0.7\textwidth]{img/PCB/amplificador-F.pdf}
     \caption{PCB, front}
     \label{fig:ac}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[height=0.7\textwidth]{img/amplificador-B.pdf}
+    \includegraphics[height=0.7\textwidth]{img/PCB/amplificador-B.pdf}
     \caption{PCB, back}
     \label{fig:ac}
 \end{figure}
-
 
 \section{Grado de avance}
 
@@ -687,5 +689,62 @@ En un principio, la primera etapa estaba diseñada con cargas activas. Esto simu
 \section{Resumen de actividades a desarrollar}
 
 Habiendo establecido todo lo anterior, queda ver cómo mejorar el circuito para lograr mejores valores de distorsión. Luego procederemos con el armado del circuito, verificando el correcto funcionamiento de las etapas, durante el armado de la placa, y luego tendremos que revisar que esté andando correctamente, y que cumpla con las parámetros que propusimos. Finalizado esto, procederemos a realizar las mediciones pertinentes.
+
+\newpage
+
+\section{Lista de materiales}
+
+\begin{table}[h!]
+\centering
+\caption{Lista de materiales}
+\label{label}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+Referencia            & Cantidad & Potencia  & Tensión   & Valor     \\ \midrule
+RC2;RC1               & 2        &  0.25W    &           & 2.4k      \\
+R10                   & 1        &  0.25W    &           & 366R      \\
+C1                    & 1        &           & 65V       & 1m        \\
+R13;R8                & 2        &  0.25W    &           & 33R       \\
+Q14;Q13               & 2        &           &           & MPSA92    \\
+Q10;Q9                & 2        &           &           & MPSA42    \\
+Rmvbe1                & 1        &  0.25W    &           & 270R      \\
+RV2                   & 1        &  0.25W    &           & POT       \\
+JP2;JP4;JP5;JP1;JP3   & 5        &           &           & JUMPER    \\
+D3;D4                 & 2        &           &           & D1N746    \\
+Q3;Q15;Q2             & 3        &           &           & MJE340    \\
+R6;R7;R3;R9;R1;R5     & 6        &  0.25W    &           & 100R      \\
+Q16;Q6;Q8             & 3        &           &           & MJE350    \\
+R19;R18               & 2        &  0.25W    &           & 150R      \\
+C3                    & 1        &           &           & 10n       \\
+D2;D5                 & 2        &           &           & D1N4148   \\
+Q1;Q4;Q11             & 3        &           &           & 2SC3281   \\
+Q7;Q20;Q12            & 3        &           &           & 2SA1302   \\
+R4;R2                 & 2        &  2W       &           & 0R25      \\
+D13                   & 1        &           &           & D         \\
+D1                    & 1        &           &           & MBR1645   \\
+R11;R12               & 2        &  0.25W    &           & 10k       \\
+C4;C7                 & 2        &           & 65V       & 220u      \\
+C5;C6                 & 2        &           & 25V       & 220u      \\
+C\_mvbe\_comp1        & 1        &           &           & 20n       \\
+C\_comp\_1;C\_comp\_2 & 2        &           &           & 40p       \\
+T3;T4;T7;T6;T8;T5     & 6        &           &           & TORNILLO  \\
+R15;R14;R17;R16       & 4        &  2W       &           & 0R1       \\
+C\_comp\_3            & 1        &           &           & 4p        \\
+U1                    & 1        &           &           & MMPQ2222A (SMD) \\
+R\_led1;R\_led2       & 2        &  0.25W    &           & 6.8k      \\
+D\_1;D\_2             & 2        &           &           & LED       \\
+R\_curr1;R\_curr2     & 2        &  0.25W    &           & 820R      \\
+U2                    & 1        &           &           & MMPQ2907A (SMD) \\
+C2                    & 1        &           &           & 47u       \\
+U4                    & 1        &           &           & LM7909CT  \\
+U3                    & 1        &           &           & LM7809CT  \\
+Rzobel1               & 1        &  0.25W    &           & 10R       \\
+Czobel1               & 1        &           &           & 100n      \\ 
+Disipador ZD23        & 1        &           &           & 0.65°C/W  \\  
+Disipador ZD14        & 1        &           &           & 2°C/W     \\ \bottomrule
+\end{tabular}
+
+\end{table}
+
 
 \end{document}
