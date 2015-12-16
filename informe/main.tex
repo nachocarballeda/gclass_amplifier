@@ -11,6 +11,12 @@
 \usepackage{dcolumn}
 \usepackage{multirow}
 \usepackage{booktabs}
+
+
+\usepackage{lscape}
+
+
+
 \usepackage{varioref}
 
 
@@ -530,7 +536,46 @@ El resto de la ganancia está provista por la segunda etapa, y se puede ver en l
 
 \subsubsection{Compensación}
 
-Se observó que el polo dominante correspondía a los nodos entre la primera y segunda etapa. Se colocaron capacitores de compensación entre dichos nodos y las salidas del VAS (\texttt{C\_comp\_1} y \texttt{C\_comp\_2}) para aprovechar el efecto Miller y usar capacitores de menor valor ($40pF$). Esto desplaza el polo, que inicialmente se encontraba en aproximadamente $200kHz$ a aproximadamente $2kHz$, estabilizando y dando un margen de fase de $85^{\circ}$ y un ancho de banda de $2.4MHz$. Estos capacitores limitan el slew rate, pero se observó que para valores menores a $100pF$ el slew rate se encontraba claramente por arriba de los $7.5\frac{V}{\mu s}$ necesarios para el ancho de banda de potencia especificado. Incrementar este capacitor en exceso sin embargo, reduce la ganancia de lazo en frecuencias altas y, por lo tanto, los beneficios que esto trae a la distorsión, resistencias de entrada y salida, etc. Se optó por un valor de capacidades, con margen, que podría eventualmente reducirse.
+Un sistema realimentado puede sufrir de pérdidas de estabilidad debido al desfasaje que se produce en la señal. Si para algunas frecuencias se produce una inversión de fase y la ganancia es unitaria o mayor entonces el sistema pasa a estar realimentado positivamente para dichas frecuencias y oscila o se desestabiliza.
+
+Para analizar la estabilidad del sistema es necesario analizar la ganancia a lazo abierto $T(j\omega)$. Un sistema adquiere la capacidad de oscilar si para una frecuencia dada $\omega_k$ se da que $T(j\omega_k)=-1$ y se vuelve inestable si $\left| T(j\omega_k) \right| > 1 \; \land \; \angle T(j\omega_k) < -180º$.
+
+Para esta clase de análisis es útil trazar el bode de la ganancia de lazo e identificar el margen de ganancia (MG) y de fase (MF), ver figura \ref{fig:margenes}.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.4\textwidth]{img/margenes}
+	\caption{Bode - margen de fase y ganancia.}
+	\label{fig:margenes}
+\end{figure}
+
+
+Lo que representan estos margenes es lo siguiente:
+
+
+\begin{description}
+	\item[Margen de Ganancia] \hfill \\
+		Representa la ganancia que habría que agregar (sumar en caso de dB) para volver inestable al sistema, se mide entonces la diferencia entre 0dB y la ganancia para la frecuencia en que la fase se invierte 180º. Si $\mathrm{MG} \le \mathrm{0dB}$ entonces el sistema es inestable.
+
+	\item[Margen de Fase] \hfill \\
+		Es el defasaje que habría que agregar al sistema para volverlo inestable, se mide entonces el ángulo que le resta a la fase por llegar a -180º al tener ganancia unitaria.
+\end{description}
+
+Si el margen de fase o ganancia son muy bajos o negativos, es necesario corregir, modificar el circuito para que no haya una inversión de fase en ninguna frecuencias que se amplifique en el lazo, por medio de su compensación.
+
+
+Se observó que el polo dominante correspondía a los nodos entre la primera y segunda etapa y se ubicaba en $180kHz$. La simulación a lazo abierto se realizó de forma análoga a la descripta en la sección anterior: agregando un capacitor de $1F$ en la entrada inversora del amplificador. Luego, se la multiplicó por $f$ para obtener una simulación de la ganancia de lazo (figura~\ref{fig:bode-la-sin-comp})
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.4\textwidth]{img/sim/bode-la-sin-comp}
+	\caption{Bode a lazo abierto sin compensación. La línea inferior corresponde a la fase y la superior a la amplitud.}
+	\label{fig:bode-la-sin-comp}
+\end{figure}
+
+
+Se colocaron capacitores de compensación entre dichos nodos y las salidas del VAS (\texttt{C\_comp\_1} y \texttt{C\_comp\_2}) para aprovechar el efecto Miller y usar capacitores de menor valor ($40pF$). Esto desplaza el polo, que inicialmente se encontraba en aproximadamente $200kHz$ a aproximadamente $2kHz$, estabilizando y dando un margen de fase de $85^{\circ}$ y un ancho de banda de $2.4MHz$. Estos capacitores limitan el slew rate, pero se observó que para valores menores a $100pF$ el slew rate se encontraba claramente por arriba de los $7.5\frac{V}{\mu s}$ necesarios para el ancho de banda de potencia especificado. Incrementar este capacitor en exceso sin embargo, reduce la ganancia de lazo en frecuencias altas y, por lo tanto, los beneficios que esto trae a la distorsión, resistencias de entrada y salida, etc. Se optó por un valor de capacidades, con margen, que podría eventualmente reducirse.
 
 Luego, se agregó un capacitor en paralelo al realimentador (\texttt{C\_comp\_3}) para mejorar levemente estas especificaciones. Esto agrega un cero seguido de un polo. Por ejemplo, para la frecuencia del cero, la fase se incrementó en $45^{\circ}$ y la ganancia aumentó sólo en $3dB$, por lo que el ancho de banda se verá incrementado levemente y el margen de fase significativamente. Se comprobó simulando que ubicar el cero en $4MHz$ es un buen valor. Esto se obtiene con una capacidad de $4pF$ pues $\frac{1}{2 \pi 10k\Omega 4pF}\cong 4MHz$.
 
