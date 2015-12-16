@@ -608,7 +608,26 @@ Para parte interna ZD-14 2°C/W, si bien solo necesitamos 9°C/W , elegimos este
     \label{fig:diszd14}
 \end{figure}
 
+\section{Fuentes Conmutadas}
 
+En nuestro proyecto como ya acordamos vamos a utilizar la fuente conmutada realizada por el grupo Arias-Caracciolo-Luna.
+A continuación se detallan las especificaciones basicas de la misma:
+
+\begin{itemize}
+\item{Tensión nominal de entrada: 220 V AC rms}
+\item{Rango de tension de entrada: 176 V AC rms − 242 V AC rms}
+\item{Rango de frecuencia de entrada: 45 Hz − 60 Hz}
+\item{Tension nominal de salida:$ V_{OUT} = ± 15 V$ , $V_{OUT} = ± 50 V$}
+\item{Rango de corriente de carga: Para ± 50 V : 2,5 A , Para ± 15 V : 0,7 A , Minima corriente de carga: 0 A}
+\item{Potencia de entrada sin carga: Menor a 5 W para todo el rango de tensión de entrada.}
+\item{Potencia de salida: Para el limite superior de la corriente de carga es 125 W}
+\item{Rendimiento: Mayor a $70\%$}
+\item{Protecciones de sobretensión a ± 60 V (para las salidas de ± 50 V ) y a ± 20 V (paralas salidas de ± 15 V )}
+\item{Protección de cortocircuito: Clamp.}
+\item{Factor de rizado (ripple): Para todas las salidas es menor a 300 mV p−p}
+\item{Estabilidad a largo plazo: Tensión de ruido a la salida: Menor al $5\%$}
+\item{Tipo/s de conector/es de salida: Banana hembra de 4 mm  (tipo RC170). Fijados al chasis de montaje}
+\end{itemize}
 
 
 %     Requerimientos Eléctricos ( Seguridad eléctrica y 
@@ -690,6 +709,14 @@ En un principio, la primera etapa estaba diseñada con cargas activas. Esto simu
 
 Habiendo establecido todo lo anterior, queda ver cómo mejorar el circuito para lograr mejores valores de distorsión. Luego procederemos con el armado del circuito, verificando el correcto funcionamiento de las etapas, durante el armado de la placa, y luego tendremos que revisar que esté andando correctamente, y que cumpla con las parámetros que propusimos. Finalizado esto, procederemos a realizar las mediciones pertinentes.
 
+Una vez hechas las mediciones tenemos pensado agregarle a nuestro amplificador las siguientes mejoras:
+\begin{itemize}
+\item{Proteccion contra cortocircuito y cargas menores}
+\item{Control de volumen}
+\item{Carcaza protectora}
+\item{Integracion compatible con fuente conmutada de grupo Arias-Caracciolo-Luna}
+\item{Plug de entrada para audio con carcaza metalica contra ruidos}
+\end{itemize}
 \newpage
 
 \section{Lista de materiales}
