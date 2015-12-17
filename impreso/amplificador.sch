@@ -1,4 +1,33 @@
 EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
 LIBS:lib_ampli
 LIBS:amplificador-cache
 EELAYER 25 0
@@ -1590,4 +1619,17 @@ Wire Wire Line
 Wire Wire Line
 	9850 3450 9850 3600
 Connection ~ 9850 3600
+$Comp
+L L_Small L?
+U 1 1 5672A668
+P 9600 3450
+F 0 "L?" H 9630 3490 50  0000 L CNN
+F 1 "L_Small" H 9630 3410 50  0000 L CNN
+F 2 "" H 9600 3450 50  0000 C CNN
+F 3 "" H 9600 3450 50  0000 C CNN
+	1    9600 3450
+	0    -1   -1   0   
+$EndComp
+Entry Wire Line
+	6140 1790 6240 1890
 $EndSCHEMATC

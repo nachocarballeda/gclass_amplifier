@@ -28,7 +28,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:componentes
 LIBS:lib_ampli
 LIBS:amplificador-cache
 EELAYER 25 0
@@ -1606,17 +1605,6 @@ F 3 "" H 9600 3600 30  0000 C CNN
 	1    9600 3600
 	0    1    1    0   
 $EndComp
-$Comp
-L L_Small L?
-U 1 1 5672566E
-P 9600 3450
-F 0 "L?" V 9700 3450 50  0000 L CNN
-F 1 "L_Small" V 9550 3300 50  0000 L CNN
-F 2 "" H 9600 3450 50  0000 C CNN
-F 3 "" H 9600 3450 50  0000 C CNN
-	1    9600 3450
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	8400 3600 9450 3600
 Wire Wire Line
@@ -1631,4 +1619,15 @@ Wire Wire Line
 Wire Wire Line
 	9850 3450 9850 3600
 Connection ~ 9850 3600
+$Comp
+L L_Small L?
+U 1 1 5672A668
+P 9600 3450
+F 0 "L?" H 9630 3490 50  0000 L CNN
+F 1 "L_Small" H 9630 3410 50  0000 L CNN
+F 2 "" H 9600 3450 50  0000 C CNN
+F 3 "" H 9600 3450 50  0000 C CNN
+	1    9600 3450
+	0    -1   -1   0   
+$EndComp
 $EndSCHEMATC
