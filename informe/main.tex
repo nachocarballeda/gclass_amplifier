@@ -213,8 +213,8 @@ El objetivo es amplificar una señal de audio que será reproducida en un parlan
 \begin{itemize}
 	\item Máxima Potencia de Salida:  $100\watt$ RMS @ $8\ohm$
 	\item Salida clase G
-	\item THD: $< 0.01 \%$  % decía 0.001 %
-	\item Slew Rate: $>7.5\frac{V}{\mu S}$
+	\item THD: $< 0.01 \% @ 1kHz$, $<0.02 \% @ 10kHz,$ a $100W RMS/8\Omega$ y $1W RMS/8\Omega$
+	\item Slew Rate: $>15\frac{V}{\mu S}$
 	\item Impedancia de entrada: $10\kohm$
 	\item Sensibilidad: $1\volt$ RMS @ $8\Omega$
 	\item Ancho de banda: $10 Hz-30kHz$
@@ -227,6 +227,11 @@ El objetivo es amplificar una señal de audio que será reproducida en un parlan
 	\end{itemize}
 \end{itemize}
 
+\paragraph{Máxima excursión} Para una salida senoidal de $100W RMS$, su potencia pico es $200W = \frac{V_{max}^2}{R_L}$ que, con carga $R_L=8\Omega$ da una tensión pico de $V_{max}=40V$. A esta tensión se llega cuando la entrada es la sensibilidad especificada, $1V RMS @8\Omega$, que se corresponde a $1V pico$. Estos $40V$ serán la máxima excursión, la tensión máxima en la que el amplificador garantiza que no haya recortes considerables.
+
+\paragraph{Nota sobre el slew-rate} El mayor ritmo de crecimiento para señales que cumplen con las especificaciones de ancho de banda $30kHz$ y máxima excursión $40V$ se da cuando la senoide cruza por cero, y su pendiente es $2 \pi \times 30kHz\times 40V\cong 7.5\frac{V}{\mu s}$. El slew rate especificado ($15\frac{V}{\mu s}$) duplica este valor mínimo.
+
+
 \subsubsection{Diseño general}
 
 Un amplificador típico consta, basicamente, de 3 etapas: una de entrada, diferencial,  una intermedia, de ganancia de tensión, y una de salida, de ganancia de corriente. Esta última etapa es la responsable de proveer la potencia y la que determina la eficiencia, tamaño y peso del amplificador.
@@ -237,13 +242,26 @@ La etapa de entrada puede ser de distintas maneras, puede ser una etapa de ampli
 
 \paragraph{Etapa de amplificación de tensión (VAS).}
 
-Por lo general, la etapa de amplificación suele estar compuesta por un simple amplificador de configuración Emisor Común, entrando a la etapa de salida, por debajo del multiplicador de Vbe, y polarizado por una fuente de corriente de colector. Esta etapa puede modificarse, agregando una etapa colector común, antes del amplificador (EF VAS), para separar la etapa de entrada; esto mejora la distorsión. También se puede modificar, para que la salida del VAS no sea por debajo del multiplicador de Vbe, sino por el medio, para disminuir el offset a la salida, previo a la alimentación y disminuir la distorsión. El inconveniente de este modo, es que se necesitan 2 fuentes de corriente más, ya que el modo anterior, aprovecha la fuente de polarización del EF VAS, para polarizar, también, el multiplicador de Vbe. En nuestro caso, con el cambio a 2 pares diferenciales, duplicamos la etapa EF VAS, complementariamente, y se conectan a la etapa de salida, por arriba y por abajo del multiplicador de $V_{be}$. Como en este caso, cada uno de los dos EF VAS hace de carga del otro, los EF VAS no tienen fuente de polarización, entonces se necesita que la etapa diferencial tenga una carga resistiva, para fijar la tensión de base de los EF VAS. Si hubieramos usado una carga tipo fuente espejo, hubieramos logrado que la corriente en las ramas del par diferencial fuera igual, pero sin fijar ninguna tensión para polarizar la base de los EF VAS.
+Por lo general, la etapa de amplificación suele estar compuesta por un simple amplificador de configuración Emisor Común, entrando a la etapa de salida, por debajo del multiplicador de $V_{be}$, y polarizado por una fuente de corriente de colector. Esta etapa puede modificarse, agregando una etapa colector común, antes del amplificador (EF VAS), para separar la etapa de entrada; esto mejora la distorsión. También se puede modificar para que la salida del VAS no sea por debajo del multiplicador de Vbe, sino por el medio, para disminuir el offset a la salida, previo a la realimentación, y disminuir la distorsión. El inconveniente de este modo es que se necesitan dos fuentes de corriente más, ya que el modo anterior, aprovecha la fuente de polarización del EF VAS, para polarizar, también, el multiplicador de Vbe. En nuestro caso, con el cambio a 2 pares diferenciales, duplicamos la etapa EF VAS, complementariamente, y se conectan a la etapa de salida, por arriba y por abajo del multiplicador de $V_{be}$. Como en este caso, cada uno de los dos EF VAS hace de carga del otro, los EF VAS no tienen fuente de polarización, entonces se necesita que la etapa diferencial tenga una carga resistiva, para fijar la tensión de base de los EF VAS. Si hubieramos usado una carga tipo fuente espejo, habríamos logrado que la corriente en las ramas del par diferencial fuera igual, pero sin fijar ninguna tensión para polarizar la base de los EF VAS.
 
 \paragraph{Etapa de salida}
 Esta etapa es la responsable de amplificar la potencia de la señal. Es decir, debe tener \textbf{alta eficiencia}, y \textbf{bajos niveles de distorsión}. Además, se busca \textbf{minimizar la impedancia de salida} para mantener un \textbf{alto factor de amortiguamiento} y evitar que el rebote acústico afecte el comportamiento del amplificador. 
 La etapa de salida clase G está compuesto por dos o más niveles de alimentación que permiten incrementar la eficiencia del amplificador con respecto al clase B. Esto se logra ya que con tensiones bajas, se utilizará una fuente de tensión menor, preservando la máxima excursión posible sobre la carga que ofrece un clase B alimentado con la fuente de tensión mayor. Para señales con picos de baja amplitud en relación al valor medio, la mejora en la eficiencia es modesta. Sin embargo, en el caso en que la señal tenga picos considerables con respecto a su valor medio, la mejora es notable. Un punto importante, a la hora de diseñar una etapa de salida clase G, es la tensión de los rieles internos. Tomamos del libro de Douglas Self, los estudios realizados considerando los casos en los cuales la tensión de riel interno es de 30 y 60\% del externo, y se observó que los beneficios en cuanto a eficiencia, del segundo caso, son pocos. En cambio, en el caso de rieles internos de 30\% respecto de los externos, la eficiencia aumenta considerablemente. Otro detalle de diseño, es la del multiplicador de Vbe doble. El multiplicador de Vbe más simple, tiene un transistor, y 2 resistencias, con las que forma el salto de potencial necesario para eliminar el problema de cruce por 0 de la etapa de salida. En este caso, se usan 2 transistores complementarios, con la misma idea que el del doble par diferencial, para que el corrimiento de tensión del multiplicador de Vbe sea lo más lineal posible.
 
 \paragraph{Realimentador global}
+
+
+Debido a la complejidad del circuito, cumplir con todas las especificaciones a lazo abierto es altamente complejo y requiere demasiada precisión en el cálculo y elección de componentes. Esto derivaría en un circuito altamente complejo y costoso. Es por este motivo que se emplea el realimentador.
+
+Dado que en un amplificador de audio se busca que la salida sea una versión de escalada de la señal de entrada, se busca tomar una muestra de la misma, y compararla con la señal de entrada. 
+
+Suponiendo que la ganancia a lazo abierto del circuito es mucho mayor que la ganancia del realimentador, este último es el encargado de fijar la ganancia a lazo cerrado, siendo la misma $A_v \simeq \frac{1}{f}$, y $f$ la ganancia del realimentador.
+
+Una ventaja de esta técnica es que ayuda a que el amplificador se asemeje a un amplificador de tensión ideal, ya que aumenta la resistencia de entrada, mientras que disminuye la de salida. 
+
+La realimantación es muy beneficiosa siempre que sea negativa. Dado que el sistema introduce defasajes, para ciertas frecuencias la realimentación pasa de ser negativa a ser positiva (esto haría que las diferencias entre la señal de salida real y deseada se amplifiquen en lugar de reducirse). Para evitar que el circuito se vuelva inestable, es necesario que para las frecuencias donde se invierte la fase, el circuito pase de amplificar a atenuar. Si esto no ocurre naturalmente, es necesario agregar componentes adicionales para compensar el circuito y evitar que se vuelva inestable
+
+Otro factor a tener en cuenta, es que puede darse la aparición de frecuencias en la salida del circuito fuera del rango de las que se presentan naturalmente en la entrada (en este caso 20Hz - 20kHz por tratarse de audio). También para eliminar estos inconvenientes es que el sistema debe ser compensado.
 
 El uso de realimentación global permite mejorar notablemente casi todas las especificaciones del amplificador y simplificar su diseño. En este caso, como el objetivo es armar un amplificador de tensión, utilizamos un circuito realimentador Serie-Paralelo. El factor de realimentación queda definida por las especificaciones de sensibilidad y potencia RMS para una carga de $8\Omega$. La ganancia del amplificador debe ser de $29dB$ y por lo tanto el realimentador debe atenuar $-29dB$.
 
@@ -287,15 +305,24 @@ Se polarizó cada rama con una corriente de $\cong 1mA$. Mayor corriente no gene
 
 \paragraph{Etapa de amplificación de tensión}
 
-Se optó por una configuración CC-EC. El colector común cumple la función de ofrecer una resistencia alta a la primera etapa, independizando la polarización de los parámetros variables de los transistores de la segunda etapa. Además, aumenta la diferencia de tensión de polarización requerida entre el riel y la entrada de la etapa, lo que permite el uso de una resistencia de carga mayor en la primera etapa, mejorando su ganancia. Esta configuración, además, ofrece un alto grado de independencia de las variaciones de tensión del riel, pues todas las tensiones involucradas varían en conjunto (la única que no lo hace es masa, pero está conectada al colector de \texttt{Q13} y \texttt{Q10}, nodos de alta impedancia). 
+Se optó por una configuración CC-EC, una para cada salida del doble par diferencial (figura~\ref{fig:vas-1}). El colector común cumple la función de ofrecer una resistencia alta a la primera etapa, independizando la polarización de los parámetros variables de los transistores de la segunda etapa. Además, aumenta la diferencia de tensión de polarización requerida entre el riel y la entrada de la etapa, lo que permite el uso de una resistencia de carga mayor en la primera etapa, mejorando su ganancia. Esta configuración, además, ofrece un alto grado de independencia de las variaciones de tensión del riel, pues todas las tensiones involucradas varían en conjunto (la única que no lo hace es masa, pero está conectada al colector de \texttt{Q13} y \texttt{Q10}, nodos de alta impedancia). 
 
-Las resistencias de emisor del EC (\texttt{R8} y \texttt{R13}) implementan realimentaciones locales que estabilizan la corriente de polarización y ganancia de la etapa. Son de valor reducido pues al estabilizar la ganancia, la reducen. Además, la caída de tensión en estas resistencias reduce la máxima excursión de la etapa antes de que saturen los transistores. Se eligieron los valores exactos (junto con los de las cargas de la primera etapa) para que la corriente de polarización sea $\cong 25mA$.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\textwidth]{img/sim/vas-1}
+\caption{VAS en CC-EC del riel negativo del circuito diseñado.}
+\label{fig:vas-1} 
+\end{figure}
+
+Las resistencias de emisor del EC (\texttt{R8} y \texttt{R13}) implementan realimentaciones locales que estabilizan la corriente de polarización y ganancia de la etapa. Son realimentaciones que serie-serie (muestrean corriente y suman tensión). Son de valor reducido pues al estabilizar la ganancia, la reducen. Además, la caída de tensión en estas resistencias reduce la máxima excursión de la etapa antes de que saturen los transistores. Se eligieron los valores exactos (junto con los de las cargas de la primera etapa) para que la corriente de polarización sea $\cong 25mA$.
+
+Las resistencias \texttt{RECC2} y \texttt{RECC1} aseguran una corriente de polarización del colector común $>1.5mA$. De no existir, la polarización podría ser muy baja, y dependiente de las variabilidades del $\beta$ del transistor del EC. Esta baja corriente implicaría, además, un $r_d$ grande, y esto es indeseable: El EC es un amplificador de conductancia y, como tal, funciona mejor recibiendo una señal de entrada de baja impedancia por su base.
+
 
 \paragraph{Etapa de salida}
 
 Se usan transistores en configuración Darlington, para tener una ganancia de corriente elevada, y con transistores en paralelo en la parte de mayor potencia para repartir la corriente y disminuir la disipación en cada uno. Se colocaron las resistencias \texttt{R14}, \texttt{R15}, \texttt{R16} y \texttt{R17} de valor $0.1\Omega$ para evitar el embalamiento térmico de los transistores de salida.
-
-
 
 
 \paragraph{Multiplicador de $V_{be}$}
@@ -333,7 +360,7 @@ Las resistencias \texttt{R18} y \texttt{R19} se eligieron iguales por simetría,
 \subsubsection{Simulaciones}
 
 
-\paragraph{THD} A continuación se muestra una tabla con los resultados del análisis de Fourier realizados con el LTSpice para entrada de $1.41V$ pico (máxima excursión) a $1kHz$. 
+\paragraph{THD} A continuación se muestra una tabla con los resultados del análisis de Fourier realizados con el LTSpice para entrada de $1.41V$ pico (máxima excursión, $100W RMS$) a $1kHz$. 
 
 
 
@@ -357,10 +384,10 @@ Total Harmonic Distortion: 0.0396%
 
 \end{verbatim}
 
-La distorsión armónica simulada es de $0.04\%$ en la máxima excursión a $1kHz$. Aún no cumple con el $0.01\%$ especificado.
+La distorsión armónica simulada es de $0.04\%$ en la máxima excursión a $1kHz$. Una simulación similar determina que la distorsión a $10kHz$ es de $0.03\%$. A $1W$ ($4V$) de salida, y $1kHz$, la distorsión es de $0.0016\%$ y a $10kHz$, $0.002\%$. Salvo este último caso, aún no cumplen con el $0.01\%$ especificado.
 
 
-En la figura~\ref{fig:distorsion-barrido} se muestra la distorsión en función de la tensión pico de salida.
+En la figura~\ref{fig:distorsion-barrido} se muestra la distorsión a $1kHz$ en función de la tensión pico de salida.
 
 \begin{figure}[H]
 	\centering
@@ -369,10 +396,11 @@ En la figura~\ref{fig:distorsion-barrido} se muestra la distorsión en función 
 	\label{fig:distorsion-barrido}
 \end{figure}
 
+Los valores de distorsión bajan a potencias menors porque se reduce la distorsión por alinealidad de los transistores: mientras más chica es la excursión, más uno se encuentra en pequeña señal, y más lineal es la relación entre $v_{be}$ e $i_c$. Por otra parte, se colocó al multiplicador de $V_{be}$ de modo tal que haga funcionar a la etapa de salida en modo A-B, reduciendo la distorsión por crossover.
 
 \paragraph{Slew Rate} Simulando una entrada escalón en el amplificador, se observa la salida de la figura~\ref{fig:slew} en la carga.
 
-La pendiente es de $20 \frac{V}{\mu s}$. Esto es mayor a la máxima pendiende de la salida en máxima potencia a la máxima frecuencia especificada de $30kHz$, por lo que el ancho de banda de potencia cumplirá lo especificado ($2 \pi \times30kHz \times40V\cong 7.5V \frac{V}{\mu s}<20 \frac{V}{\mu s}$).
+La pendiente es de $20 \frac{V}{\mu s}$. Esto es mayor a la máxima pendiende de la salida en máxima potencia a la máxima frecuencia especificada de $30kHz$, por lo que el ancho de banda de potencia cumplirá lo especificado ($15 \frac{V}{\mu s}<20 \frac{V}{\mu s}$).
 
 
 \begin{figure}[H]
@@ -456,7 +484,7 @@ El módulo de la media geométrica de la impedancia de salida para las frecuenci
 
 \[R_{out}\cong 11m\Omega\]
 
-La realimentación logra que la resistencia de salida sea muy baja, tanto que las resistencias parásitas pueden terminar siendo un factor no despreciable. Si se desprecian, el factor de amortiguamiento es de $\cong 730$, cumpliendo cómodamente con lo especificado.
+La realimentación global serie-paralelo logra que la resistencia de salida sea muy baja, tanto que las resistencias parásitas pueden terminar siendo un factor no despreciable. Si se desprecian, el factor de amortiguamiento es de $\cong 730$, cumpliendo cómodamente con lo especificado.
 
 
 \paragraph{Resistencia de entrada}
@@ -582,9 +610,17 @@ Se realizó nuevamente una simulación a lazo abierto de forma análoga a la des
 Se puede apreciar un margen de fase negativo que es necesario compensar. El polo dominante se ubica en $180kHz$ y corresponde al nodo entre la segunda y tercera etapa: a los colectores de \texttt{Q14} y \texttt{Q9}. El margen de ganancia es de $\cong 30dB$. Desplazando al polo dominante una década y media hacia las frecuencias más bajas (hasta $5.7k\Omega$) se llega a un margen de ganancia nulo, pues un polo hace decaer la ganancia en $20dB$ por década. Sin embargo, el polo correspondiente a los nodos de entrada de la segunda etapa (bases de \texttt{Q10} y \texttt{Q13}) puede desplazarse a $5.7kHz$ con capacidades de menor valor, casi sin desplazar el polo en $180kHz$, aprovechando el efecto Miller. 
 La resistencia de estos nodos está dominada por la de carga de los pares diferenciales (\texttt{RC1} y \texttt{RC2}), de valor $2.4k\Omega$. Siendo $\frac{1}{2 \pi RC}$ la frecuencia del polo, se obtiene $C\cong 11nF$. Ahora bien, si la capacidad se coloca, en vez de contra masa, contra la salida de la etapa (colectores de \texttt{Q14} y \texttt{Q9}), se puede usar una capacidad desde $20pF$, pues recordemos que la etapa tiene una amplificación de alrededor de $55dB$ o 560 veces. 
 
-Se partió de ese valor como piso, se fue ajustando por simulación, y finalmente se colocaron capacitores (\texttt{C\_comp\_1} y \texttt{C\_comp\_2}) de $40pF$. Esto da un margen de fase de $85^{\circ}$ y un ancho de banda de $2.4MHz$. Estos capacitores limitan el slew rate, pero se observó que para valores menores a $100pF$ el slew rate se encontraba por arriba de los $7.5\frac{V}{\mu s}$ necesarios para el ancho de banda de potencia especificado, y sobre los $20V/\mu s$ especificados. Por otra parte, incrementar este capacitor reduce la ganancia de lazo en frecuencias altas y, por lo tanto, los beneficios que esto trae a la distorsión, resistencias de entrada y salida, etc. Se optó por un valor de capacidades, con margen, que podría eventualmente reducirse.
+Se partió de ese valor como piso, se fue ajustando por simulación, y finalmente se colocaron capacitores (\texttt{C\_comp\_1} y \texttt{C\_comp\_2}) de $40pF$. Esto da un margen de fase de $85^{\circ}$ y un ancho de banda de $2.4MHz$. Estos capacitores limitan el slew rate, pero se observó que para valores menores a $100pF$ el slew rate se encontraba por arriba de los $7.5\frac{V}{\mu s}$ necesarios para el ancho de banda de potencia especificado, y para valores menores a $60pF$, sobre los $15V/\mu s$ especificados. Por otra parte, incrementar este capacitor reduce la ganancia de lazo en frecuencias altas y, por lo tanto, los beneficios que esto trae a la distorsión, resistencias de entrada y salida, etc. Se optó por un valor de capacidades, con margen, que podría eventualmente reducirse.
 
-Luego, se agregó un capacitor en paralelo al realimentador (\texttt{C\_comp\_3}) para mejorar levemente estas especificaciones. Esto agrega un cero seguido de un polo. Por ejemplo, para la frecuencia del cero, la fase se incrementa en $45^{\circ}$ y la ganancia aumenta sólo en $3dB$, por lo que el ancho de banda se verá incrementado levemente y el margen de fase significativamente. Se comprobó simulando que ubicar el cero en $4MHz$ es un buen valor. Esto se obtiene con una capacidad de $4pF$ pues $\frac{1}{2 \pi 10k\Omega 4pF}\cong 4MHz$.
+Luego, se agregó un capacitor en paralelo al realimentador (\texttt{C\_comp\_3}) para mejorar levemente estas especificaciones. Esto agrega un cero seguido de un polo. Por ejemplo, para la frecuencia del cero, la fase se incrementa en $45^{\circ}$ y la ganancia aumenta sólo en $3dB$, por lo que el ancho de banda se verá incrementado levemente y el margen de fase significativamente. Se comprobó simulando que ubicar el cero en $4MHz$ es un buen valor. Esto se obtiene con una capacidad de $4pF$ pues $\frac{1}{2 \pi 10k\Omega 4pF}\cong 4MHz$. El bode resultante de la ganancia de lazo compensado se muestra en la figura~\ref{fig:bode-la-con-comp}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.4\textwidth]{img/sim/bode-la-con-comp}
+	\caption{Bode de la ganancia de lazo con compensación. La línea punteada corresponde a la fase y la llena a la amplitud.}
+	\label{fig:bode-la-con-comp}
+\end{figure}
+
 
 El margen de fase resultante ese de $105^{\circ}$ y el ancho de banda de $3MHz$, con un margen de ganancia de $3dB$. Se puede ver en la figura~\ref{fig:slew} que la respuesta al escalón no oscila.
 
