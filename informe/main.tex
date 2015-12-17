@@ -273,27 +273,6 @@ El uso de realimentación global permite mejorar notablemente casi todas las esp
 \end{figure}
 
 \subsection{Integracion}
-
-El siguiente diagrama muestra como se conectaria la fuente [seccion~\ref{sec:fuente}], el amplificador y el parlante.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{img/integracion/diagrama_completo}
-\caption{Diagrama completo}
-\label{fig:diag_completo} 
-\end{figure}
-
-El la siguiente imagen se muestra el coneccionado interno del amplificador en si con los disipadores calculados [seccion~\ref{sec:disipadores}].
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{img/integracion/diagrama_interno}
-\caption{Diagrama interno}
-\label{fig:circuito} 
-\end{figure}
-
-
-
 \paragraph{Alimentación}
 
 Se colocaron capacitores (\texttt{C4},\texttt{C5},\texttt{C6} y \texttt{C7}) en los 4 rieles de alimentación ($\pm 50V$ y $\pm 15V$) para filtrar ruidos a la entrada.
@@ -617,6 +596,28 @@ Otro circuito de compensación que usamos, es el denominado Red de Zobel, consis
 
 \subsection{Análisis de los condicionantes de integración}
 
+\subsubsection{Diagramas de conexionado}
+El siguiente diagrama muestra como se conectaria la fuente [seccion~\ref{sec:fuente}], el amplificador y el parlante.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{img/integracion/diagrama_completo}
+\caption{Diagrama completo}
+\label{fig:diag_completo} 
+\end{figure}
+
+El la siguiente imagen se muestra el coneccionado interno del amplificador en si con los disipadores calculados [seccion~\ref{sec:disipadores}].
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{img/integracion/diagrama_interno}
+\caption{Diagrama interno}
+\label{fig:circuito} 
+\end{figure}
+
+
+
+
 \subsubsection{Disipación de Calor}
 \label{sec:disipadores}
 \begin{figure}[H]
@@ -682,7 +683,7 @@ Para parte interna ZD-14 2°C/W, si bien solo necesitamos 9°C/W , elegimos este
     \label{fig:diszd14}
 \end{figure}
 
-\section{Fuentes Conmutadas}
+\subsubsection{Fuentes Conmutadas}
 \label{sec:fuente}
 
 En nuestro proyecto como ya acordamos vamos a utilizar la fuente conmutada realizada por el grupo Arias-Caracciolo-Luna.
@@ -743,58 +744,8 @@ A continuación se detallan las especificaciones basicas de la misma:
 %     Optimización 
 
 \newpage
-\subsection{Diseño PCB}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[height=0.4\textwidth]{img/PCB/PCB_kicad}
-    \caption{Diseñando en programa Kicad}
-    \label{fig:ac}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[height=0.7\textwidth]{img/PCB/amplificador-F.pdf}
-    \caption{PCB, front}
-    \label{fig:ac}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[height=0.7\textwidth]{img/PCB/amplificador-B.pdf}
-    \caption{PCB, back}
-    \label{fig:ac}
-\end{figure}
-
-\section{Grado de avance}
-
-Hasta el momento, hemos elegido las configuraciones de las distintas etapas, realizamos los cálculos para hallar los valores de realimentación, resistencias para el embalamiento térmico y los disipadores para los transistores; realizamos simulaciones del circuito.
-
-\section{Dificultades encontradas}
-
-
-Para el desarrollo del proyecto, nos encontramos con varios obstáculos. En el primer diseño que realizamos, nos encontramos con una disparidad en las corrientes del par diferencial, que resolvimos comprando transistores de más, midiendo sus parámetros $\beta$, y agrupándolos para poder trabajar con valores apareados. Otra solución que encontramos, y que aplicaremos en esta versión del circuito, es utilizar transistores integrados, que asegura que todos los transistores tengan las mismas propiedades, y estén apareados. Esto también equilibraría más las amplificaciones en modo diferencial de los comparadores NPN y PNP.
-
-La simulación de distorsión se hacía con pocos períodos en el LTSpice y, por cuestiones numéricas, eso parece resultar en valores de distorsión mucho menores a los que devuelve simulando con más períodos. Por otra parte, para valores de distorsión pequeños, se requiere un parámetro de paso máximo bastante reducido o el LTSpice sobreestima la distorsión. Se pasó mucho tiempo creyendo que el diseño resultaba en valores satisfactorios o insatisfactorios de distorsión hasta que se descubrió esto.
-
-En un principio, la primera etapa estaba diseñada con cargas activas. Esto simulaba a veces correctamente, pero la polarización de todo el circuito resultaba poco estable e implicó el rediseño de la etapa con resistores.
-
-
-\section{Resumen de actividades a desarrollar}
-
-Habiendo establecido todo lo anterior, queda ver cómo mejorar el circuito para lograr mejores valores de distorsión. Luego procederemos con el armado del circuito, verificando el correcto funcionamiento de las etapas, durante el armado de la placa, y luego tendremos que revisar que esté andando correctamente, y que cumpla con las parámetros que propusimos. Finalizado esto, procederemos a realizar las mediciones pertinentes.
-
-Una vez hechas las mediciones tenemos pensado agregarle a nuestro amplificador las siguientes mejoras:
-\begin{itemize}
-\item{Proteccion contra cortocircuito y cargas menores}
-\item{Control de volumen}
-\item{Carcaza protectora}
-\item{Integracion compatible con fuente conmutada de grupo Arias-Caracciolo-Luna}
-\item{Plug de entrada para audio con carcaza metalica contra ruidos}
-\end{itemize}
-\newpage
-
-\section{Lista de materiales}
+\subsubsection{Lista de materiales}
 
 \begin{table}[h!]
 \centering
@@ -849,4 +800,55 @@ Disipador ZD14        & 1        &           &           &  aluminio  & 2°C/W  
 \end{table}
 
 
+
+\newpage
+\subsubsection{Diseño PCB}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.4\textwidth]{img/PCB/PCB_kicad}
+    \caption{Diseñando en programa Kicad}
+    \label{fig:ac}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.7\textwidth]{img/PCB/amplificador-F.pdf}
+    \caption{PCB, front}
+    \label{fig:ac}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.7\textwidth]{img/PCB/amplificador-B.pdf}
+    \caption{PCB, back}
+    \label{fig:ac}
+\end{figure}
+
+\section{Grado de avance}
+
+Hasta el momento, hemos elegido las configuraciones de las distintas etapas, realizamos los cálculos para hallar los valores de realimentación, resistencias para el embalamiento térmico y los disipadores para los transistores; realizamos simulaciones del circuito.
+
+\section{Dificultades encontradas}
+
+
+Para el desarrollo del proyecto, nos encontramos con varios obstáculos. En el primer diseño que realizamos, nos encontramos con una disparidad en las corrientes del par diferencial, que resolvimos comprando transistores de más, midiendo sus parámetros $\beta$, y agrupándolos para poder trabajar con valores apareados. Otra solución que encontramos, y que aplicaremos en esta versión del circuito, es utilizar transistores integrados, que asegura que todos los transistores tengan las mismas propiedades, y estén apareados. Esto también equilibraría más las amplificaciones en modo diferencial de los comparadores NPN y PNP.
+
+La simulación de distorsión se hacía con pocos períodos en el LTSpice y, por cuestiones numéricas, eso parece resultar en valores de distorsión mucho menores a los que devuelve simulando con más períodos. Por otra parte, para valores de distorsión pequeños, se requiere un parámetro de paso máximo bastante reducido o el LTSpice sobreestima la distorsión. Se pasó mucho tiempo creyendo que el diseño resultaba en valores satisfactorios o insatisfactorios de distorsión hasta que se descubrió esto.
+
+En un principio, la primera etapa estaba diseñada con cargas activas. Esto simulaba a veces correctamente, pero la polarización de todo el circuito resultaba poco estable e implicó el rediseño de la etapa con resistores.
+
+
+\section{Resumen de actividades a desarrollar}
+
+Habiendo establecido todo lo anterior, queda ver cómo mejorar el circuito para lograr mejores valores de distorsión. Luego procederemos con el armado del circuito, verificando el correcto funcionamiento de las etapas, durante el armado de la placa, y luego tendremos que revisar que esté andando correctamente, y que cumpla con las parámetros que propusimos. Finalizado esto, procederemos a realizar las mediciones pertinentes.
+
+Una vez hechas las mediciones tenemos pensado agregarle a nuestro amplificador las siguientes mejoras:
+\begin{itemize}
+\item{Proteccion contra cortocircuito y cargas menores}
+\item{Control de volumen}
+\item{Carcaza protectora}
+\item{Integracion compatible con fuente conmutada de grupo Arias-Caracciolo-Luna}
+\item{Plug de entrada para audio con carcaza metalica contra ruidos}
+\end{itemize}
 \end{document}
