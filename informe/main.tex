@@ -742,6 +742,30 @@ A continuación se detallan las especificaciones basicas de la misma:
 %     Análisis de confiabilidad de los componentes 
 
 %     Optimización 
+\subsubsection{Capacitancias parasitas}
+
+Debida al uso de cables:
+\newline
+\newline
+Como se vio en el diagrama del conexionado, se van a utilizar cables para conectar el PCB con los transistores disipados, esto no es lo mejor, ya que introduce capacitancias parasitas. Segun el paper de Harry E. Green \footnote{Harry E. Green, A Simplified Derivation of the Capacitance of a Two-Wire Transmission Line, IEEE Transactions on Microwave Theory and Techniques, Vol. 47, No. 3, March 1999, p. 365-366.} la capacitancia introducida por 10 cm de cable aproximadamente a 1cm de separacion es de 1pF.
+
+Para eliminar esta capacitancia y eliminar ruido ambiente tenemos pensado usar cable trenzado, forrado en malla metalica.
+
+Como el de la siguiente imágen:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.31415\textwidth]{img/cable_malla_trenzada.jpg}
+    \caption{Cable trenzado con malla metalica.}
+    \label{fig:cable_malla}
+\end{figure}
+
+
+
+Por pistas y planos en PCB:
+\newline
+\newline
+A la hora de diseñar el PCB se tuvieron en cuenta muchas de las tecnicas para reducir estos efectos. Sin embargo estos efectos no se pueden evitar al 100\%. Esos efectos deberian ser minimos; los mismos van a ser medidos y compensados en el momento de tener el PCB fabricado.
 
 \newpage
 
