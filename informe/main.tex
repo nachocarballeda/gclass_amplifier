@@ -202,7 +202,7 @@
 
 \subsubsection{Objetivo y requerimientos de usuario}
 
-El objetivo es amplificar una señal de audio que será reproducida en un parlante.  Debe proveer al usuario con una buena calidad de sonido con volumen alto sin consumir mucha más energía de la necesaria ni ser muy grande y pesado. Es decir, debe tener baja distorsión, alta relación señal-ruido (SNR), eficiencia razonable y buena ganancia y potencia máxima de salida.
+Nuestro objetico es armar un circuito que amplifique una señal de audio que será reproducida en un parlante.  Debe proveer al usuario con una buena calidad de sonido con volumen alto sin consumir mucha más energía de la necesaria ni ser muy grande y pesado. Es decir, debe tener baja distorsión, alta relación señal-ruido (SNR), eficiencia razonable y buena ganancia y potencia máxima de salida.
 
 
 
@@ -439,6 +439,7 @@ Los valores de distorsión bajan a potencias menors porque se reduce la distorsi
 
 La pendiente es de $20 \frac{V}{\mu s}$. Esto es mayor a la máxima pendiende de la salida en máxima potencia a la máxima frecuencia especificada de $30kHz$, por lo que el ancho de banda de potencia cumplirá lo especificado ($15 \frac{V}{\mu s}<20 \frac{V}{\mu s}$).
 
+Para hallar el SR de manera teórica, partimos de la fuente de corriente de un par diferencial. La corriente que generan es de $853\; \mathrm{\mu A}$, es decir, $426\; \mathrm{\mu A}$ por rama. Si dividimos este valor por el Capacitor de Miller ($40$ pF), nos queda un SR de $10.65 \; \frac{\mathrm{V}}{\mathrm{\mu s}}$. Si calculamos el ancho de banda de potencia, con este SR, nos da que la frecuencia máxima a la que el amplificador puede desarrollar $40$ V pico, de salida, es $36.75$ KHz. A pesar de que el SR nos dió menos que en la simulación, el ancho de banda sigue cumpliendo con las especificaciones. Esta diferencia se debe a que la simulación utiliza un método numérico para hallar las respuestas con un error pequeño, y el cálculo teórico se basa en varias hipótesis para simplificar el cálculo. Será importante, a la hora de armar el circuito, que éste funcióne dentro de los parámetros esperados.
 
 \begin{figure}[H]
 	\centering
