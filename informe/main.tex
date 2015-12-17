@@ -659,6 +659,20 @@ El margen de fase resultante ese de $105^{\circ}$ y el ancho de banda de $3MHz$,
 
 Otra compensación se implementó para corregir el comportamiento inductivo del multiplicador de $V_{be}$ en altas frecuencias. Se compensó con el capacitor \texttt{C\_mvbe\_comp} de $20nF$.
 
+Finalmente, con las ganancias a lazo abierto y lazo cerrado, realizamos el siguiente diagrama:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/bodecompensado}
+	\caption{Aumento del ancho de banda, debido a la realimentación.}
+	\label{fig:bode-copmensado}
+\end{figure}
+
+Como se puede ver en el gráfico, la ganancia a lazo abierto, de $90$ dB, tiene un ancho de banda de $1.8$ Hz, totalmente inútil para un amplificador de audio que trabaja con señales de decenas de KHz. Cuando aplicamos la realimentación, la ganancia cae a $29$ dB, pero la frecuencia de corte pasa a ser $1.8\; \mathrm{KHz} \times (1 + a_V \times f) = 1.8 \times 1106.8 = 1.905 \mathrm{MHz}$.
+
+
+
+
 \subsection{Redes de salida}
 
 Usualmente, se colocan a la salida del amplificador, 2 redes, para compensar cargas inductivas o capacitivas, que pueden incluso provenir del propio cable de la salida, o del parlante. Para compensar y mantener la estabilidad en alta frecuencia frente a cargas inductivas está la red de Zobel. Para las cargas capacitivas, se usa el RL en serie.
