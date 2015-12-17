@@ -236,6 +236,15 @@ El objetivo es amplificar una señal de audio que será reproducida en un parlan
 
 Un amplificador típico consta, basicamente, de 3 etapas: una de entrada, diferencial,  una intermedia, de ganancia de tensión, y una de salida, de ganancia de corriente. Esta última etapa es la responsable de proveer la potencia y la que determina la eficiencia, tamaño y peso del amplificador.
 
+\subsubsection{Antecedentes}
+La lectura del libro de Douglas-Self nos permitió  aprender los conceptos básicos y la topologia de un amplificador clase G. El siguiente diseño fue tomado directamente del libro y nuestro trabajo se basa en el mismo:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.95\textwidth]{img/clase_g_del_libro.pdf}
+	\caption{Amplificador clase G, Douglas Self}
+	\label{fig:ampli_DS}
+\end{figure}
 
 \paragraph{Etapa de entrada}
 La etapa de entrada puede ser de distintas maneras, puede ser una etapa de amplificación simple, o diferencial. Nosotros escogimos la topografía diferencial, debido a que nos provee una Relacion de Rechazo de Modo Común elevada. Es decir, atenúa las señales que sean iguales  por ambas entradas, y aumenta las que sean opuestas. Las señales iguales, pueden darse por distintos tipos de ruido, que es lo que queremos evitar, mientras que las opuestas, son la señal que quermos amplificar. Inicialmente consideramos una típica topología diferencial, de colectores acoplados. Pero como los transistores no son componentes lineales, propusimos agregar otro par diferencial, en paralelo, con componentes complementarios; es decir, donde originalmente usamos transistores NPN, colocamos PNP, y viceversa. De esta forma, la simetría cancela alinealidades y se reduce la distorsión. Esto llevó a luego intentar mantener una simetría total en todo el circuito. Otra opción de diseño más, es la de la carga de los pares diferenciales. Estos pueden ser activas o pasivas. Por lo general, se elige una carga de tipo activa, como por ejemplo, una fuente de corriente espejo, porque da una menor distorsión, pero en nuestro caso, elegimos un amplificador tipo cascode, con una carga pasiva, porque necesitamos la carga para polarizar la etapa siguiente, donde explicaremos el motivo.
@@ -803,6 +812,22 @@ Para parte interna ZD-14 2°C/W, si bien solo necesitamos 9°C/W , elegimos este
     \caption{Disipador ZD-14}
     \label{fig:diszd14}
 \end{figure}
+
+\subsubsection{Fuentes de Ruido Intrínsecas}
+
+En esta subsección se analizan los distintos tipos de ruidos presentes en el amplificador.
+
+\paragraph{Ruido Térmico o Ruido Johnson}
+
+Es producido por los movimientos aleatorios de los electrones en componentes que disipan energía (resistores, transistores).
+
+\paragraph{Ruido Shot}
+
+Es el ruido asociado a la circulación de corriente a través de una barrera de potencial y es proporcional a la corriente en continua que circula. Por lo tanto, para reducir este tipo de ruido es necesario mantener la corriente DC lo más pequeña posible. Por esto se intento bajar las corrientes de polarizacion del par diferencial.
+
+\paragraph{Ruido Popcorn}
+
+Asociado a deficiencias en el proceso de fabricación de semiconductores. En el diseño no se tiene control sobre este tipo de ruido.
 
 \subsubsection{Fuentes Conmutadas}
 \label{sec:fuente}
