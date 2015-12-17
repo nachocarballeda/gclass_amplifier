@@ -192,21 +192,19 @@
 \tableofcontents
 \vfill
 
-\listoffixmes
+%\listoffixmes
 
 \newpage
 
 \section{Actividades desarrolladas}
 
-\subsection{Diseño conceptual}
-
-\subsubsection{Objetivo y requerimientos de usuario}
+\subsection{Objetivo y requerimientos de usuario}
 
 Nuestro objetico es armar un circuito que amplifique una señal de audio que será reproducida en un parlante.  Debe proveer al usuario con una buena calidad de sonido con volumen alto sin consumir mucha más energía de la necesaria ni ser muy grande y pesado. Es decir, debe tener baja distorsión, alta relación señal-ruido (SNR), eficiencia razonable y buena ganancia y potencia máxima de salida.
 
 
 
-\subsubsection{Especificaciones}
+\subsection{Especificaciones}
 
 \bigskip
 
@@ -232,7 +230,7 @@ Nuestro objetico es armar un circuito que amplifique una señal de audio que ser
 \paragraph{Nota sobre el slew-rate - } El slew rate especificado ($15\frac{V}{\mu s}$) duplica el valor mínimo para cumplir las otras especificaciones: el mayor ritmo de crecimiento para señales de ancho de banda $30kHz$ y máxima excursión $40V$ se da cuando la senoide cruza por cero, y su pendiente es $2 \pi \times 30kHz\times 40V\cong 7.5\frac{V}{\mu s}$. 
 
 
-\subsubsection{Diseño general}
+\subsection{Diseño conceptual}
 
 El diseño de un amplificador de tensión como un solo bloque que cumpla con las especificaciones, es una tarea de muy alta complejidad, pero se simplifica enormemente con el uso de técnicas de realimentación, comunes en la teoría de control, que se implementaron en este amplificador. 
 
@@ -259,7 +257,7 @@ La realimantación es muy beneficiosa siempre que sea negativa. Dado que el sist
 
 Otro factor a tener en cuenta, es que puede darse la aparición de frecuencias en la salida del circuito fuera del rango de las que se presentan naturalmente en la entrada (en este caso 20Hz - 20kHz por tratarse de audio). También para eliminar estos inconvenientes es que el sistema debe ser compensado.
 
-El uso de realimentación global permite mejorar notablemente casi todas las especificaciones del amplificador y simplificar su diseño. En este caso, como el objetivo es armar un amplificador de tensión, utilizamos un circuito realimentador Serie-Paralelo (muestrea tensión y suma tensión). El factor de realimentación queda definida por las especificaciones de sensibilidad y potencia RMS para una carga de $8\Omega$. La ganancia del amplificador debe ser de $29dB$ y por lo tanto el realimentador debe atenuar $-29dB$.
+El uso de realimentación global permite mejorar notablemente casi todas las especificaciones del amplificador y simplificar su diseño. En este caso, como el objetivo es armar un amplificador de tensión, utilizamos un circuito realimentador Serie-Paralelo (muestrea tensión y suma tensión). El factor de realimentación queda definido por las especificaciones de sensibilidad y potencia RMS para una carga determinada.
 
 
 \begin{figure}[H]
@@ -269,22 +267,8 @@ El uso de realimentación global permite mejorar notablemente casi todas las esp
 	\label{fig:ampli_realimentacion}
 \end{figure}
 
-\paragraph{Algunas cuentas adicionales: }
 
-Para hallar los valores de impedancia de entrada y salida, primero debemos reflejar las resistencias $R_{10}$ y $R_{11}$, como vemos en el siguiente dibujo.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\textwidth]{img/reflejo}
-	\caption{Modelo amplificador-reflejando resistencias}
-	\label{fig:ampli_reflejo}
-\end{figure}
-
-Este amplificador tiene una amplificación de tensión a lazo abierto, de aproximadamente $90$ dB, con una impedancia de salida de aproximadamente $6\;\Omega$.
-La realimentación tiene un valor de $\frac{1}{f} = \frac{R_{10}}{R_{10} + R_{11}} \rightarrow f = 0.035$, resultando $1+a_V\times f = 9\mathrm{K} \times 0.035 = 318.77$. La ganancia a lazo cerrado es $A\cong f^{-1} =28.6$. En cuanto a la impedancia de entrada, $R_{11}$ y $R_{10}$ se reflejan en paralelo entre ellas, en serie a la impedancia de entrada del amplificador $Z_i$. Dada la relación entre las resistencias, $R_{11}$ resulta despreciable, y a su vez, $R_{10}$ resulta despreciable en serie con $Z_i$, que resulta despreciable, en paralelo con $R_{12}$, de $10\; \mathrm{K}\Omega$. Para la resistencia de salida, tenemos la resistencia reflejada $R_{10} + R_{11}$, que es despreciable en paralelo con $Z_o || R_{Carga} = 3.42\; \Omega$. Luego $\frac{3.42}{(1 + a_V \times f)} = 0.01\; \Omega$, que es la impedancia de salida resultante. La impedancia de entrada incrementada en la ganancia de lazo resulta ser mucho mayor a $10k\Omega$. En nuestro circuito, existe una resistencia \texttt{R12} de valor $10k\Omega$ en paralelo a la entrada del amplificador a lazo cerrado que domina la impedancia de entrada final (figura~\ref{fig:circuito}).
-
-
-\subsubsection{Amplificador a lazo abierto: }
+\subsubsection{Amplificador a lazo abierto}
 
 Las etapas de un amplificador hacen referencia a su estructura a gran escala: el diagrama en bloques que modulariza los componentes y ayuda a diseñar, entender y evaluar su funcionamiento. La arquitectura de un amplificador típico consta, básicamente, de 3 etapas: una de entrada, diferencial, una intermedia, de ganancia de tensión, y una de salida, de ganancia de corriente o potencia (figura~\ref{fig:etapas}).
 
@@ -374,9 +358,11 @@ Se polarizó cada rama con una corriente de $\cong 1mA$. Mayor corriente no gene
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.4\textwidth]{img/etapa-1}
-\caption{Circuito Diseñado}
+\caption{Etapa primera del circuito diseñado.}
 \label{fig:etapa-1} 
 \end{figure}
+
+
 
 \subsubsection{Etapa de amplificación de tensión}
 
@@ -398,6 +384,32 @@ Las resistencias \texttt{RECC2} y \texttt{RECC1} aseguran una corriente de polar
 \subsubsection{Etapa de salida}
 
 Se usan transistores en configuración Darlington, para tener una ganancia de corriente elevada, y con transistores en paralelo en la parte de mayor potencia para repartir la corriente y disminuir la disipación en cada uno. Se colocaron las resistencias \texttt{R14}, \texttt{R15}, \texttt{R16} y \texttt{R17} de valor $0.1\Omega$ para ayudar a que se reparta de forma equilibrada la potencia entre los transistores de potencia \texttt{Q1}-\texttt{Q11} y \texttt{Q7}-\texttt{Q12}.
+
+\subsubsection{Realimentador}
+
+Como se había mencionado en el diseño conceptual, el factor de realimentación queda definido por las especificaciones de sensibilidad y potencia RMS que definen la ganancia. Para nuestras especificaciones, la ganancia del amplificador debe ser de $29dB$ y por lo tanto el realimentador debe atenuar $-29dB$. Se implementa mediante un divisor de tensión que muestrea tensión y suma tensión. Deben ser resistencias lo suficientemente altas para que no afecten la salida al muestrear. Con una carga de $8\Omega$, esto es sencillo. Por otra parte, la corriente que entra a la base del par diferencial de la primera etapa debe ser despreciable frente a la que circula por el realimentador para no afectar al factor $f$. Los valores usados se ven en la figura~\ref{fig:realimentacion-global}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{img/realimentacion-global}
+	\caption{Realimentación global implementada, junto con su compensación por atraso de fase.}
+	\label{fig:realimentacion-global}
+\end{figure}
+ 
+ El capacitor \texttt{C1} cumple la función de modificar la realimentación en continua, a un factor unitario, y generar una simetría en las resistencias que ven las bases de los pares diferenciales de la primera etapa, y así reducir la tensión de offset. Por esta misma razón, la resistencia en paralelo a la entrada \texttt{R12}, que permite la polarización de \texttt{Q17} y \texttt{Q20} es del mismo valor que \texttt{R11}.
+ 
+
+Consideremos el diagrama de la figura~\ref{fig:ampli_realimentacion}. Para hallar los valores de impedancia de entrada y salida, primero debemos reflejar las resistencias $R_{10}$ y $R_{11}$, como vemos en el siguiente dibujo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/reflejo}
+	\caption{Modelo amplificador-reflejando resistencias}
+	\label{fig:ampli_reflejo}
+\end{figure}
+
+Este amplificador tiene una amplificación de tensión a lazo abierto, de aproximadamente $90$ dB, con una impedancia de salida de aproximadamente $6\;\Omega$.
+La realimentación tiene un valor de $\frac{1}{f} = \frac{R_{10}}{R_{10} + R_{11}} \rightarrow f = 0.035$, resultando $1+a_V\times f = 9\mathrm{K} \times 0.035 = 318.77$. La ganancia a lazo cerrado es $A\cong f^{-1} =28.6$. En cuanto a la impedancia de entrada, $R_{11}$ y $R_{10}$ se reflejan en paralelo entre ellas, en serie a la impedancia de entrada del amplificador $Z_i$. Dada la relación entre las resistencias, $R_{11}$ resulta despreciable, y a su vez, $R_{10}$ resulta despreciable en serie con $Z_i$, que resulta despreciable, en paralelo con $R_{12}$, de $10\; \mathrm{K}\Omega$. Para la resistencia de salida, tenemos la resistencia reflejada $R_{10} + R_{11}$, que es despreciable en paralelo con $Z_o || R_{Carga} = 3.42\; \Omega$. Luego $\frac{3.42}{(1 + a_V \times f)} = 0.01\; \Omega$, que es la impedancia de salida resultante. La impedancia de entrada incrementada en la ganancia de lazo resulta ser mucho mayor a $10k\Omega$. En nuestro circuito, la resistencia \texttt{R12} de valor $10k\Omega$ en paralelo a la entrada del amplificador a lazo cerrado que domina la impedancia de entrada final.
 
 
 \subsubsection{Multiplicador de $V_{be}$}
@@ -543,6 +555,8 @@ En la figura~\ref{fig:distorsion-barrido} se muestra la distorsión a $1kHz$ en 
 \end{figure}
 
 Los valores de distorsión bajan a potencias menors porque se reduce la distorsión por alinealidad de los transistores: mientras más chica es la excursión, más uno se encuentra en pequeña señal, y más lineal es la relación entre $v_{be}$ e $i_c$. Por otra parte, se colocó al multiplicador de $V_{be}$ de modo tal que haga funcionar a la etapa de salida en modo A-B, reduciendo la distorsión por crossover.
+
+La figura~\ref{fig:distorsion-frec}, por su parte, muestra resultados de simulaciones de distorsión a máxima excursión en función de la frecuencia.
 
 \subsubsection{Slew Rate} Simulando una entrada escalón en el amplificador, se observa la salida de la figura~\ref{fig:slew} en la carga.
 
