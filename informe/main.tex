@@ -438,7 +438,7 @@ La pendiente es de $20 \frac{V}{\mu s}$. Esto es mayor a la máxima pendiende de
 
 \paragraph{CMRR - factor de rechazo de modo común}
 
-Se simuló la primera etapa frente una entrada común de $100mA$ con el circuito de la figura~\ref{fig:ac} y se obtuvo la ganancia de modo común.
+Se simuló la primera etapa frente una entrada común de $100mA$ con el circuito de la figura~\ref{fig:ac} y se obtuvo la ganancia de modo común. Para cada par diferencial del doble par, se obtuvieron $A_c^{NPN}=\frac{V_{o1}}{100mV}$ y $A_c^{PNP}=\frac{V_{o2}}{100mV}$ como la relación entre la salida correspondiente al par y la entrada común. 
 
 
 \begin{figure}[H]
@@ -449,7 +449,7 @@ Se simuló la primera etapa frente una entrada común de $100mA$ con el circuito
 \end{figure}
 
 
-La amplificación de modo diferencial se obtuve de forma análoga, con las fuentes de la figura~\ref{fig:ac} conectadas a contrafase. Las señales de entradas usadas fueron de sólo $1mV$ porque se esperaba una amplificación mucho mayor que para el caso de modo común. 
+La amplificación de modo diferencial se obtuvo de forma análoga, con las fuentes de la figura~\ref{fig:ac} conectadas a contrafase. Las señales de entradas usadas fueron de sólo $1mV$ porque se esperaba una amplificación mucho mayor que para el caso de modo común. Es decir, $A_d^{NPN}=\frac{V_{o1}}{2mV}$, y $A_d^{PNP}=\frac{V_{o2}}{2mV}$.
 
 \begin{table}[H]
 \centering
@@ -652,7 +652,21 @@ El margen de fase resultante ese de $105^{\circ}$ y el ancho de banda de $3MHz$,
 
 Otra compensación se implementó para corregir el comportamiento inductivo del multiplicador de $V_{be}$ en altas frecuencias. Se compensó con el capacitor \texttt{C\_mvbe\_comp} de $20nF$.
 
-\subsection{Red de Zobel}
+\subsection{Redes de salida}
+
+Usualmente, se colocan a la salida del amplificador, 2 redes, para compensar cargas inductivas o capacitivas, que pueden incluso provenir del propio cable de la salida, o del parlante. Para compensar y mantener la estabilidad en alta frecuencia frente a cargas inductivas está la red de Zobel. Para las cargas capacitivas, se usa el RL en serie.
+
+\subsubsection{Red de Zobel}
+
+Consiste en un RC ubicado como muestra la figura~\ref{fig:output-networks}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{img/output-networks}
+\caption{Redes de salida típicas para compensar cargas inductivas y capacitvas.}
+\label{fig:output-networks} 
+\end{figure}
+
 
 Otro circuito de compensación que usamos, es el denominado Red de Zobel, consiste en un circuito RC serie, colocado en paralelo a la salida, para compensar la variación de impedancia del parlante, respecto de la frecuencia. Para definir sus valores, idealmente, se debe estudiar la respuesta en frecuencia del parlante, pero, debido a que estamos armando un circuito amplificador para un parlante genérico, tomamos los valores recomendados por el libro de Douglas Self. 
 
