@@ -1,33 +1,4 @@
 EESchema Schematic File Version 2
-LIBS:power
-LIBS:device
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
-LIBS:74xx
-LIBS:cmos4000
-LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
-LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:display
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
-LIBS:atmel
-LIBS:contrib
-LIBS:valves
 LIBS:lib_ampli
 LIBS:amplificador-cache
 EELAYER 25 0
@@ -553,17 +524,17 @@ F 3 "" H 5850 3600 60  0000 C CNN
 	1    5850 3600
 	1    0    0    -1  
 $EndComp
-Text GLabel 9750 3800 2    60   Input ~ 0
+Text GLabel 9650 3800 2    60   Input ~ 0
 SalidaGND
 $Comp
 L GND #PWR06
 U 1 1 559EDF98
-P 9650 4200
-F 0 "#PWR06" H 9650 3950 50  0001 C CNN
-F 1 "GND" H 9650 4050 50  0000 C CNN
-F 2 "" H 9650 4200 60  0000 C CNN
-F 3 "" H 9650 4200 60  0000 C CNN
-	1    9650 4200
+P 9550 4200
+F 0 "#PWR06" H 9550 3950 50  0001 C CNN
+F 1 "GND" H 9550 4050 50  0000 C CNN
+F 2 "" H 9550 4200 60  0000 C CNN
+F 3 "" H 9550 4200 60  0000 C CNN
+	1    9550 4200
 	1    0    0    -1  
 $EndComp
 Text GLabel 1800 3900 0    60   Input ~ 0
@@ -681,12 +652,12 @@ $EndComp
 $Comp
 L TORNILLO T6
 U 1 1 559797E2
-P 9450 3800
-F 0 "T6" H 9450 3900 50  0000 C CNN
-F 1 "TORNILLO" V 9550 3800 50  0000 C CNN
-F 2 "bibliotecas:TORNILLO" H 9450 3800 60  0001 C CNN
-F 3 "" H 9450 3800 60  0000 C CNN
-	1    9450 3800
+P 9350 3800
+F 0 "T6" H 9350 3900 50  0000 C CNN
+F 1 "TORNILLO" V 9450 3800 50  0000 C CNN
+F 2 "bibliotecas:TORNILLO" H 9350 3800 60  0001 C CNN
+F 3 "" H 9350 3800 60  0000 C CNN
+	1    9350 3800
 	-1   0    0    1   
 $EndComp
 $Comp
@@ -703,13 +674,13 @@ $EndComp
 $Comp
 L TORNILLO T5
 U 1 1 55986761
-P 9250 3300
-F 0 "T5" V 9200 3150 50  0000 C CNN
-F 1 "TORNILLO" V 9300 3050 50  0000 C CNN
-F 2 "bibliotecas:TORNILLO" H 9250 3300 60  0001 C CNN
-F 3 "" H 9250 3300 60  0000 C CNN
-	1    9250 3300
-	0    -1   -1   0   
+P 9700 3300
+F 0 "T5" V 9650 3150 50  0000 C CNN
+F 1 "TORNILLO" V 9750 3050 50  0000 C CNN
+F 2 "bibliotecas:TORNILLO" H 9700 3300 60  0001 C CNN
+F 3 "" H 9700 3300 60  0000 C CNN
+	1    9700 3300
+	0    1    -1   0   
 $EndComp
 $Comp
 L R RC1
@@ -1332,9 +1303,9 @@ Wire Wire Line
 Wire Wire Line
 	5400 3600 5550 3600
 Wire Wire Line
-	9650 3800 9650 4200
+	9550 3800 9550 4200
 Wire Wire Line
-	9650 3800 9750 3800
+	9550 3800 9650 3800
 Wire Wire Line
 	1800 3900 1900 3900
 Wire Wire Line
@@ -1387,9 +1358,6 @@ Connection ~ 7100 4650
 Wire Wire Line
 	9900 800  9900 900 
 Connection ~ 9900 800 
-Wire Wire Line
-	9250 3600 9250 3500
-Connection ~ 9250 3600
 Wire Wire Line
 	6900 6000 6900 5900
 Wire Wire Line
@@ -1535,35 +1503,35 @@ Connection ~ 2200 3800
 $Comp
 L R Rzobel1
 U 1 1 5670E41C
-P 9100 3800
-F 0 "Rzobel1" V 9180 3800 50  0000 C CNN
-F 1 "10R" V 9100 3800 50  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 9030 3800 30  0001 C CNN
-F 3 "" H 9100 3800 30  0000 C CNN
-	1    9100 3800
+P 9000 3800
+F 0 "Rzobel1" V 9080 3800 50  0000 C CNN
+F 1 "10R" V 9000 3800 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 8930 3800 30  0001 C CNN
+F 3 "" H 9000 3800 30  0000 C CNN
+	1    9000 3800
 	1    0    0    -1  
 $EndComp
 $Comp
 L C Czobel1
 U 1 1 5670E6F6
-P 9350 4100
-F 0 "Czobel1" V 9500 3900 50  0000 L CNN
-F 1 "100n" V 9400 3850 50  0000 L CNN
-F 2 "Capacitors_ThroughHole:C_Rect_L7_W3.5_P5" H 9388 3950 30  0001 C CNN
-F 3 "" H 9350 4100 60  0000 C CNN
-	1    9350 4100
+P 9250 4100
+F 0 "Czobel1" V 9400 3900 50  0000 L CNN
+F 1 "100n" V 9300 3850 50  0000 L CNN
+F 2 "Capacitors_ThroughHole:C_Rect_L7_W3.5_P5" H 9288 3950 30  0001 C CNN
+F 3 "" H 9250 4100 60  0000 C CNN
+	1    9250 4100
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	9100 3650 9100 3600
-Connection ~ 9100 3600
+	9000 3600 9000 3650
+Connection ~ 9000 3600
 Wire Wire Line
-	9100 3950 9100 4100
+	9000 3950 9000 4100
 Wire Wire Line
-	9100 4100 9200 4100
+	9000 4100 9100 4100
 Wire Wire Line
-	9650 4100 9500 4100
-Connection ~ 9650 4100
+	9550 4100 9400 4100
+Connection ~ 9550 4100
 $Comp
 L R R21
 U 1 1 5672522D
@@ -1595,41 +1563,44 @@ Wire Wire Line
 Connection ~ 6000 800 
 Connection ~ 6000 1500
 $Comp
-L R Rzobel?
+L R R_RL1
 U 1 1 56726E0F
-P 9600 3600
-F 0 "Rzobel?" V 9680 3600 50  0000 C CNN
-F 1 "10R" V 9600 3600 50  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 9530 3600 30  0001 C CNN
-F 3 "" H 9600 3600 30  0000 C CNN
-	1    9600 3600
+P 9350 3600
+F 0 "R_RL1" V 9430 3600 50  0000 C CNN
+F 1 "10R" V 9350 3600 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 9280 3600 30  0001 C CNN
+F 3 "" H 9350 3600 30  0000 C CNN
+	1    9350 3600
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	8400 3600 9450 3600
+	9100 3600 9100 3450
 Wire Wire Line
-	9350 3600 9350 3450
+	9100 3450 9250 3450
+Connection ~ 9100 3600
 Wire Wire Line
-	9350 3450 9500 3450
-Connection ~ 9350 3600
+	9450 3450 9600 3450
 Wire Wire Line
-	9750 3600 9950 3600
-Wire Wire Line
-	9700 3450 9850 3450
-Wire Wire Line
-	9850 3450 9850 3600
-Connection ~ 9850 3600
+	9600 3450 9600 3600
+Connection ~ 9600 3600
 $Comp
-L L_Small L?
+L L_Small L_RL1
 U 1 1 5672A668
-P 9600 3450
-F 0 "L?" H 9630 3490 50  0000 L CNN
-F 1 "L_Small" H 9630 3410 50  0000 L CNN
-F 2 "" H 9600 3450 50  0000 C CNN
-F 3 "" H 9600 3450 50  0000 C CNN
-	1    9600 3450
+P 9350 3450
+F 0 "L_RL1" V 9450 3400 50  0000 L CNN
+F 1 "5u" V 9300 3350 50  0000 L CNN
+F 2 "Discret:CP4" H 9350 3450 50  0001 C CNN
+F 3 "" H 9350 3450 50  0000 C CNN
+	1    9350 3450
 	0    -1   -1   0   
 $EndComp
 Entry Wire Line
 	6140 1790 6240 1890
+Wire Wire Line
+	8400 3600 9200 3600
+Wire Wire Line
+	9500 3600 9950 3600
+Wire Wire Line
+	9700 3500 9700 3600
+Connection ~ 9700 3600
 $EndSCHEMATC
