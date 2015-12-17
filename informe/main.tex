@@ -192,7 +192,7 @@
 \tableofcontents
 \vfill
 
-%\listoffixmes
+\listoffixmes
 
 \newpage
 
@@ -227,41 +227,27 @@ Nuestro objetico es armar un circuito que amplifique una señal de audio que ser
 	\end{itemize}
 \end{itemize}
 
-\paragraph{Máxima excursión} Para una salida senoidal de $100W RMS$, su potencia pico es $200W = \frac{V_{max}^2}{R_L}$ que, con carga $R_L=8\Omega$ da una tensión pico de $V_{max}=40V$. A esta tensión se llega cuando la entrada es la sensibilidad especificada, $1V RMS @8\Omega$, que se corresponde a $1V pico$. Estos $40V$ serán la máxima excursión, la tensión máxima en la que el amplificador garantiza que no haya recortes considerables.
+\paragraph{Máxima excursión: $40V$ - } Para una salida senoidal de $100W RMS$, su potencia pico es $200W = \frac{V_{max}^2}{R_L}$ que, con carga $R_L=8\Omega$ da una tensión pico de $V_{max}=40V$. A esta tensión se llega cuando la entrada es la sensibilidad especificada, $1V RMS @8\Omega$, que se corresponde a $1V$ pico. Estos $40V$ serán la máxima excursión, la tensión máxima en la que el amplificador garantiza que no haya recortes considerables.
 
-\paragraph{Nota sobre el slew-rate} El mayor ritmo de crecimiento para señales que cumplen con las especificaciones de ancho de banda $30kHz$ y máxima excursión $40V$ se da cuando la senoide cruza por cero, y su pendiente es $2 \pi \times 30kHz\times 40V\cong 7.5\frac{V}{\mu s}$. El slew rate especificado ($15\frac{V}{\mu s}$) duplica este valor mínimo.
+\paragraph{Nota sobre el slew-rate - } El slew rate especificado ($15\frac{V}{\mu s}$) duplica el valor mínimo para cumplir las otras especificaciones: el mayor ritmo de crecimiento para señales de ancho de banda $30kHz$ y máxima excursión $40V$ se da cuando la senoide cruza por cero, y su pendiente es $2 \pi \times 30kHz\times 40V\cong 7.5\frac{V}{\mu s}$. 
 
 
 \subsubsection{Diseño general}
 
-Un amplificador típico consta, basicamente, de 3 etapas: una de entrada, diferencial,  una intermedia, de ganancia de tensión, y una de salida, de ganancia de corriente. Esta última etapa es la responsable de proveer la potencia y la que determina la eficiencia, tamaño y peso del amplificador.
-
-\subsubsection{Antecedentes}
-La lectura del libro de Douglas-Self nos permitió  aprender los conceptos básicos y la topologia de un amplificador clase G. El siguiente diseño fue tomado directamente del libro y nuestro trabajo se basa en el mismo:
+El diseño de un amplificador de tensión como un solo bloque que cumpla con las especificaciones, es una tarea de muy alta complejidad, pero se simplifica enormemente con el uso de técnicas de realimentación, comunes en la teoría de control, que se implementaron en este amplificador. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.95\textwidth]{img/clase_g_del_libro.pdf}
-	\caption{Amplificador clase G, Douglas Self}
-	\label{fig:ampli_DS}
+	\includegraphics[width=0.5\textwidth]{img/realimentacion-negativa-bloque}
+	\caption{Modelo general de realimentación negativa.}
+	\label{fig:realimentacion-negativa-bloque}
 \end{figure}
 
-\paragraph{Etapa de entrada}
-La etapa de entrada puede ser de distintas maneras, puede ser una etapa de amplificación simple, o diferencial. Nosotros escogimos la topografía diferencial, debido a que nos provee una Relacion de Rechazo de Modo Común elevada. Es decir, atenúa las señales que sean iguales  por ambas entradas, y aumenta las que sean opuestas. Las señales iguales, pueden darse por distintos tipos de ruido, que es lo que queremos evitar, mientras que las opuestas, son la señal que quermos amplificar. Inicialmente consideramos una típica topología diferencial, de colectores acoplados. Pero como los transistores no son componentes lineales, propusimos agregar otro par diferencial, en paralelo, con componentes complementarios; es decir, donde originalmente usamos transistores NPN, colocamos PNP, y viceversa. De esta forma, la simetría cancela alinealidades y se reduce la distorsión. Esto llevó a luego intentar mantener una simetría total en todo el circuito. Otra opción de diseño más, es la de la carga de los pares diferenciales. Estos pueden ser activas o pasivas. Por lo general, se elige una carga de tipo activa, como por ejemplo, una fuente de corriente espejo, porque da una menor distorsión, pero en nuestro caso, elegimos un amplificador tipo cascode, con una carga pasiva, porque necesitamos la carga para polarizar la etapa siguiente, donde explicaremos el motivo. Por último y no menos importante, es necesario determinar las corrientes de las ramas de los amplificadores diferenciales. Esto se hace mediante una fuente de corriente cuyo diseño puede variar. Normalmente, se utiliza un transistor con una resistencia en serie en el emisor, y algún semiconductor entre base y emisor, para fijar una tensión de polarización, mientras la resistencia antes mencionada, determina la corriente de polarización que luego se dividirá a la mitad, por las ramas del diferencial. Una opción sencilla que aprovechamos, es con un LED, que no sólo polariza el transistor, sino que también nos ayuda indicando que la fuente de corriente está en funcionamiento. Otras variantes proponen poner dos diodos en serie, que fijan $0.7$ V en la resistencia en serie con el emisor, y facilitan la calibración de la corriente de polarización. Otra configuración, conocida por ser muy estable ante variaciones de tensión de riel, es reemplazar los diodos por un transistor, con emisor y base entre los terminales de la resistencia, y el colector a la base del primer transistor. Normalmente, estas fuentes, toman la referencia desde los rieles externos, porque son más estables que los internos, pero en este caso, al ser las tensiones de los rieles externos, muy elevados, preferimos utilizar un circuito regulador, para tomar de los rieles internos, y obtener $9$ V de notable estabilidad, gracias al Rechazo de Ripple de $60$ dB del regulador.
+
+\subsubsection{Realimentación global}
 
 
-\paragraph{Etapa de amplificación de tensión (VAS).}
-
-Por lo general, la etapa de amplificación suele estar compuesta por un simple amplificador de configuración Emisor Común, entrando a la etapa de salida, por debajo del multiplicador de $V_{be}$, y polarizado por una fuente de corriente de colector. Esta etapa puede modificarse, agregando una etapa colector común, antes del amplificador (EF VAS), para separar la etapa de entrada; esto mejora la distorsión. También se puede modificar para que la salida del VAS no sea por debajo del multiplicador de Vbe, sino por el medio, para disminuir el offset a la salida, previo a la realimentación, y disminuir la distorsión. El inconveniente de este modo es que se necesitan dos fuentes de corriente más, ya que el modo anterior, aprovecha la fuente de polarización del EF VAS, para polarizar, también, el multiplicador de Vbe. En nuestro caso, con el cambio a 2 pares diferenciales, duplicamos la etapa EF VAS, complementariamente, y se conectan a la etapa de salida, por arriba y por abajo del multiplicador de $V_{be}$. Como en este caso, cada uno de los dos EF VAS hace de carga del otro, los EF VAS no tienen fuente de polarización, entonces se necesita que la etapa diferencial tenga una carga resistiva, para fijar la tensión de base de los EF VAS. Si hubieramos usado una carga tipo fuente espejo, habríamos logrado que la corriente en las ramas del par diferencial fuera igual, pero sin fijar ninguna tensión para polarizar la base de los EF VAS.
-
-\paragraph{Etapa de salida}
-Esta etapa es la responsable de amplificar la potencia de la señal. Es decir, debe tener \textbf{alta eficiencia}, y \textbf{bajos niveles de distorsión}. Además, se busca \textbf{minimizar la impedancia de salida} para mantener un \textbf{alto factor de amortiguamiento} y evitar que el rebote acústico afecte el comportamiento del amplificador. 
-La etapa de salida clase G está compuesto por dos o más niveles de alimentación que permiten incrementar la eficiencia del amplificador con respecto al clase B. Esto se logra ya que con tensiones bajas, se utilizará una fuente de tensión menor, preservando la máxima excursión posible sobre la carga que ofrece un clase B alimentado con la fuente de tensión mayor. Para señales con picos de baja amplitud en relación al valor medio, la mejora en la eficiencia es modesta. Sin embargo, en el caso en que la señal tenga picos considerables con respecto a su valor medio, la mejora es notable. Un punto importante, a la hora de diseñar una etapa de salida clase G, es la tensión de los rieles internos. Tomamos del libro de Douglas Self, los estudios realizados considerando los casos en los cuales la tensión de riel interno es de 30 y 60\% del externo, y se observó que los beneficios en cuanto a eficiencia, del segundo caso, son pocos. En cambio, en el caso de rieles internos de 30\% respecto de los externos, la eficiencia aumenta considerablemente. Otro detalle de diseño, es la del multiplicador de Vbe doble. El multiplicador de Vbe más simple, tiene un transistor, y 2 resistencias, con las que forma el salto de potencial necesario para eliminar el problema de cruce por 0 de la etapa de salida. En este caso, se usan 2 transistores complementarios, con la misma idea que el del doble par diferencial, para que el corrimiento de tensión del multiplicador de Vbe sea lo más lineal posible.
-
-\paragraph{Realimentador global}
-
-
-Debido a la complejidad del circuito, cumplir con todas las especificaciones a lazo abierto es altamente complejo y requiere demasiada precisión en el cálculo y elección de componentes. Esto derivaría en un circuito altamente complejo y costoso. Es por este motivo que se emplea el realimentador.
+Debido a la complejidad del circuito, cumplir con todas las especificaciones a lazo abierto es altamente complejo y requiere demasiada precisión en el cálculo y elección de componentes. Esto derivaría en un circuito altamente complejo y costoso. Es por este motivo que se emplea el realimentador. En esquema empleado se ve en la figura~\ref{fig:ampli_realimentacion}.
 
 Dado que en un amplificador de audio se busca que la salida sea una versión de escalada de la señal de entrada, se busca tomar una muestra de la misma, y compararla con la señal de entrada. 
 
@@ -273,7 +259,80 @@ La realimantación es muy beneficiosa siempre que sea negativa. Dado que el sist
 
 Otro factor a tener en cuenta, es que puede darse la aparición de frecuencias en la salida del circuito fuera del rango de las que se presentan naturalmente en la entrada (en este caso 20Hz - 20kHz por tratarse de audio). También para eliminar estos inconvenientes es que el sistema debe ser compensado.
 
-El uso de realimentación global permite mejorar notablemente casi todas las especificaciones del amplificador y simplificar su diseño. En este caso, como el objetivo es armar un amplificador de tensión, utilizamos un circuito realimentador Serie-Paralelo. El factor de realimentación queda definida por las especificaciones de sensibilidad y potencia RMS para una carga de $8\Omega$. La ganancia del amplificador debe ser de $29dB$ y por lo tanto el realimentador debe atenuar $-29dB$.
+El uso de realimentación global permite mejorar notablemente casi todas las especificaciones del amplificador y simplificar su diseño. En este caso, como el objetivo es armar un amplificador de tensión, utilizamos un circuito realimentador Serie-Paralelo (muestrea tensión y suma tensión). El factor de realimentación queda definida por las especificaciones de sensibilidad y potencia RMS para una carga de $8\Omega$. La ganancia del amplificador debe ser de $29dB$ y por lo tanto el realimentador debe atenuar $-29dB$.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/realimentacion}
+	\caption{Modelo amplificador-realimentación. El amplificador se encuentra realimentado con una topología serie-paralelo, midiendo tensión a la salida, y sumando tensión a la entrada, resultando un amplificador de ganancia de tensión estabilizado en tensión.}
+	\label{fig:ampli_realimentacion}
+\end{figure}
+
+\paragraph{Algunas cuentas adicionales: }
+
+Para hallar los valores de impedancia de entrada y salida, primero debemos reflejar las resistencias $R_{10}$ y $R_{11}$, como vemos en el siguiente dibujo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/reflejo}
+	\caption{Modelo amplificador-reflejando resistencias}
+	\label{fig:ampli_reflejo}
+\end{figure}
+
+Este amplificador tiene una amplificación de tensión a lazo abierto, de aproximadamente $90$ dB, con una impedancia de salida de aproximadamente $6\;\Omega$.
+La realimentación tiene un valor de $\frac{1}{f} = \frac{R_{10}}{R_{10} + R_{11}} \rightarrow f = 0.035$, resultando $1+a_V\times f = 9\mathrm{K} \times 0.035 = 318.77$. La ganancia a lazo cerrado es $A\cong f^{-1} =28.6$. En cuanto a la impedancia de entrada, $R_{11}$ y $R_{10}$ se reflejan en paralelo entre ellas, en serie a la impedancia de entrada del amplificador $Z_i$. Dada la relación entre las resistencias, $R_{11}$ resulta despreciable, y a su vez, $R_{10}$ resulta despreciable en serie con $Z_i$, que resulta despreciable, en paralelo con $R_{12}$, de $10\; \mathrm{K}\Omega$. Para la resistencia de salida, tenemos la resistencia reflejada $R_{10} + R_{11}$, que es despreciable en paralelo con $Z_o || R_{Carga} = 3.42\; \Omega$. Luego $\frac{3.42}{(1 + a_V \times f)} = 0.01\; \Omega$, que es la impedancia de salida resultante. La impedancia de entrada incrementada en la ganancia de lazo resulta ser mucho mayor a $10k\Omega$. En nuestro circuito, existe una resistencia \texttt{R12} de valor $10k\Omega$ en paralelo a la entrada del amplificador a lazo cerrado que domina la impedancia de entrada final (figura~\ref{fig:circuito}).
+
+
+\subsubsection{Amplificador a lazo abierto: }
+
+Las etapas de un amplificador hacen referencia a su estructura a gran escala: el diagrama en bloques que modulariza los componentes y ayuda a diseñar, entender y evaluar su funcionamiento. La arquitectura de un amplificador típico consta, básicamente, de 3 etapas: una de entrada, diferencial, una intermedia, de ganancia de tensión, y una de salida, de ganancia de corriente o potencia (figura~\ref{fig:etapas}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{img/etapas}
+	\caption{Tres etapas de un amplificador típico, su realimentación y su capacitor de Miller. Los valores son a modo de ejemplo y no representan al amplificador diseñado.}
+	\label{fig:etapas}
+\end{figure}
+
+
+Se han propuesto arquitecturas de dos etapas (como en ``Linsley-Hood, Simple Class-A amplifi er , Wireless World ( April 1969 ) p. 148'' y en ``B. Olsson , Better audio from non-complements? Electronics World ( December 1994 ) p. 988'') unificando la segunda y la tercera etapa. Sin embargo, dificulta el proceso de diseño sin grandes beneficios visibles, es poco común entre amplificadores comerciales, y suele ofrecer mala distorsión. También se han propuesto arquitecturas de cuatro etapas, como Lohstroh y Otala en su paper ``An audio power amplifier for ultimate quality requirements''. Sin embargo, tampoco es muy usado en la industria, pues esta complejidad adicional no parece traer beneficios.
+
+
+El amplificador diseñado entonces tiene una \textbf{estructura típica de tres etapas}. La última etapa es la responsable de proveer la potencia y la que determina la eficiencia, tamaño y peso del amplificador; en particular, es la etapa que le da el nombre de amplificador \textbf{Clase G}.
+
+\subsubsection{Antecedentes}
+
+El libro de Douglas-Self compila la vasta experiencia de un diseñador de amplificadores profesional. Es un libro de referencia y renombre en el mundo de los amplificadores de audio. Durante el diseño de este amplificador se tomó de referencia este libro para evaluar las opciones y sus ventajas y desventajas según la experiencia de la industria. El clase G de la figura~\ref{fig:ampli_DS} fue tomado directamente de su libro y estudiado. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.95\textwidth]{img/clase_g_del_libro.pdf}
+	\caption{Amplificador clase G, Douglas Self}
+	\label{fig:ampli_DS}
+\end{figure}
+
+
+\subsubsection{Etapa de entrada}
+
+En el esquema de tres etapas, la primera cumple la función de amplificar la diferencia entre sus dos entradas, ignorando la suma. Esta capacidad de rechazo de la suma es importante no sólo para implementar el modelo de realimentación planteado, sino para reducir el efecto de ruidos que afecten de forma igual a ambas entradas.
+Sin embargo, esta simetría no es total: el comportamiento en un semiciclo difiere del comportamiento del semiciclo opuesto, por estas mismas alinealidades mencionadas. Se eligió entonces una topología de doble par diferencial. Es decir, propusimos agregar otro par, en paralelo, con componentes complementarios: donde originalmente usamos transistores NPN, colocamos PNP, y viceversa. De esta forma, la simetría cancela alinealidades y se reduce la distorsión aún más. Esto llevó a luego intentar mantener una simetría total en todo el circuito. 
+
+
+Otra opción de diseño más, es la de la carga de los pares diferenciales. Estos pueden ser activas o pasivas. Por lo general, se elige una carga de tipo activa, como por ejemplo, una fuente de corriente espejo, porque da una menor distorsión, pero en nuestro caso, elegimos un amplificador tipo cascode, con una carga pasiva, porque necesitamos la carga para polarizar la etapa siguiente, donde explicaremos el motivo. 
+
+
+
+Por último y no menos importante, es necesario determinar la forma de polarizar con corriente a los transistores de las ramas de los amplificadores diferenciales. Esto se hace mediante una fuente de corriente cuyo diseño puede tomar diversas formas: fuente espejo, semi-espejo, cascode, etc. Normalmente, se utiliza un transistor con una resistencia en serie en el emisor, y algún semiconductor entre base y emisor, para fijar una tensión de polarización, mientras la resistencia antes mencionada determina la corriente de polarización que luego se dividirá a la mitad por las ramas del diferencial. La opción elegida Una hace uso de un LED que no sólo polariza el transistor, sino que también sirve de indicador de que la fuente de corriente está en funcionamiento. Otras variantes proponen poner dos diodos en serie, que fijan $0.7$ V en la resistencia en serie con el emisor, y facilitan la calibración de la corriente de polarización. Otra configuración, conocida por ser muy estable ante variaciones de tensión de riel, es reemplazar los diodos por un transistor, con emisor y base entre los terminales de la resistencia, y el colector a la base del primer transistor. Normalmente, estas fuentes, toman la referencia desde los rieles externos, porque son más estables que los internos, pero en este caso, al ser las tensiones de los rieles externos, muy elevados, preferimos utilizar un circuito regulador, para tomar de los rieles internos, y obtener $9$ V de notable estabilidad, gracias al Rechazo de Ripple de $60$ dB del regulador.
+
+
+\subsubsection{Etapa de amplificación de tensión (VAS).}
+
+Por lo general, la etapa de amplificación suele estar compuesta por un simple amplificador de configuración Emisor Común, entrando a la etapa de salida, por debajo del multiplicador de $V_{be}$, y polarizado por una fuente de corriente de colector. En este amplificador se optó por un diseño EF VAS: a este EC se le agrega una etapa colector común anterior, antes del amplificador. El seguidor cumple la función de para separar la etapa de entrada; esto mejora la distorsión. También se puede modificar para que la salida del VAS no sea por debajo del multiplicador de Vbe, sino por el medio, para disminuir el offset a la salida, previo a la realimentación, y disminuir la distorsión. El inconveniente de este modo es que se necesitan dos fuentes de corriente más, ya que el modo anterior, aprovecha la fuente de polarización del EF VAS, para polarizar, también, el multiplicador de Vbe. En nuestro caso, con el cambio a 2 pares diferenciales, duplicamos la etapa EF VAS, complementariamente, y se conectan a la etapa de salida, por arriba y por abajo del multiplicador de $V_{be}$. Como en este caso, cada uno de los dos EF VAS hace de carga del otro, los EF VAS no tienen fuente de polarización, entonces se necesita que la etapa diferencial tenga una carga resistiva, para fijar la tensión de base de los EF VAS. Si hubieramos usado una carga tipo fuente espejo, habríamos logrado que la corriente en las ramas del par diferencial fuera igual, pero sin fijar ninguna tensión para polarizar la base de los EF VAS.
+
+\subsubsection{Etapa de salida}
+Esta etapa es la responsable de amplificar la potencia de la señal. Es decir, debe tener \textbf{alta eficiencia}, y \textbf{bajos niveles de distorsión}. Además, se busca \textbf{minimizar la impedancia de salida} para mantener un \textbf{alto factor de amortiguamiento} y evitar que el rebote acústico afecte el comportamiento del amplificador. 
+La etapa de salida clase G está compuesta por dos o más niveles de alimentación que permiten incrementar la eficiencia del amplificador con respecto al clase B. Esto se logra ya que con tensiones bajas, se utilizará una fuente de tensión menor, preservando la máxima excursión posible sobre la carga que ofrece un clase B alimentado con la fuente de tensión mayor. Para señales con picos de baja amplitud en relación al valor medio, la mejora en la eficiencia es modesta. Sin embargo, en el caso en que la señal tenga picos considerables con respecto a su valor medio, la mejora es notable. Un punto importante, a la hora de diseñar una etapa de salida clase G, es la tensión de los rieles internos. Tomamos del libro de Douglas Self, los estudios realizados considerando los casos en los cuales la tensión de riel interno es de 30 y 60\% del externo, y se observó que los beneficios en cuanto a eficiencia, del segundo caso, son pocos. En cambio, en el caso de rieles internos de 30\% respecto de los externos, la eficiencia aumenta considerablemente. Otro detalle de diseño, es la del multiplicador de Vbe doble. El multiplicador de Vbe más simple, tiene un transistor, y 2 resistencias, con las que forma el salto de potencial necesario para eliminar el problema de cruce por 0 de la etapa de salida. En este caso, se usan 2 transistores complementarios, con la misma idea que el del doble par diferencial, para que el corrimiento de tensión del multiplicador de Vbe sea lo más lineal posible.
 
 
 
@@ -288,36 +347,12 @@ El uso de realimentación global permite mejorar notablemente casi todas las esp
 	\label{fig:ampli_bloques}
 \end{figure}
 
-Visto como un modelo de idealizado de Amplificador y realimentación, el circuito se presenta de la siguiente manera:
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\textwidth]{img/realimentacion}
-	\caption{Modelo amplificador-realimentación}
-	\label{fig:ampli_realimentacion}
-\end{figure}
-
-Este dibujo muestra como el amplificador se encuentra realimentado con una topología serie-paralelo, midiendo tensión a la salida, y sumando tensión a la entrada, resultando un amplificador de ganancia de tensión estabilizado en tensión. Para hallar los valores de impedancia de entrada y salida, primero debemos reflejar las resistencias $R_{10}$ y $R_{11}$, como vemos en el siguiente dibujo.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\textwidth]{img/reflejo}
-	\caption{Modelo amplificador-reflejando resistencias}
-	\label{fig:ampli_reflejo}
-\end{figure}
-
-El amplificador tiene una amplificación de tensión, de aproximadamente $80$ dB, con una elevada impedancia de entrada, y una impedancia de salida de aproximadamente $6\;\Omega$.
-La realimentación tiene un valor de $\frac{1}{f} = \frac{R_{10}}{R_{10} + R_{11}} \rightarrow f = 0.035$, resultando $1+a_V\times f = 9\mathrm{K} \times 0.035 = 318.77$. En cuanto a la impedancia de entrada, $R_{11}$ y $R_{10}$ se reflejan en paralelo entre ellas, en serie a la impedancia de entrada del amplificador $Z_i$. Dada la relación entre las resistencias, $R_{11}$ resulta despreciable, y a su vez, $R_{10}$ resulta despreciable en serie con $Z_i$, que resulta despreciable, en paralelo con $R_{12}$, de $10\; \mathrm{K}\Omega$. Para la resistencia de salida, tenemos la resistencia reflejada $R_{10} + R_{11}$, que es despreciable en paralelo con $Z_o || R_{Carga} = 3.42\; \Omega$. Luego $\frac{3.42}{(1 + a_V \times f)} = 0.01\; \Omega$, que es la impedancia de salida resultante.
-
-
-
-
 
 
 \newpage
 
 
-\subsection{Circuito diseñado}
+\subsection{Diseño circuital}
 
 
 \begin{figure}[H]
@@ -326,11 +361,6 @@ La realimentación tiene un valor de $\frac{1}{f} = \frac{R_{10}}{R_{10} + R_{11
 \caption{Circuito Diseñado}
 \label{fig:circuito} 
 \end{figure}
-
-\subsection{Integracion}
-\paragraph{Alimentación}
-
-Se colocaron capacitores (\texttt{C4},\texttt{C5},\texttt{C6} y \texttt{C7}) en los 4 rieles de alimentación ($\pm 50V$ y $\pm 15V$) para filtrar ruidos a la entrada.
 
 \paragraph{Etapa de entrada}
 
@@ -394,10 +424,10 @@ Las resistencias \texttt{R18} y \texttt{R19} se eligieron iguales por simetría,
 
 
 
-\subsubsection{Simulaciones}
+\subsection{Simulaciones}
 
 
-\paragraph{THD} A continuación se muestra una tabla con los resultados del análisis de Fourier realizados con el LTSpice para entrada de $1.41V$ pico (máxima excursión, $100W RMS$) a $1kHz$. 
+\subsubsection{THD} A continuación se muestra una tabla con los resultados del análisis de Fourier realizados con el LTSpice para entrada de $1.41V$ pico (máxima excursión, $100W RMS$) a $1kHz$. 
 
 
 
@@ -435,7 +465,7 @@ En la figura~\ref{fig:distorsion-barrido} se muestra la distorsión a $1kHz$ en 
 
 Los valores de distorsión bajan a potencias menors porque se reduce la distorsión por alinealidad de los transistores: mientras más chica es la excursión, más uno se encuentra en pequeña señal, y más lineal es la relación entre $v_{be}$ e $i_c$. Por otra parte, se colocó al multiplicador de $V_{be}$ de modo tal que haga funcionar a la etapa de salida en modo A-B, reduciendo la distorsión por crossover.
 
-\paragraph{Slew Rate} Simulando una entrada escalón en el amplificador, se observa la salida de la figura~\ref{fig:slew} en la carga.
+\subsubsection{Slew Rate} Simulando una entrada escalón en el amplificador, se observa la salida de la figura~\ref{fig:slew} en la carga.
 
 La pendiente es de $20 \frac{V}{\mu s}$. Esto es mayor a la máxima pendiende de la salida en máxima potencia a la máxima frecuencia especificada de $30kHz$, por lo que el ancho de banda de potencia cumplirá lo especificado ($15 \frac{V}{\mu s}<20 \frac{V}{\mu s}$).
 
@@ -448,11 +478,11 @@ Para hallar el SR de manera teórica, partimos de la fuente de corriente de un p
 	\label{fig:slew}
 \end{figure}
 
-\paragraph{CMRR - factor de rechazo de modo común}
+\subsubsection{CMRR - factor de rechazo de modo común}
 
 Un amplificador diferencial ideal debería amplificar, como dice su nombre, las diferencias entre las tensiones de entrada, e ignorar la tensión media. El parámetro CMRR mide cuan bien esto se logra, como el cociente entre la ganancia de modo común $A_c$ y la de modo diferencial $A_d$. 
 
-\subparagraph{Modo común} Se simuló la primera etapa frente una entrada común de $100mA$ con el circuito de la figura~\ref{fig:ac} y se obtuvo la ganancia de modo común. Para cada par diferencial del doble par, cuyas salidas son \texttt{o1} y \texttt{o2} en la figura~\ref{fig:ac}, se obtuvieron $A_c^{NPN}=\frac{V_{o1}}{100mV}$ y $A_c^{PNP}=\frac{V_{o2}}{100mV}$ como la relación entre la salida (pico) correspondiente al par y la entrada común (pico). 
+\paragraph{Modo común} Se simuló la primera etapa frente una entrada común de $100mA$ con el circuito de la figura~\ref{fig:ac} y se obtuvo la ganancia de modo común. Para cada par diferencial del doble par, cuyas salidas son \texttt{o1} y \texttt{o2} en la figura~\ref{fig:ac}, se obtuvieron $A_c^{NPN}=\frac{V_{o1}}{100mV}$ y $A_c^{PNP}=\frac{V_{o2}}{100mV}$ como la relación entre la salida (pico) correspondiente al par y la entrada común (pico). 
 
 
 \begin{figure}[H]
@@ -462,11 +492,11 @@ Un amplificador diferencial ideal debería amplificar, como dice su nombre, las 
 	\label{fig:ac}
 \end{figure}
 
-\subparagraph{Modo diferencial}
+\paragraph{Modo diferencial}
 
 La amplificación de modo diferencial se obtuvo de forma análoga, con las fuentes de la figura~\ref{fig:ac} conectadas a contrafase. Las tensiones pico de las fuentes usadas fueron de sólo $1mV$ porque se esperaba una amplificación mucho mayor que para el caso de modo común. Es decir, $A_d^{NPN}=\frac{V_{o1}}{2mV}$, y $A_d^{PNP}=\frac{V_{o2}}{2mV}$.
 
-\subparagraph{CMRR} El factor de rechazo es simplemente $\frac{A_d}{A_c}$, en valor absoluto.
+\paragraph{CMRR} El factor de rechazo es simplemente $\frac{A_d}{A_c}$, en valor absoluto.
 
 
 \begin{table}[H]
@@ -479,7 +509,7 @@ RRMC & $87dB$ & $92dB$
 \end{tabular}
 \end{table}
 
-\paragraph{PSRR - factor de rechazo a la fuente}
+\subsubsection{PSRR - factor de rechazo a la fuente}
 
 El PSRR se define como la relación entre el cambio en la tensión de alimentación y el cambio equivalente en la tensión de entrada. Idealemente este valor sería infinito.
 
@@ -493,7 +523,7 @@ Es decir, con la ganancia de $29dB$ de este circuito, por cada $1V$ de riple en 
 
 También, se simuló y verificó el comportamiento correcto del amplificador para una posible caída de tensión en los rieles del $10\%$: sólo se reduce la máxima excursión.
 
-\paragraph{Resistencia de salida}  
+\subsubsection{Resistencia de salida}  
 
 Para la simulación de la resistencia de salida, se colocó una fuente de corriente alterna de $1A$ a la salida, con la entrada pasivada, y se capturó la tensión de salida en un barrido de frecuencias.
 
@@ -531,7 +561,7 @@ El módulo de la media geométrica de la impedancia de salida para las frecuenci
 La realimentación global serie-paralelo logra que la resistencia de salida sea muy baja, tanto que las resistencias parásitas pueden terminar siendo un factor no despreciable. Si se desprecian, el factor de amortiguamiento es de $\cong 730$, cumpliendo cómodamente con lo especificado.
 
 
-\paragraph{Resistencia de entrada}
+\subsubsection{Resistencia de entrada}
 
 Se simuló en el cociente entre la tensión de entrada y la corriente entregadas por el generador, para un barrido de frecuencias. El módulo de la media geométrica de la impedancia para las frecuencias entre $1Hz-30kHz$ es $9.8k\Omega$.
 
@@ -550,7 +580,7 @@ En la figura~\ref{fig:R_i} se puede ver un barrido en frecuencias de la resisten
 
 % Parece baja?
 
-\paragraph{Respuesta en frecuencia} 
+\subsubsection{Respuesta en frecuencia} 
 
 Se realizó un barrido de $0.1Hz$ a $100MHz$. Se puede apreciar en la figura~\ref{fig:bode} un ancho de banda de $1.57MHz@1dB$ o $2.16MHz@3dB$.
 
@@ -563,7 +593,7 @@ Se realizó un barrido de $0.1Hz$ a $100MHz$. Se puede apreciar en la figura~\re
 
 
 
-\paragraph{Ancho de banda de potencia}
+\subsubsection{Ancho de banda de potencia}
 
 Considerando el slew rate simulado de $20\frac{V}{\mu s}$, la distorsión por slew rate comenzaría a afectar a frecuencia $\frac{20\frac{V}{\mu s}}{40V \times 2\pi}\cong 80kHz$. Se puede ver en la figura~\ref{fig:distorsion-frec} cómo varía la distorsión simulada de máxima excursión con la frecuencia.
 
@@ -578,7 +608,7 @@ Considerando el slew rate simulado de $20\frac{V}{\mu s}$, la distorsión por sl
 Tal como se preveía, en los alrededores de la frecuencia $80kHz$ la distorsión comienza a aumentar, sobrepasando valores perceptibles a simple vista mirando la forma de onda, para rápidamente estabilizarse en torno a un valor del $12\%$, que es la distorsión de una onda triangular. Esto es efecto del slew-rate.
 
 
-\paragraph{Primera etapa}
+\subsubsection{Primera etapa}
 
 En la sección de CMRR se simuló la amplificación de modo común y diferencial para la primera etapa sin carga externa. Esto es similar a la primera etapa cargada pues las resistencias de los pares diferenciales son bastante menores a las cargas que le proporciona la segunda etapa. Esto fue intencional, pues es esa resistencia la que fija la polarización de todo el circuito, y de este modo se independiza de parámetros como el $\beta$ de los transistores que puden variar con la temperatura y humedad.
 
@@ -599,7 +629,7 @@ Se vuelve a simular la ganancia diferencial de la primera etapa, ahora con la ca
 	\label{fig:1era-etapa-bode}
 \end{figure}
 
-\paragraph{Segunda etapa}
+\subsubsection{Segunda etapa}
 
 El resto de la ganancia está provista por la segunda etapa, y se puede ver en la figura~\ref{fig:2da-etapa-bode}. Vale aproximadamente $55dB$.
 
@@ -611,7 +641,7 @@ El resto de la ganancia está provista por la segunda etapa, y se puede ver en l
 \end{figure}
 
 
-\subsubsection{Compensación}
+\subsection{Compensación}
 
 Un sistema realimentado puede sufrir de pérdidas de estabilidad debido al desfasaje que se produce en la señal. Si para algunas frecuencias se produce una inversión de fase y la ganancia es unitaria o mayor entonces el sistema pasa a estar realimentado positivamente para dichas frecuencias y oscila o se desestabiliza.
 
@@ -682,19 +712,20 @@ Finalmente, con las ganancias a lazo abierto y lazo cerrado, realizamos el sigui
 Como se puede ver en el gráfico, la ganancia a lazo abierto, de $90$ dB, tiene un ancho de banda de $1.8$ Hz, totalmente inútil para un amplificador de audio que trabaja con señales de decenas de KHz. Cuando aplicamos la realimentación, la ganancia cae a $29$ dB, pero la frecuencia de corte pasa a ser $1.8\; \mathrm{KHz} \times (1 + a_V \times f) = 1.8 \times 1106.8 = 1.905 \mathrm{MHz}$.
 
 
+\subsection{Análisis de los condicionantes de integración}
 
 
-\subsection{Redes de salida}
+\subsubsection{Redes de salida}
 
 Usualmente, se colocan a la salida del amplificador, 2 redes, para compensar cargas inductivas o capacitivas, que pueden incluso provenir del propio cable de la salida, o del parlante. Para compensar y mantener la estabilidad en alta frecuencia frente a cargas inductivas está la red de Zobel. Para las cargas capacitivas, se usa el RL en serie.
 
-\subsubsection{Red de Zobel}
+\paragraph{Red de Zobel  -  }
 
 Consiste en un RC ubicado como muestra la figura~\ref{fig:output-networks}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{img/output-networks}
+\includegraphics[width=0.3\textwidth]{img/output-networks}
 \caption{Redes de salida típicas para compensar cargas inductivas y capacitvas.}
 \label{fig:output-networks} 
 \end{figure}
@@ -706,7 +737,7 @@ Esta red sirve para compensar la variación de impedancia del parlante, respecto
 
 En nuestro caso guiandonos por las explicaciones que figuran en el libro de Douglas Self seleccionamos C = 100nF y R = 10 ohms. 
 
-\subsubsection{Red aisladora R-L}
+\paragraph{Red aisladora R-L  -  }
 
 Solo en los amplificadores mas simples se conecta la carga directamente a la salida, la conexión directa es solo aceptable 
 cuando la realimentacion es muy baja y se tienen grandes margenes de estabilidad.
@@ -740,7 +771,12 @@ Los valores seleccionados para esta red  R-L son R = 0.5 ohm, L = 5uH.
 \end{figure}
  
 
-\subsection{Análisis de los condicionantes de integración}
+
+
+\subsubsection{Alimentación}
+
+Se colocaron capacitores (\texttt{C4},\texttt{C5},\texttt{C6} y \texttt{C7}) en los 4 rieles de alimentación ($\pm 50V$ y $\pm 15V$) para filtrar ruidos en los rieles de alimentación.
+
 
 \subsubsection{Diagramas de conexionado}
 El siguiente diagrama muestra como se conectaria la fuente [seccion~\ref{sec:fuente}], el amplificador y el parlante.
