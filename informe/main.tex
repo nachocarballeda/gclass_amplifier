@@ -220,8 +220,8 @@ Nuestro objetico es armar un circuito que amplifique una señal de audio que ser
 	\item Ancho de banda de potencia: $>30kHz$
 	\item Alimentación: 
 	\begin{itemize}
-		\item Baja tensión: $ +/-15\volt$ al $5\%$
-		\item Alta tensión: $ +/-50\volt$ al $5\%$
+		\item Baja tensión: $ +/-15\volt$, riple máximo $5\%$
+		\item Alta tensión: $ +/-50\volt$, riple máximo $5\%$
 	\end{itemize}
 \end{itemize}
 
@@ -285,11 +285,12 @@ Se han propuesto arquitecturas de dos etapas (como en ``Linsley-Hood, Simple Cla
 
 El amplificador diseñado entonces tiene una \textbf{estructura típica de tres etapas}. La última etapa es la responsable de proveer la potencia y la que determina la eficiencia, tamaño y peso del amplificador; en particular, es la etapa que le da el nombre de amplificador \textbf{Clase G}.
 
+
 \subsubsection{Antecedentes}
 
 El libro de Douglas-Self compila la vasta experiencia de un diseñador de amplificadores profesional. Es un libro de referencia y renombre en el mundo de los amplificadores de audio. Durante el diseño de este amplificador se tomó de referencia este libro para evaluar las opciones y sus ventajas y desventajas según la experiencia de la industria. El clase G de la figura~\ref{fig:ampli_DS} fue tomado directamente de su libro y estudiado. 
 
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
 	\includegraphics[width=0.95\textwidth]{img/clase_g_del_libro.pdf}
 	\caption{Amplificador clase G, Douglas Self}
@@ -1085,7 +1086,7 @@ En un principio, la primera etapa estaba diseñada con cargas activas. Esto simu
 
 \section{Resumen de actividades a desarrollar}
 
-Habiendo establecido todo lo anterior, queda ver cómo mejorar el circuito para lograr mejores valores de distorsión. Luego procederemos con el armado del circuito, verificando el correcto funcionamiento de las etapas, durante el armado de la placa, y luego tendremos que revisar que esté andando correctamente, y que cumpla con las parámetros que propusimos. Finalizado esto, procederemos a realizar las mediciones pertinentes.
+Habiendo establecido todo lo anterior, queda ver cómo mejorar el circuito para lograr mejores valores de distorsión. También, implementaremos protecciones que por el momento fueron dejadas afuera porque dificultan llegar a los grados de distorsión deseados. Luego procederemos con el armado del circuito, verificando el correcto funcionamiento de las etapas, durante el armado de la placa, y luego tendremos que revisar que esté andando correctamente, y que cumpla con las parámetros que propusimos. Finalizado esto, procederemos a realizar las mediciones pertinentes.
 
 Una vez hechas las mediciones tenemos pensado agregarle a nuestro amplificador las siguientes mejoras:
 \begin{itemize}
