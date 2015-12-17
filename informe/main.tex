@@ -11,6 +11,12 @@
 \usepackage{dcolumn}
 \usepackage{multirow}
 \usepackage{booktabs}
+
+
+\usepackage{lscape}
+
+
+
 \usepackage{varioref}
 
 
@@ -210,7 +216,7 @@ El objetivo es amplificar una señal de audio que será reproducida en un parlan
 	\item THD: $< 0.01 \%$  % decía 0.001 %
 	\item Slew Rate: $>7.5\frac{V}{\mu S}$
 	\item Impedancia de entrada: $10\kohm$
-	\item Sensibilidad: $1\volt$ RMS
+	\item Sensibilidad: $1\volt$ RMS @ $8\Omega$
 	\item Ancho de banda: $10 Hz-30kHz$
 	\item Factor de amortiguamiento: $>200$
 	\item Ancho de banda de potencia: $>30kHz$
@@ -525,7 +531,14 @@ Tal como se preveía, en los alrededores de la frecuencia $80kHz$ la distorsión
 
 En la sección de CMRR se simuló la amplificación de modo común y diferencial para la primera etapa sin carga externa. Esto es similar a la primera etapa cargada pues las resistencias de los pares diferenciales son bastante menores a las cargas que le proporciona la segunda etapa. Esto fue intencional, pues es esa resistencia la que fija la polarización de todo el circuito, y de este modo se independiza de parámetros como el $\beta$ de los transistores que puden variar con la temperatura y humedad.
 
-Se vuelve a simular la ganancia diferencial de la primera etapa, ahora con la carga del circuito, a lazo abierto. Para esto, se coloca una capacidad de valor alto ($1F$) en la entrada realimentada del comparador. De este modo, no se cambiará la realimentación en polarización pero se evitará que entre señal (fijando $f_{alterna}=0$). Se obtuve una ganancia aproximada de $31dB$, como se ve en la figura~\ref{fig:1era-etapa-bode}.
+Se vuelve a simular la ganancia diferencial de la primera etapa, ahora con la carga del circuito, a lazo abierto. Para esto, se coloca una capacidad de valor alto ($1F$) en la entrada realimentada del comparador (figura~\ref{fig:ala}). De este modo, no se cambiará la realimentación en polarización pero se evitará que entre señal (fijando $f_{alterna}=0$). Se obtuve una ganancia aproximada de $31dB$, como se ve en la figura~\ref{fig:1era-etapa-bode}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.4\textwidth]{img/sim/ala}
+	\caption{El capacitor \texttt{C8} se agrega para anular la realimentación en señal.}
+	\label{fig:ala}
+\end{figure}
 
 
 \begin{figure}[H]
@@ -549,13 +562,54 @@ El resto de la ganancia está provista por la segunda etapa, y se puede ver en l
 
 \subsubsection{Compensación}
 
-Se observó que el polo dominante correspondía a los nodos entre la primera y segunda etapa. Se colocaron capacitores de compensación entre dichos nodos y las salidas del VAS (\texttt{C\_comp\_1} y \texttt{C\_comp\_2}) para aprovechar el efecto Miller y usar capacitores de menor valor ($40pF$). Esto desplaza el polo, que inicialmente se encontraba en aproximadamente $200kHz$ a aproximadamente $2kHz$, estabilizando y dando un margen de fase de $85^{\circ}$ y un ancho de banda de $2.4MHz$. Estos capacitores limitan el slew rate, pero se observó que para valores menores a $100pF$ el slew rate se encontraba claramente por arriba de los $7.5\frac{V}{\mu s}$ necesarios para el ancho de banda de potencia especificado. Incrementar este capacitor en exceso sin embargo, reduce la ganancia de lazo en frecuencias altas y, por lo tanto, los beneficios que esto trae a la distorsión, resistencias de entrada y salida, etc. Se optó por un valor de capacidades, con margen, que podría eventualmente reducirse.
+Un sistema realimentado puede sufrir de pérdidas de estabilidad debido al desfasaje que se produce en la señal. Si para algunas frecuencias se produce una inversión de fase y la ganancia es unitaria o mayor entonces el sistema pasa a estar realimentado positivamente para dichas frecuencias y oscila o se desestabiliza.
 
-Luego, se agregó un capacitor en paralelo al realimentador (\texttt{C\_comp\_3}) para mejorar levemente estas especificaciones. Esto agrega un cero seguido de un polo. Por ejemplo, para la frecuencia del cero, la fase se incrementó en $45^{\circ}$ y la ganancia aumentó sólo en $3dB$, por lo que el ancho de banda se verá incrementado levemente y el margen de fase significativamente. Se comprobó simulando que ubicar el cero en $4MHz$ es un buen valor. Esto se obtiene con una capacidad de $4pF$ pues $\frac{1}{2 \pi 10k\Omega 4pF}\cong 4MHz$.
+Para analizar la estabilidad del sistema es necesario analizar la ganancia a lazo abierto $T(j\omega)$. Un sistema adquiere la capacidad de oscilar si para una frecuencia dada $\omega_k$ se da que $T(j\omega_k)=-1$ y se vuelve inestable si $\left| T(j\omega_k) \right| > 1 \; \land \; \angle T(j\omega_k) < -180º$.
+
+Para esta clase de análisis es útil trazar el bode de la ganancia de lazo e identificar el margen de ganancia (MG) y de fase (MF), ver figura \ref{fig:margenes}.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.4\textwidth]{img/margenes}
+	\caption{Bode - margen de fase y ganancia.}
+	\label{fig:margenes}
+\end{figure}
+
+
+Lo que representan estos margenes es lo siguiente:
+
+
+\begin{description}
+	\item[Margen de Ganancia] \hfill \\
+		Representa la ganancia que habría que agregar (sumar en caso de dB) para volver inestable al sistema, se mide entonces la diferencia entre 0dB y la ganancia para la frecuencia en que la fase se invierte 180º. Si $\mathrm{MG} \le \mathrm{0dB}$ entonces el sistema es inestable.
+
+	\item[Margen de Fase] \hfill \\
+		Es el defasaje que habría que agregar al sistema para volverlo inestable, se mide entonces el ángulo que le resta a la fase por llegar a -180º al tener ganancia unitaria.
+\end{description}
+
+Si el margen de fase o ganancia son muy bajos o negativos, es necesario corregir, modificar el circuito para que no haya una inversión de fase en ninguna frecuencias que se amplifique en el lazo, por medio de su compensación.
+
+
+Se realizó nuevamente una simulación a lazo abierto de forma análoga a la descripta en la sección anterior (figura~\ref{fig:ala}): agregando un capacitor de $1F$ en la entrada inversora del amplificador, y midiendo a la salida. Luego, a la salida se la multiplicó por $f$ para obtener una simulación de la ganancia de lazo (figura~\ref{fig:bode-la-sin-comp})
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.4\textwidth]{img/sim/bode-la-sin-comp}
+	\caption{Bode de la ganancia de lazo sin compensación. La línea inferior corresponde a la fase y la superior a la amplitud.}
+	\label{fig:bode-la-sin-comp}
+\end{figure}
+
+Se puede apreciar un margen de fase negativo que es necesario compensar. El polo dominante se ubica en $180kHz$ y corresponde al nodo entre la segunda y tercera etapa: a los colectores de \texttt{Q14} y \texttt{Q9}. El margen de ganancia es de $\cong 30dB$. Desplazando al polo dominante una década y media hacia las frecuencias más bajas (hasta $5.7k\Omega$) se llega a un margen de ganancia nulo, pues un polo hace decaer la ganancia en $20dB$ por década. Sin embargo, el polo correspondiente a los nodos de entrada de la segunda etapa (bases de \texttt{Q10} y \texttt{Q13}) puede desplazarse a $5.7kHz$ con capacidades de menor valor, casi sin desplazar el polo en $180kHz$, aprovechando el efecto Miller. 
+La resistencia de estos nodos está dominada por la de carga de los pares diferenciales (\texttt{RC1} y \texttt{RC2}), de valor $2.4k\Omega$. Siendo $\frac{1}{2 \pi RC}$ la frecuencia del polo, se obtiene $C\cong 11nF$. Ahora bien, si la capacidad se coloca, en vez de contra masa, contra la salida de la etapa (colectores de \texttt{Q14} y \texttt{Q9}), se puede usar una capacidad desde $20pF$, pues recordemos que la etapa tiene una amplificación de alrededor de $55dB$ o 560 veces. 
+
+Se partió de ese valor como piso, se fue ajustando por simulación, y finalmente se colocaron capacitores (\texttt{C\_comp\_1} y \texttt{C\_comp\_2}) de $40pF$. Esto da un margen de fase de $85^{\circ}$ y un ancho de banda de $2.4MHz$. Estos capacitores limitan el slew rate, pero se observó que para valores menores a $100pF$ el slew rate se encontraba por arriba de los $7.5\frac{V}{\mu s}$ necesarios para el ancho de banda de potencia especificado, y sobre los $20V/\mu s$ especificados. Por otra parte, incrementar este capacitor reduce la ganancia de lazo en frecuencias altas y, por lo tanto, los beneficios que esto trae a la distorsión, resistencias de entrada y salida, etc. Se optó por un valor de capacidades, con margen, que podría eventualmente reducirse.
+
+Luego, se agregó un capacitor en paralelo al realimentador (\texttt{C\_comp\_3}) para mejorar levemente estas especificaciones. Esto agrega un cero seguido de un polo. Por ejemplo, para la frecuencia del cero, la fase se incrementa en $45^{\circ}$ y la ganancia aumenta sólo en $3dB$, por lo que el ancho de banda se verá incrementado levemente y el margen de fase significativamente. Se comprobó simulando que ubicar el cero en $4MHz$ es un buen valor. Esto se obtiene con una capacidad de $4pF$ pues $\frac{1}{2 \pi 10k\Omega 4pF}\cong 4MHz$.
 
 El margen de fase resultante ese de $105^{\circ}$ y el ancho de banda de $3MHz$, con un margen de ganancia de $3dB$. Se puede ver en la figura~\ref{fig:slew} que la respuesta al escalón no oscila.
 
-El multiplicador de $V_{be}$, en altas frecuencias, tiene un comportamiento inductivo que fue compensado con el capacitor \texttt{C\_mvbe\_comp} de $20nF$.
+Otra compensación se implementó para corregir el comportamiento inductivo del multiplicador de $V_{be}$ en altas frecuencias. Se compensó con el capacitor \texttt{C\_mvbe\_comp} de $20nF$.
 
 \subsection{Red de Zobel}
 
