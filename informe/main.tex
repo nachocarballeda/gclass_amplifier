@@ -438,7 +438,9 @@ La pendiente es de $20 \frac{V}{\mu s}$. Esto es mayor a la máxima pendiende de
 
 \paragraph{CMRR - factor de rechazo de modo común}
 
-Se simuló la primera etapa frente una entrada común de $100mA$ con el circuito de la figura~\ref{fig:ac} y se obtuvo la ganancia de modo común. Para cada par diferencial del doble par, se obtuvieron $A_c^{NPN}=\frac{V_{o1}}{100mV}$ y $A_c^{PNP}=\frac{V_{o2}}{100mV}$ como la relación entre la salida correspondiente al par y la entrada común. 
+Un amplificador diferencial ideal debería amplificar, como dice su nombre, las diferencias entre las tensiones de entrada, e ignorar la tensión media. El parámetro CMRR mide cuan bien esto se logra, como el cociente entre la ganancia de modo común $A_c$ y la de modo diferencial $A_d$. 
+
+\subparagraph{Modo común} Se simuló la primera etapa frente una entrada común de $100mA$ con el circuito de la figura~\ref{fig:ac} y se obtuvo la ganancia de modo común. Para cada par diferencial del doble par, cuyas salidas son \texttt{o1} y \texttt{o2} en la figura~\ref{fig:ac}, se obtuvieron $A_c^{NPN}=\frac{V_{o1}}{100mV}$ y $A_c^{PNP}=\frac{V_{o2}}{100mV}$ como la relación entre la salida (pico) correspondiente al par y la entrada común (pico). 
 
 
 \begin{figure}[H]
@@ -448,22 +450,26 @@ Se simuló la primera etapa frente una entrada común de $100mA$ con el circuito
 	\label{fig:ac}
 \end{figure}
 
+\subparagraph{Modo diferencial}
 
-La amplificación de modo diferencial se obtuvo de forma análoga, con las fuentes de la figura~\ref{fig:ac} conectadas a contrafase. Las señales de entradas usadas fueron de sólo $1mV$ porque se esperaba una amplificación mucho mayor que para el caso de modo común. Es decir, $A_d^{NPN}=\frac{V_{o1}}{2mV}$, y $A_d^{PNP}=\frac{V_{o2}}{2mV}$.
+La amplificación de modo diferencial se obtuvo de forma análoga, con las fuentes de la figura~\ref{fig:ac} conectadas a contrafase. Las tensiones pico de las fuentes usadas fueron de sólo $1mV$ porque se esperaba una amplificación mucho mayor que para el caso de modo común. Es decir, $A_d^{NPN}=\frac{V_{o1}}{2mV}$, y $A_d^{PNP}=\frac{V_{o2}}{2mV}$.
+
+\subparagraph{CMRR} El factor de rechazo es simplemente $\frac{A_d}{A_c}$, en valor absoluto.
+
 
 \begin{table}[H]
 \centering
 \begin{tabular}{l|ll}
  & NPN & PNP \\ \hline
 $A_c$ & $-56dB$ & $-59dB$  \\
-$A_d$ & $37dB$ & $39dB$  \\
-RRMC & $93dB$ & $98dB$  
+$A_d$ & $31dB$ & $33dB$  \\
+RRMC & $87dB$ & $92dB$  
 \end{tabular}
 \end{table}
 
 \paragraph{PSRR - factor de rechazo a la fuente}
 
-El PSRR se define como la relación entre el cambio en la tensión de alimentación y el cambie equivalente en la tensión de entrada. Idealemente este valor sería infinito.
+El PSRR se define como la relación entre el cambio en la tensión de alimentación y el cambio equivalente en la tensión de entrada. Idealemente este valor sería infinito.
 
 Simulando para valores de la fuente de $+50V$ entre $40V$ y $60V$ se obtuvo:
 
@@ -908,21 +914,21 @@ Disipador ZD14        & 1        &           &           &  aluminio  & 2°C/W  
     \centering
     \includegraphics[height=0.4\textwidth]{img/PCB/PCB_kicad}
     \caption{Diseñando en programa Kicad}
-    \label{fig:ac}
+    \label{fig:pcb1}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[height=0.7\textwidth]{img/PCB/amplificador-F.pdf}
     \caption{PCB, front}
-    \label{fig:ac}
+    \label{fig:pcb2}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[height=0.7\textwidth]{img/PCB/amplificador-B.pdf}
     \caption{PCB, back}
-    \label{fig:ac}
+    \label{fig:pcb3}
 \end{figure}
 
 \section{Grado de avance}
