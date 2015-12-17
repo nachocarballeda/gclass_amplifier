@@ -662,13 +662,51 @@ Consiste en un RC ubicado como muestra la figura~\ref{fig:output-networks}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\textwidth]{img/output-networks}
+\includegraphics[width=0.5\textwidth]{img/output-networks}
 \caption{Redes de salida típicas para compensar cargas inductivas y capacitvas.}
 \label{fig:output-networks} 
 \end{figure}
 
+Todo amplificador cuenta con esta red, la misma ayuda a mantener la estabilidad del mismo. Se trata simplemente de un resistor y un capacitor
+en serie. La red se conecta entre el nodo de salida y GND (referencia del circuito).
+El resistor usualmente toma valores entre 4.7 y 10 ohms y el capacitor es invariable, se suele usar 100nF.
+Esta red sirve para compensar la variación de impedancia del parlante, respecto de la frecuencia. 
 
-Otro circuito de compensación que usamos, es el denominado Red de Zobel, consiste en un circuito RC serie, colocado en paralelo a la salida, para compensar la variación de impedancia del parlante, respecto de la frecuencia. Para definir sus valores, idealmente, se debe estudiar la respuesta en frecuencia del parlante, pero, debido a que estamos armando un circuito amplificador para un parlante genérico, tomamos los valores recomendados por el libro de Douglas Self. 
+En nuestro caso guiandonos por las explicaciones que figuran en el libro de Douglas Self seleccionamos C = 100nF y R = 10 ohms. 
+
+\subsubsection{Red aisladora R-L}
+
+Solo en los amplificadores mas simples se conecta la carga directamente a la salida, la conexión directa es solo aceptable 
+cuando la realimentacion es muy baja y se tienen grandes margenes de estabilidad.
+Es decir, la carga se conecta directamente cuando no hay problema en que la misma sea muy capacitiva sin sacar al
+amplificador de su estabilidad.
+Queremos que nuestro amplificador sea estable, sea cual sea la carga.
+Segun Douglas Self la medida mas recomendable para evitar que una carga capacitiva comprometa la estabilidad, es agregar un inductor con nucleo
+de aire en serie con la salida. Esto funciona "como aislante de cargas capacitivas" y no reduce nuestro ancho de banda. Ademas al ser el nucleo de
+aire se evita la distorsion por saturacion del nucleo.
+Para el inductor se recomienda un valor entre 1 y 7 uH.
+También es recomendado agregar un resistor para amortiguar la respuesta a la red L-C formada por el inductor antedicho y la capacidad de la carga como se indica en la figura~\ref{fig:output-networks}.
+
+Siguiendo las recomendaciones de D. Self realizamos la simulacion de la respuesta a un escalon de la red de salida, de esta forma se retocaron los 
+valores de la red R L para incrementar el factor de amortiguamiento. 
+La carga se modelizó como un resistor de 8 ohms en paralelo a un capacitor de 2uF. El escalón tiene un tiempo de crecimiento de 1uS.
+Los valores seleccionados para esta red  R-L son R = 0.5 ohm, L = 5uH.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{img/simulacion_zobel}
+\caption{Simulacion de la red de salida.}
+\label{fig:sim_red_salidas} 
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.44\textwidth]{img/respuesta_zobel}
+\caption{Respuesta al impulso de la red de salida en color verde.}
+\label{fig:sim_rta_impulso_zobel} 
+\end{figure}
+ 
 
 \subsection{Análisis de los condicionantes de integración}
 
