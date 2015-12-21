@@ -1,5 +1,5 @@
 Version 4
-SymbolType BLOCK
+SymbolType CELL
 LINE Normal 101 -16 144 -16
 LINE Normal -144 61 -144 80
 LINE Normal -144 -16 -108 -16
@@ -17,6 +17,7 @@ TEXT -27 -48 Left 2 +50
 TEXT -26 60 Left 2 -50
 TEXT 43 61 Left 2 -15
 TEXT 39 -47 Left 2 +15
+TEXT -20 1 Left 2 1-2
 PIN -144 80 NONE 8
 PINATTR PinName grnd
 PINATTR SpiceOrder 1
