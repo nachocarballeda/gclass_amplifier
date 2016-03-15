@@ -1,0 +1,26 @@
+1mV in, -16mV out
+1uV in, -16.2mV out
+0V in, idem
+10mV in, -6mV out
+20mV in, 4mV out
+100mV in, 85mV out
+16mV in, -100uV out
+Todo por la realim. Sin la realim, se va a la mierda todo
+
+
+O sea, parecería que, cuando la entrada es peositiva, la salida lo copia, con un offset de -16mV
+Cuando la entrada es negativa en cambio, se clava en -16mV
+
+El "copia" tiene pinta de ser culpa del feedback con f=1. El offset debe estar reducido en 1+a.
+Que la R de feedback sea igual a la de la entrada, debe tener que ver conque la tensión termine siendo aquella que manda la salida a cero..
+
+Sigue quedando la duda de por qué amplifica distinto cada parte del doble par.
+
+Se arregla cuando igualo las earlies. Pero, debería depender de los gms y los paralelos entro ros. O sea, de las corrientes de polarización, iguales para los 8, y de los earlies. O sea, deberían estar cruzados los ros, pero sus paralelos ser iguales. Sin embargo, no lo son
+
+
+
+Los ro de los 92 son 13/1m = 13k
+Los del 42 son 9k
+
+

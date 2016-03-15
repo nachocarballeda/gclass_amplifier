@@ -1,0 +1,3 @@
+#!/bin/bash
+
+(rm *.raw && rm *.log && rm *.fft) > /dev/null 2>/dev/null

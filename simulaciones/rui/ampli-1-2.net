@@ -1,0 +1,94 @@
+* Z:\home\rui\prc2\simulaciones\rui\ampli-1-2.asc
+V-15 0 -15 15
+V+50 +50 0 50
+V+15 +15 0 15
+V1 N001 0 SINE(0 1.41 1k) AC 1
+RL N002 0 100k
+V-50 0 -50 50
+XX1 0 N001 N002 +50 -50 +15 -15 NC_01 ss-ampli-1-2
+
+* block symbol definitions
+.subckt ss-ampli-1-2 grnd i o +50 -50 +15 -15 i_aux
+D8 o N002 D1N746
+D9 N006 o D1N746
+R15 i_aux N005 366R
+R_real_1 o i_aux 10k
+Rin N004 grnd 10k
+CR1 N005 grnd 1m
+C1 N004 i 47u
+C_comp_1- N006 N003 40p
+C14 grnd -50 220u
+C13 +50 grnd 220u
+C_comp_1+ N002 N001 40p
+XX2 N004 i_aux N001 +50 -50 grnd N003 +15 -15 ss-doble-par params: rcs=2.4k
+C_comp_real i_aux o 4p
+XX1 N003 -50 grnd N006 ss-vas-npn
+XX3 N001 grnd +50 N002 ss-vas-pnp
+.lib models.mod
+.ends ss-ampli-1-2
+
+.subckt ss-doble-par i- i+ o1 +50 -50 grnd o2 +15 -15
+XX1 i- i+ o1 +50 -9 grnd +9 ss-par-npn params: rc={rcs}
+XX2 i- i+ o2 +9 -50 grnd -9 ss-par-pnp params: rc={rcs}
+V1 P001 grnd 8
+R1 +9 P001 10
+R2 +15 +9 60
+V2 grnd N001 8
+R3 N001 -9 10
+R4 -9 -15 60
+.ends ss-doble-par
+
+.subckt ss-vas-npn in -vcc +vcc out
+Q1 out N001 N002 0 MPSA42
+R1 N002 -vcc 33
+Q2 +vcc in N001 0 MPSA42
+R2 N001 -vcc 1k
+.lib models.mod
+.ends ss-vas-npn
+
+.subckt ss-vas-pnp in -vcc +vcc out
+Q3 -vcc in N002 0 MPSA92
+Q4 out N002 N001 0 MPSA92
+R3 +vcc N001 33
+R4 +vcc N002 1k
+.lib models.mod
+.ends ss-vas-pnp
+
+.subckt ss-par-npn i- i+ o +50 -9 grnd +9
+Q_curr N002 N003 N004 0 MPSA42
+Q1 N001 i- N002 0 MPSA42
+Q2 +9 i+ N002 0 MPSA42
+R_led grnd N003 6.8k
+RE_curr N004 -9 820
+D_2.3V N003 -9 AOT-2015
+RC +50 o {rc}
+Q4 o +9 N001 0 MPSA42
+.lib models.mod
+.ends ss-par-npn
+
+.subckt ss-par-pnp i- i+ o +9 -50 grnd -9
+RE_curr +9 N001 820
+Q_curr N003 N002 N001 0 MPSA92
+Q1 N004 i- N003 0 MPSA92
+Q3 o -9 N004 0 MPSA92
+RC o -50 {rc}
+Q2 -9 i+ N003 0 MPSA92
+D_2.3V +9 N002 AOT-2015
+R_led N002 grnd 6.8k
+.lib models.mod
+.ends ss-par-pnp
+
+.model D D
+.lib C:\Program Files\LTC\LTspiceIV\lib\cmp\standard.dio
+.model NPN NPN
+.model PNP PNP
+.lib C:\Program Files\LTC\LTspiceIV\lib\cmp\standard.bjt
+.tran 0 12m 1m
+.fourier 1k 20 v(n002)
+* Fuentes
+* Simulaciones
+;tran 0 12m 1m 20n; distorsion
+* distorsion
+;ac oct 20 0.1 1g
+.backanno
+.end
