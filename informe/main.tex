@@ -319,6 +319,25 @@ Por lo general, la etapa de amplificación suele estar compuesta por un simple a
 Esta etapa es la responsable de amplificar la potencia de la señal. Es decir, debe tener \textbf{alta eficiencia}, y \textbf{bajos niveles de distorsión}. Además, se busca \textbf{minimizar la impedancia de salida} para mantener un \textbf{alto factor de amortiguamiento} y evitar que el rebote acústico afecte el comportamiento del amplificador. 
 La etapa de salida clase G está compuesta por dos o más niveles de alimentación que permiten incrementar la eficiencia del amplificador con respecto al clase B. Esto se logra ya que con tensiones bajas, se utilizará una fuente de tensión menor, preservando la máxima excursión posible sobre la carga que ofrece un clase B alimentado con la fuente de tensión mayor. Para señales con picos de baja amplitud en relación al valor medio, la mejora en la eficiencia es modesta. Sin embargo, en el caso en que la señal tenga picos considerables con respecto a su valor medio, la mejora es notable. Un punto importante, a la hora de diseñar una etapa de salida clase G, es la tensión de los rieles internos. Tomamos del libro de Douglas Self, los estudios realizados considerando los casos en los cuales la tensión de riel interno es de 30 y 60\% del externo, y se observó que los beneficios en cuanto a eficiencia, del segundo caso, son pocos. En cambio, en el caso de rieles internos de 30\% respecto de los externos, la eficiencia aumenta considerablemente. Otro detalle de diseño, es la del multiplicador de Vbe doble. El multiplicador de Vbe más simple, tiene un transistor, y 2 resistencias, con las que forma el salto de potencial necesario para eliminar el problema de cruce por 0 de la etapa de salida. En este caso, se usan 2 transistores complementarios, con la misma idea que el del doble par diferencial, para que el corrimiento de tensión del multiplicador de Vbe sea lo más lineal posible.
 
+\paragraph{Protección de cortocircuito}
+
+\fxnote{Croto, en ubicación y contenido. tomado del Douglas, 5th ed, page 447 en adelante}
+
+Opciones para protección de corriente
+
+* Limitación de corriente simple (figura~\ref{fig:simple-current-limit})
+
+Versión más básica. Cuando la corriente es tal que la caida en \texttt{Re1} supera, aproximadamente, los $0.7V$, los transistores \texttt{TR1} y \texttt{RT4} conducen y desvían corriente de la base de \texttt{TR2}. Análogamente, para el semiciclo negativo, si la caída en \texttt{Re2} supera los $0.7V$. Se muestrea corriente a través de \texttt{Re1} y \texttt{Re2}, que funcionan como resistencias de emisor y a la vez como sensores de corriente. Los valores de estas resistencias de emisor se deteminan por los requerimientos de eficiencia o estabilidad \fxwarning{EHH} por lo que el valor de corriente límite queda determinado por los divisores de tensión (\texttt{R1}-\texttt{R2} y el simétrico). 
+
+\fxnote{Falta bastante. Falta que en gral con el simple hay líos que te hacen agregar otra protección en el VAS, aunque no la parece tener el clase G del Douglas. Hay otros tipos, y está el tema de que son sensibles a la temperatura y por eso pueden prenderse antes when hot y joder la distorsión. Hay que diseñarlos para todas las condiciones.}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/simple-current-limit}
+	\caption{Limitador de corriente simple}
+	\label{fig:simple-current-limit}
+\end{figure}
+
 
 
 \subsubsection{Diagrama en bloques}
