@@ -1,45 +1,8 @@
-¿Poner modelos de transistores en archivo aparte?
-Separar en componentes, analizar, y tener archivo con divague de lo que se piensa, cómo funca, etc
-
-
-Corregir diodo de fuente de corriente:
-  Mejor más chicos para que no consuma al pedo
-  Está bueno como control de que todo esté prendido, tiene onda
-  Ver si LED amarillo sirve
-
-
-Grabarle pendrive a Bertuccio
-
-
-
-El mult de vbe. No es fuente ideal. Tiene pendiente, resistencia serie. Cambié los valores para que, por simulación, sea más chato (se puede mejorar con 3 pines), pero no entiendo por qué mejora en esa dirección. La lógica me dice lo contrario. No lo sabría justificar.
-
-
-Para que la 1era etapa amplifique, puedo:
-  carga activa, con R en paralelo a ro
-  bajar la tensión con divisor de tensión
-  aumentar la corriente que polariza el par permite bajar la resistencia del par y que siga dominando todo
-* Compensar el Circuito (esto modifica el slew-rate así que va primero)
-
-* Hacer simulación para medir slew rate
-
-* Chamullo sobre el beta del buffer del vas.
-
-* Compenzar agregando un cero en realimentacion
-
-* Bajar resistencia para permitir pasar mayor ddp a la salida. (resistencia que estaba en vas)
-
-* Agregar una red zobel
-
-* Agregar o no protecciones, aclarar si se pone o no.
-
-* Ojo con el LED, si se cambia cambiar tambien la resistencia.
-
------------------------de aqui en mas cosas posiblemente deprecadas ---------------------------------------
-
 Estamos en eso
 
 11) Los diodos zener, D1 y D2 ¿qué funciones cumplen?. ¿Probaron el amplificador a plena carga?.
+
+
 
 Ya estarían
 
