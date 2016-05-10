@@ -136,3 +136,17 @@
 + TF=392.62E-12 XTF=16.608 VTF=7.5383 ITF=.38614
 + TR=10.000E-9 )
 
+.MODEL MMPQ2907A PNP(
++IS=650.6E-18 XTI=3 EG=1.11 VAF=115.7 BF=231.7
++NE=1.829 ISE=54.81f IKF=1.079 XTB=1.5 BR=3.563 Nc=2
++Isc=0 Ikr=0 Rc=.715 Cjc=14.76p Mjc=.5383 Vjc=.75 Fc=.5 
++Cje=19.82p Mje=.3357 Vje=.75 Tr=111.3n Tf=603.7p
+Itf=.65 Vtf=5 Xtf=1.7 Rb=10 )
+
+.MODEL MMPQ2222A NPN(
++Is=14.34f Xti=3 Eg=1.11 Vaf=74.03 Bf=255.9
++Ne=1.307 Ise=14.34f Ikf=.2847 Xtb=1.5 Br=6.092 Nc=2
++Isc=0 Ikr=0 Rc=1 Cjc=7.306p Mjc=.3416 Vjc=.75 Fc=.5 
++Cje=22.01p Mje=.377 Vje=.75 Tr=46.91n Tf=411.1p 
++Itf=.6 Vtf=1.7 Xtf=3 Rb=10 )
+
