@@ -31,7 +31,7 @@ LIBS:contrib
 LIBS:valves
 LIBS:lib_ampli
 LIBS:amplificador-cache
-EELAYER 25 0
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -134,7 +134,7 @@ F 3 "" H 7600 3900 30  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L POT RV2
+L POT-RESCUE-amplificador RV2
 U 1 1 55954B79
 P 7600 3400
 F 0 "RV2" H 7600 3300 50  0000 C CNN
@@ -900,7 +900,7 @@ F 3 "" H 2750 3000 30  0000 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L LED D_1
+L LED-RESCUE-amplificador D_1
 U 1 1 567201A4
 P 2700 3200
 F 0 "D_1" H 2700 3300 50  0000 C CNN
@@ -944,7 +944,7 @@ F 3 "" H 2750 4200 30  0000 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L LED D_2
+L LED-RESCUE-amplificador D_2
 U 1 1 5672D9F0
 P 2700 4000
 F 0 "D_2" H 2700 4100 50  0000 C CNN
