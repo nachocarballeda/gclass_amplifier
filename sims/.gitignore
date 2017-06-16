@@ -1,0 +1,9 @@
+**/*log
+**/*.net
+**/*.raw
+**/*.fft
+**/*.lnk
+**/*.log
+**/*.ipynd_checkpoints
+**/*.csv
+**/*.checkpoint.ipynb
