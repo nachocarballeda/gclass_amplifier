@@ -1,3 +1,5 @@
+* Ver si se puede mejorar el PCB. Iván había ensanchado pistas, pero no sé si actualizó el PCB o sólo mandó ese amplificador.xml que ya borré. EN su commit 6f29212ec93ff40abf37
+
 * Compensar el Circuito (esto modifica el slew-rate así que va primero)
 
 * Hacer simulación para medir slew rate
