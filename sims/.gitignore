@@ -4,6 +4,7 @@
 **/*.fft
 **/*.lnk
 **/*.log
+**/*.plt
 **/*.ipynd_checkpoints
 **/*.csv
 **/*.checkpoint.ipynb
