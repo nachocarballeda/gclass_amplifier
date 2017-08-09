@@ -1,3 +1,6 @@
+.MODEL ZEN2 D(Is=.6n Rs=.5 Cjo=150p nbv=5 bv=2 Ibv=1m Vpk=10 mfg=OnSemi type=Zener)
+.MODEL LED18 D(Is=4.5e-20 Rs=.85 N=1.8 Cjo=1.18n Iave=400mA Vpk=5 mfg=Lumileds type=LED)
+
 .MODEL D1N973B D(Is=31.47f Rs=9.494 Ikf=0 N=1 Xti=3 Eg=1.11 Cjo=220p M=.5959
 + Vj=.75 Fc=.5 Isr=2.035n Nr=2 Bv=33 Ibv=3.862m Nbv=3.0477
 + Ibvl=29.831m Nbvl=11.606 Tbv1=-636.4u)
