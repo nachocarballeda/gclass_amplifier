@@ -1,0 +1,59 @@
+El chequeo de potencia de los MJEs
+
+La potencia media máxima que se requiere es menor a 1/2W.
+
+La peor especificación de resistencia térmica de juntura-aire es de 100C/W.
+
+Es decir, medio watt requiere una diferencia de temperatura de 50 grados. A temperatura ambiente de 25 grados, esto corresponde a 75 grados.
+
+Con un derating de 6.25C/W desde 25 grados, la máxima potencia que puede entregar el MJE es de 75/6.25=12W, muy superior a la necesaria.
+
+A 75 grados, puede estar caliente al tacto, pero la temperatura de funcionamiento le permite hasta 150 grados.
+
+
+
+Los MJE de los limitadores, sin embargo, tienen que estar preparados para tolerar una corriente mayor, que se da en caso de funcionamiento anormal.
+
+En caso de corte total para la fuente de aprox 70V limitando a aprox 100mA, requiere una potencia de aprox 7W. Esto implica que la temperatura no puede ser superior a 106C. A temperatura ambiente de 26 grados, acepta un delta T de 80C, con los cuales debe disipar 7W. Es decir, debe tener una resistencia térmica de aprox 12C/W o menor para mantenerse estable. Necesita disipador.
+
+Se le colocaron enconces unos disipadores. Se desconoce su resistencia térmica, pero se vio que, al menos, se dispone de suficiente tiempo desde que el LED avisa la limitación hasta que la temperatura alcanza los 106C, como para desconectar la fuente.
+
+
+
+
+Si la corriente de polarización es de 20mA, consumen 1.2W, y eso implica hasta 142C, o delta T de 115C, o resistencia térmica de 96 o menor. Se han encontrado datasheets donde se especifica como 100 y otras como 75. En cualquier caso, está al límite.
+
+
+Si en cambio es de 16mA, consumen 1W, similar delta T, resistencia térmica de 115 o menor. Se cumplen las especificaciones en este caso.
+
+
+
+---------------------
+Pol del VAS
+
+
+(I_rc * Rc - 1.4) / (Rvas+rss)
+
+Quiero que no sea tan sensible con I_rc. O sea, el primer término tiene que ser más grande que 1.4 con algún margen.
+
+Eso implica, subir Rvas+rss. Estas estabilizan pero le sacan ganancia al vas. Ahora está en 1.5 aprox. Crap.
+
+Ponele 2V. -1.4, da 588mV. Con 147 ohms, da 40mA.
+
+Rss es de 47 ohms. Parece que con otro 100 en vez de 33 debería andar.
+
+Si, subo a I_rc*Rc = 2V. Dejando fijo Rc, I_rc es 2/2k4=833mA
+
+Rcurr=510. Curr es 2.1mA. y por cada rama, 1.05mA. Caida, 2.5V.
+
+Le saco 1.4V, da 1.1V. Quiero 40mA, 
+
+
+-------------------
+Disipadores
+
+100W, redondeando hacia arriba, entre los 6 transistores de potencia
+
+Para todos ellos, hasta 125C de TC pueden entregar >25C, cuanod necesitamos 23 aprox
+
+O sea, delta T de 100C para disipar 100W = 1W/C
