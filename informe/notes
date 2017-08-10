@@ -57,3 +57,17 @@ Disipadores
 Para todos ellos, hasta 125C de TC pueden entregar >25C, cuanod necesitamos 23 aprox
 
 O sea, delta T de 100C para disipar 100W = 1W/C
+
+----------------------------
+Re de embalamiento 
+
+RE>= rtja*Vce*2m/beta2
+
+200m/beta2
+10*70*2m = 1.4
+
+1.4/beta 
+
+beta > 50
+
+RE > 0.03. Lo es
