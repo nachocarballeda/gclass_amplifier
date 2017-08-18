@@ -179,7 +179,7 @@ Se separó la pista de alimentación de alta tensión para poder alimentar por sepa
 
 \subsubsection{Transistores SMD}
 
-Los transistores SMD de la etapa de entrada aceptan un tensión máxima entre emisor y colector (con base flotante que es el peor de los casos) de $40V$. Incluso con la fuente de $50V$ se le exigen valores muy cercanos a $40V$ a Q19 y Q21. Con la nueva fuente, este valor se excede. Por esto, se decidieron colocar las resistencias RAUX que están fuera del camino de señal y absorben aproximadamente $20V$ del $V_{CE}$. Quizás se debería haber colocado un valor mayor para no estar tan al límite. No queríamos excedernos con el valor de RAUX para que el circuito funcione también con la fuentes de menor tensión.
+Los transistores SMD de la etapa de entrada aceptan un tensión máxima entre emisor y colector (con base flotante que es el peor de los casos) de $40V$. Incluso con la fuente de $50V$ se le exigen valores muy cercanos a $40V$ a Q19 y Q21. Con la nueva fuente, este valor se excede. Por esto, se decidieron colocar las resistencias auxiliares de aproximadamente $13k\Omega$ a la salida del colector de Q19 y de Q21,  que están fuera del camino de señal y absorben aproximadamente $25V$ del $V_{CE}$. Sin embargo, al colocarlo se generaron problemas de soldadura y conexión. Cuando finalmente se logró arreglar, se optó por, de momento, no colocarlo de nuevo y provisoriamente limitar la fuente de alta tensión a $48V$ pico.
 
 
 \subsubsection{Diodos Schottky}
@@ -222,7 +222,7 @@ También fueron modificadas las resistencias del multiplicador de Vbe y el capaci
 
 \section{Ensayos funcionales}
 
-Las pruebas siguientes se realizaron primero con tensiones bajas, sin haber agregado las resistencias RAUX en la primera etapa.
+Las pruebas siguientes se realizaron primero con tensiones bajas, sin haber agregado las resistencias RAUX en la primera etapa. 
 
 Se probó el amplificador en polarización, agregando una etapa a la vez, con baja tensión y llegado el momento, baja polarización de los transistores de potencia internos (alta resistencia del preset del multiplicador de Vbe). Todo fue correcto. Los valores de polarización eran los esperados y no se encontraron oscilaciones significativas en ninguna frecuencia. 
 
@@ -249,19 +249,23 @@ Antes de realizar las mediciones se fija con cuidado la polarización de la etapa
 
 \subsection{Polarización}
 
+La corriente de la fuente de corriente medida es de $3.6mA$. La caída de tensión en RC es de $4.6V$. La corriente de polarización del VAS es de $32mA$.
+
+El multiplicador de Vbe se fijó en $2.8V$. La corriente de polarización de la etapa de salida es de $314mA$.
+
 
 \subsection{Medición de ganancia de tensión}
 
 Se mide la amplitud de la señal de salida en la carga de 8$\Omega$, con una entrada de 1kHz. La amplitud de la señal de entrada se ajusta al valor máximo de la especificación original ($40V$ de salida), y luego se repite la medición para una amplitud 10 veces menor ($4V$). 
 
 
-((HACER MEDICIÓN Y SACARLE FOTO A OSCILO))
+%((HACER MEDICIÓN Y SACARLE FOTO A OSCILO))
 
 
 
-\subsection{Sensibilidad}
+%\subsection{Sensibilidad}
 
-Entrando con una señal de 1kHz, la sensibilidad es la amplitud de dicha señal tal que a la salida se obtenga la máxima potencia especificada con carga. Para la especificación original de $100W$ RMS, esta se obtuvo para una entrada de ((HACER MEDICIÓN)).
+%Entrando con una señal de 1kHz, la sensibilidad es la amplitud de dicha señal tal que a la salida se obtenga la máxima potencia especificada con carga. Para la especificación original de $100W$ RMS, esta se obtuvo para una entrada de ((HACER MEDICIÓN)).
 
 
 \subsection{Potencia de salida}
@@ -273,7 +277,7 @@ Entrando con una señal de 1kHz, la sensibilidad es la amplitud de dicha señal ta
 
 Se conecta el generador de funciones con una señal de amplitud de 100mV, se varía la frecuencia en saltos controlados y se mide la ganancia en la salida con la carga de 8$\Omega$. Luego se determina la frecuencia de corte superior e inferior, viendo cuándo la señal de salida cae en 3dB con respecto a la esperada.
 
-((FREC DE CORTE LOW Y HIGH??))
+%((FREC DE CORTE LOW Y HIGH??))
 
 \subsection{\emph{Slew-Rate}}
 
@@ -281,10 +285,10 @@ Utilizando una señal cuadrada en la entrada, de frecuencia suficientemente baja 
 
 Utilizando una entrada de $500 mV_{pico}$ se mide la salida en el osciloscopio, como se observa en la figura ((REFERENCIA A FOTO DEL OSCILO)). 
 
-Se midio ((HACER MEDICION)).
+%Se midio ((HACER MEDICION)).
 
 
-((METER FOTO DE OSCILO))
+%((METER FOTO DE OSCILO))
 
 
 \subsection{Impedancia de entrada}
@@ -296,7 +300,7 @@ Se conecta un potenciómetro en serie entre el generador de señal y la entrada de
 	R_{in} &= R_{pot} \dfrac{V_{in}}{V_G - V_{in}}
 \end{align*}
 
-((HACER MEDICION, PONER FOTOS DEL OSCILO EN CADA CASO))
+%((HACER MEDICION, PONER FOTOS DEL OSCILO EN CADA CASO))
 
 
 Las impedancias de entrada obtenidas son:
@@ -318,30 +322,23 @@ Se mide la tensión de salida en vacío ($V_o$) y con una carga $R_L$ ($V_R$). Lue
 \end{align*}
 
 
-((PONER FOTO DE OSCILO SI SE USA OSCILO))
+
 
 
 \subsection{Factor de amortiguamiento}
-
-((HACER CUENTITA A PARTIR DE LO YA MEDIDOA))
 
 Habiendo medido la impedancia de salida ($Z_o$) en la sección anterior, se calcula el factor de amortiguamiento como: $F_A = R_L / Z_o = XXX$.
 
 \subsection{Distorsión armónica -- THD}
 
-((NI IDEA))
+Se utiliza el software Spectraplus para la generación de señales senoidales por una placa de sonido M-Audio FastTrack USB. Se captura la salida a través de un divisor resistivo que la atenúa 26 veces, por la entrada de línea de la misma placa. Se captura con el software Steinberg Cubase, y se analiza con Mathematica.
 
 
-\subsection{Rechazo de riple}
 
-El factor de rechazo de riple se define como la relación entre el riple de la fuente y la tensión a la entrada del amplificador que genera un efecto equivalente a la salida.
+\subsection{Distorsión por intermodulación}
 
-$$ PSRR(dB)=20\log_{10}\left({\Delta V_{\mathrm {fuente} } \over {\Delta V_{\mathrm {ios} }}}\cdot A_{v}\right){\mbox{dB}}$$
+La distorsión por intermodulación es la que introduce frecuencias no armónicas cuando se excita el amplificador con más de un tono puro. Si en vez de ser un sistema LTI puro el amplificador contiene alinealidades, se observan a la salida componentes de frecuencias múltiplos de la suma y la diferencia de las frecuencias de entrada.
 
-Utilizando la fuente lineal de $\pm70V$ y una fuente partida estable en $\pm 25V$, se coloca la señal de máxima excursión especificada a $1kHz$, con carga de $8\Omega$. Luego, se mide el nivel de riple de $100Hz$ de la fuente con un osciloscopio. Del mismo modo, se mide la componente de $100Hz$ a la salida con osciloscopio o con un analizador de espectro si el rango dinámico no es suficiente.
-
-
-((MEDIR RIPLE))
 
 
 
@@ -350,7 +347,6 @@ Utilizando la fuente lineal de $\pm70V$ y una fuente partida estable en $\pm 25V
 \section{Conclusiones}
 
 
-((ESCRIBIR))
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
