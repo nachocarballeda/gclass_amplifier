@@ -1,0 +1,16 @@
+* Schott reversa no más que 45V. O sea, aprox V_lim-V_low < 50V
+* Saturación
+* Si prendés primero la grande y después la chica, capaz te pasás con el VCE máximo del cascode
+* Con vi=0.66, la fuente chica consume más de lo que esta puede dar. V_low^2/8, con V_low=24, es 74W. Ponele, 55W. Esta no aguanta nada. Además, ya se derritió. 
+
+
+-----------
+
+# Tensión del regulador
+
+* A más de 4V para poder generar la corriente de las fuentes de corriente
+* Si es menos de 9V, protege al VAS de quedar polarizado al revés si se conecta mal
+* Mientras menor es la tensión, mayor es VCE del cascode, y si llega a 40 estamos en el horno
+* Un diodito a la salida del cascode puede protegerlo
+
+
