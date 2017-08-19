@@ -1,0 +1,26 @@
+Con placa apuntando a segunda posicion desde lo ultimo, y emitiendo a 0dB, la salida es, en cubase, de casi 85%. En osciloscopio, es senial entre 0V y 3V. O sea, tiene offset. Se la puedo sacar con una capacidad de
+
+Tambien quiere decir que necesito atenuar 20 veces ponele. Resistencia de 1k en serie con otra cosa para medir la salida
+
+
+PLAN:
+
+Conectar todo sin fuente de potencia y ver si polariza bien y sale bien. Ver ahi el factor de ganancia y medir la polarizaci'on
+
+
+Se armo cablecito que atenua de 8V a 300mV, o 26.6 veces, que es apenas superior a la ganancia del amplificador. Con esto se espera medir la salida.
+
+
+Pruebas:
+
+- Polarizacion
+- Ganancia de tension
+- Sensibilidad
+- Potencia de salida
+- Ancho de banda: a 100mV. Barro hasta ver arriba y abajo cuando cae en 3dB, con grador y oscilo
+- Slew rate: le meto una cuadrada de 500mV
+- Impedancia de entrada: frecs 100, 1k, 10k. Nah, sin carga, 500mV
+- Impedancia de salida: Ver con oscilo como baja con carga conocida. foto
+- Distorsion: a 100, 1k, 10k, a 1w y 100w. Lo tengo que traducir a dB relativo 
+- Intermodulacion: ver el efecto, no se bien como se mide. Meterle frecs de 1k y 1k3Hz	
+- Rechazo de riple
