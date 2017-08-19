@@ -1,0 +1,79 @@
+Con la fuente de arriba nomás
+
+Desde SMD de arriba
+
+B: 8.96V   C: 8.45
+E: 8.44V
+B: 8.91V   C: 8.96V
+E: 8.96V
+B: 1.57V   C: 8.44
+E: 8.95V
+B: 0       C: 8.95V
+E: 0.76
+
+
+B: 7.19V  C:1.47
+E: 7.82V
+B: 8.91V  C:0.76
+E: 1.47V
+B: 1.57V  C: 1.47
+E: 0
+B: 0.76V  C:1.46
+E: 1.47V
+
+
+Eferveció el SMD de arriba, transistor de arriba
+
+
+-----------------
+
+Cap de entrada volvió a 47u
+
+Rcurr bajó a 450 aprox (no me acuerdo)
+
+Tensión
+
+
+
+Anoto:
+
+2.33 tensión de led
+
+
+B: 9
+E: 8.45
+B: 0.2
+E: -0.6
+B: 0.2
+E: -0.6
+
+B: -7.3
+E: -7.8
+
+
+B: 6.6 maso
+E: 7.25
+B: 0.016
+E: 0.629
+B: 0.018
+E: 0.6
+B: -9.6
+E: -8.9
+
+
+
+Corrientes
+Total, aprox 10mA
+reg, 8.9 y -9.7
+
+Rcurr1 1.7mV de caida
+Rcurr2 1.7mV de caida
+En la entrada, 15mV
+11.5mA da el regulador.
+Arriba de r del vas, 20.4, abajo 23.4. 3V de dif
+Arriba, 20.6, 23.7.
+Multiplicador, arriba 2.45V. Arriba sin realimentación 16.18, y abajo 13.69 
+RC -19.25 contra -23.5
+RC -19.2 contra -23.6
+
+Con el mvbe en 2.4, tenemos 600 y 1250 en el transistor puto. Todo mV
