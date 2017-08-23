@@ -99,8 +99,8 @@
     Sensibilidad & $1V$ RMS @ $8\Omega$ \\
     \hline
     Ancho de banda & $10Hz-30kHz$ \\
-    \hline
-    Factor de amortiguamiento & $>200$ \\
+%    \hline
+%    Factor de amortiguamiento & $>200$ \\
     \hline
 	Ancho de banda de potencia & $>50 kHz$ \\
     \hline
@@ -130,6 +130,8 @@ El circuito implementado se observa en la figura \ref{fig:ampli}.
 \subsubsection{Transformadores}
 
 Para tener independencia del instrumental de la facultad se decidieron usar dos transformadores de los que se pudo disponer para armar fuentes lineales. Son de $18+18V, 25\text{VA}$ y $50+50V, 250\text{VA}$. Es decir, entregan $\pm 25.5V$ y $\pm 70.5V$ pico. Se rectificaron con puentes de diodos y estabilizaron con capacitores de $4700\mu F$ de $50V$ y $80V$ respectivamente (\ref{fig:fuente}). A los puentes de diodos de la fuente de alta potencia se les colocó un disipador, pues la fuente puede llegar a entregar $250VA/150V=3.5A$ y la resistencia térmica juntura-ambiente del puente resulta insuficiente.
+
+Hasta el momento, sin embargo, sólo se usó la fuente de $25V$ y los limitadores de corriente, recurriendo al instrumental de la facultad para los demás requisitos de alimentación. 
 
 
 
@@ -177,58 +179,42 @@ Se separó la pista de alimentación de alta tensión para poder alimentar por sepa
     \item Para en un futuro hipotético poder mejorarle la eficiencia. La máxima excursión se ve limitada por la tensión del colector del VAS, que no debe saturar. Ese nodo satura un par de volts antes de que saturen los transformadores de alta potencia. Esta tensión adicional de los transformadores de potencia no puede ser aprovechada, generando ineficiencia.
 \end{itemize}
 
-\subsubsection{Transistores SMD}
-
-Los transistores SMD de la etapa de entrada aceptan un tensión máxima entre emisor y colector (con base flotante que es el peor de los casos) de $40V$. Incluso con la fuente de $50V$ se le exigen valores muy cercanos a $40V$ a Q19 y Q21. Con la nueva fuente, este valor se excede. Por esto, se decidieron colocar las resistencias auxiliares de aproximadamente $13k\Omega$ a la salida del colector de Q19 y de Q21,  que están fuera del camino de señal y absorben aproximadamente $25V$ del $V_{CE}$. Sin embargo, al colocarlo se generaron problemas de soldadura y conexión. Cuando finalmente se logró arreglar, se optó por, de momento, no colocarlo de nuevo y provisoriamente limitar la fuente de alta tensión a $48V$ pico.
+También, se separó la de baja tensión de la alimentación de los reguladores, por similares razones. 
 
 
 \subsubsection{Diodos Schottky}
 
-Los diodos Schottky siempre tienen una tensión de ruptura baja. Este modelo, MBR1645, llega a $45V$. Si la diferencia de tensión entre la fuente baja y la alta (o la máxima excursión pretendeda) supera este valor, se debe buscar un modelo de mayor tensión de ruptura, colocar 2 en serie o buscarle alguna solución. En nuestro caso, esto no llega a ser necesario, aunque se encuentran más exigidos que con las tensiones de fuente originales.
+Los diodos Schottky siempre tienen una tensión de ruptura baja. Este modelo, MBR1645, llega a $45V$. Si la diferencia de tensión entre la fuente baja y la alta (o la máxima excursión pretendeda) supera este valor, se debe buscar un modelo de mayor tensión de ruptura, colocar 2 en serie o buscarle alguna solución. En nuestro caso, esto no llega a ser necesario, aunque se encontrarán más exigidos cuando se use el transformador de alta tensión.
 
-\subsection{Corriente de polarización}
-
-La corriente de polarización del VAS está definida por un conjunto de 3 resistencias
-
-\begin{itemize}
-    \item Rcurr: define la corriente de polarización de la primera etapa, proporcional a la corriente que circula por RC.
-    \item RC: junto con su corriente, define la tensión de polarización del VAS.
-    \item Las resistencias ($R_{VAS}$:R13 y R8) de emisor del transistor del VAS.
-\end{itemize}
-
-
-Estas resistencias entran en un juego complejo cuyo punto óptimo no resulta obvio. Para valores pequeños de las resistencias de emisor del VAS, su corriente de polarización es casi proporcional a la ganancia del VAS (en el caso límite, $A_{VAS}=40 I_{VAS} R_{carga}$). A su vez, $R_{carga}$ (la resistencia que le hace un VAS al otro simétrico que funciona como fuente de corriente de alta impedancia, en paralelo con la etapa de salida que se encuentra en gran señal) se ve modificada de forma compleja por $I_{VAS}$. Sin embargo, para valores mayores de la resistencia, esta amplificación se reduce e independiza de la corriente $A_{VAS}=\frac{R_{carga}}{R_{VAS}}$. En otras palabras, mientras menor sea el valor de $R_{VAS}$, mayor es el premio de aumentar la corriente $I_{VAS}$, que a su vez aumenta a menor $R_{VAS}$. Recordemos que al incrementar la ganancia del VAS, se incrementa la ganancia de lazo y con ella mejoran muchos parámetros del amplificador (resistencia de salida, distorsión, etc). Resulta tentador entonces aumentar $I_{VAS}$ manteniendo un $R_{VAS}$ pequeño. Sin embargo, cuanto menor es la caida de tensión en $R_{VAS}$, mayor es la inestabilidad de $I_{VAS}$. Por ejemplo, si se hacen caer $1.8V$ en RC, luego de las caídas base-emisor de los transistores de la segunda etapa, se obtiene que la caída en $R_{VAS}$ es de $1.8V-0.7V-0.7V=0.4V$. Con $R_{VAS}=33\Omega$, se obtiene  $I_{VAS}=12mA$. Sin embargo, si por cualquier inestabilidad térmica o lo que fuere, la corriente de polarización de la primera etapa se modifica en un $7\%$ a $1.4V$, el VAS se despolariza por completo. Estos cambios también pueden ocurrir por embalamiento térmico del propio transistor, que al ser exigido con corrientes altas se calienta creando una realimentación positiva. Además, el hecho de que la ganancia dependa de la corriente agrega una pequeña alinealidad en señal que afecta la distorsión de la etapa. Si se opta en cambio un $R_{VAS}$ no tan pequeño, se puede caer en la tentación de polarizar el VAS con poca corriente; debe tenerse cuidado de que la etapa de salida toma corriente desde el VAS y no debe despolarizarse.
-
-La resistencia RC por su parte modifica también la amplificación de la primera etapa. Sin embargo, a medida que se hace crecer, la resistencia con la que el VAS carga a la primera etapa VAS comienza a ser dominante; cuando se llega a este punto, la polarización comienza a inestabilizarse, y ya no se mejora la amplifcación de la primera etapa.
-
-Por todo esto, la corriente de la primera etapa sufrió algunas modificaciones a lo largo de las pruebas. Además, el incremento de la tensión de la fuente a $70V$ aumentó la exigencia de potencia en los transistores del VAS, por lo cual por precaución exagerada se le colocaron disipadores individuales de aproximadamente $20\degree C/W$. Finalmente, se incrementó la corriente la fuente de corriente levemente a $2mA$ con Rcurr de $560\Omega$ y se incrementó el valor de $R_{VAS}$ a $100\Omega$. Esto es conservador y prioriza la estabilidad y seguridad. Si todo funciona estable y correctamente y la distorsión armónica resultara insuficiente, se puede reducir el valor de $R_{VAS}$. Según simulaciones, si se redujera a $15\Omega$ se obtendría una TDH a $100W$ RMS y $1kHz$ de $0.006\%$ en este caso, y los transistores del VAS disipados deberían lograr operar en esas condiciones.
 
 
 \subsection{Compensación}
 
 Se prescindió del capacitor en el realimentador pues el efecto del zero-polo que introduce era leve, su valor para máximo efecto positivo resultó en la práctica difícil de determinar, y se valoró no soldar componentes innecesarios al PCB. 
 
-Los capacitores de Miller fueron incrementados para cubrirnos de oscilaciones que se observaban en el proceso de probar la polarización de a partes. Midiendo continua con multímetro y probando polarización se observaban efectos muy extraños que se corregían cuando se armaban las partes de la etapa de salida en un protoboard por separado. Luego percibimos que la falta de correcta compensación en señal nos estaba generando oscilaciones de alta frecuencia que modificaban el comportamiento aparente de los transistores sin señal.
+Los capacitores de Miller fueron incrementados para cubrirnos de oscilaciones consistentes. El plan es reducir sus valores una vez que el circuito se encuentre con el funcionamiento completo esperado, para mejorar especificaciones como distorsión o ancho de banda de potencia.
 
+
+\subsection{Capacitores de entrada y de realimentador}
+
+
+Los capacitores de entrada y del realimentador fueron modificados por capacitores electrolíticos bipolares de menor valor. El menor valor se debe exclusivamente a la falta de disponibilidad de capacitores de mayor valor de tamaño y precio apropiados. Por el uso de un doble par diferencial en la entrada, el sentido de la corriente de polarización de a entada y del realimentador depende de la relación entre los $\beta$ de los transistores SMD usados. La simulación devuelve un valor diferente a la medición. De esto depende la polarización requerida para estos capacitores. De hecho, cuando la señal de entrada es de amplitud suficiente, puede no mantenerse igual la polaridad a lo largo del ciclo. Anteriormente, se utilizaban capacitores electrolíticos de $1mF$ (realimentador) y $47\mu F$ (entrada) respectivamente. Se pensaba que estos capacitores aguantaban una tensión inversa pequeña siempre que no fuera continua. Sin embargo, ante problemas de ganancia, y un efecto indeseado de saturación, se buscaron alternativas y descubrió la existencia de los capacitores electrolíticos bipolares, y decidió realizar la modificación. A $20Hz$, la impedancia (módulo) del de entrada, a $100Hz$, es de $160\Omega$, no siendo ya muy significativa frente a la impedancia de entrada de $10k\Omega$. A $1kHz$ ya baja a $16\Omega$. La del realimentador, por su parte, a $100Hz$ es de $34\Omega$ y a $1kHz$ de $3.4\Omega$. La suma coherente genera un efecto de reducción de ganancia que ya a $100Hz$ debería ser menor al 2\%.
 
 
 \subsection{Otras observaciones}
 
+Para poder utiliizar la fuente armada de $70V$ en alta tensión se requiere modificar el circuito para protegor a los transistores del SMD de la primera etapa de exceder su $V_{CE}$ máximo de $40V$. Se pensaba en colocar un Zener SMD de $24V$, o una resistencia de aproximadamente $15k\Omega$, quizá en paralelo con un capacitor (para no cargar al transistor en señal). Sin embargo, por las dificultades constructivas del cambio, se decidió enfocarse en hacerlo funcionar con tensiones menores, y dejarlo como optimización futura para a aumentar la potencia del amplificador, hasta posiblemente $150W$ RMS.
 
-En un comienzo, conectábamos ambas fuentes al circuito, y enchufábamos primero la fuente de $25V$. No teníamos presente que la fuente de $70V$, aunque desenchufada, presentaba un capacitor grande que a efectos prácticos funcionaba como masa al principio. Esto colocaba en directa a las junturas base-colector de los transistores Q19 y Q21, tomando corriente del regulador. A su vez, la máxima tensión en inversa del MJE340/350 es $3V$ y la del MPSA42/92 es $6V$. En su momento, usábamos reguladores de $12V$, por lo que, suponemos, las junturas base-emisor de los pares de transistores del VAS se quebraban y circulaba una corriente de aproximadamente $50mA$ por las resistencias $R_{VAS}$, que eran en ese momento de $33\Omega$. El regulador entonces terminaba entregando cerca de $60mA$ mientras regulaba a $12V$ a partir de una tensión de $25V$. Esto implica una potencia de $800mW$ que a su vez implica (a $T_{amb}=25\degree C$), una temperatura de juntura del regulador de $75\degree C$. Fue esta temperatura demasiado alta lo que nos alertó del inconveniente. Con las modificaciones de las resistencias RAUX, colocación de switches en las fuentes que efectivamente las desconectan, y baja de tensión del regulador, no se debería tener riesgo. También en un diseño mejorado se podría colocar un diodo en serie con RAUX que garantice la circulación de corriente en el sentido esperado.
-
-
-También fueron modificadas las resistencias del multiplicador de Vbe y el capacitor de acople de señal de entrada, simplemente por cuestiones de disponibilidad de componentes.
 
 \section{Ensayos funcionales}
 
-Las pruebas siguientes se realizaron primero con tensiones bajas, sin haber agregado las resistencias RAUX en la primera etapa. 
+Las pruebas siguientes se realizaron primero con tensiones bajas.
 
 Se probó el amplificador en polarización, agregando una etapa a la vez, con baja tensión y llegado el momento, baja polarización de los transistores de potencia internos (alta resistencia del preset del multiplicador de Vbe). Todo fue correcto. Los valores de polarización eran los esperados y no se encontraron oscilaciones significativas en ninguna frecuencia. 
 
 Luego se introdujo señal y se fue comparando su comportamiento con el esperado con un osciloscopio.  Se observó la tensión de salida máxima a medida que cambiaba la tensión de alimentación de las primeras dos etapas sin conectar la fuente de alta tensión a la salida. Se midió el factor de amplificación y era el esperado.
 
-Para probar el mecanismo de activación de las fuentes de alta potencia se tomaron dos fuentes dobles regulables a $15V$ y $28V$. Luego se colocó un resistor en serie con la fuente y se observó su caída con el oscioloscopio. Sólo siguiendo la tensión de salida no resulta sencillo determinar si las fuentes de alta potencia se activan o no. Si por alguna razón no lo hicieran, los transistores de salida internos saturarían, funcionarían como diodos entre base y emisor, y la tensión de salida continuaría subiendo más allá del nivel de la fuente de baja tensión (siempre que el VAS pueda entregarle la corriente que requiera). Como resultado de esta prueba se observó el comportamiento esperado, donde la fuente de alta tensión entregaba corriente en el momento en que se llega a la tensión de activación de los transistores de potencia externos.
+Para probar el mecanismo de activación de las fuentes de alta potencia se tomaron dos fuentes dobles regulables a $15V$ y $28V$. Luego se colocó un resistor en serie con la fuente y se observó su caída con el oscioloscopio. Sólo siguiendo la tensión de salida no resulta sencillo determinar si las fuentes de alta potencia se activan o no. Si por alguna razón no lo hicieran, los transistores de salida internos saturarían, funcionarían como diodos entre base y emisor, y la tensión de salida continuaría subiendo más allá del nivel de la fuente de baja tensión (siempre que el VAS pueda entregarle la corriente que requiera). Como resultado de esta prueba se observó el comportamiento esperado, donde la fuente de alta tensión entregaba corriente en el momento en que se llega a la tensión de activación de los transistores de potencia externos. Sin embargo, no se le exigió máxima excursión. 
 
 
 Posteriormente, se le colocó carga, de forma escalonada, y no se observaron inconvenientes.
@@ -240,7 +226,7 @@ Posteriormente, se le colocó carga, de forma escalonada, y no se observaron inco
 \nextpage
 \section{Verificaciones y ajustes}
 
-Antes de realizar las mediciones se fija con cuidado la polarización de la etapa de salida variando el valor del preset de los multiplicadores de $V_{BE}$. Esto se realiza tanto midiendo la tensión que genera como midiendo la corriente que entrega la fuente en polarización. 
+Antes de realizar las mediciones se fija con cuidado la polarización de la etapa de salida variando el valor del preset de los multiplicadores de $V_{BE}$. Esto se realiza tanto midiendo la tensión que genera como midiendo la corriente que entrega la fuente en polarización, y la corriente circulante por la resistencia de emisor de los transistores de potencia internos. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -251,16 +237,22 @@ Antes de realizar las mediciones se fija con cuidado la polarización de la etapa
 
 La corriente de la fuente de corriente medida es de $3.6mA$. La caída de tensión en RC es de $4.6V$. La corriente de polarización del VAS es de $32mA$.
 
-El multiplicador de Vbe se fijó en $2.8V$. La corriente de polarización de la etapa de salida es de $314mA$.
+A lo largo de las siguientes mediciones, el multiplicador de Vbe se fijó en $2.8V$. La corriente de polarización de la etapa de salida es de $214mA$.
 
 
 \subsection{Medición de ganancia de tensión}
 
-Se mide la amplitud de la señal de salida en la carga de 8$\Omega$, con una entrada de 1kHz. La amplitud de la señal de entrada se ajusta al valor máximo de la especificación original ($40V$ de salida), y luego se repite la medición para una amplitud 10 veces menor ($4V$). 
+Se mide la amplitud de la señal de salida en la carga de 8$\Omega$, con una entrada de 1kHz. La amplitud de la señal de entrada se ajusta al valor $4.5V$. Se obtuvo una ganancia de $25$ veces.
+
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{gain.png}
+    \caption{Foto del osciloscopio comparando entrada y salida}
+    \label{fig:gain}
+\end{figure}
 
 
-%((HACER MEDICIÓN Y SACARLE FOTO A OSCILO))
-
+Este valor es levemente menor al pretendido. Esto podría ocurrir porque los valores de las resistencias de realimentación son inexactos o se vieron modificados por el stress de las pruebas, aunque habían sido elegidas de metal film, medidas con cuidado y no deberían haber sido exigidas. También, la causa puede ser algún efecto de impedancia serie indeseado del capacitor del realimentador que, al momento de la medición, era de tipo electrolítico polarizado y al recibir señal se encontraba de a momentos fuera de su polaridad. También, por la sobrecompensación provisoria con las capacidades de Miller de $80pF$, que reduce la ganancia de lazo según la frecuencia. O, por alguna otra razón desconocida. Se hizo un barrido de ganancia en función de frecuencia con el osciloscopio y el generador de señales, y también con la placa de sonido externa a similar amplitud y los resultados fueron similares. También se redujo la amplited, sin observar cambios en la ganancia. No es probable que sea un problema de sobrecompensación porque los polos introducidos por los capacitores de Miller se encuentran en frecuencias mayores, como se observó en la medición de ancho de banda.
 
 
 %\subsection{Sensibilidad}
@@ -268,27 +260,33 @@ Se mide la amplitud de la señal de salida en la carga de 8$\Omega$, con una entr
 %Entrando con una señal de 1kHz, la sensibilidad es la amplitud de dicha señal tal que a la salida se obtenga la máxima potencia especificada con carga. Para la especificación original de $100W$ RMS, esta se obtuvo para una entrada de ((HACER MEDICIÓN)).
 
 
-\subsection{Potencia de salida}
+%\subsection{Potencia de salida}
 
-((HACER MEDICIÓN. IDEALMENTE VER SI LA FACU TIENE FUENTE QUE LLEGUE A 70V. LAS QUE NOS DIERON AYER NI LLEGABAN A 30V. HASTA 50V HAY SEGURO. Y SI NO, VER HASTA CUANTO NOS ANIMAMOS A SUBIR A LA ENTRADA SIN QUE SALTE ALGUN FUSIBLE EN LA FUENTE GRANDE. O LE DAMOS HASTA QUE CREEMOS QUE SE PUEDE (150W EN LA CARGA CON LA FUENTE LOW A +-25V) Y SI AGUANTA BIEN, ES ESO. DE ÚLTIMA, CON PASAR DE 100W YA CUMPLIMOS Y NOS DEBERIA SOBRAR SI TODO VA BIEN ))
+%((HACER MEDICIÓN. IDEALMENTE VER SI LA FACU TIENE FUENTE QUE LLEGUE A 70V. LAS QUE NOS DIERON AYER NI LLEGABAN A 30V. HASTA 50V HAY SEGURO. Y SI NO, VER HASTA CUANTO NOS ANIMAMOS A SUBIR A LA ENTRADA SIN QUE SALTE ALGUN FUSIBLE EN LA FUENTE GRANDE. O LE DAMOS HASTA QUE CREEMOS QUE SE PUEDE (150W EN LA CARGA CON LA FUENTE LOW A +-25V) Y SI AGUANTA BIEN, ES ESO. DE ÚLTIMA, CON PASAR DE 100W YA CUMPLIMOS Y NOS DEBERIA SOBRAR SI TODO VA BIEN ))
 
 
 \subsection{Respuesta en frecuencia -- Ancho de banda}
 
 Se conecta el generador de funciones con una señal de amplitud de 100mV, se varía la frecuencia en saltos controlados y se mide la ganancia en la salida con la carga de 8$\Omega$. Luego se determina la frecuencia de corte superior e inferior, viendo cuándo la señal de salida cae en 3dB con respecto a la esperada.
 
-%((FREC DE CORTE LOW Y HIGH??))
+Se midieron los límites inferior y superior en las frecuencias $6.6Hz$ y $225kHz$.
+
 
 \subsection{\emph{Slew-Rate}}
 
 Utilizando una señal cuadrada en la entrada, de frecuencia suficientemente baja puede medirse en la salida la pendiente de crecimiento.
 
-Utilizando una entrada de $500 mV_{pico}$ se mide la salida en el osciloscopio, como se observa en la figura ((REFERENCIA A FOTO DEL OSCILO)). 
-
-%Se midio ((HACER MEDICION)).
+Utilizando una entrada de $500 mV_{pico}$ se mide la salida en el osciloscopio, como se observa en la figura \ref{fig:slew}.
 
 
-%((METER FOTO DE OSCILO))
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{slew.png}
+    \caption{Foto del osciloscopio mostrando límite por slew rate}
+    \label{fig:slew}
+\end{figure}
+
+Se midió un slew rate de $\frac{2.5V}{\mu s}$. Esto es considerablemente menor que lo especificado de $15 \frac{V}{\mu s}$. De hecho, es menor que la pendiente máxima de una onda a la máxima frecuencia audible de $20kHz$ en la máxima excursión especificada de $20V$ pico, de $5 \frac{V}{\mu s}$. Es decir, limita nuestro ancho de banda de potencia a menos que lo requerido. Esto se debe probablemente a la sobrecompensación con el capacitor de Miller.
 
 
 \subsection{Impedancia de entrada}
@@ -300,21 +298,21 @@ Se conecta un potenciómetro en serie entre el generador de señal y la entrada de
 	R_{in} &= R_{pot} \dfrac{V_{in}}{V_G - V_{in}}
 \end{align*}
 
-%((HACER MEDICION, PONER FOTOS DEL OSCILO EN CADA CASO))
 
 
 Las impedancias de entrada obtenidas son:
 
 \begin{align*}
-	Z_{in}\Big|_{f=100Hz} &=XX\Omega \\
-	Z_{in}\Big|_{f=1kHz} &= XX\Omega \\
-	Z_{in}\Big|_{f=10kHz} &= XX\Omega
+	Z_{in}\Big|_{f=100Hz} &=14k\Omega \\
+	Z_{in}\Big|_{f=1kHz} &= 14k\Omega \\
+	Z_{in}\Big|_{f=10kHz} &= 10k\Omega
 \end{align*}
 
+Se midieron valores iguales o superiores a los especificados previamente. 
 
 \subsection{Impedancia de salida}
 
-Se mide la tensión de salida en vacío ($V_o$) y con una carga $R_L$ ($V_R$). Luego se compara la caída de tensión entre ambas y, conociendo la carga, se puede determinar la impedancia de salida.
+Se mide la tensión de salida en vacío ($V_o$) y con una carga $R_L$ ($V_R$). Luego se compara la caída de tensión entre ambas y, conociendo la carga, se puede determinar la impedancia de salida. La tensión de entrada usada fue de $100mV$ pico.
 
 \begin{align*}
 	V_R &= V_o \dfrac{R_L}{R_L + R_{out}} \\
@@ -322,29 +320,167 @@ Se mide la tensión de salida en vacío ($V_o$) y con una carga $R_L$ ($V_R$). Lue
 \end{align*}
 
 
+Se obtuvo $0.1\Omega$ para frecuencias de $100Hz$ y $1kHz$, y $0.2\Omega$ a $10kHz$.
 
-
-
-\subsection{Factor de amortiguamiento}
-
-Habiendo medido la impedancia de salida ($Z_o$) en la sección anterior, se calcula el factor de amortiguamiento como: $F_A = R_L / Z_o = XXX$.
 
 \subsection{Distorsión armónica -- THD}
 
-Se utiliza el software Spectraplus para la generación de señales senoidales por una placa de sonido M-Audio FastTrack USB. Se captura la salida a través de un divisor resistivo que la atenúa 26 veces, por la entrada de línea de la misma placa. Se captura con el software Steinberg Cubase, y se analiza con Mathematica.
+Se utiliza el software Spectraplus para la generación de señales senoidales por una placa de sonido M-Audio FastTrack USB. Se captura la salida a través de un divisor resistivo que la atenúa 26 veces por la entrada de línea de la misma placa, con el software Steinberg Cubase, y se analiza con Wolfram Mathematica. No se logró hacer que Spectraplus reconociera la entrada de línea de la placa, por lo que tuvo que capturar, exportar audio, recortar silencios, particionar y procesar de forma separada. 
+
+Se realizaron los siguientes barridos en frecuencia.
+
+
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{thd-med1.png}
+    \caption{Barrido en frecuencia de THD.}
+    \label{fig:thd1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{thd-med2.png}
+    \caption{Barrido en frecuencia de THD.}
+    \label{fig:thd2}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{thd-med3.png}
+    \caption{Barrido en frecuencia de THD.}
+    \label{fig:thd3}
+\end{figure}
+
+Algunos de estos valores, con su respectiva descomposición en armónicos, y alguna onda de ejemplo, se muestran en las figuras siguientes.
+
+
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{thd-harms1.png}
+    \caption{Detalle de armónicos.}
+    \label{fig:thd-h1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{thd-harms2.png}
+    \caption{Detalle de armónicos.}
+    \label{fig:thd-h2}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{thd-harms3.png}
+    \caption{Detalle de armónicos.}
+    \label{fig:thd-h3}
+\end{figure}
 
 
 
-\subsection{Distorsión por intermodulación}
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{thd-harms4.png}
+    \caption{Detalle de armónicos.}
+    \label{fig:thd-h4}
+\end{figure}
 
-La distorsión por intermodulación es la que introduce frecuencias no armónicas cuando se excita el amplificador con más de un tono puro. Si en vez de ser un sistema LTI puro el amplificador contiene alinealidades, se observan a la salida componentes de frecuencias múltiplos de la suma y la diferencia de las frecuencias de entrada.
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{thd-harms5.png}
+    \caption{Detalle de armónicos.}
+    \label{fig:thd-h5}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{thd-harms6.png}
+    \caption{Detalle de armónicos.}
+    \label{fig:thd-h6}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{thd-harms7.png}
+    \caption{Detalle de armónicos.}
+    \label{fig:thd-h7}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{thd-harms8.png}
+    \caption{Detalle de armónicos.}
+    \label{fig:thd-h8}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{thd-harms9.png}
+    \caption{Detalle de armónicos.}
+    \label{fig:thd-h9}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{thd-harms10.png}
+    \caption{Detalle de armónicos.}
+    \label{fig:thd-h10}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{thd-harms11.png}
+    \caption{Detalle de armónicos.}
+    \label{fig:thd-h11}
+\end{figure}
 
 
 
+Se puede observar una clara distorsión en la forma de onda a frecuencias bajas y amplitudes bajas. Además, a medida que aumenta la amplitud, se percibe cierta distorsión que aplastando de forma simétrica a la onda, dando valores muy altos de segundos armónicos. Los armónicos impares no son los limitantes. El diseño simétrico del circuito buscaba reducir justamente estos. A $1W$ se cumplen las especificaciones.
+
+
+Debido a la limitación de la placa a muestrear a $48kHz$, no se puede tener en cuenta el segundo armónico, que resultó ser significiativo, para frecuencias mayores a $48kHz/2/3=8kHz$, por lo que se aprecia una disminución artificial en los gráficos de la THD a esas frecuencias.
+
+
+%\subsection{Distorsión por intermodulación}
+
+%La distorsión por intermodulación es la que introduce frecuencias no armónicas cuando se excita el amplificador con más de un tono puro. Si en vez de ser un sistema LTI puro el amplificador contiene alinealidades, se observan a la salida componentes de frecuencias múltiplos de la suma y la diferencia de las frecuencias de entrada.
+
+
+\subsection{Rechazo de riple}
+
+El rechazo de riple, medido en dB, es el nivel de entrada relativo al nivel de riple que genera efecto de igual amplitud en la salida. 
+
+Se midió utilizando la fuente de $25V$ con una tensión de salida de señal $1V$ pico a $100Hz$. Se comparó el nivel de armónicos de $100Hz$ de la fuente con el existente en la salida, a máxima carga, y se tradujo a una tensión de entrada equivalente según la ganancia medida. Se obtuvo un valor de PSRR de $80dB$.
+
+
+%\subsection{Tiempo de crecimiento}
+%\subsection{Máxima salida sin recorte} en función de carga
+%\subsection{Máxima tensión de entrada} en función de carga
+%\subsection{Máximo output power} en función de carga
+%\subsection{Frecuencia a ganancia unidad, producto ganancia-ancho de banda}
+%\subsection{Distorsión según tipo} ?
+%\subsection{Crosstalk}
+%\subsection{Ancho de banda de potencia}
+%\subsection{Potencia en polarización}
+%\subsection{Quiescent current vs supply voltage}
+%\subsection{Resumen de especificaciones}
+% Tabla
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextpage
 \section{Conclusiones}
+
+
+El amplificador cumple con su función de amplificar la señal de entrada en un factor similar al deseado, sin que este se vea alterado significativamente por un parlante de impedancia $8\Omega$. Fue probado y se escucha razonablemente para un oído no audiófilo.
+
+
+Sin embargo, varias especificaciones no fueron alcanzadas a la fecha de finalización de este trabajo. En particular, existe un efecto indeseado que produce un recorte temprano de la tensión de salida y no permite que se llegue a la máxima excursión planificada. La distorsión obtenida es similar a la especificada para amplitudes bajas. El efecto antedicho hace aparecer armónicos pares grandes a medida que aumenta la excursión de salida y no permite medirla a máxima excursión. 
+
+A su vez, el uso de capacitores de Miller de valor alto produjo una limitación en el slew rate. Sin embargo, considerando el problema de la máxima excursión, el slew rate obtenido no limita la pendiente de la máxima senoidal de frecuencia audible: limita el ancho de banda de potencia a la máxima excursión planificada. Además, no hay indicaciones de oscilaciones. Por lo tanto, al solucionarse la limitación mencionada, puede reducirse la capacidad de Miller. Se espera que pueda reducirse a menos de la tercera parte sin problemas de compensación. 
+
+
+Es importante notar que el proceso de fabricación de amplificador, principalmente en su primera iteración, es un proceso de aprendizaje intenso. Es imposible subestimar la cantidad de detalles que pueden ser descuidados, por lo que cualquier cuidado o protección es poca y a la larga ahorra trabajo. Por esto, se fabricaron limitadores, con LEDs de aviso, se siguieron protocolos de encendido, se fue modificando el PCB introduciendo jumpers y diseñando pruebas parciales modulares, se etiquetaron cuidadosamente los cables de alimentación, etc. En particular, se independizó la alimentación de los reguladores, de las primeras etapas, y de las etapas de potencia, para reducir el riesgo de los componentes sensibles de la primera etapa y la segunda (además de para intentar reducir el ruido, que suele provenir de esa primera etapa). Desde ya, estas lecciones se fue aprendiendo a medida que se sufrían las consecuencias. Se eligieron disipadores con mayor resistencia térmica de la requerida para un uso a $150W$ RMS, se incorporaron disipadores en los transistores del VAS sólo porque se acercaban a los valores máximos según la hoja de datos, etc. Sin embargo, pese a todos los cuidados, hubo descuidos, herramientas en mal estado, regresiones de performance, componentes estresados comportándose de forma esquiva, que convirtieron a este trabajo en un desafío interesante.
 
 
 
