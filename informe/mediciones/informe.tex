@@ -235,12 +235,31 @@ Antes de realizar las mediciones se fija con cuidado la polarización de la etapa
 
 \subsection{Polarización}
 
+El banco de mediciones se muestra en la figura \ref{fig:banco-polarizacion}.
+
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{banco-polarizacion.png}
+    \caption{Banco de mediciones de polarización.}
+    \label{fig:banco-polarizacion}
+\end{figure}
+
+
 La corriente de la fuente de corriente medida es de $3.6mA$. La caída de tensión en RC es de $4.6V$. La corriente de polarización del VAS es de $32mA$.
 
 A lo largo de las siguientes mediciones, el multiplicador de Vbe se fijó en $2.8V$. La corriente de polarización de la etapa de salida es de $214mA$.
 
 
 \subsection{Medición de ganancia de tensión}
+
+%El banco de mediciones se muestra en la figura \ref{fig:banco-gain}.
+
+%\begin{figure}[H]
+%	\centering
+%    \includegraphics[width=\textwidth]{banco-gain.png}
+%    \caption{Banco de mediciones de ganancia.}
+%    \label{fig:banco-gain}
+%\end{figure}
 
 Se mide la amplitud de la señal de salida en la carga de 8$\Omega$, con una entrada de 1kHz. La amplitud de la señal de entrada se ajusta al valor $4.5V$. Se obtuvo una ganancia de $25$ veces.
 
@@ -326,6 +345,17 @@ Se obtuvo $0.1\Omega$ para frecuencias de $100Hz$ y $1kHz$, y $0.2\Omega$ a $10k
 \subsection{Distorsión armónica -- THD}
 
 Se utiliza el software Spectraplus para la generación de señales senoidales por una placa de sonido M-Audio FastTrack USB. Se captura la salida a través de un divisor resistivo que la atenúa 26 veces por la entrada de línea de la misma placa, con el software Steinberg Cubase, y se analiza con Wolfram Mathematica. No se logró hacer que Spectraplus reconociera la entrada de línea de la placa, por lo que tuvo que capturar, exportar audio, recortar silencios, particionar y procesar de forma separada. 
+
+El banco de mediciones se muestra en la figura \ref{fig:banco-distorsion}.
+
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{banco-distorsion.png}
+    \caption{Banco de mediciones de distorsión.}
+    \label{fig:banco-distorsion}
+\end{figure}
+
+
 
 Se realizaron los siguientes barridos en frecuencia.
 
@@ -480,7 +510,7 @@ Sin embargo, varias especificaciones no fueron alcanzadas a la fecha de finaliza
 A su vez, el uso de capacitores de Miller de valor alto produjo una limitación en el slew rate. Sin embargo, considerando el problema de la máxima excursión, el slew rate obtenido no limita la pendiente de la máxima senoidal de frecuencia audible: limita el ancho de banda de potencia a la máxima excursión planificada. Además, no hay indicaciones de oscilaciones. Por lo tanto, al solucionarse la limitación mencionada, puede reducirse la capacidad de Miller. Se espera que pueda reducirse a menos de la tercera parte sin problemas de compensación. 
 
 
-Es importante notar que el proceso de fabricación de amplificador, principalmente en su primera iteración, es un proceso de aprendizaje intenso. Es imposible subestimar la cantidad de detalles que pueden ser descuidados, por lo que cualquier cuidado o protección es poca y a la larga ahorra trabajo. Por esto, se fabricaron limitadores, con LEDs de aviso, se siguieron protocolos de encendido, se fue modificando el PCB introduciendo jumpers y diseñando pruebas parciales modulares, se etiquetaron cuidadosamente los cables de alimentación, etc. En particular, se independizó la alimentación de los reguladores, de las primeras etapas, y de las etapas de potencia, para reducir el riesgo de los componentes sensibles de la primera etapa y la segunda (además de para intentar reducir el ruido, que suele provenir de esa primera etapa). Desde ya, estas lecciones se fue aprendiendo a medida que se sufrían las consecuencias. Se eligieron disipadores con mayor resistencia térmica de la requerida para un uso a $150W$ RMS, se incorporaron disipadores en los transistores del VAS sólo porque se acercaban a los valores máximos según la hoja de datos, etc. Sin embargo, pese a todos los cuidados, hubo descuidos, herramientas en mal estado, regresiones de performance, componentes estresados comportándose de forma esquiva, que convirtieron a este trabajo en un desafío interesante.
+Es importante notar que el proceso de fabricación de amplificador, principalmente en su primera iteración, es un proceso de aprendizaje intenso. Es imposible subestimar la cantidad de detalles que pueden ser descuidados, por lo que cualquier cuidado o protección es poca y a la larga ahorra trabajo. Por esto, se fabricaron limitadores, con LEDs de aviso, se siguieron protocolos de encendido, se fue modificando el PCB introduciendo jumpers y diseñando pruebas parciales modulares, se etiquetaron cuidadosamente los cables de alimentación, etc. En particular, se independizó la alimentación de los reguladores, de las primeras etapas, y de las etapas de potencia, para reducir el riesgo de los componentes sensibles de la primera etapa y la segunda (además de para intentar reducir el ruido, que suele provenir de esa primera etapa). Desde ya, estas lecciones se fue aprendiendo a medida que se sufrían las consecuencias. Se eligieron disipadores con menor resistencia térmica de la requerida para un uso a $150W$ RMS, se incorporaron disipadores en los transistores del VAS sólo porque se acercaban a los valores máximos según la hoja de datos, etc. Sin embargo, pese a todos los cuidados, hubo descuidos, herramientas en mal estado, regresiones de performance, componentes estresados comportándose de forma esquiva, que convirtieron a este trabajo en un desafío interesante.
 
 
 
