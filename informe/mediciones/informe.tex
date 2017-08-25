@@ -252,14 +252,14 @@ A lo largo de las siguientes mediciones, el multiplicador de Vbe se fijó en $2.8
 
 \subsection{Medición de ganancia de tensión}
 
-%El banco de mediciones se muestra en la figura \ref{fig:banco-gain}.
+El banco de mediciones se muestra en la figura \ref{fig:banco-gain}.
 
-%\begin{figure}[H]
-%	\centering
-%    \includegraphics[width=\textwidth]{banco-gain.png}
-%    \caption{Banco de mediciones de ganancia.}
-%    \label{fig:banco-gain}
-%\end{figure}
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{banco-gain.png}
+    \caption{Banco de mediciones de ganancia.}
+    \label{fig:banco-gain}
+\end{figure}
 
 Se mide la amplitud de la señal de salida en la carga de 8$\Omega$, con una entrada de 1kHz. La amplitud de la señal de entrada se ajusta al valor $4.5V$. Se obtuvo una ganancia de $25$ veces.
 
@@ -286,12 +286,16 @@ Este valor es levemente menor al pretendido. Esto podría ocurrir porque los valo
 
 \subsection{Respuesta en frecuencia -- Ancho de banda}
 
+El banco de mediciones es similar al caso de ganancia.
+
 Se conecta el generador de funciones con una señal de amplitud de 100mV, se varía la frecuencia en saltos controlados y se mide la ganancia en la salida con la carga de 8$\Omega$. Luego se determina la frecuencia de corte superior e inferior, viendo cuándo la señal de salida cae en 3dB con respecto a la esperada.
 
 Se midieron los límites inferior y superior en las frecuencias $6.6Hz$ y $225kHz$.
 
 
 \subsection{\emph{Slew-Rate}}
+
+El banco de mediciones es similar al de la medición de ganancia y respuesta en frecuencia.
 
 Utilizando una señal cuadrada en la entrada, de frecuencia suficientemente baja puede medirse en la salida la pendiente de crecimiento.
 
@@ -309,6 +313,16 @@ Se midió un slew rate de $\frac{2.5V}{\mu s}$. Esto es considerablemente menor q
 
 
 \subsection{Impedancia de entrada}
+
+El banco de mediciones se muestra en la figura \ref{fig:banco-imp-in}.
+
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{banco-imp-in.png}
+    \caption{Banco de mediciones de impedancia de entrada.}
+    \label{fig:banco-imp-in}
+\end{figure}
+
 
 Se conecta un potenciómetro en serie entre el generador de señal y la entrada de nuestro amplificador. Luego, midiendo la tensión en ambos extremos del potenciómetro, se cambia su resistencia hasta obtener el 50\% de la amplitud del generador. La resistencia del potenciómetro en dicho caso corresponde a la de entrada de nuestro amplificador. Esto se hace para frecuencias de $100Hz$, $1kHz$ y $10kHz$.
 
@@ -330,6 +344,8 @@ Las impedancias de entrada obtenidas son:
 Se midieron valores iguales o superiores a los especificados previamente. 
 
 \subsection{Impedancia de salida}
+
+El banco de mediciones es similar al caso de ganancia.
 
 Se mide la tensión de salida en vacío ($V_o$) y con una carga $R_L$ ($V_R$). Luego se compara la caída de tensión entre ambas y, conociendo la carga, se puede determinar la impedancia de salida. La tensión de entrada usada fue de $100mV$ pico.
 
@@ -479,7 +495,17 @@ Debido a la limitación de la placa a muestrear a $48kHz$, no se puede tener en c
 
 \subsection{Rechazo de riple}
 
+
 El rechazo de riple, medido en dB, es el nivel de entrada relativo al nivel de riple que genera efecto de igual amplitud en la salida. 
+
+El banco de mediciones se muestra en la figura \ref{fig:banco-riple}.
+
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=\textwidth]{banco-riple.png}
+    \caption{Banco de mediciones de riple.}
+    \label{fig:banco-riple}
+\end{figure}
 
 Se midió utilizando la fuente de $25V$ con una tensión de salida de señal $1V$ pico a $100Hz$. Se comparó el nivel de armónicos de $100Hz$ de la fuente con el existente en la salida, a máxima carga, y se tradujo a una tensión de entrada equivalente según la ganancia medida. Se obtuvo un valor de PSRR de $80dB$.
 
